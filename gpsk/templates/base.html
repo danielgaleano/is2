@@ -5,7 +5,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<title>Scrum Project Manager</title>
   	{% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
     <link href="{% static 'css/sb-admin.css' %}" rel="stylesheet" media="screen">
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
   </head>
@@ -49,24 +49,24 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="{% url 'usuarios:index' %}"><i class="fa fa-lg fa-user"></i> Usuarios</a>
+                        <a href="#"><i class="fa fa-lg fa-user"></i> Usuarios</a>
                     </li>
 
                     <li>
                         <a aria-expanded="true" class="" href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-lg fa-arrows-v"></i> Roles <i class="fa fa-lg fa-caret-down"></i></a>
                         <ul style="" aria-expanded="true" id="demo" class="collapse in">
                             <li>
-                                <a href="{% url 'roles:index' %}"><i class="fa fa-lg fa-group"></i> Roles de Sistema</a>
+                                <a href="#"><i class="fa fa-lg fa-group"></i> Roles de Sistema</a>
                             </li>
                             <li>
-                                <a href="{% url 'roles_proyecto:index' %}"><i class="fa fa-lg fa-group"></i> Roles de Proyecto</a>
+                                <a href="#"><i class="fa fa-lg fa-group"></i> Roles de Proyecto</a>
                             </li>
                         </ul>
                     </li>
 
 
                     <li>
-                        <a href="{% url 'proyectos:index' %}"><i class="fa fa-lg fa-table"></i> Proyectos</a>
+                        <a href="#"><i class="fa fa-lg fa-table"></i> Proyectos</a>
                     </li>
 
                 </ul>
