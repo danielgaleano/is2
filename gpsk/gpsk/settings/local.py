@@ -20,7 +20,5 @@ DATABASES = {
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join((os.path.dirname(BASE_DIR)), "static"),
+    BASE_DIR.child('static'),
 )
-
-TEMPLATE_DIRS = [os.path.join(os.path.dirname(BASE_DIR), 'templates')]

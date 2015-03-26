@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Usuarios <small>Administración</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+	<a type="button" class="btn btn-success pull-right" href="{% url 'usuarios:create' %}" >
+	<i class="fa fa-lg fa-user-plus"></i>
+		Nuevo Usuario
+	</a>
+
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>User Name</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Email</th>
+			<th>Teléfono</th>
+			<th>Dirección</th>
+			<th>Editar</th>
+			<th>Roles</th>
+			<th>Inactivar</th>
+
+		</tr>
+	</thead>
+	<tbody>
+
+		{% for user in  user_list %}
+			{% if user.is_active %}
+				<tr>
+					<td>{{user}}</td>
+					<td>{{user.first_name}}</td>
+
+					<td>{{user.last_name}}</td>
+
+					<td>{{user.email}}</td>
+
+					<td>{{user.usuario.telefono}}</td>
+
+					<td>{{user.usuario.direccion}}</td>
+
+					{% if user.is_staff %}
+						<td></td>
+						<td></td>
+						<td></td>
+					{% else %}
+					<td>
+						<a type="button" class="btn btn-primary" href="{% url 'usuarios:update' user.id %}">
+						<i class="fa fa-lg fa-edit"></i>
+						</a>
+					</td>
+
+					<td>
+						<a type="button" class="btn btn-warning" href="{% url 'usuarios:user_roles' user.id %}">
+						<i class="fa fa-lg fa-group"></i>
+						</a>
+					</td>
+
+					<td>
+						<a type="button" class="btn btn-danger" href="{% url 'usuarios:delete' user.id %}">
+						<i class="fa fa-lg fa-minus"></i>
+						</a>
+					</td>
+					{% endif %}
+
+				</tr>
+
+			{% endif %}
+		{% endfor %}
+
+	</tbody>
+</table>
+
+
+{% endblock %}
