@@ -16,13 +16,13 @@ class UserIndexView(generic.ListView):
     Clase que despliega la lista completa de usuarios en el Index
     de la aplicacion Usuarios.
 
-    @ivar model: Modelo que se utiliza para generar la lista
-    @type model: django.contrib.auth.models
+    @ivar queryset: Consulta a la base de datos
+    @type queryset: django.db.models.query
 
     @ivar template_name: Nombre del template a utilizar en la vista
     @type template_name: string
     """
-    model = User
+    queryset = User.objects.order_by('username')
     template_name = 'usuarios/index.html'
 
 
@@ -111,7 +111,7 @@ class UserUpdate(UpdateView):
 
 
 @login_required(login_url='/login/')
-def eliminar_usuario(request, pk_usuario):
+def inactivar_usuario(request, pk_usuario):
     """
     Funcion que inactiva la cuenta de un usuario seleccionado.
 
@@ -135,3 +135,29 @@ def eliminar_usuario(request, pk_usuario):
     user_detail = get_object_or_404(User, pk=pk_usuario)
 
     return render(request, 'usuarios/delete.html', locals())
+
+@login_required(login_url='/login/')
+def activar_usuario(request, pk_usuario):
+    """
+    Funcion que activa la cuenta de un usuario seleccionado.
+
+    @type request: django.http.HttpRequest
+    @param request: Contiene informacion sobre la peticion actual
+
+    @type pk_usuario: string
+    @param pk_usuario: id del usuario a ser activado
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza usuarios/delete.html para obtener el formulario o
+            redirecciona a la vista index de usuarios si el usuario fue activado.
+    """
+    if request.method == 'POST':
+        user_detail = get_object_or_404(User, pk=pk_usuario)
+        user_detail.is_active = True
+        user_detail.save()
+
+        return HttpResponseRedirect('/usuarios/')
+
+    user_detail = get_object_or_404(User, pk=pk_usuario)
+
+    return render(request, 'usuarios/activate.html', locals())
