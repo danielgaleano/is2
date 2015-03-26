@@ -25,7 +25,7 @@
 			<th>Teléfono</th>
 			<th>Dirección</th>
 			<th>Editar</th>
-			<th>Roles</th>
+
 			<th>Inactivar</th>
 
 		</tr>
@@ -57,11 +57,7 @@
 						</a>
 					</td>
 
-					<td>
-						<a type="button" class="btn btn-warning" href="{% url 'usuarios:user_roles' user.id %}">
-						<i class="fa fa-lg fa-group"></i>
-						</a>
-					</td>
+
 
 					<td>
 						<a type="button" class="btn btn-danger" href="{% url 'usuarios:delete' user.id %}">
