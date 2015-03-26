@@ -148,7 +148,7 @@ def activar_usuario(request, pk_usuario):
     @param pk_usuario: id del usuario a ser activado
 
     @rtype: django.http.HttpResponseRedirect
-    @return: Renderiza usuarios/delete.html para obtener el formulario o
+    @return: Renderiza usuarios/activate.html para obtener el formulario o
             redirecciona a la vista index de usuarios si el usuario fue activado.
     """
     if request.method == 'POST':
