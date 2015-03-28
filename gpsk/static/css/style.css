@@ -1,0 +1,24 @@
+.helptext {
+  font-size: 12px !important;
+  color: #999;
+  display: block;
+  margin-left: 145px;
+}
+#form_usuario label {
+	width: 140px;
+	display: inline-block;
+}
+#form_usuario input {
+	margin-bottom: 1px;
+}
+#logo{
+	width: 400px;
+	margin: 0 auto;
+}
+#welcome {
+	width: 800px;
+	margin: 0 auto;
+}
+#welcome-text {
+	text-align: center;
+}

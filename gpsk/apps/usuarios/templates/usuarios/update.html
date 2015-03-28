@@ -14,9 +14,11 @@
 	        </div>
 	    </div>
 	<!-- /.row -->
+<div id="form_usuario">
 <form action=" {{ usuario.get_absolute_url }} " method="post">
 	{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Modificar" class="btn btn-primary"/>
 </form>
+    </div>
 {% endblock %}
