@@ -1,0 +1,16 @@
+[epydoc]
+
+name: GPSK
+
+modules: apps, gpsk
+
+output: html
+
+target: docs/
+
+verbosity: -5
+
+parse: yes
+
+introspect: no
+

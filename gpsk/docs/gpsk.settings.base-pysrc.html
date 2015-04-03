@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>gpsk.settings.base</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >GPSK</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="gpsk-module.html">Package&nbsp;gpsk</a> ::
+        <a href="gpsk.settings-module.html">Package&nbsp;settings</a> ::
+        Module&nbsp;base
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="gpsk.settings.base-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="gpsk.settings.base-module.html">Module gpsk.settings.base</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Django settings for gpsk project.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">For more information on this file, see</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">https://docs.djangoproject.com/en/1.7/topics/settings/</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">For the full list of settings and their values, see</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">https://docs.djangoproject.com/en/1.7/ref/settings/</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">unipath</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Path</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable gpsk.settings.base.BASE_DIR=gpsk.settings.base-module.html#BASE_DIR"><a title="gpsk.settings.base.BASE_DIR" class="py-name" href="#" onclick="return doclink('link-0', 'BASE_DIR', 'link-0');">BASE_DIR</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Path</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">ancestor</tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment"># Quick-start development settings - unsuitable for production</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment"># See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-comment"># SECURITY WARNING: keep the secret key used in production secret!</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable gpsk.settings.base.SECRET_KEY=gpsk.settings.base-module.html#SECRET_KEY"><a title="gpsk.settings.base.SECRET_KEY" class="py-name" href="#" onclick="return doclink('link-1', 'SECRET_KEY', 'link-1');">SECRET_KEY</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'thxcoq&amp;chm5x*6f-)x*!xx+js)i^k=$$^lx8!0v1)qif4@%v%v'</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable gpsk.settings.base.INSTALLED_APPS=gpsk.settings.base-module.html#INSTALLED_APPS"><a title="gpsk.settings.base.INSTALLED_APPS" class="py-name" href="#" onclick="return doclink('link-2', 'INSTALLED_APPS', 'link-2');">INSTALLED_APPS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.admin'</tt><tt class="py-op">,</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.auth'</tt><tt class="py-op">,</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.contenttypes'</tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.sessions'</tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.messages'</tt><tt class="py-op">,</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.staticfiles'</tt><tt class="py-op">,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-string">'apps.usuarios'</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable gpsk.settings.base.MIDDLEWARE_CLASSES=gpsk.settings.base-module.html#MIDDLEWARE_CLASSES"><a title="gpsk.settings.base.MIDDLEWARE_CLASSES" class="py-name" href="#" onclick="return doclink('link-3', 'MIDDLEWARE_CLASSES', 'link-3');">MIDDLEWARE_CLASSES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.sessions.middleware.SessionMiddleware'</tt><tt class="py-op">,</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-string">'django.middleware.common.CommonMiddleware'</tt><tt class="py-op">,</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt class="py-string">'django.middleware.csrf.CsrfViewMiddleware'</tt><tt class="py-op">,</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.auth.middleware.AuthenticationMiddleware'</tt><tt class="py-op">,</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.auth.middleware.SessionAuthenticationMiddleware'</tt><tt class="py-op">,</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-string">'django.contrib.messages.middleware.MessageMiddleware'</tt><tt class="py-op">,</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt class="py-string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</tt><tt class="py-op">,</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable gpsk.settings.base.ROOT_URLCONF=gpsk.settings.base-module.html#ROOT_URLCONF"><a title="gpsk.settings.base.ROOT_URLCONF" class="py-name" href="#" onclick="return doclink('link-4', 'ROOT_URLCONF', 'link-4');">ROOT_URLCONF</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'gpsk.urls'</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable gpsk.settings.base.WSGI_APPLICATION=gpsk.settings.base-module.html#WSGI_APPLICATION"><a title="gpsk.settings.base.WSGI_APPLICATION" class="py-name" href="#" onclick="return doclink('link-5', 'WSGI_APPLICATION', 'link-5');">WSGI_APPLICATION</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'gpsk.wsgi.application'</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable gpsk.settings.base.LANGUAGE_CODE=gpsk.settings.base-module.html#LANGUAGE_CODE"><a title="gpsk.settings.base.LANGUAGE_CODE" class="py-name" href="#" onclick="return doclink('link-6', 'LANGUAGE_CODE', 'link-6');">LANGUAGE_CODE</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'es-py'</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable gpsk.settings.base.TIME_ZONE=gpsk.settings.base-module.html#TIME_ZONE"><a title="gpsk.settings.base.TIME_ZONE" class="py-name" href="#" onclick="return doclink('link-7', 'TIME_ZONE', 'link-7');">TIME_ZONE</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'America/Asuncion'</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt id="link-8" class="py-name" targets="Variable gpsk.settings.base.USE_I18N=gpsk.settings.base-module.html#USE_I18N"><a title="gpsk.settings.base.USE_I18N" class="py-name" href="#" onclick="return doclink('link-8', 'USE_I18N', 'link-8');">USE_I18N</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable gpsk.settings.base.USE_L10N=gpsk.settings.base-module.html#USE_L10N"><a title="gpsk.settings.base.USE_L10N" class="py-name" href="#" onclick="return doclink('link-9', 'USE_L10N', 'link-9');">USE_L10N</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt id="link-10" class="py-name" targets="Variable gpsk.settings.base.USE_TZ=gpsk.settings.base-module.html#USE_TZ"><a title="gpsk.settings.base.USE_TZ" class="py-name" href="#" onclick="return doclink('link-10', 'USE_TZ', 'link-10');">USE_TZ</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt id="link-11" class="py-name" targets="Variable gpsk.settings.base.LOGIN_URL=gpsk.settings.base-module.html#LOGIN_URL"><a title="gpsk.settings.base.LOGIN_URL" class="py-name" href="#" onclick="return doclink('link-11', 'LOGIN_URL', 'link-11');">LOGIN_URL</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'/login/'</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"><tt id="link-12" class="py-name" targets="Variable gpsk.settings.base.LOGIN_REDIRECT_URL=gpsk.settings.base-module.html#LOGIN_REDIRECT_URL"><a title="gpsk.settings.base.LOGIN_REDIRECT_URL" class="py-name" href="#" onclick="return doclink('link-12', 'LOGIN_REDIRECT_URL', 'link-12');">LOGIN_REDIRECT_URL</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'/'</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"><tt id="link-13" class="py-name" targets="Variable gpsk.settings.base.TEMPLATE_DIRS=gpsk.settings.base-module.html#TEMPLATE_DIRS"><a title="gpsk.settings.base.TEMPLATE_DIRS" class="py-name" href="#" onclick="return doclink('link-13', 'TEMPLATE_DIRS', 'link-13');">TEMPLATE_DIRS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-14" class="py-name"><a title="gpsk.settings.base.BASE_DIR" class="py-name" href="#" onclick="return doclink('link-14', 'BASE_DIR', 'link-0');">BASE_DIR</a></tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-string">'templates'</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >GPSK</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Fri Mar 27 22:25:13 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
