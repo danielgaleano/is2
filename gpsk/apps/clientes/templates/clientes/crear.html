@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'clientes:index' %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                 Crear Cliente
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+<div id="form_clientes">
+<form action=" {{ clientes.get_absolute_url }} " method="post">
+	{% csrf_token %}
+    {{ form.as_p }}
+    <p>* Todos los campos son obligatorios</p>
+    <input type="submit" value="Crear" class="btn btn-success"/>
+</form>
+</div>
+{% endblock %}

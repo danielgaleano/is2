@@ -7,4 +7,5 @@ urlpatterns = patterns('',
                        url(r'^login/$', 'gpsk.views.custom_login', name='login'),
                        url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page':'/login/'}, name='logout'),
                        url(r'^usuarios/', include('apps.usuarios.urls', namespace="usuarios")),
+                       url(r'^clientes/', include('apps.clientes.urls', namespace="clientes")),
                        )
