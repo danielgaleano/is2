@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>apps.flujos.models</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >GPSK</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="apps-module.html">Package&nbsp;apps</a> ::
+        <a href="apps.flujos-module.html">Package&nbsp;flujos</a> ::
+        Module&nbsp;models
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="apps.flujos.models-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="apps.flujos.models-module.html">Module apps.flujos.models</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="Estado"></a><div id="Estado-def"><a name="L4"></a><tt class="py-lineno"> 4</tt> <a class="py-toggle" href="#" id="Estado-toggle" onclick="return toggle('Estado');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.models.Estado-class.html">Estado</a><tt class="py-op">(</tt><tt class="py-base-class">models</tt><tt class="py-op">.</tt><tt class="py-base-class">Model</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Estado-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Estado-expanded"><a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable apps.clientes.models.Cliente.nombre=apps.clientes.models.Cliente-class.html#nombre,Variable apps.flujos.models.Actividad.nombre=apps.flujos.models.Actividad-class.html#nombre,Variable apps.flujos.models.Estado.nombre=apps.flujos.models.Estado-class.html#nombre,Variable apps.flujos.models.Flujo.nombre=apps.flujos.models.Flujo-class.html#nombre"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-1', 'nombre', 'link-1');">nombre</a></tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">15</tt><tt class="py-op">,</tt> <tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-string">"To do"</tt><tt class="py-op">)</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="Estado.Meta"></a><div id="Estado.Meta-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="Estado.Meta-toggle" onclick="return toggle('Estado.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.models.Estado.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="Estado.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Estado.Meta-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">        <tt id="link-3" class="py-name" targets="Variable apps.roles_proyecto.models.RolProyecto.Meta.verbose_name=apps.roles_proyecto.models.RolProyecto.Meta-class.html#verbose_name"><a title="apps.roles_proyecto.models.RolProyecto.Meta.verbose_name" class="py-name" href="#" onclick="return doclink('link-3', 'verbose_name', 'link-3');">verbose_name</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"Actividad"</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">        <tt id="link-4" class="py-name" targets="Variable apps.roles_proyecto.models.RolProyecto.Meta.verbose_name_plural=apps.roles_proyecto.models.RolProyecto.Meta-class.html#verbose_name_plural,Variable apps.usuarios.admin.UsuarioInline.verbose_name_plural=apps.usuarios.admin.UsuarioInline-class.html#verbose_name_plural"><a title="apps.roles_proyecto.models.RolProyecto.Meta.verbose_name_plural
+apps.usuarios.admin.UsuarioInline.verbose_name_plural" class="py-name" href="#" onclick="return doclink('link-4', 'verbose_name_plural', 'link-4');">verbose_name_plural</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"Actividades"</tt> </tt>
+</div><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="Estado.__unicode__"></a><div id="Estado.__unicode__-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="Estado.__unicode__-toggle" onclick="return toggle('Estado.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.flujos.models.Estado-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Estado.__unicode__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Estado.__unicode__-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-5', 'nombre', 'link-1');">nombre</a></tt> </tt>
+</div><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">     </tt>
+<a name="Estado.Meta"></a><div id="Estado.Meta-def"><a name="L14"></a><tt class="py-lineno">14</tt> <a class="py-toggle" href="#" id="Estado.Meta-toggle" onclick="return toggle('Estado.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.models.Estado.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="Estado.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Estado.Meta-expanded"><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt id="link-6" class="py-name" targets="Variable apps.clientes.models.Cliente.Meta.default_permissions=apps.clientes.models.Cliente.Meta-class.html#default_permissions,Variable apps.flujos.models.Actividad.Meta.default_permissions=apps.flujos.models.Actividad.Meta-class.html#default_permissions,Variable apps.flujos.models.Estado.Meta.default_permissions=apps.flujos.models.Estado.Meta-class.html#default_permissions,Variable apps.flujos.models.Flujo.Meta.default_permissions=apps.flujos.models.Flujo.Meta-class.html#default_permissions,Variable apps.proyectos.models.Proyecto.Meta.default_permissions=apps.proyectos.models.Proyecto.Meta-class.html#default_permissions,Variable apps.roles_proyecto.models.RolProyecto.Meta.default_permissions=apps.roles_proyecto.models.RolProyecto.Meta-class.html#default_permissions,Variable apps.roles_proyecto.models.RolProyecto_Proyecto.Meta.default_permissions=apps.roles_proyecto.models.RolProyecto_Proyecto.Meta-class.html#default_permissions,Variable apps.usuarios.models.Usuario.Meta.default_permissions=apps.usuarios.models.Usuario.Meta-class.html#default_permissions"><a title="apps.clientes.models.Cliente.Meta.default_permissions
+apps.flujos.models.Actividad.Meta.default_permissions
+apps.flujos.models.Estado.Meta.default_permissions
+apps.flujos.models.Flujo.Meta.default_permissions
+apps.proyectos.models.Proyecto.Meta.default_permissions
+apps.roles_proyecto.models.RolProyecto.Meta.default_permissions
+apps.roles_proyecto.models.RolProyecto_Proyecto.Meta.default_permissions
+apps.usuarios.models.Usuario.Meta.default_permissions" class="py-name" href="#" onclick="return doclink('link-6', 'default_permissions', 'link-6');">default_permissions</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="Actividad"></a><div id="Actividad-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="Actividad-toggle" onclick="return toggle('Actividad');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.models.Actividad-class.html">Actividad</a><tt class="py-op">(</tt><tt class="py-base-class">models</tt><tt class="py-op">.</tt><tt class="py-base-class">Model</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Actividad-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Actividad-expanded"><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt id="link-7" class="py-name"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-7', 'nombre', 'link-1');">nombre</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-8', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">15</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable apps.flujos.models.Actividad.estados=apps.flujos.models.Actividad-class.html#estados"><a title="apps.flujos.models.Actividad.estados" class="py-name" href="#" onclick="return doclink('link-9', 'estados', 'link-9');">estados</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-10', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">ManyToManyField</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name" targets="Class apps.flujos.models.Estado=apps.flujos.models.Estado-class.html"><a title="apps.flujos.models.Estado" class="py-name" href="#" onclick="return doclink('link-11', 'Estado', 'link-11');">Estado</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable apps.flujos.models.Actividad.orden=apps.flujos.models.Actividad-class.html#orden"><a title="apps.flujos.models.Actividad.orden" class="py-name" href="#" onclick="return doclink('link-12', 'orden', 'link-12');">orden</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-13', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">IntegerField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">10</tt><tt class="py-op">,</tt> <tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="Actividad.__unicode__"></a><div id="Actividad.__unicode__-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="Actividad.__unicode__-toggle" onclick="return toggle('Actividad.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.flujos.models.Actividad-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Actividad.__unicode__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Actividad.__unicode__-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-14', 'nombre', 'link-1');">nombre</a></tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">     </tt>
+<a name="Actividad.Meta"></a><div id="Actividad.Meta-def"><a name="L27"></a><tt class="py-lineno">27</tt> <a class="py-toggle" href="#" id="Actividad.Meta-toggle" onclick="return toggle('Actividad.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.models.Actividad.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="Actividad.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Actividad.Meta-expanded"><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="apps.clientes.models.Cliente.Meta.default_permissions
+apps.flujos.models.Actividad.Meta.default_permissions
+apps.flujos.models.Estado.Meta.default_permissions
+apps.flujos.models.Flujo.Meta.default_permissions
+apps.proyectos.models.Proyecto.Meta.default_permissions
+apps.roles_proyecto.models.RolProyecto.Meta.default_permissions
+apps.roles_proyecto.models.RolProyecto_Proyecto.Meta.default_permissions
+apps.usuarios.models.Usuario.Meta.default_permissions" class="py-name" href="#" onclick="return doclink('link-15', 'default_permissions', 'link-6');">default_permissions</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="Flujo"></a><div id="Flujo-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="Flujo-toggle" onclick="return toggle('Flujo');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.models.Flujo-class.html">Flujo</a><tt class="py-op">(</tt><tt class="py-base-class">models</tt><tt class="py-op">.</tt><tt class="py-base-class">Model</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Flujo-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Flujo-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt id="link-16" class="py-name"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-16', 'nombre', 'link-1');">nombre</a></tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-17', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">15</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt id="link-18" class="py-name" targets="Variable apps.flujos.forms.FlujoCreateForm.actividades=apps.flujos.forms.FlujoCreateForm-class.html#actividades,Variable apps.flujos.models.Flujo.actividades=apps.flujos.models.Flujo-class.html#actividades"><a title="apps.flujos.forms.FlujoCreateForm.actividades
+apps.flujos.models.Flujo.actividades" class="py-name" href="#" onclick="return doclink('link-18', 'actividades', 'link-18');">actividades</a></tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-19', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">ManyToManyField</tt><tt class="py-op">(</tt><tt id="link-20" class="py-name" targets="Class apps.flujos.models.Actividad=apps.flujos.models.Actividad-class.html"><a title="apps.flujos.models.Actividad" class="py-name" href="#" onclick="return doclink('link-20', 'Actividad', 'link-20');">Actividad</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">     </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"> </tt>
+<a name="Flujo.__unicode__"></a><div id="Flujo.__unicode__-def"><a name="L37"></a><tt class="py-lineno">37</tt> <a class="py-toggle" href="#" id="Flujo.__unicode__-toggle" onclick="return toggle('Flujo.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.flujos.models.Flujo-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Flujo.__unicode__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Flujo.__unicode__-expanded"><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-21', 'nombre', 'link-1');">nombre</a></tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">     </tt>
+<a name="Flujo.get_absolute_url"></a><div id="Flujo.get_absolute_url-def"><a name="L40"></a><tt class="py-lineno">40</tt> <a class="py-toggle" href="#" id="Flujo.get_absolute_url-toggle" onclick="return toggle('Flujo.get_absolute_url');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.flujos.models.Flujo-class.html#get_absolute_url">get_absolute_url</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Flujo.get_absolute_url-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Flujo.get_absolute_url-expanded"><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'flujos'</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-string">'pk'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pk</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="Flujo.Meta"></a><div id="Flujo.Meta-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="Flujo.Meta-toggle" onclick="return toggle('Flujo.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.models.Flujo.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="Flujo.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Flujo.Meta-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt id="link-22" class="py-name"><a title="apps.clientes.models.Cliente.Meta.default_permissions
+apps.flujos.models.Actividad.Meta.default_permissions
+apps.flujos.models.Estado.Meta.default_permissions
+apps.flujos.models.Flujo.Meta.default_permissions
+apps.proyectos.models.Proyecto.Meta.default_permissions
+apps.roles_proyecto.models.RolProyecto.Meta.default_permissions
+apps.roles_proyecto.models.RolProyecto_Proyecto.Meta.default_permissions
+apps.usuarios.models.Usuario.Meta.default_permissions" class="py-name" href="#" onclick="return doclink('link-22', 'default_permissions', 'link-6');">default_permissions</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'crear'</tt><tt class="py-op">,</tt> <tt class="py-string">'modificar'</tt><tt class="py-op">,</tt> <tt class="py-string">'eliminar'</tt><tt class="py-op">,</tt> <tt class="py-string">'listar'</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >GPSK</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Apr 11 06:06:37 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

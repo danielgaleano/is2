@@ -58,48 +58,275 @@
 </table>
 <h1 class="epydoc">Source Code for <a href="gpsk.views-module.html">Module gpsk.views</a></h1>
 <pre class="py-src">
-<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">shortcuts</tt> <tt class="py-keyword">import</tt> <tt class="py-name">render</tt> </tt>
-<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt class="py-name">decorators</tt> <tt class="py-keyword">import</tt> <tt class="py-name">login_required</tt> </tt>
-<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module apps.usuarios.views=apps.usuarios.views-module.html,Module gpsk.views=gpsk.views-module.html"><a title="apps.usuarios.views
-gpsk.views" class="py-name" href="#" onclick="return doclink('link-0', 'views', 'link-0');">views</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">login</tt> </tt>
-<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">http</tt> <tt class="py-keyword">import</tt> <tt class="py-name">HttpResponseRedirect</tt> </tt>
-<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">core</tt><tt class="py-op">.</tt><tt class="py-name">urlresolvers</tt> <tt class="py-keyword">import</tt> <tt class="py-name">reverse</tt> </tt>
-<a name="home"></a><div id="home-def"><a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
-<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
-<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
-<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">login_url</tt><tt class="py-op">=</tt><tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
-<a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="home-toggle" onclick="return toggle('home');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#home">home</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="home-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="home-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
-<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    Genera la vista home del sistema.</tt> </tt>
-<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">    @type request: django.http.HttpRequest</tt> </tt>
-<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">    @param request: Contiene informacion sobre la peticion actual</tt> </tt>
-<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: django.http.HttpResponse</tt> </tt>
-<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">    @return: Renderiza index.html, la pagina de inicio del sistema</tt> </tt>
-<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
-<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-name">template</tt> <tt class="py-op">=</tt> <tt class="py-string">'index.html'</tt> </tt>
-<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-name">template</tt><tt class="py-op">,</tt> <tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
-<a name="custom_login"></a><div id="custom_login-def"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
-<a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="custom_login-toggle" onclick="return toggle('custom_login');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#custom_login">custom_login</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="custom_login-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="custom_login-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
-<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    Genera la vista de login al sistema.</tt> </tt>
-<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">    @type request: django.http.HttpRequest</tt> </tt>
-<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">    @param request: Contiene informacion sobre la peticion actual</tt> </tt>
-<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: django.http.HttpResponseRedirect</tt> </tt>
-<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">    @return: Renderiza login.html si el usuario no esta autenticado o</tt> </tt>
-<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">            redirecciona a la vista home si el usuario esta autenticado.</tt> </tt>
-<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
-<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Variable apps.usuarios.models.Usuario.user=apps.usuarios.models.Usuario-class.html#user"><a title="apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-1', 'user', 'link-1');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">is_authenticated</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'home'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">login</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Variable apps.usuarios.views.UserCreate.template_name=apps.usuarios.views.UserCreate-class.html#template_name,Variable apps.usuarios.views.UserIndexView.template_name=apps.usuarios.views.UserIndexView-class.html#template_name,Variable apps.usuarios.views.UserUpdate.template_name=apps.usuarios.views.UserUpdate-class.html#template_name"><a title="apps.usuarios.views.UserCreate.template_name
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">shortcuts</tt> <tt class="py-keyword">import</tt> <tt class="py-name">render</tt><tt class="py-op">,</tt> <tt class="py-name">get_object_or_404</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt class="py-name">decorators</tt> <tt class="py-keyword">import</tt> <tt class="py-name">login_required</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module apps.clientes.views=apps.clientes.views-module.html,Module apps.flujos.views=apps.flujos.views-module.html,Module apps.proyectos.views=apps.proyectos.views-module.html,Module apps.roles.views=apps.roles.views-module.html,Module apps.roles_proyecto.views=apps.roles_proyecto.views-module.html,Module apps.usuarios.views=apps.usuarios.views-module.html,Module gpsk.views=gpsk.views-module.html"><a title="apps.clientes.views
+apps.flujos.views
+apps.proyectos.views
+apps.roles.views
+apps.roles_proyecto.views
+apps.usuarios.views
+gpsk.views" class="py-name" href="#" onclick="return doclink('link-1', 'views', 'link-1');">views</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">login</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">http</tt> <tt class="py-keyword">import</tt> <tt class="py-name">HttpResponseRedirect</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">core</tt><tt class="py-op">.</tt><tt class="py-name">urlresolvers</tt> <tt class="py-keyword">import</tt> <tt class="py-name">reverse</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt> <tt class="py-keyword">import</tt> <tt class="py-name">update_session_auth_hash</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module apps.flujos.forms=apps.flujos.forms-module.html,Module apps.proyectos.forms=apps.proyectos.forms-module.html,Module apps.roles.forms=apps.roles.forms-module.html,Module apps.roles_proyecto.forms=apps.roles_proyecto.forms-module.html,Module apps.usuarios.forms=apps.usuarios.forms-module.html,Module gpsk.forms=gpsk.forms-module.html"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-2', 'forms', 'link-2');">forms</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class gpsk.forms.UserProfileForm=gpsk.forms.UserProfileForm-class.html"><a title="gpsk.forms.UserProfileForm" class="py-name" href="#" onclick="return doclink('link-3', 'UserProfileForm', 'link-3');">UserProfileForm</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Class apps.usuarios.forms.MyPasswordChangeForm=apps.usuarios.forms.MyPasswordChangeForm-class.html,Class gpsk.forms.MyPasswordChangeForm=gpsk.forms.MyPasswordChangeForm-class.html"><a title="apps.usuarios.forms.MyPasswordChangeForm
+gpsk.forms.MyPasswordChangeForm" class="py-name" href="#" onclick="return doclink('link-4', 'MyPasswordChangeForm', 'link-4');">MyPasswordChangeForm</a></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="apps.clientes.views
+apps.flujos.views
+apps.proyectos.views
+apps.roles.views
+apps.roles_proyecto.views
+apps.usuarios.views
+gpsk.views" class="py-name" href="#" onclick="return doclink('link-5', 'views', 'link-1');">views</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">password_reset</tt><tt class="py-op">,</tt> <tt class="py-name">password_reset_confirm</tt><tt class="py-op">,</tt> <tt class="py-name">password_reset_done</tt><tt class="py-op">,</tt> \ </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">    <tt class="py-name">password_reset_complete</tt> </tt>
+<a name="home"></a><div id="home-def"><a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">login_url</tt><tt class="py-op">=</tt><tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt> <a class="py-toggle" href="#" id="home-toggle" onclick="return toggle('home');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#home">home</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="home-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="home-expanded"><a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">    Genera la vista home del sistema.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">    @type request: django.http.HttpRequest</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">    @param request: Contiene informacion sobre la peticion actual</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: django.http.HttpResponse</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">    @return: Renderiza index.html, la pagina de inicio del sistema</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-name">template</tt> <tt class="py-op">=</tt> <tt class="py-string">'index.html'</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-name">template</tt><tt class="py-op">,</tt> <tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="custom_login"></a><div id="custom_login-def"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="custom_login-toggle" onclick="return toggle('custom_login');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#custom_login">custom_login</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="custom_login-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="custom_login-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    Genera la vista de login al sistema.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    @type request: django.http.HttpRequest</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">    @param request: Contiene informacion sobre la peticion actual</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: django.http.HttpResponseRedirect</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">    @return: Renderiza login.html si el usuario no esta autenticado o</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">            redirecciona a la vista home si el usuario esta autenticado.</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Variable apps.roles_proyecto.models.RolProyecto_Proyecto.user=apps.roles_proyecto.models.RolProyecto_Proyecto-class.html#user,Variable apps.usuarios.models.Usuario.user=apps.usuarios.models.Usuario-class.html#user"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
+apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-6', 'user', 'link-6');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">is_authenticated</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'home'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">login</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Variable apps.clientes.views.actualizarCliente.template_name=apps.clientes.views.actualizarCliente-class.html#template_name,Variable apps.clientes.views.crearCliente.template_name=apps.clientes.views.crearCliente-class.html#template_name,Variable apps.clientes.views.listarClientes.template_name=apps.clientes.views.listarClientes-class.html#template_name,Variable apps.flujos.views.ActividadCreate.template_name=apps.flujos.views.ActividadCreate-class.html#template_name,Variable apps.flujos.views.FlujoCreate.template_name=apps.flujos.views.FlujoCreate-class.html#template_name,Variable apps.flujos.views.IndexView.template_name=apps.flujos.views.IndexView-class.html#template_name,Variable apps.proyectos.views.AddMiembro.template_name=apps.proyectos.views.AddMiembro-class.html#template_name,Variable apps.proyectos.views.IndexView.template_name=apps.proyectos.views.IndexView-class.html#template_name,Variable apps.proyectos.views.ProyectoCreate.template_name=apps.proyectos.views.ProyectoCreate-class.html#template_name,Variable apps.proyectos.views.ProyectoUpdate.template_name=apps.proyectos.views.ProyectoUpdate-class.html#template_name,Variable apps.proyectos.views.RolMiembro.template_name=apps.proyectos.views.RolMiembro-class.html#template_name,Variable apps.roles.views.IndexView.template_name=apps.roles.views.IndexView-class.html#template_name,Variable apps.roles.views.RolCreate.template_name=apps.roles.views.RolCreate-class.html#template_name,Variable apps.roles.views.RolPermisos.template_name=apps.roles.views.RolPermisos-class.html#template_name,Variable apps.roles.views.RolUpdate.template_name=apps.roles.views.RolUpdate-class.html#template_name,Variable apps.roles_proyecto.views.IndexView.template_name=apps.roles_proyecto.views.IndexView-class.html#template_name,Variable apps.roles_proyecto.views.RolCreate.template_name=apps.roles_proyecto.views.RolCreate-class.html#template_name,Variable apps.roles_proyecto.views.RolPermisos.template_name=apps.roles_proyecto.views.RolPermisos-class.html#template_name,Variable apps.roles_proyecto.views.RolUpdate.template_name=apps.roles_proyecto.views.RolUpdate-class.html#template_name,Variable apps.usuarios.views.DetailViewRoles.template_name=apps.usuarios.views.DetailViewRoles-class.html#template_name,Variable apps.usuarios.views.UserCreate.template_name=apps.usuarios.views.UserCreate-class.html#template_name,Variable apps.usuarios.views.UserIndexView.template_name=apps.usuarios.views.UserIndexView-class.html#template_name,Variable apps.usuarios.views.UserRoles.template_name=apps.usuarios.views.UserRoles-class.html#template_name,Variable apps.usuarios.views.UserUpdate.template_name=apps.usuarios.views.UserUpdate-class.html#template_name"><a title="apps.clientes.views.actualizarCliente.template_name
+apps.clientes.views.crearCliente.template_name
+apps.clientes.views.listarClientes.template_name
+apps.flujos.views.ActividadCreate.template_name
+apps.flujos.views.FlujoCreate.template_name
+apps.flujos.views.IndexView.template_name
+apps.proyectos.views.AddMiembro.template_name
+apps.proyectos.views.IndexView.template_name
+apps.proyectos.views.ProyectoCreate.template_name
+apps.proyectos.views.ProyectoUpdate.template_name
+apps.proyectos.views.RolMiembro.template_name
+apps.roles.views.IndexView.template_name
+apps.roles.views.RolCreate.template_name
+apps.roles.views.RolPermisos.template_name
+apps.roles.views.RolUpdate.template_name
+apps.roles_proyecto.views.IndexView.template_name
+apps.roles_proyecto.views.RolCreate.template_name
+apps.roles_proyecto.views.RolPermisos.template_name
+apps.roles_proyecto.views.RolUpdate.template_name
+apps.usuarios.views.DetailViewRoles.template_name
+apps.usuarios.views.UserCreate.template_name
 apps.usuarios.views.UserIndexView.template_name
-apps.usuarios.views.UserUpdate.template_name" class="py-name" href="#" onclick="return doclink('link-2', 'template_name', 'link-2');">template_name</a></tt><tt class="py-op">=</tt><tt class="py-string">'login.html'</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+apps.usuarios.views.UserRoles.template_name
+apps.usuarios.views.UserUpdate.template_name" class="py-name" href="#" onclick="return doclink('link-7', 'template_name', 'link-7');">template_name</a></tt><tt class="py-op">=</tt><tt class="py-string">'login.html'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="reset"></a><div id="reset-def"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="reset-toggle" onclick="return toggle('reset');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#reset">reset</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="reset-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="reset-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">password_reset</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name"><a title="apps.clientes.views.actualizarCliente.template_name
+apps.clientes.views.crearCliente.template_name
+apps.clientes.views.listarClientes.template_name
+apps.flujos.views.ActividadCreate.template_name
+apps.flujos.views.FlujoCreate.template_name
+apps.flujos.views.IndexView.template_name
+apps.proyectos.views.AddMiembro.template_name
+apps.proyectos.views.IndexView.template_name
+apps.proyectos.views.ProyectoCreate.template_name
+apps.proyectos.views.ProyectoUpdate.template_name
+apps.proyectos.views.RolMiembro.template_name
+apps.roles.views.IndexView.template_name
+apps.roles.views.RolCreate.template_name
+apps.roles.views.RolPermisos.template_name
+apps.roles.views.RolUpdate.template_name
+apps.roles_proyecto.views.IndexView.template_name
+apps.roles_proyecto.views.RolCreate.template_name
+apps.roles_proyecto.views.RolPermisos.template_name
+apps.roles_proyecto.views.RolUpdate.template_name
+apps.usuarios.views.DetailViewRoles.template_name
+apps.usuarios.views.UserCreate.template_name
+apps.usuarios.views.UserIndexView.template_name
+apps.usuarios.views.UserRoles.template_name
+apps.usuarios.views.UserUpdate.template_name" class="py-name" href="#" onclick="return doclink('link-8', 'template_name', 'link-7');">template_name</a></tt><tt class="py-op">=</tt><tt class="py-string">'password_reset_form.html'</tt><tt class="py-op">,</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                          <tt class="py-name">email_template_name</tt><tt class="py-op">=</tt><tt class="py-string">'password_reset_email.html'</tt><tt class="py-op">,</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                          <tt class="py-name">subject_template_name</tt><tt class="py-op">=</tt><tt class="py-string">'password_reset_subject.txt'</tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                          <tt class="py-name">post_reset_redirect</tt><tt class="py-op">=</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'reset_done'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="reset_done"></a><div id="reset_done-def"><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="reset_done-toggle" onclick="return toggle('reset_done');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#reset_done">reset_done</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="reset_done-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="reset_done-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">password_reset_done</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name"><a title="apps.clientes.views.actualizarCliente.template_name
+apps.clientes.views.crearCliente.template_name
+apps.clientes.views.listarClientes.template_name
+apps.flujos.views.ActividadCreate.template_name
+apps.flujos.views.FlujoCreate.template_name
+apps.flujos.views.IndexView.template_name
+apps.proyectos.views.AddMiembro.template_name
+apps.proyectos.views.IndexView.template_name
+apps.proyectos.views.ProyectoCreate.template_name
+apps.proyectos.views.ProyectoUpdate.template_name
+apps.proyectos.views.RolMiembro.template_name
+apps.roles.views.IndexView.template_name
+apps.roles.views.RolCreate.template_name
+apps.roles.views.RolPermisos.template_name
+apps.roles.views.RolUpdate.template_name
+apps.roles_proyecto.views.IndexView.template_name
+apps.roles_proyecto.views.RolCreate.template_name
+apps.roles_proyecto.views.RolPermisos.template_name
+apps.roles_proyecto.views.RolUpdate.template_name
+apps.usuarios.views.DetailViewRoles.template_name
+apps.usuarios.views.UserCreate.template_name
+apps.usuarios.views.UserIndexView.template_name
+apps.usuarios.views.UserRoles.template_name
+apps.usuarios.views.UserUpdate.template_name" class="py-name" href="#" onclick="return doclink('link-9', 'template_name', 'link-7');">template_name</a></tt><tt class="py-op">=</tt><tt class="py-string">'password_reset_done.html'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"> </tt>
+<a name="reset_confirm"></a><div id="reset_confirm-def"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt> <a class="py-toggle" href="#" id="reset_confirm-toggle" onclick="return toggle('reset_confirm');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#reset_confirm">reset_confirm</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">,</tt> <tt class="py-param">uidb64</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">token</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="reset_confirm-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="reset_confirm-expanded"><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">password_reset_confirm</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name"><a title="apps.clientes.views.actualizarCliente.template_name
+apps.clientes.views.crearCliente.template_name
+apps.clientes.views.listarClientes.template_name
+apps.flujos.views.ActividadCreate.template_name
+apps.flujos.views.FlujoCreate.template_name
+apps.flujos.views.IndexView.template_name
+apps.proyectos.views.AddMiembro.template_name
+apps.proyectos.views.IndexView.template_name
+apps.proyectos.views.ProyectoCreate.template_name
+apps.proyectos.views.ProyectoUpdate.template_name
+apps.proyectos.views.RolMiembro.template_name
+apps.roles.views.IndexView.template_name
+apps.roles.views.RolCreate.template_name
+apps.roles.views.RolPermisos.template_name
+apps.roles.views.RolUpdate.template_name
+apps.roles_proyecto.views.IndexView.template_name
+apps.roles_proyecto.views.RolCreate.template_name
+apps.roles_proyecto.views.RolPermisos.template_name
+apps.roles_proyecto.views.RolUpdate.template_name
+apps.usuarios.views.DetailViewRoles.template_name
+apps.usuarios.views.UserCreate.template_name
+apps.usuarios.views.UserIndexView.template_name
+apps.usuarios.views.UserRoles.template_name
+apps.usuarios.views.UserUpdate.template_name" class="py-name" href="#" onclick="return doclink('link-10', 'template_name', 'link-7');">template_name</a></tt><tt class="py-op">=</tt><tt class="py-string">'password_reset_confirm.html'</tt><tt class="py-op">,</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                                  <tt class="py-name">uidb64</tt><tt class="py-op">=</tt><tt class="py-name">uidb64</tt><tt class="py-op">,</tt> <tt class="py-name">token</tt><tt class="py-op">=</tt><tt class="py-name">token</tt><tt class="py-op">,</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                                  <tt class="py-name">post_reset_redirect</tt><tt class="py-op">=</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'reset_complete'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="reset_complete"></a><div id="reset_complete-def"><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt> <a class="py-toggle" href="#" id="reset_complete-toggle" onclick="return toggle('reset_complete');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#reset_complete">reset_complete</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="reset_complete-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="reset_complete-expanded"><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">password_reset_complete</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name"><a title="apps.clientes.views.actualizarCliente.template_name
+apps.clientes.views.crearCliente.template_name
+apps.clientes.views.listarClientes.template_name
+apps.flujos.views.ActividadCreate.template_name
+apps.flujos.views.FlujoCreate.template_name
+apps.flujos.views.IndexView.template_name
+apps.proyectos.views.AddMiembro.template_name
+apps.proyectos.views.IndexView.template_name
+apps.proyectos.views.ProyectoCreate.template_name
+apps.proyectos.views.ProyectoUpdate.template_name
+apps.proyectos.views.RolMiembro.template_name
+apps.roles.views.IndexView.template_name
+apps.roles.views.RolCreate.template_name
+apps.roles.views.RolPermisos.template_name
+apps.roles.views.RolUpdate.template_name
+apps.roles_proyecto.views.IndexView.template_name
+apps.roles_proyecto.views.RolCreate.template_name
+apps.roles_proyecto.views.RolPermisos.template_name
+apps.roles_proyecto.views.RolUpdate.template_name
+apps.usuarios.views.DetailViewRoles.template_name
+apps.usuarios.views.UserCreate.template_name
+apps.usuarios.views.UserIndexView.template_name
+apps.usuarios.views.UserRoles.template_name
+apps.usuarios.views.UserUpdate.template_name" class="py-name" href="#" onclick="return doclink('link-11', 'template_name', 'link-7');">template_name</a></tt><tt class="py-op">=</tt><tt class="py-string">'password_reset_complete.html'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="user_profile"></a><div id="user_profile-def"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">login_url</tt><tt class="py-op">=</tt><tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="user_profile-toggle" onclick="return toggle('user_profile');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#user_profile">user_profile</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="user_profile-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="user_profile-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-name">usuario</tt> <tt class="py-op">=</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
+apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-12', 'user', 'link-6');">user</a></tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">method</tt> <tt class="py-op">==</tt> <tt class="py-string">'POST'</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="gpsk.forms.UserProfileForm" class="py-name" href="#" onclick="return doclink('link-13', 'UserProfileForm', 'link-3');">UserProfileForm</a></tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">POST</tt><tt class="py-op">,</tt> <tt class="py-name">instance</tt><tt class="py-op">=</tt><tt class="py-name">usuario</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">is_valid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">form</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method apps.flujos.forms.ActividadCreateForm.save()=apps.flujos.forms.ActividadCreateForm-class.html#save,Method apps.proyectos.forms.AddMiembroForm.save()=apps.proyectos.forms.AddMiembroForm-class.html#save,Method apps.proyectos.forms.ProyectoCreateForm.save()=apps.proyectos.forms.ProyectoCreateForm-class.html#save,Method apps.proyectos.forms.ProyectoUpdateForm.save()=apps.proyectos.forms.ProyectoUpdateForm-class.html#save,Method apps.proyectos.forms.RolMiembroForm.save()=apps.proyectos.forms.RolMiembroForm-class.html#save,Method apps.roles_proyecto.forms.RolProyectoCreateForm.save()=apps.roles_proyecto.forms.RolProyectoCreateForm-class.html#save,Method apps.usuarios.forms.UserCreateForm.save()=apps.usuarios.forms.UserCreateForm-class.html#save,Method apps.usuarios.forms.UserUpdateForm.save()=apps.usuarios.forms.UserUpdateForm-class.html#save"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.proyectos.forms.AddMiembroForm.save
+apps.proyectos.forms.ProyectoCreateForm.save
+apps.proyectos.forms.ProyectoUpdateForm.save
+apps.proyectos.forms.RolMiembroForm.save
+apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.usuarios.forms.UserCreateForm.save
+apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-14', 'save', 'link-14');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'home'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="gpsk.forms.UserProfileForm" class="py-name" href="#" onclick="return doclink('link-15', 'UserProfileForm', 'link-3');">UserProfileForm</a></tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">=</tt><tt class="py-name">usuario</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'mi_perfil.html'</tt><tt class="py-op">,</tt> <tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="perfil_change_password"></a><div id="perfil_change_password-def"><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">login_url</tt><tt class="py-op">=</tt><tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="perfil_change_password-toggle" onclick="return toggle('perfil_change_password');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#perfil_change_password">perfil_change_password</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="perfil_change_password-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="perfil_change_password-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    Funcion que permite modificar el password del usuario actual.</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">    @type request: django.http.HttpRequest</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">    @param request: Contiene informacion sobre la peticion actual</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    @type pk_usuario: string</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">    @param pk_usuario: id del usuario con password a modificar</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: django.http.HttpResponseRedirect</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">    @return: Renderiza perfil_password_change.html para obtener el formulario o</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">            redirecciona a la vista home del sistema.</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">method</tt> <tt class="py-op">==</tt> <tt class="py-string">'POST'</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">user_detail</tt> <tt class="py-op">=</tt> <tt class="py-name">get_object_or_404</tt><tt class="py-op">(</tt><tt class="py-name">User</tt><tt class="py-op">,</tt> <tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
+apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-16', 'user', 'link-6');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="apps.usuarios.forms.MyPasswordChangeForm
+gpsk.forms.MyPasswordChangeForm" class="py-name" href="#" onclick="return doclink('link-17', 'MyPasswordChangeForm', 'link-4');">MyPasswordChangeForm</a></tt><tt class="py-op">(</tt><tt class="py-name">user_detail</tt><tt class="py-op">,</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">POST</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">is_valid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">            <tt class="py-name">new_user</tt> <tt class="py-op">=</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.proyectos.forms.AddMiembroForm.save
+apps.proyectos.forms.ProyectoCreateForm.save
+apps.proyectos.forms.ProyectoUpdateForm.save
+apps.proyectos.forms.RolMiembroForm.save
+apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.usuarios.forms.UserCreateForm.save
+apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-18', 'save', 'link-14');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">            <tt class="py-name">update_session_auth_hash</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-name">user_detail</tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt> <tt class="py-string">'user_profile'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-name">user_detail</tt> <tt class="py-op">=</tt> <tt class="py-name">get_object_or_404</tt><tt class="py-op">(</tt><tt class="py-name">User</tt><tt class="py-op">,</tt> <tt class="py-name">pk</tt><tt class="py-op">=</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
+apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-19', 'user', 'link-6');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">id</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="apps.usuarios.forms.MyPasswordChangeForm
+gpsk.forms.MyPasswordChangeForm" class="py-name" href="#" onclick="return doclink('link-20', 'MyPasswordChangeForm', 'link-4');">MyPasswordChangeForm</a></tt><tt class="py-op">(</tt><tt class="py-name">user_detail</tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'perfil_password_change.html'</tt><tt class="py-op">,</tt> <tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -134,7 +361,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat Mar 28 10:00:37 2015
+    Generated by Epydoc 3.0.1 on Sat Apr 11 06:06:37 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

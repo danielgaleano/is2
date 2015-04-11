@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>gpsk.forms</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >GPSK</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="gpsk-module.html">Package&nbsp;gpsk</a> ::
+        Module&nbsp;forms
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="gpsk.forms-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="gpsk.forms-module.html">Module gpsk.forms</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module apps.flujos.forms=apps.flujos.forms-module.html,Module apps.proyectos.forms=apps.proyectos.forms-module.html,Module apps.roles.forms=apps.roles.forms-module.html,Module apps.roles_proyecto.forms=apps.roles_proyecto.forms-module.html,Module apps.usuarios.forms=apps.usuarios.forms-module.html,Module gpsk.forms=gpsk.forms-module.html"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-0', 'forms', 'link-0');">forms</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-1');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-2', 'forms', 'link-0');">forms</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">PasswordChangeForm</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="UserProfileForm"></a><div id="UserProfileForm-def"><a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="UserProfileForm-toggle" onclick="return toggle('UserProfileForm');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="gpsk.forms.UserProfileForm-class.html">UserProfileForm</a><tt class="py-op">(</tt><tt class="py-base-class">forms</tt><tt class="py-op">.</tt><tt class="py-base-class">ModelForm</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UserProfileForm-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="UserProfileForm-expanded"><a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">    Clase que contiene los campos del formulario, necesarios para la modificacion del perfil del usuario</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    registrado en la base de datos.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    @type forms.ModelForm: django.forms</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar forms.ModelForm: Se hereda el formulario incorporado en django para los modelos</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">                            para usar sus funcionalidades</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable apps.usuarios.forms.UserCreateForm.first_name=apps.usuarios.forms.UserCreateForm-class.html#first_name,Variable apps.usuarios.forms.UserUpdateForm.first_name=apps.usuarios.forms.UserUpdateForm-class.html#first_name,Variable gpsk.forms.UserProfileForm.first_name=gpsk.forms.UserProfileForm-class.html#first_name"><a title="apps.usuarios.forms.UserCreateForm.first_name
+apps.usuarios.forms.UserUpdateForm.first_name
+gpsk.forms.UserProfileForm.first_name" class="py-name" href="#" onclick="return doclink('link-3', 'first_name', 'link-3');">first_name</a></tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-4', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">30</tt><tt class="py-op">,</tt> <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">'Nombre'</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable apps.usuarios.forms.UserCreateForm.last_name=apps.usuarios.forms.UserCreateForm-class.html#last_name,Variable apps.usuarios.forms.UserUpdateForm.last_name=apps.usuarios.forms.UserUpdateForm-class.html#last_name,Variable gpsk.forms.UserProfileForm.last_name=gpsk.forms.UserProfileForm-class.html#last_name"><a title="apps.usuarios.forms.UserCreateForm.last_name
+apps.usuarios.forms.UserUpdateForm.last_name
+gpsk.forms.UserProfileForm.last_name" class="py-name" href="#" onclick="return doclink('link-5', 'last_name', 'link-5');">last_name</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-6', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">30</tt><tt class="py-op">,</tt> <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">'Apellido'</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable apps.usuarios.forms.UserCreateForm.email=apps.usuarios.forms.UserCreateForm-class.html#email,Variable apps.usuarios.forms.UserUpdateForm.email=apps.usuarios.forms.UserUpdateForm-class.html#email,Variable gpsk.forms.UserProfileForm.email=gpsk.forms.UserProfileForm-class.html#email"><a title="apps.usuarios.forms.UserCreateForm.email
+apps.usuarios.forms.UserUpdateForm.email
+gpsk.forms.UserProfileForm.email" class="py-name" href="#" onclick="return doclink('link-7', 'email', 'link-7');">email</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-8', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">EmailField</tt><tt class="py-op">(</tt><tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="UserProfileForm.Meta"></a><div id="UserProfileForm.Meta-def"><a name="L21"></a><tt class="py-lineno">21</tt> <a class="py-toggle" href="#" id="UserProfileForm.Meta-toggle" onclick="return toggle('UserProfileForm.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="gpsk.forms.UserProfileForm.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="UserProfileForm.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="UserProfileForm.Meta-expanded"><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt id="link-9" class="py-name" targets="Variable apps.clientes.views.actualizarCliente.model=apps.clientes.views.actualizarCliente-class.html#model,Variable apps.clientes.views.crearCliente.model=apps.clientes.views.crearCliente-class.html#model,Variable apps.clientes.views.listarClientes.model=apps.clientes.views.listarClientes-class.html#model,Variable apps.flujos.forms.ActividadCreateForm.Meta.model=apps.flujos.forms.ActividadCreateForm.Meta-class.html#model,Variable apps.flujos.forms.FlujoCreateForm.Meta.model=apps.flujos.forms.FlujoCreateForm.Meta-class.html#model,Variable apps.flujos.views.IndexView.model=apps.flujos.views.IndexView-class.html#model,Variable apps.proyectos.forms.AddMiembroForm.Meta.model=apps.proyectos.forms.AddMiembroForm.Meta-class.html#model,Variable apps.proyectos.forms.ProyectoCreateForm.Meta.model=apps.proyectos.forms.ProyectoCreateForm.Meta-class.html#model,Variable apps.proyectos.forms.ProyectoUpdateForm.Meta.model=apps.proyectos.forms.ProyectoUpdateForm.Meta-class.html#model,Variable apps.proyectos.forms.RolMiembroForm.Meta.model=apps.proyectos.forms.RolMiembroForm.Meta-class.html#model,Variable apps.proyectos.views.IndexView.model=apps.proyectos.views.IndexView-class.html#model,Variable apps.roles.forms.RolAsignarPermisosForm.Meta.model=apps.roles.forms.RolAsignarPermisosForm.Meta-class.html#model,Variable apps.roles.forms.RolCreateForm.Meta.model=apps.roles.forms.RolCreateForm.Meta-class.html#model,Variable apps.roles.forms.RolUpdateForm.Meta.model=apps.roles.forms.RolUpdateForm.Meta-class.html#model,Variable apps.roles.views.IndexView.model=apps.roles.views.IndexView-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.model=apps.roles_proyecto.forms.RolProyectoCreateForm.Meta-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.model=apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.model=apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta-class.html#model,Variable apps.roles_proyecto.views.IndexView.model=apps.roles_proyecto.views.IndexView-class.html#model,Variable apps.usuarios.admin.UsuarioInline.model=apps.usuarios.admin.UsuarioInline-class.html#model,Variable apps.usuarios.forms.UserAsignarRolesForm.Meta.model=apps.usuarios.forms.UserAsignarRolesForm.Meta-class.html#model,Variable apps.usuarios.forms.UserCreateForm.Meta.model=apps.usuarios.forms.UserCreateForm.Meta-class.html#model,Variable apps.usuarios.forms.UserUpdateForm.Meta.model=apps.usuarios.forms.UserUpdateForm.Meta-class.html#model,Variable apps.usuarios.views.DetailViewRoles.model=apps.usuarios.views.DetailViewRoles-class.html#model,Variable gpsk.forms.UserProfileForm.Meta.model=gpsk.forms.UserProfileForm.Meta-class.html#model"><a title="apps.clientes.views.actualizarCliente.model
+apps.clientes.views.crearCliente.model
+apps.clientes.views.listarClientes.model
+apps.flujos.forms.ActividadCreateForm.Meta.model
+apps.flujos.forms.FlujoCreateForm.Meta.model
+apps.flujos.views.IndexView.model
+apps.proyectos.forms.AddMiembroForm.Meta.model
+apps.proyectos.forms.ProyectoCreateForm.Meta.model
+apps.proyectos.forms.ProyectoUpdateForm.Meta.model
+apps.proyectos.forms.RolMiembroForm.Meta.model
+apps.proyectos.views.IndexView.model
+apps.roles.forms.RolAsignarPermisosForm.Meta.model
+apps.roles.forms.RolCreateForm.Meta.model
+apps.roles.forms.RolUpdateForm.Meta.model
+apps.roles.views.IndexView.model
+apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.model
+apps.roles_proyecto.views.IndexView.model
+apps.usuarios.admin.UsuarioInline.model
+apps.usuarios.forms.UserAsignarRolesForm.Meta.model
+apps.usuarios.forms.UserCreateForm.Meta.model
+apps.usuarios.forms.UserUpdateForm.Meta.model
+apps.usuarios.views.DetailViewRoles.model
+gpsk.forms.UserProfileForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-9', 'model', 'link-9');">model</a></tt> <tt class="py-op">=</tt> <tt class="py-name">User</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt id="link-10" class="py-name" targets="Variable apps.flujos.forms.ActividadCreateForm.Meta.fields=apps.flujos.forms.ActividadCreateForm.Meta-class.html#fields,Variable apps.flujos.forms.FlujoCreateForm.Meta.fields=apps.flujos.forms.FlujoCreateForm.Meta-class.html#fields,Variable apps.proyectos.forms.AddMiembroForm.Meta.fields=apps.proyectos.forms.AddMiembroForm.Meta-class.html#fields,Variable apps.proyectos.forms.ProyectoCreateForm.Meta.fields=apps.proyectos.forms.ProyectoCreateForm.Meta-class.html#fields,Variable apps.proyectos.forms.ProyectoUpdateForm.Meta.fields=apps.proyectos.forms.ProyectoUpdateForm.Meta-class.html#fields,Variable apps.proyectos.forms.RolMiembroForm.Meta.fields=apps.proyectos.forms.RolMiembroForm.Meta-class.html#fields,Variable apps.roles.forms.RolAsignarPermisosForm.Meta.fields=apps.roles.forms.RolAsignarPermisosForm.Meta-class.html#fields,Variable apps.roles.forms.RolCreateForm.Meta.fields=apps.roles.forms.RolCreateForm.Meta-class.html#fields,Variable apps.roles.forms.RolUpdateForm.Meta.fields=apps.roles.forms.RolUpdateForm.Meta-class.html#fields,Variable apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.fields=apps.roles_proyecto.forms.RolProyectoCreateForm.Meta-class.html#fields,Variable apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.fields=apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta-class.html#fields,Variable apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.fields=apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta-class.html#fields,Variable apps.usuarios.forms.UserAsignarRolesForm.Meta.fields=apps.usuarios.forms.UserAsignarRolesForm.Meta-class.html#fields,Variable apps.usuarios.forms.UserCreateForm.Meta.fields=apps.usuarios.forms.UserCreateForm.Meta-class.html#fields,Variable apps.usuarios.forms.UserUpdateForm.Meta.fields=apps.usuarios.forms.UserUpdateForm.Meta-class.html#fields,Variable gpsk.forms.UserProfileForm.Meta.fields=gpsk.forms.UserProfileForm.Meta-class.html#fields"><a title="apps.flujos.forms.ActividadCreateForm.Meta.fields
+apps.flujos.forms.FlujoCreateForm.Meta.fields
+apps.proyectos.forms.AddMiembroForm.Meta.fields
+apps.proyectos.forms.ProyectoCreateForm.Meta.fields
+apps.proyectos.forms.ProyectoUpdateForm.Meta.fields
+apps.proyectos.forms.RolMiembroForm.Meta.fields
+apps.roles.forms.RolAsignarPermisosForm.Meta.fields
+apps.roles.forms.RolCreateForm.Meta.fields
+apps.roles.forms.RolUpdateForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.fields
+apps.usuarios.forms.UserAsignarRolesForm.Meta.fields
+apps.usuarios.forms.UserCreateForm.Meta.fields
+apps.usuarios.forms.UserUpdateForm.Meta.fields
+gpsk.forms.UserProfileForm.Meta.fields" class="py-name" href="#" onclick="return doclink('link-10', 'fields', 'link-10');">fields</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'username'</tt><tt class="py-op">,</tt> <tt class="py-string">'first_name'</tt><tt class="py-op">,</tt> <tt class="py-string">'last_name'</tt><tt class="py-op">,</tt> <tt class="py-string">'email'</tt><tt class="py-op">]</tt> </tt>
+</div></div><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="MyPasswordChangeForm"></a><div id="MyPasswordChangeForm-def"><a name="L26"></a><tt class="py-lineno">26</tt> <a class="py-toggle" href="#" id="MyPasswordChangeForm-toggle" onclick="return toggle('MyPasswordChangeForm');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="gpsk.forms.MyPasswordChangeForm-class.html">MyPasswordChangeForm</a><tt class="py-op">(</tt><tt class="py-base-class">PasswordChangeForm</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MyPasswordChangeForm-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="MyPasswordChangeForm-expanded"><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Variable gpsk.forms.MyPasswordChangeForm.old_password=gpsk.forms.MyPasswordChangeForm-class.html#old_password"><a title="gpsk.forms.MyPasswordChangeForm.old_password" class="py-name" href="#" onclick="return doclink('link-11', 'old_password', 'link-11');">old_password</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-12', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Password antiguo"</tt><tt class="py-op">,</tt> <tt class="py-name">widget</tt><tt class="py-op">=</tt><tt id="link-13" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-13', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">PasswordInput</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt id="link-14" class="py-name" targets="Variable gpsk.forms.MyPasswordChangeForm.new_password1=gpsk.forms.MyPasswordChangeForm-class.html#new_password1"><a title="gpsk.forms.MyPasswordChangeForm.new_password1" class="py-name" href="#" onclick="return doclink('link-14', 'new_password1', 'link-14');">new_password1</a></tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-15', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">RegexField</tt><tt class="py-op">(</tt><tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Password nuevo"</tt><tt class="py-op">,</tt> <tt class="py-name">regex</tt><tt class="py-op">=</tt><tt class="py-string">r'^[\w.@+-]+$'</tt><tt class="py-op">,</tt> <tt class="py-name">min_length</tt><tt class="py-op">=</tt><tt class="py-number">5</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">                                     <tt class="py-name">widget</tt><tt class="py-op">=</tt><tt id="link-16" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-16', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">PasswordInput</tt><tt class="py-op">,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">                                     <tt class="py-name">help_text</tt><tt class="py-op">=</tt><tt class="py-string">'Minimo 5 carateres. Letras, digitos y @/./+/-/_ solamente.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt id="link-17" class="py-name" targets="Variable gpsk.forms.MyPasswordChangeForm.new_password2=gpsk.forms.MyPasswordChangeForm-class.html#new_password2"><a title="gpsk.forms.MyPasswordChangeForm.new_password2" class="py-name" href="#" onclick="return doclink('link-17', 'new_password2', 'link-17');">new_password2</a></tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-18', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">RegexField</tt><tt class="py-op">(</tt><tt class="py-name">label</tt><tt class="py-op">=</tt><tt class="py-string">"Password nuevo (confirmacion)"</tt><tt class="py-op">,</tt> <tt class="py-name">regex</tt><tt class="py-op">=</tt><tt class="py-string">r'^[\w.@+-]+$'</tt><tt class="py-op">,</tt> <tt class="py-name">min_length</tt><tt class="py-op">=</tt><tt class="py-number">5</tt><tt class="py-op">,</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">                                     <tt class="py-name">widget</tt><tt class="py-op">=</tt><tt id="link-19" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-19', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">PasswordInput</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >GPSK</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Apr 11 06:06:37 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

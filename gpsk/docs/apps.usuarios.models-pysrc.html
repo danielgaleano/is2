@@ -59,35 +59,87 @@
 </table>
 <h1 class="epydoc">Source Code for <a href="apps.usuarios.models-module.html">Module apps.usuarios.models</a></h1>
 <pre class="py-src">
-<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> </tt>
-<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">db</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
 <a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">core</tt><tt class="py-op">.</tt><tt class="py-name">urlresolvers</tt> <tt class="py-keyword">import</tt> <tt class="py-name">reverse</tt> </tt>
-<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Package apps=apps-module.html"><a title="apps" class="py-name" href="#" onclick="return doclink('link-2', 'apps', 'link-2');">apps</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Package apps.roles_proyecto=apps.roles_proyecto-module.html"><a title="apps.roles_proyecto" class="py-name" href="#" onclick="return doclink('link-3', 'roles_proyecto', 'link-3');">roles_proyecto</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-4', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class apps.roles_proyecto.models.RolProyecto=apps.roles_proyecto.models.RolProyecto-class.html"><a title="apps.roles_proyecto.models.RolProyecto" class="py-name" href="#" onclick="return doclink('link-5', 'RolProyecto', 'link-5');">RolProyecto</a></tt> </tt>
 <a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
-<a name="Usuario"></a><div id="Usuario-def"><a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="Usuario-toggle" onclick="return toggle('Usuario');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.usuarios.models.Usuario-class.html">Usuario</a><tt class="py-op">(</tt><tt class="py-base-class">models</tt><tt class="py-op">.</tt><tt class="py-base-class">Model</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Usuario-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Usuario-expanded"><a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
-<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">    Clase Usuario.</tt> </tt>
-<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    Crea el perfil del usuario para cada instancia de la clase User,</tt> </tt>
-<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    el cual define los campos username, password, nombre, apellido,</tt> </tt>
-<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    email y groups. Se extiende la funcionalidad para almacenar</tt> </tt>
-<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    telefono, direccion y roles de proyecto, de esta manera, para cada</tt> </tt>
-<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">    User existe un unico perfil de Usuario.</tt> </tt>
-<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
-<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
-<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt id="link-2" class="py-name" targets="Variable apps.usuarios.models.Usuario.user=apps.usuarios.models.Usuario-class.html#user"><a title="apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-2', 'user', 'link-2');">user</a></tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name"><a title="apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-3', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">OneToOneField</tt><tt class="py-op">(</tt><tt class="py-name">User</tt><tt class="py-op">)</tt> </tt>
-<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable apps.usuarios.forms.UserCreateForm.telefono=apps.usuarios.forms.UserCreateForm-class.html#telefono,Variable apps.usuarios.forms.UserUpdateForm.telefono=apps.usuarios.forms.UserUpdateForm-class.html#telefono,Variable apps.usuarios.models.Usuario.telefono=apps.usuarios.models.Usuario-class.html#telefono"><a title="apps.usuarios.forms.UserCreateForm.telefono
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="Usuario"></a><div id="Usuario-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="Usuario-toggle" onclick="return toggle('Usuario');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.usuarios.models.Usuario-class.html">Usuario</a><tt class="py-op">(</tt><tt class="py-base-class">models</tt><tt class="py-op">.</tt><tt class="py-base-class">Model</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Usuario-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Usuario-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    Clase Usuario.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    Crea el perfil del usuario para cada instancia de la clase User,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    el cual define los campos username, password, nombre, apellido,</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    email y groups. Se extiende la funcionalidad para almacenar</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">    telefono, direccion y roles de proyecto, de esta manera, para cada</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">    User existe un unico perfil de Usuario.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable apps.roles_proyecto.models.RolProyecto_Proyecto.user=apps.roles_proyecto.models.RolProyecto_Proyecto-class.html#user,Variable apps.usuarios.models.Usuario.user=apps.usuarios.models.Usuario-class.html#user"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
+apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-6', 'user', 'link-6');">user</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-7', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">OneToOneField</tt><tt class="py-op">(</tt><tt class="py-name">User</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable apps.clientes.models.Cliente.telefono=apps.clientes.models.Cliente-class.html#telefono,Variable apps.usuarios.forms.UserCreateForm.telefono=apps.usuarios.forms.UserCreateForm-class.html#telefono,Variable apps.usuarios.forms.UserUpdateForm.telefono=apps.usuarios.forms.UserUpdateForm-class.html#telefono,Variable apps.usuarios.models.Usuario.telefono=apps.usuarios.models.Usuario-class.html#telefono"><a title="apps.clientes.models.Cliente.telefono
+apps.usuarios.forms.UserCreateForm.telefono
 apps.usuarios.forms.UserUpdateForm.telefono
-apps.usuarios.models.Usuario.telefono" class="py-name" href="#" onclick="return doclink('link-4', 'telefono', 'link-4');">telefono</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-5', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">20</tt><tt class="py-op">)</tt> </tt>
-<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable apps.usuarios.forms.UserCreateForm.direccion=apps.usuarios.forms.UserCreateForm-class.html#direccion,Variable apps.usuarios.forms.UserUpdateForm.direccion=apps.usuarios.forms.UserUpdateForm-class.html#direccion,Variable apps.usuarios.models.Usuario.direccion=apps.usuarios.models.Usuario-class.html#direccion"><a title="apps.usuarios.forms.UserCreateForm.direccion
+apps.usuarios.models.Usuario.telefono" class="py-name" href="#" onclick="return doclink('link-8', 'telefono', 'link-8');">telefono</a></tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-9', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">20</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Variable apps.clientes.models.Cliente.direccion=apps.clientes.models.Cliente-class.html#direccion,Variable apps.usuarios.forms.UserCreateForm.direccion=apps.usuarios.forms.UserCreateForm-class.html#direccion,Variable apps.usuarios.forms.UserUpdateForm.direccion=apps.usuarios.forms.UserUpdateForm-class.html#direccion,Variable apps.usuarios.models.Usuario.direccion=apps.usuarios.models.Usuario-class.html#direccion"><a title="apps.clientes.models.Cliente.direccion
+apps.usuarios.forms.UserCreateForm.direccion
 apps.usuarios.forms.UserUpdateForm.direccion
-apps.usuarios.models.Usuario.direccion" class="py-name" href="#" onclick="return doclink('link-6', 'direccion', 'link-6');">direccion</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-7', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">50</tt><tt class="py-op">)</tt> </tt>
-<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
-<a name="Usuario.__unicode__"></a><div id="Usuario.__unicode__-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="Usuario.__unicode__-toggle" onclick="return toggle('Usuario.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.usuarios.models.Usuario-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Usuario.__unicode__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Usuario.__unicode__-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-8', 'user', 'link-2');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">get_username</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
-<a name="Usuario.get_absolute_url"></a><div id="Usuario.get_absolute_url-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="Usuario.get_absolute_url-toggle" onclick="return toggle('Usuario.get_absolute_url');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.usuarios.models.Usuario-class.html#get_absolute_url">get_absolute_url</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Usuario.get_absolute_url-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Usuario.get_absolute_url-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'usuarios'</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-string">'pk'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pk</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
-</div></div><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+apps.usuarios.models.Usuario.direccion" class="py-name" href="#" onclick="return doclink('link-10', 'direccion', 'link-10');">direccion</a></tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-11', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">CharField</tt><tt class="py-op">(</tt><tt class="py-name">max_length</tt><tt class="py-op">=</tt><tt class="py-number">50</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable apps.usuarios.models.Usuario.rolesproyecto=apps.usuarios.models.Usuario-class.html#rolesproyecto"><a title="apps.usuarios.models.Usuario.rolesproyecto" class="py-name" href="#" onclick="return doclink('link-12', 'rolesproyecto', 'link-12');">rolesproyecto</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-13', 'models', 'link-0');">models</a></tt><tt class="py-op">.</tt><tt class="py-name">ManyToManyField</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto" class="py-name" href="#" onclick="return doclink('link-14', 'RolProyecto', 'link-5');">RolProyecto</a></tt><tt class="py-op">,</tt> <tt class="py-name">null</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-name">User</tt><tt class="py-op">.</tt><tt class="py-name">_meta</tt><tt class="py-op">.</tt><tt class="py-name">get_field</tt><tt class="py-op">(</tt><tt class="py-string">'email'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">_unique</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="Usuario.__unicode__"></a><div id="Usuario.__unicode__-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="Usuario.__unicode__-toggle" onclick="return toggle('Usuario.__unicode__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.usuarios.models.Usuario-class.html#__unicode__">__unicode__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Usuario.__unicode__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Usuario.__unicode__-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
+apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-15', 'user', 'link-6');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">get_username</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="Usuario.get_absolute_url"></a><div id="Usuario.get_absolute_url-def"><a name="L26"></a><tt class="py-lineno">26</tt> <a class="py-toggle" href="#" id="Usuario.get_absolute_url-toggle" onclick="return toggle('Usuario.get_absolute_url');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.usuarios.models.Usuario-class.html#get_absolute_url">get_absolute_url</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Usuario.get_absolute_url-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Usuario.get_absolute_url-expanded"><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'usuarios'</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-string">'pk'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pk</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="Usuario.Meta"></a><div id="Usuario.Meta-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="Usuario.Meta-toggle" onclick="return toggle('Usuario.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.usuarios.models.Usuario.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="Usuario.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Usuario.Meta-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt id="link-16" class="py-name" targets="Variable apps.clientes.models.Cliente.Meta.default_permissions=apps.clientes.models.Cliente.Meta-class.html#default_permissions,Variable apps.flujos.models.Actividad.Meta.default_permissions=apps.flujos.models.Actividad.Meta-class.html#default_permissions,Variable apps.flujos.models.Estado.Meta.default_permissions=apps.flujos.models.Estado.Meta-class.html#default_permissions,Variable apps.flujos.models.Flujo.Meta.default_permissions=apps.flujos.models.Flujo.Meta-class.html#default_permissions,Variable apps.proyectos.models.Proyecto.Meta.default_permissions=apps.proyectos.models.Proyecto.Meta-class.html#default_permissions,Variable apps.roles_proyecto.models.RolProyecto.Meta.default_permissions=apps.roles_proyecto.models.RolProyecto.Meta-class.html#default_permissions,Variable apps.roles_proyecto.models.RolProyecto_Proyecto.Meta.default_permissions=apps.roles_proyecto.models.RolProyecto_Proyecto.Meta-class.html#default_permissions,Variable apps.usuarios.models.Usuario.Meta.default_permissions=apps.usuarios.models.Usuario.Meta-class.html#default_permissions"><a title="apps.clientes.models.Cliente.Meta.default_permissions
+apps.flujos.models.Actividad.Meta.default_permissions
+apps.flujos.models.Estado.Meta.default_permissions
+apps.flujos.models.Flujo.Meta.default_permissions
+apps.proyectos.models.Proyecto.Meta.default_permissions
+apps.roles_proyecto.models.RolProyecto.Meta.default_permissions
+apps.roles_proyecto.models.RolProyecto_Proyecto.Meta.default_permissions
+apps.usuarios.models.Usuario.Meta.default_permissions" class="py-name" href="#" onclick="return doclink('link-16', 'default_permissions', 'link-16');">default_permissions</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'crear'</tt><tt class="py-op">,</tt> <tt class="py-string">'modificar'</tt><tt class="py-op">,</tt> <tt class="py-string">'activar'</tt><tt class="py-op">,</tt> <tt class="py-string">'inactivar'</tt><tt class="py-op">,</tt> <tt class="py-string">'listar'</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -122,7 +174,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat Mar 28 10:00:37 2015
+    Generated by Epydoc 3.0.1 on Sat Apr 11 06:06:37 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

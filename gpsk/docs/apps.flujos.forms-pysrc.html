@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>apps.flujos.forms</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >GPSK</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="apps-module.html">Package&nbsp;apps</a> ::
+        <a href="apps.flujos-module.html">Package&nbsp;flujos</a> ::
+        Module&nbsp;forms
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="apps.flujos.forms-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="apps.flujos.forms-module.html">Module apps.flujos.forms</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module apps.flujos.forms=apps.flujos.forms-module.html,Module apps.proyectos.forms=apps.proyectos.forms-module.html,Module apps.roles.forms=apps.roles.forms-module.html,Module apps.roles_proyecto.forms=apps.roles_proyecto.forms-module.html,Module apps.usuarios.forms=apps.usuarios.forms-module.html,Module gpsk.forms=gpsk.forms-module.html"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-0', 'forms', 'link-0');">forms</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-1');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class apps.flujos.models.Flujo=apps.flujos.models.Flujo-class.html"><a title="apps.flujos.models.Flujo" class="py-name" href="#" onclick="return doclink('link-2', 'Flujo', 'link-2');">Flujo</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Class apps.flujos.models.Actividad=apps.flujos.models.Actividad-class.html"><a title="apps.flujos.models.Actividad" class="py-name" href="#" onclick="return doclink('link-3', 'Actividad', 'link-3');">Actividad</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Class apps.flujos.models.Estado=apps.flujos.models.Estado-class.html"><a title="apps.flujos.models.Estado" class="py-name" href="#" onclick="return doclink('link-4', 'Estado', 'link-4');">Estado</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-5', 'forms', 'link-0');">forms</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">ModelMultipleChoiceField</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="MyModelMultipleChoiceField"></a><div id="MyModelMultipleChoiceField-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="MyModelMultipleChoiceField-toggle" onclick="return toggle('MyModelMultipleChoiceField');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.forms.MyModelMultipleChoiceField-class.html">MyModelMultipleChoiceField</a><tt class="py-op">(</tt><tt class="py-base-class">ModelMultipleChoiceField</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MyModelMultipleChoiceField-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="MyModelMultipleChoiceField-expanded"><a name="MyModelMultipleChoiceField.label_from_instance"></a><div id="MyModelMultipleChoiceField.label_from_instance-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="MyModelMultipleChoiceField.label_from_instance-toggle" onclick="return toggle('MyModelMultipleChoiceField.label_from_instance');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.flujos.forms.MyModelMultipleChoiceField-class.html#label_from_instance">label_from_instance</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">obj</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MyModelMultipleChoiceField.label_from_instance-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="MyModelMultipleChoiceField.label_from_instance-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"%s -- orden: %d"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">obj</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Variable apps.clientes.models.Cliente.nombre=apps.clientes.models.Cliente-class.html#nombre,Variable apps.flujos.models.Actividad.nombre=apps.flujos.models.Actividad-class.html#nombre,Variable apps.flujos.models.Estado.nombre=apps.flujos.models.Estado-class.html#nombre,Variable apps.flujos.models.Flujo.nombre=apps.flujos.models.Flujo-class.html#nombre"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-6', 'nombre', 'link-6');">nombre</a></tt><tt class="py-op">,</tt> <tt class="py-name">obj</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Variable apps.flujos.models.Actividad.orden=apps.flujos.models.Actividad-class.html#orden"><a title="apps.flujos.models.Actividad.orden" class="py-name" href="#" onclick="return doclink('link-7', 'orden', 'link-7');">orden</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="FlujoCreateForm"></a><div id="FlujoCreateForm-def"><a name="L12"></a><tt class="py-lineno">12</tt> <a class="py-toggle" href="#" id="FlujoCreateForm-toggle" onclick="return toggle('FlujoCreateForm');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.forms.FlujoCreateForm-class.html">FlujoCreateForm</a><tt class="py-op">(</tt><tt class="py-base-class">forms</tt><tt class="py-op">.</tt><tt class="py-base-class">ModelForm</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlujoCreateForm-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="FlujoCreateForm-expanded"><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable apps.flujos.forms.FlujoCreateForm.actividades=apps.flujos.forms.FlujoCreateForm-class.html#actividades,Variable apps.flujos.models.Flujo.actividades=apps.flujos.models.Flujo-class.html#actividades"><a title="apps.flujos.forms.FlujoCreateForm.actividades
+apps.flujos.models.Flujo.actividades" class="py-name" href="#" onclick="return doclink('link-8', 'actividades', 'link-8');">actividades</a></tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name" targets="Class apps.flujos.forms.MyModelMultipleChoiceField=apps.flujos.forms.MyModelMultipleChoiceField-class.html,Class apps.roles.forms.MyModelMultipleChoiceField=apps.roles.forms.MyModelMultipleChoiceField-class.html,Class apps.roles_proyecto.forms.MyModelMultipleChoiceField=apps.roles_proyecto.forms.MyModelMultipleChoiceField-class.html"><a title="apps.flujos.forms.MyModelMultipleChoiceField
+apps.roles.forms.MyModelMultipleChoiceField
+apps.roles_proyecto.forms.MyModelMultipleChoiceField" class="py-name" href="#" onclick="return doclink('link-9', 'MyModelMultipleChoiceField', 'link-9');">MyModelMultipleChoiceField</a></tt><tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="apps.flujos.models.Actividad" class="py-name" href="#" onclick="return doclink('link-10', 'Actividad', 'link-3');">Actividad</a></tt><tt class="py-op">.</tt><tt class="py-name">objects</tt><tt class="py-op">.</tt><tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">            <tt class="py-name">widget</tt><tt class="py-op">=</tt><tt id="link-11" class="py-name"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-11', 'forms', 'link-0');">forms</a></tt><tt class="py-op">.</tt><tt class="py-name">CheckboxSelectMultiple</tt><tt class="py-op">,</tt> <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">     </tt>
+<a name="FlujoCreateForm.Meta"></a><div id="FlujoCreateForm.Meta-def"><a name="L16"></a><tt class="py-lineno">16</tt> <a class="py-toggle" href="#" id="FlujoCreateForm.Meta-toggle" onclick="return toggle('FlujoCreateForm.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.forms.FlujoCreateForm.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="FlujoCreateForm.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="FlujoCreateForm.Meta-expanded"><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt id="link-12" class="py-name" targets="Variable apps.clientes.views.actualizarCliente.model=apps.clientes.views.actualizarCliente-class.html#model,Variable apps.clientes.views.crearCliente.model=apps.clientes.views.crearCliente-class.html#model,Variable apps.clientes.views.listarClientes.model=apps.clientes.views.listarClientes-class.html#model,Variable apps.flujos.forms.ActividadCreateForm.Meta.model=apps.flujos.forms.ActividadCreateForm.Meta-class.html#model,Variable apps.flujos.forms.FlujoCreateForm.Meta.model=apps.flujos.forms.FlujoCreateForm.Meta-class.html#model,Variable apps.flujos.views.IndexView.model=apps.flujos.views.IndexView-class.html#model,Variable apps.proyectos.forms.AddMiembroForm.Meta.model=apps.proyectos.forms.AddMiembroForm.Meta-class.html#model,Variable apps.proyectos.forms.ProyectoCreateForm.Meta.model=apps.proyectos.forms.ProyectoCreateForm.Meta-class.html#model,Variable apps.proyectos.forms.ProyectoUpdateForm.Meta.model=apps.proyectos.forms.ProyectoUpdateForm.Meta-class.html#model,Variable apps.proyectos.forms.RolMiembroForm.Meta.model=apps.proyectos.forms.RolMiembroForm.Meta-class.html#model,Variable apps.proyectos.views.IndexView.model=apps.proyectos.views.IndexView-class.html#model,Variable apps.roles.forms.RolAsignarPermisosForm.Meta.model=apps.roles.forms.RolAsignarPermisosForm.Meta-class.html#model,Variable apps.roles.forms.RolCreateForm.Meta.model=apps.roles.forms.RolCreateForm.Meta-class.html#model,Variable apps.roles.forms.RolUpdateForm.Meta.model=apps.roles.forms.RolUpdateForm.Meta-class.html#model,Variable apps.roles.views.IndexView.model=apps.roles.views.IndexView-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.model=apps.roles_proyecto.forms.RolProyectoCreateForm.Meta-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.model=apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.model=apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta-class.html#model,Variable apps.roles_proyecto.views.IndexView.model=apps.roles_proyecto.views.IndexView-class.html#model,Variable apps.usuarios.admin.UsuarioInline.model=apps.usuarios.admin.UsuarioInline-class.html#model,Variable apps.usuarios.forms.UserAsignarRolesForm.Meta.model=apps.usuarios.forms.UserAsignarRolesForm.Meta-class.html#model,Variable apps.usuarios.forms.UserCreateForm.Meta.model=apps.usuarios.forms.UserCreateForm.Meta-class.html#model,Variable apps.usuarios.forms.UserUpdateForm.Meta.model=apps.usuarios.forms.UserUpdateForm.Meta-class.html#model,Variable apps.usuarios.views.DetailViewRoles.model=apps.usuarios.views.DetailViewRoles-class.html#model,Variable gpsk.forms.UserProfileForm.Meta.model=gpsk.forms.UserProfileForm.Meta-class.html#model"><a title="apps.clientes.views.actualizarCliente.model
+apps.clientes.views.crearCliente.model
+apps.clientes.views.listarClientes.model
+apps.flujos.forms.ActividadCreateForm.Meta.model
+apps.flujos.forms.FlujoCreateForm.Meta.model
+apps.flujos.views.IndexView.model
+apps.proyectos.forms.AddMiembroForm.Meta.model
+apps.proyectos.forms.ProyectoCreateForm.Meta.model
+apps.proyectos.forms.ProyectoUpdateForm.Meta.model
+apps.proyectos.forms.RolMiembroForm.Meta.model
+apps.proyectos.views.IndexView.model
+apps.roles.forms.RolAsignarPermisosForm.Meta.model
+apps.roles.forms.RolCreateForm.Meta.model
+apps.roles.forms.RolUpdateForm.Meta.model
+apps.roles.views.IndexView.model
+apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.model
+apps.roles_proyecto.views.IndexView.model
+apps.usuarios.admin.UsuarioInline.model
+apps.usuarios.forms.UserAsignarRolesForm.Meta.model
+apps.usuarios.forms.UserCreateForm.Meta.model
+apps.usuarios.forms.UserUpdateForm.Meta.model
+apps.usuarios.views.DetailViewRoles.model
+gpsk.forms.UserProfileForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-12', 'model', 'link-12');">model</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="apps.flujos.models.Flujo" class="py-name" href="#" onclick="return doclink('link-13', 'Flujo', 'link-2');">Flujo</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt id="link-14" class="py-name" targets="Variable apps.flujos.forms.ActividadCreateForm.Meta.fields=apps.flujos.forms.ActividadCreateForm.Meta-class.html#fields,Variable apps.flujos.forms.FlujoCreateForm.Meta.fields=apps.flujos.forms.FlujoCreateForm.Meta-class.html#fields,Variable apps.proyectos.forms.AddMiembroForm.Meta.fields=apps.proyectos.forms.AddMiembroForm.Meta-class.html#fields,Variable apps.proyectos.forms.ProyectoCreateForm.Meta.fields=apps.proyectos.forms.ProyectoCreateForm.Meta-class.html#fields,Variable apps.proyectos.forms.ProyectoUpdateForm.Meta.fields=apps.proyectos.forms.ProyectoUpdateForm.Meta-class.html#fields,Variable apps.proyectos.forms.RolMiembroForm.Meta.fields=apps.proyectos.forms.RolMiembroForm.Meta-class.html#fields,Variable apps.roles.forms.RolAsignarPermisosForm.Meta.fields=apps.roles.forms.RolAsignarPermisosForm.Meta-class.html#fields,Variable apps.roles.forms.RolCreateForm.Meta.fields=apps.roles.forms.RolCreateForm.Meta-class.html#fields,Variable apps.roles.forms.RolUpdateForm.Meta.fields=apps.roles.forms.RolUpdateForm.Meta-class.html#fields,Variable apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.fields=apps.roles_proyecto.forms.RolProyectoCreateForm.Meta-class.html#fields,Variable apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.fields=apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta-class.html#fields,Variable apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.fields=apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta-class.html#fields,Variable apps.usuarios.forms.UserAsignarRolesForm.Meta.fields=apps.usuarios.forms.UserAsignarRolesForm.Meta-class.html#fields,Variable apps.usuarios.forms.UserCreateForm.Meta.fields=apps.usuarios.forms.UserCreateForm.Meta-class.html#fields,Variable apps.usuarios.forms.UserUpdateForm.Meta.fields=apps.usuarios.forms.UserUpdateForm.Meta-class.html#fields,Variable gpsk.forms.UserProfileForm.Meta.fields=gpsk.forms.UserProfileForm.Meta-class.html#fields"><a title="apps.flujos.forms.ActividadCreateForm.Meta.fields
+apps.flujos.forms.FlujoCreateForm.Meta.fields
+apps.proyectos.forms.AddMiembroForm.Meta.fields
+apps.proyectos.forms.ProyectoCreateForm.Meta.fields
+apps.proyectos.forms.ProyectoUpdateForm.Meta.fields
+apps.proyectos.forms.RolMiembroForm.Meta.fields
+apps.roles.forms.RolAsignarPermisosForm.Meta.fields
+apps.roles.forms.RolCreateForm.Meta.fields
+apps.roles.forms.RolUpdateForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.fields
+apps.usuarios.forms.UserAsignarRolesForm.Meta.fields
+apps.usuarios.forms.UserCreateForm.Meta.fields
+apps.usuarios.forms.UserUpdateForm.Meta.fields
+gpsk.forms.UserProfileForm.Meta.fields" class="py-name" href="#" onclick="return doclink('link-14', 'fields', 'link-14');">fields</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-string">'nombre'</tt><tt class="py-op">,</tt> <tt class="py-string">'actividades'</tt><tt class="py-op">]</tt> </tt>
+</div></div><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="ActividadCreateForm"></a><div id="ActividadCreateForm-def"><a name="L22"></a><tt class="py-lineno">22</tt> <a class="py-toggle" href="#" id="ActividadCreateForm-toggle" onclick="return toggle('ActividadCreateForm');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.forms.ActividadCreateForm-class.html">ActividadCreateForm</a><tt class="py-op">(</tt><tt class="py-base-class">forms</tt><tt class="py-op">.</tt><tt class="py-base-class">ModelForm</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ActividadCreateForm-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ActividadCreateForm-expanded"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">     </tt>
+<a name="ActividadCreateForm.Meta"></a><div id="ActividadCreateForm.Meta-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="ActividadCreateForm.Meta-toggle" onclick="return toggle('ActividadCreateForm.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.flujos.forms.ActividadCreateForm.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="ActividadCreateForm.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ActividadCreateForm.Meta-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="apps.clientes.views.actualizarCliente.model
+apps.clientes.views.crearCliente.model
+apps.clientes.views.listarClientes.model
+apps.flujos.forms.ActividadCreateForm.Meta.model
+apps.flujos.forms.FlujoCreateForm.Meta.model
+apps.flujos.views.IndexView.model
+apps.proyectos.forms.AddMiembroForm.Meta.model
+apps.proyectos.forms.ProyectoCreateForm.Meta.model
+apps.proyectos.forms.ProyectoUpdateForm.Meta.model
+apps.proyectos.forms.RolMiembroForm.Meta.model
+apps.proyectos.views.IndexView.model
+apps.roles.forms.RolAsignarPermisosForm.Meta.model
+apps.roles.forms.RolCreateForm.Meta.model
+apps.roles.forms.RolUpdateForm.Meta.model
+apps.roles.views.IndexView.model
+apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.model
+apps.roles_proyecto.views.IndexView.model
+apps.usuarios.admin.UsuarioInline.model
+apps.usuarios.forms.UserAsignarRolesForm.Meta.model
+apps.usuarios.forms.UserCreateForm.Meta.model
+apps.usuarios.forms.UserUpdateForm.Meta.model
+apps.usuarios.views.DetailViewRoles.model
+gpsk.forms.UserProfileForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-15', 'model', 'link-12');">model</a></tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="apps.flujos.models.Actividad" class="py-name" href="#" onclick="return doclink('link-16', 'Actividad', 'link-3');">Actividad</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.Meta.fields
+apps.flujos.forms.FlujoCreateForm.Meta.fields
+apps.proyectos.forms.AddMiembroForm.Meta.fields
+apps.proyectos.forms.ProyectoCreateForm.Meta.fields
+apps.proyectos.forms.ProyectoUpdateForm.Meta.fields
+apps.proyectos.forms.RolMiembroForm.Meta.fields
+apps.roles.forms.RolAsignarPermisosForm.Meta.fields
+apps.roles.forms.RolCreateForm.Meta.fields
+apps.roles.forms.RolUpdateForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.fields
+apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.fields
+apps.usuarios.forms.UserAsignarRolesForm.Meta.fields
+apps.usuarios.forms.UserCreateForm.Meta.fields
+apps.usuarios.forms.UserUpdateForm.Meta.fields
+gpsk.forms.UserProfileForm.Meta.fields" class="py-name" href="#" onclick="return doclink('link-17', 'fields', 'link-14');">fields</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-string">'nombre'</tt><tt class="py-op">,</tt> <tt class="py-string">'orden'</tt> <tt class="py-op">]</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="ActividadCreateForm.save"></a><div id="ActividadCreateForm.save-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="ActividadCreateForm.save-toggle" onclick="return toggle('ActividadCreateForm.save');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="apps.flujos.forms.ActividadCreateForm-class.html#save">save</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">commit</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ActividadCreateForm.save-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ActividadCreateForm.save-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">commit</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">"Can't create Actividad without database save"</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-name">actividad</tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-18" class="py-name" targets="Class apps.flujos.forms.ActividadCreateForm=apps.flujos.forms.ActividadCreateForm-class.html"><a title="apps.flujos.forms.ActividadCreateForm" class="py-name" href="#" onclick="return doclink('link-18', 'ActividadCreateForm', 'link-18');">ActividadCreateForm</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method apps.flujos.forms.ActividadCreateForm.save()=apps.flujos.forms.ActividadCreateForm-class.html#save,Method apps.proyectos.forms.AddMiembroForm.save()=apps.proyectos.forms.AddMiembroForm-class.html#save,Method apps.proyectos.forms.ProyectoCreateForm.save()=apps.proyectos.forms.ProyectoCreateForm-class.html#save,Method apps.proyectos.forms.ProyectoUpdateForm.save()=apps.proyectos.forms.ProyectoUpdateForm-class.html#save,Method apps.proyectos.forms.RolMiembroForm.save()=apps.proyectos.forms.RolMiembroForm-class.html#save,Method apps.roles_proyecto.forms.RolProyectoCreateForm.save()=apps.roles_proyecto.forms.RolProyectoCreateForm-class.html#save,Method apps.usuarios.forms.UserCreateForm.save()=apps.usuarios.forms.UserCreateForm-class.html#save,Method apps.usuarios.forms.UserUpdateForm.save()=apps.usuarios.forms.UserUpdateForm-class.html#save"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.proyectos.forms.AddMiembroForm.save
+apps.proyectos.forms.ProyectoCreateForm.save
+apps.proyectos.forms.ProyectoUpdateForm.save
+apps.proyectos.forms.RolMiembroForm.save
+apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.usuarios.forms.UserCreateForm.save
+apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-19', 'save', 'link-19');">save</a></tt><tt class="py-op">(</tt><tt class="py-name">commit</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">estado1</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="apps.flujos.models.Estado" class="py-name" href="#" onclick="return doclink('link-20', 'Estado', 'link-4');">Estado</a></tt><tt class="py-op">(</tt><tt id="link-21" class="py-name"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-21', 'nombre', 'link-6');">nombre</a></tt><tt class="py-op">=</tt><tt class="py-string">"To do"</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-name">estado1</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.proyectos.forms.AddMiembroForm.save
+apps.proyectos.forms.ProyectoCreateForm.save
+apps.proyectos.forms.ProyectoUpdateForm.save
+apps.proyectos.forms.RolMiembroForm.save
+apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.usuarios.forms.UserCreateForm.save
+apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-22', 'save', 'link-19');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-name">estado2</tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="apps.flujos.models.Estado" class="py-name" href="#" onclick="return doclink('link-23', 'Estado', 'link-4');">Estado</a></tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-24', 'nombre', 'link-6');">nombre</a></tt><tt class="py-op">=</tt><tt class="py-string">"Doing"</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-name">estado2</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.proyectos.forms.AddMiembroForm.save
+apps.proyectos.forms.ProyectoCreateForm.save
+apps.proyectos.forms.ProyectoUpdateForm.save
+apps.proyectos.forms.RolMiembroForm.save
+apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.usuarios.forms.UserCreateForm.save
+apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-25', 'save', 'link-19');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">estado3</tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="apps.flujos.models.Estado" class="py-name" href="#" onclick="return doclink('link-26', 'Estado', 'link-4');">Estado</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="apps.clientes.models.Cliente.nombre
+apps.flujos.models.Actividad.nombre
+apps.flujos.models.Estado.nombre
+apps.flujos.models.Flujo.nombre" class="py-name" href="#" onclick="return doclink('link-27', 'nombre', 'link-6');">nombre</a></tt><tt class="py-op">=</tt><tt class="py-string">"Done"</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-name">estado3</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.proyectos.forms.AddMiembroForm.save
+apps.proyectos.forms.ProyectoCreateForm.save
+apps.proyectos.forms.ProyectoUpdateForm.save
+apps.proyectos.forms.RolMiembroForm.save
+apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.usuarios.forms.UserCreateForm.save
+apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-28', 'save', 'link-19');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-name">actividad</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Variable apps.flujos.models.Actividad.estados=apps.flujos.models.Actividad-class.html#estados"><a title="apps.flujos.models.Actividad.estados" class="py-name" href="#" onclick="return doclink('link-29', 'estados', 'link-29');">estados</a></tt><tt class="py-op">.</tt><tt class="py-name">add</tt><tt class="py-op">(</tt><tt class="py-name">estado1</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-name">actividad</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="apps.flujos.models.Actividad.estados" class="py-name" href="#" onclick="return doclink('link-30', 'estados', 'link-29');">estados</a></tt><tt class="py-op">.</tt><tt class="py-name">add</tt><tt class="py-op">(</tt><tt class="py-name">estado2</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-name">actividad</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="apps.flujos.models.Actividad.estados" class="py-name" href="#" onclick="return doclink('link-31', 'estados', 'link-29');">estados</a></tt><tt class="py-op">.</tt><tt class="py-name">add</tt><tt class="py-op">(</tt><tt class="py-name">estado3</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-name">actividad</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.proyectos.forms.AddMiembroForm.save
+apps.proyectos.forms.ProyectoCreateForm.save
+apps.proyectos.forms.ProyectoUpdateForm.save
+apps.proyectos.forms.RolMiembroForm.save
+apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.usuarios.forms.UserCreateForm.save
+apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-32', 'save', 'link-19');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">actividad</tt> </tt>
+</div></div><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >GPSK</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Apr 11 06:06:37 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
