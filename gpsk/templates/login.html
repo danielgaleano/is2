@@ -29,15 +29,12 @@
         <input id="inputEmail" class="form-control" placeholder="Usuario" required="" autofocus="" type="text" name="username">
         <label for="password" class="sr-only">Password</label>
         <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password" name="password">
-       <!-- <div class="checkbox">
-           <label>
-            <input value="remember-me" type="checkbox"> Remember me
-          </label>
-        </div> -->
+        <div class="checkbox">
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
         <input type="hidden" name="next" value="{{ next }}">
-
+            <div><a href="{% url 'reset' %}"><i class="fa fa-fw fa-lock"></i>Olvide mi contraseña</a></div>
+        </div>
       </form>
 
     </div>

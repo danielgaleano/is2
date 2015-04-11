@@ -54,7 +54,7 @@ class UsuariosTest(TestCase):
         self.assertTrue(user)
 
         # se crea un usuario
-        user = User.objects.create_user(username='user_prueba', email='test@test.com', password='prueba')
+        user = User.objects.create_user(username='user_prueba', email='test@test2.com', password='prueba')
         Usuario.objects.create(user=user, telefono='222', direccion='Avenida')
 
         self.assertEqual(Usuario.objects.get(user=user).user.username, 'user_prueba')

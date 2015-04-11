@@ -1,28 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
-<a type="button" class="btn btn-info" href="{% url 'usuarios:index' %}" >
+<a type="button" class="btn btn-info" href="{% url 'home' %}" >
 	<i class="fa fa-fw fa-chevron-left"></i> Atrás
 </a>
+
 
 	<!-- Page Heading -->
 	    <div class="row">
 	        <div class="col-lg-12">
 	            <h1 class="page-header">
-	                 Modificar Usuario
+	                 Modificar Perfil
 	            </h1>
 	        </div>
 	    </div>
 	<!-- /.row -->
-	<a type="button" class="btn btn-success pull-right" href="{% url 'usuarios:change_password' user_detail.pk %}" >
+	<a type="button" class="btn btn-success pull-right" href="{% url 'profile_password_change' %}" >
 	<i class="fa fa-lg fa-key"></i>
 		Cambiar Contraseña
 	</a>
 <div id="form_usuario">
-<form action=" {{ usuario.get_absolute_url }} " method="post">
+<form action=" {{ scrum.get_absolute_url }} " method="post">
 	{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Modificar" class="btn btn-primary"/>
 </form>
-    </div>
+</div>
 {% endblock %}

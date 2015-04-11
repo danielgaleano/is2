@@ -27,6 +27,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps.usuarios',
     'apps.clientes',
+    'apps.roles',
+    'apps.proyectos',
+    'apps.roles_proyecto',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,3 +62,12 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
 TEMPLATE_DIRS = [BASE_DIR.child('templates')]
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'gpsk.system@gmail.com'
+EMAIL_HOST_PASSWORD = 'gpsk@password'
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER

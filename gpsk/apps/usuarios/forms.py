@@ -1,9 +1,10 @@
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.forms import UserCreationForm
 
 from models import Usuario
 from views import *
+from django.contrib.auth.forms import AdminPasswordChangeForm
 
 
 class UserCreateForm(UserCreationForm):
@@ -78,3 +79,29 @@ class UserUpdateForm(forms.ModelForm):
         usuario.direccion = self.cleaned_data['direccion']
         usuario.save()
         return user, usuario
+
+
+class UserAsignarRolesForm(forms.ModelForm):
+
+    groups = forms.ModelMultipleChoiceField(Group.objects.all().filter(rolproyecto__es_rol_proyecto=None),
+                                            widget=forms.CheckboxSelectMultiple, required=False)
+
+    class Meta:
+        model = User
+        fields = ['groups']
+
+
+class MyPasswordChangeForm(AdminPasswordChangeForm):
+    error_messages = {
+        'password_too_short': ("El password debe tener al menos 5 carateres."),
+        'password_mismatch': ("Los dos campos de password no coinciden."),
+        }
+
+    def clean_password1(self):
+        passwd = self.cleaned_data['password1']
+        if passwd and len(passwd) < 5:
+            raise forms.ValidationError(
+                self.error_messages['password_too_short'],
+                code='password_too_short',
+            )
+        return passwd

@@ -7,6 +7,7 @@
   	{% load staticfiles %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
     <link href="{% static 'css/sb-admin.css' %}" rel="stylesheet" media="screen">
+      <link href="{% static "css/bootstrap-datepicker.css" %}" rel="stylesheet" media="screen">
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
       <link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
   </head>
@@ -31,7 +32,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-lg fa-user"></i> {{user}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i>Mi Perfil</a>
+                            <a href="{% url 'user_profile' %}"><i class="fa fa-fw fa-user"></i> Mi Perfil</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -43,26 +44,34 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+                    {% if perms.usuarios %}
                     <li>
                         <a href="{% url 'usuarios:index' %}"><i class="fa fa-lg fa-user"></i> Usuarios</a>
                     </li>
+                    {% endif %}
 
+                    {% if perms.auth.add_group or perms.auth.change_group or perms.auth.delete_group or perms.roles_proyecto %}
                     <li>
                         <a aria-expanded="true" class="" href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-lg fa-arrows-v"></i> Roles <i class="fa fa-lg fa-caret-down"></i></a>
                         <ul style="" aria-expanded="true" id="demo" class="collapse in">
+                            {% if perms.auth.add_group or perms.auth.change_group or perms.auth.delete_group %}
                             <li>
-                                <a href="#"><i class="fa fa-lg fa-group"></i> Roles de Sistema</a>
+                                <a href="{% url 'roles:index' %}"><i class="fa fa-lg fa-group"></i> Roles de Sistema</a>
                             </li>
+                            {% endif %}
+                            {% if perms.roles_proyecto %}
                             <li>
-                                <a href="#"><i class="fa fa-lg fa-group"></i> Roles de Proyecto</a>
+                                <a href="{% url 'roles_proyecto:index' %}"><i class="fa fa-lg fa-group"></i> Roles de Proyecto</a>
                             </li>
+                            {% endif %}
                         </ul>
                     </li>
-
-
+                    {% endif %}
+                    {% if perms.proyectos %}
                     <li>
-                        <a href="#"><i class="fa fa-lg fa-table"></i> Proyectos</a>
+                        <a href="{% url 'proyectos:index' %}"><i class="fa fa-lg fa-table"></i> Proyectos</a>
                     </li>
+                    {% endif %}
                     <li>
                         <a href="{% url 'clientes:index' %}"><i class="fa fa-lg fa-user"></i> Clientes</a>
                     </li>
@@ -90,6 +99,9 @@
 
 	<script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static "js/bootstrap-datepicker.js" %}"></script>
+    <script src="{% static "js/bootstrap-datepicker.es.js" %}"></script>
+    <script src="{% static "js/forms.js" %}"></script>
 
   </body>
 </html>

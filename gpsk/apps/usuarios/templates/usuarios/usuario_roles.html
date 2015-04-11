@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'usuarios:index' %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Roles del usuario <small>{{user_detail}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+    {% if perms.usuarios.modificar_usuario %}
+	<a type="button" class="btn btn-success pull-right" href="{% url 'usuarios:user_roles' user_detail.id%}" >
+	<i class="fa fa-lg fa-group"></i>
+		Asignar/Desasignar Rol de Sistema
+	</a>
+    {% endif %}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Roles de Sistema</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		{% for grupo in  lista %}
+
+				<tr>
+					<td>{{grupo.name}}</td>
+
+
+				</tr>
+		{% endfor %}
+
+	</tbody>
+
+</table>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Roles de Proyecto</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		{% for fila in rolesproyecto_list.all %}
+
+				<tr>
+					<td><strong>{{fila.rol_proyecto}}</strong> en {{fila.proyecto}}</td>
+
+				</tr>
+
+		{% endfor %}
+
+	</tbody>
+
+</table>
+
+
+{% endblock %}

@@ -22,3 +22,11 @@
 #welcome-text {
 	text-align: center;
 }
+ul {
+	list-style-type: none;
+}
+.errorlist{
+		width: 350px;
+		padding: 5px;
+		margin-bottom: 5px;
+}
