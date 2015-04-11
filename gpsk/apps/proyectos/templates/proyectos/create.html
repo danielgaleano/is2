@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'proyectos:index' %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                 Crear Proyecto
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+<form action=" {{ proyecto.get_absolute_url }} " method="post" id="form_proyecto">
+	{% csrf_token %}
+	<p>{{ form.nombre_corto.errors }}
+	<label for="nombre_corto">Nombre corto</label>
+	{{ form.nombre_corto }}
+	</p>
+	
+	<p>{{ form.nombre_largo.errors }}
+	<label for="nombre_largo">Nombre largo</label>
+	{{ form.nombre_largo }}
+	</p>
+
+	<p>{{ form.scrum_master.errors }}
+	<label for="scrum_master">Scrum Master</label>
+	{{ form.scrum_master }}
+	</p>
+	
+	<p>{{ form.fecha_inicio.errors }}
+	<label for="fecha_inicio">Fecha de inicio</label>
+	{{ form.fecha_inicio }}
+	</p>
+
+	<p>{{ form.fecha_fin.errors }}
+	<label for="fecha_fin">Fecha de fin</label>
+	{{ form.fecha_fin }}
+	</p>
+
+    <input type="submit" value="Crear" class="btn btn-success" id="submit-proyecto"/>
+</form>
+{% endblock %}

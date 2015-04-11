@@ -58,7 +58,7 @@ class UsuariosTest(TestCase):
         Usuario.objects.create(user=user, telefono='222', direccion='Avenida')
 
         self.assertEqual(Usuario.objects.get(user=user).user.username, 'user_prueba')
-        self.assertEqual(Usuario.objects.get(user=user).user.email, 'test@test.com')
+        self.assertEqual(Usuario.objects.get(user=user).user.email, 'test@test2.com')
         self.assertEqual(Usuario.objects.get(user=user).telefono, '222')
 
         print 'Test de UserCreate realizado exitosamente'
@@ -73,7 +73,7 @@ class UsuariosTest(TestCase):
         self.assertTrue(user)
 
         # se crea un usuario
-        user = User.objects.create_user(username='user_prueba', email='test@test.com', password='prueba')
+        user = User.objects.create_user(username='user_prueba', email='test@test3.com', password='prueba')
         usuario_prueba = Usuario.objects.create(user=user, telefono='222', direccion='Avenida')
 
         # se crean nuevos valos para los atributos
@@ -101,7 +101,7 @@ class UsuariosTest(TestCase):
         user = self.client.login(username='testuser', password='test')
         self.assertTrue(user)
         # se crea un usuario
-        user = User.objects.create_user(username='user_prueba', email='test@test.com', password='prueba')
+        user = User.objects.create_user(username='user_prueba', email='test@test4.com', password='prueba')
         usuario_prueba = Usuario.objects.create(user=user, telefono='222', direccion='Avenida')
         # se marca al usuario como inactivo
         usuario_prueba.user.is_active = False
@@ -120,7 +120,7 @@ class UsuariosTest(TestCase):
         user = self.client.login(username='testuser', password='test')
         self.assertTrue(user)
         # se crea un usuario
-        user = User.objects.create_user(username='user_prueba', email='test@test.com', password='prueba')
+        user = User.objects.create_user(username='user_prueba', email='test@test5.com', password='prueba')
         usuario_prueba = Usuario.objects.create(user=user, telefono='222', direccion='Avenida')
         # se marca al usuario como inactivo
         usuario_prueba.user.is_active = False

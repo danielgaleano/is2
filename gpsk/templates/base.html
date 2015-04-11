@@ -72,13 +72,17 @@
                         <a href="{% url 'proyectos:index' %}"><i class="fa fa-lg fa-table"></i> Proyectos</a>
                     </li>
                     {% endif %}
+                    {% if perms.flujos %}
+                    <li>
+                        <a href="{% url 'flujos:index' %}"><i class="fa fa-lg fa-exchange"></i> Flujos</a>
+                    </li>
+                    {% endif %}
+                    {% if perms.clientes %}
                     <li>
                         <a href="{% url 'clientes:index' %}"><i class="fa fa-lg fa-user"></i> Clientes</a>
                     </li>
+                    {% endif %}
 
-                    <li>
-                        <a href="{% url 'flujos:index' %}"><i class="fa fa-lg fa-table"></i> Flujos</a>
-                    </li>
 
                 </ul>
             </div>

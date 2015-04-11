@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Roles de Sistema <small>Administración</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+{% if perms.auth.add_group %}
+	<a type="button" class="btn btn-success pull-right" href="{% url 'roles:create' %}" >
+	<i class="fa fa-lg fa-group"></i>
+		Nuevo Rol de Sistema
+	</a>
+{% endif %}
+
+
+	
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Permisos</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		{% for group in  group_list %}
+			{% if not group.rolproyecto.es_rol_proyecto %}
+				
+			
+				<tr>
+					<td>{{group.name}}</td>
+					
+					<td>
+						{% for permission in group.permissions.all  %} 
+		    			<ul class="fa-ul">
+			    			<li><i class="fa-li fa fa-check-square"></i>
+			    			{% if 'add_group' in permission.codename %}
+			    				Crear Rol
+			    			{% elif 'change_group' in permission.codename %}
+								Modificar Rol
+							{% elif 'delete_group' in permission.codename %}
+								Eliminar Rol
+							{% else %}
+								{{permission.codename}}
+			    			{% endif %}
+
+			    				
+			    			</li>
+		    			</ul>
+		    			{% endfor %}</p>
+					</td>
+
+					{% if perms.auth.change_group %}
+
+					<td>
+						<a type="button" class="btn btn-primary" href="{% url 'roles:update' group.id %}">
+						<i class="fa fa-lg fa-edit"></i>
+						</a>
+					</td>
+
+					<td>
+						<a type="button" class="btn btn-warning" href="{% url 'roles:rol_permisos' group.id %}">
+						<i class="fa fa-lg fa-key"></i>
+						</a>
+					</td>
+                    {% else %}
+						<td></td>
+						<td></td>
+						{% endif %}
+					{% if perms.auth.delete_group %}
+					<td>
+						<a type="button" class="btn btn-danger" href="{% url 'roles:delete' group.id %}">
+						<i class="fa fa-lg fa-remove"></i>
+						</a>
+					</td>
+					{% else %}
+						<td></td>
+
+					{% endif %}
+					
+				</tr>
+				{% else %}
+			{% endif %}
+
+		{% endfor %}
+			
+	</tbody>
+</table>
+
+
+{% endblock %}

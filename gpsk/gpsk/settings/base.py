@@ -30,6 +30,7 @@ INSTALLED_APPS = (
     'apps.roles',
     'apps.proyectos',
     'apps.roles_proyecto',
+    'apps.flujos',
 
 )
 

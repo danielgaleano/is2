@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<a type="button" class="btn btn-info" href="{% url 'proyectos:equipo_list' proyecto_detail.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Añadir miembro <small>{{proyecto_detail}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+	<form action=" {{ proyectos.get_absolute_url }} " method="post">
+    {% csrf_token %}
+
+    {{ form.codigo.errors }}
+    {{ form.codigo }}
+
+    <p>
+    {{ form.usuario.errors }}
+    <label for="usuario">Usuario</label>
+    {{ form.usuario }}
+    </p>
+    <p>
+	{{ form.rolproyecto.errors }}
+	<label for="rolproyecto">Rol de proyecto</label>
+	{{ form.rolproyecto }}
+	</p>
+
+
+    <input type="submit" value="Guardar" class="btn btn-warning"/>
+</form>
+{% endblock %}
+

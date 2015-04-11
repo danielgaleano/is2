@@ -21,3 +21,6 @@ class Cliente(models.Model):
 
     def get_absolute_url(self):
         return reverse('clientes', kwargs={'pk': self.pk})
+
+    class Meta:
+        default_permissions = ('crear', 'modificar', 'eliminar', 'listar')

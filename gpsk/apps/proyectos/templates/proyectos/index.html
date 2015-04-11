@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Proyectos <small>Administración</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+	
+
+
+{% if perms.proyectos.crear_proyecto %}
+	<a type="button" class="btn btn-success pull-right" href="{% url 'proyectos:create' %}" >
+	<i class="fa fa-lg fa-table"></i>
+		Nuevo Proyecto
+	</a>
+{% endif %}
+
+
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Gestionar</th>
+			<th>Código</th>
+			<th>Nombre corto</th>
+			<th>Nombre largo</th>
+			<th>Scrum Master</th>
+			<th>Estado</th>
+			<th>Editar</th>
+			<th>Cancelar</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+
+		{% for proyecto in  proyecto_list %}
+			
+				{% if user in proyecto.equipo.all %}
+				
+				
+			
+			
+			{% if proyecto.cancelado == False %}
+				
+				<tr>
+					<td><a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_index' proyecto.id %}">
+						<i class="fa fa-lg fa-archive"></i>
+						</a></td>
+					<td>{{proyecto.codigo}}</td>
+					<td>{{proyecto.nombre_corto}}</td>
+					
+					<td>{{proyecto.nombre_largo}}</td>
+
+					<td>{{proyecto.scrum_master}}</td>
+
+					
+
+					
+					<td>
+						
+						{{proyecto.estado}}
+						
+					</td>
+					
+					{% if user == proyecto.scrum_master %}
+					{% if perms.proyectos.modificar_proyecto %}
+					<td>
+						<a type="button" class="btn btn-primary" href="{% url 'proyectos:update' proyecto.id %}">
+						<i class="fa fa-lg fa-edit"></i>
+						</a>
+					</td>
+					{% else %}
+					<td></td>
+					{% endif %}
+					{% if perms.proyectos.eliminar_proyecto %}
+
+					<td>
+						<a type="button" class="btn btn-danger" href="{% url 'proyectos:delete' proyecto.id %}">
+						<i class="fa fa-lg fa-remove"></i>
+						</a>
+					</td>
+					{% else %}
+					<td></td>
+					{% endif %}
+					{% else %}
+					<td></td>
+					<td></td>
+					{% endif %}
+					
+				</tr>
+			{% else %}
+				<tr>
+					<td><a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_index' proyecto.id %}">
+						<i class="fa fa-lg fa-archive"></i>
+						</a></td>
+					<td>{{proyecto.codigo}}</td>
+					<td>{{proyecto.nombre_corto}}</td>
+					
+					<td>{{proyecto.nombre_largo}}</td>
+
+					<td>{{proyecto.scrum_master}}</td>
+
+					<td>
+						Cancelado
+					</td>			
+
+					<td>
+						
+					</td>
+
+					
+
+					<td>
+						
+					</td>
+					
+					
+				</tr>
+			{% endif %}
+			{% endif %}
+		{% endfor %}
+			
+	</tbody>
+</table>
+
+
+{% endblock %}

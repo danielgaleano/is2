@@ -23,4 +23,5 @@ urlpatterns = patterns('',
                        url(r'^roles/', include('apps.roles.urls', namespace="roles")),
                        url(r'^roles_proyecto/', include('apps.roles_proyecto.urls', namespace="roles_proyecto")),
                        url(r'^proyectos/', include('apps.proyectos.urls', namespace="proyectos")),
+                       url(r'^flujos/', include('apps.flujos.urls', namespace="flujos")),
                        )

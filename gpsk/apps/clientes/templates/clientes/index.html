@@ -10,11 +10,12 @@
 	        </div>
 	    </div>
 	<!-- /.row -->
+{% if perms.clientes.crear_cliente %}
 	<a type="button" class="btn btn-success pull-right" href="{% url 'clientes:crear' %}" >
 	<i class="fa fa-lg fa-user-plus"></i>
 		Nuevo Cliente
 	</a>
-
+{% endif %}
 
 	<table class="table table-striped">
 	<thead>
@@ -42,11 +43,15 @@
 
 					<td>{{cliente.direccion}}</td>
 
+                    {% if perms.clientes.modificar_cliente %}
 					<td>
 						<a type="button" class="btn btn-primary" href="{% url 'clientes:actualizar' cliente.id %}">
 						<i class="fa fa-lg fa-edit"></i>
 						</a>
 					</td>
+                    {% else %}
+					<td></td>
+					{% endif %}
 
 
 

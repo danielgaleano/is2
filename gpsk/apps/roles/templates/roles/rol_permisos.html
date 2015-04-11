@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'roles:index' %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Modificar permisos del rol <small>{{rol_detail}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+<!-- 	<a type="button" class="btn btn-success pull-right" href="#" >
+	<i class="fa fa-lg fa-key"></i>
+		Asignar Permiso
+	</a> -->
+
+<form action=" {{ roles.get_absolute_url }} " method="post">
+    {% csrf_token %}
+
+    <p>
+    	{{ form.permissions.errors }}
+    	<label for="permisssions">Permisos</label>
+    	<ul><li><input type="checkbox" id="selectall">Seleccionar todo</li></ul>
+    	{{ form.permissions }}
+    
+    </p>
+    <input type="submit" value="Guardar" class="btn btn-warning"/>
+</form>
+
+<!-- <table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for permiso in  rol_detail.permissions.all %}
+			
+				<tr>
+					<td>{{permiso.name}}</td>
+					
+					
+					
+
+					<td>
+						<a type="button" class="btn btn-danger" href="#">
+						<i class="fa fa-lg fa-remove"></i>
+						</a>
+					</td>
+					
+					
+				</tr>
+
+		{% endfor %}
+			
+	</tbody>
+</table> -->
+
+
+{% endblock %}

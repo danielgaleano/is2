@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Roles de Proyecto <small>Administración</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+    {% if perms.roles_proyecto.crear_rolproyecto %}
+	<a type="button" class="btn btn-success pull-right" href="{% url 'roles_proyecto:create' %}" >
+	<i class="fa fa-lg fa-group"></i>
+		Nuevo Rol de Proyecto
+	</a>
+    {% endif %}
+
+{% if perms.roles_proyecto.listar_rolproyecto %}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Permisos</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		{% for group in  group_list %}
+			{% if group.rolproyecto.es_rol_proyecto %}
+				
+			
+				<tr>
+					<td>{{group.name}}</td>
+					
+					<td>
+						{% for permission in group.permissions.all  %} 
+		    			<ul class="fa-ul">
+			    			<li><i class="fa-li fa fa-check-square"></i>
+			    			{% if 'add_group' in permission.codename %}
+			    				Crear Rol
+			    			{% elif 'change_group' in permission.codename %}
+								Modificar Rol
+							{% elif 'delete_group' in permission.codename %}
+								Eliminar Rol
+							{% else %}
+								{{permission.codename}}
+			    			{% endif %}
+
+			    				
+			    			</li>
+		    			</ul>
+		    			{% endfor %}
+					</td>
+
+					{% if perms.roles_proyecto.modificar_rolproyecto %}
+					{% if group.name == 'Scrum Master' %}
+					<td></td>
+					{% else %}
+					<td>
+						<a type="button" class="btn btn-primary" href="{% url 'roles_proyecto:update' group.id %}">
+						<i class="fa fa-lg fa-edit"></i>
+						</a>
+					</td>
+					{% endif %}
+					<td>
+						<a type="button" class="btn btn-warning" href="{% url 'roles_proyecto:rol_permisos' group.id %}">
+						<i class="fa fa-lg fa-key"></i>
+						</a>
+					</td>
+                    {% else %}
+					<td></td>
+					<td></td>
+					{% endif %}
+					{% if perms.roles_proyecto.eliminar_rolproyecto %}
+					{% if group.name == 'Scrum Master' %}
+					<td></td>
+					{% else %}
+					<td>
+						<a type="button" class="btn btn-danger" href="{% url 'roles_proyecto:delete' group.id %}">
+						<i class="fa fa-lg fa-remove"></i>
+						</a>
+					</td>
+					{% endif %}
+                    {% else %}
+					<td></td>
+					{% endif %}
+					
+				</tr>
+				{% else %}
+			{% endif %}
+
+		{% endfor %}
+			
+	</tbody>
+</table>
+{% endif %}
+
+
+{% endblock %}

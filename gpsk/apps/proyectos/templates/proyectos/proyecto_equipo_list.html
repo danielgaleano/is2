@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<a type="button" class="btn btn-info" href="{% url 'proyectos:proyecto_index' proyecto.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Miembros del equipo <small>{{proyecto}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+{% if proyecto.cancelado == False %}
+	
+
+	<a type="button" class="btn btn-success pull-right" href="{% url 'proyectos:add_miembro' proyecto.id %}" >
+	<i class="fa fa-lg fa-user-plus"></i>
+		Añadir miembro
+	</a>
+{% else %}
+{% endif %}
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Usuario</th>
+			<th>Roles</th>
+			<th>Editar</th>
+			<th>Eliminar</th>			
+		</tr>
+	</thead>
+	<tbody>
+
+				{% for el_usuario in lista_equipo %}
+				<tr>
+					
+					<td>{{el_usuario}}</td>
+
+					<td>
+						{% for usuario in nueva_lista %}
+							{% for u in usuario %}
+								{% if el_usuario == u.user %}
+									<p>{{u.rol_proyecto}}</p>
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+					</td>
+					
+					{% if proyecto.cancelado == False %}
+					<td>
+						<a type="button" class="btn btn-warning" href="{% url 'proyectos:rol_miembro' proyecto.id el_usuario.id %}">
+						<i class="fa fa-lg fa-group"></i>
+						</a>
+					</td>
+						
+					<td>
+						<a type="button" class="btn btn-danger" href="{% url 'proyectos:delete_miembro' proyecto.id el_usuario.id %}">
+						<i class="fa fa-lg fa-minus"></i>
+						</a>
+					</td>
+					{% else %}
+					<td></td>
+					<td></td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			
+	</tbody>
+</table>
+
+
+
+{% endblock %}
+
