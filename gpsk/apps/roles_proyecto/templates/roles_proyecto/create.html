@@ -15,9 +15,23 @@
 	    </div>
 	<!-- /.row -->
 
-<form action=" {{ roles.get_absolute_url }} " method="post">
-	{% csrf_token %}
-    {{ form.as_p }}
+<form action=" {{ roles_proyecto.get_absolute_url }} " method="post">
+    {% csrf_token %}
+	<p>
+	 	{{form.name.errors}}
+        <label for="name">Nombre</label>
+
+        {{form.name}}
+
+     </p>
+
+    <p>
+    	{{ form.permissions.errors }}
+    	<label for="permisssions">Permisos</label>
+    	<ul><li><input type="checkbox" id="selectall">Seleccionar todo</li></ul>
+    	{{ form.permissions }}
+
+    </p>
     <input type="submit" value="Crear" class="btn btn-success"/>
 </form>
 {% endblock %}

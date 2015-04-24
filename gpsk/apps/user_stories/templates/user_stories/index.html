@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'proyectos:proyecto_index' proyecto.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                <i class="fa fa-th-list fa-fw"></i>Product Backlog <small>Administración</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+
+{% if perms.user_stories.crear_userstory and "Product Owner" in roles_de_proyecto.0.rol_proyecto.group.name|stringformat:"s" %}
+
+	<a type="button" class="btn btn-success pull-right" href="{% url 'user_stories:create' proyecto.id %}" >
+	<i class="fa fa-lg fa-file"></i>
+		Nuevo User Story
+	</a>
+
+{% endif %}
+
+
+
+
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Historial</th>
+            <th>Nombre</th>
+
+			<th>Valor de Negocio</th>
+			<th>Prioridad</th>
+			<th>Valor Tecnico</th>
+			<th>Estimacion</th>
+            <th>Usuario</th>
+            <th>Estado</th>
+            <th>Flujo</th>
+            <th>Sprint</th>
+            <th>Editar</th>
+            <th>Descartar</th>
+
+		</tr>
+	</thead>
+	<tbody>
+
+		{% for userstory in  userstory_list %}
+
+
+
+
+
+
+			{% if userstory.estado != 'Descartado' %}
+
+				<tr>
+                    {% if perms.user_stories.consultar_historial_userstory %}
+					<td>
+                        <a type="button" class="btn btn-warning" href="{% url 'user_stories:historial' proyecto.id userstory.id %}">
+                                <i class="fa fa-lg fa-history"></i>
+                        </a>
+                    </td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+                    <td>{{userstory.nombre}}</td>
+
+
+
+					<td>{{userstory.valor_negocio}}</td>
+
+                    <td>{{userstory.prioridad}}</td>
+
+                    <td>{{userstory.valor_tecnico}}</td>
+
+                    <td>{{userstory.estimacion}} horas</td>
+
+                    <td>{{userstory.usuario}}</td>
+
+
+					<td>
+
+						{{userstory.estado}}
+
+					</td>
+
+                    <td>{{userstory.flujo}}</td>
+                    <td>{{userstory.sprint}}</td>
+
+                        {% if userstory.estado|stringformat:"s" == "Aprobado" %}
+                            <td></td>
+                        {% else %}
+                        {% if perms.user_stories.redefinir_userstory and "Product Owner" in roles_de_proyecto.0.rol_proyecto.group.name|stringformat:"s" %}
+                            <td>
+                                <a type="button" class="btn btn-primary" href="{% url 'user_stories:update' proyecto.id userstory.id %}">
+                                <i class="fa fa-lg fa-edit"></i>
+                                </a>
+                            </td>
+                        {% elif  perms.user_stories.definir_valor_tecnico_y_estimacion_userstory or perms.users_stories.asignar_flujo_userstory or perms.user_stories.asignar_sprint_userstory or perms.user_stories.asignar_usuario_userstory and user == proyecto.scrum_master %}
+                            <td>
+                                <a type="button" class="btn btn-primary" href="{% url 'user_stories:update_sm' proyecto.id userstory.id %}">
+                                <i class="fa fa-lg fa-edit"></i>
+                                </a>
+                            </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% endif %}
+
+                        {% if perms.user_stories.descartar_userstory and user == proyecto.scrum_master %}
+                            {% if userstory.estado|stringformat:"s" != "Finalizado" %}
+                            {% if userstory.estado|stringformat:"s" != "Aprobado" %}
+                            <td>
+
+
+                                <a type="button" class="btn btn-danger" href="{% url 'user_stories:delete' proyecto.id userstory.id %}">
+                                <i class="fa fa-lg fa-remove"></i>
+                                </a>
+                            </td>
+                            {% else %}
+                            <td></td>
+                            {% endif %}
+                            {% else %}
+                            <td></td>
+                            {% endif %}
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+
+				</tr>
+			{% else %}
+				<tr>
+                    {% if perms.user_stories.consultar_historial_userstory %}
+                    <td>
+                        <a type="button" class="btn btn-warning" href="{% url 'user_stories:historial' proyecto.id userstory.id %}">
+                                <i class="fa fa-lg fa-history"></i>
+                        </a>
+                    </td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+					<td>{{userstory.nombre}}</td>
+
+
+
+					<td>{{userstory.valor_negocio}}</td>
+
+                    <td>{{userstory.prioridad}}</td>
+
+                    <td>{{userstory.valor_tecnico}}</td>
+
+                    <td>{{userstory.estimacion}} horas</td>
+
+                    <td>{{userstory.usuario}}</td>
+
+
+					<td>
+
+						{{userstory.estado}}
+
+					</td>
+
+                    <td>{{userstory.flujo}}</td>
+
+                    <td>{{userstory.sprint}}</td>
+
+					<td>
+
+					</td>
+
+
+
+					<td>
+
+					</td>
+
+
+				</tr>
+			{% endif %}
+
+		{% endfor %}
+
+	</tbody>
+</table>
+
+
+{% endblock %}

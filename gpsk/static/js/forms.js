@@ -20,11 +20,11 @@ $(document).ready(function() {
         }
     });
     $( '#id_permissions :checkbox[value="20"]' )
-        .attr( "title", "Se debe utilizar además el permiso list usuario" ).tooltip({ placement: 'left'});
+        .attr( "title", "Se debe utilizar además el permiso listar usuario" ).tooltip({ placement: 'left'});
     $( '#id_permissions :checkbox[value="21"]' )
-        .attr( "title", "Se debe utilizar además el permiso list usuario" ).tooltip({ placement: 'left'});
+        .attr( "title", "Se debe utilizar además el permiso listar usuario" ).tooltip({ placement: 'left'});
     $( '#id_permissions :checkbox[value="22"]' )
-        .attr( "title", "Se debe utilizar además el permiso list usuario" ).tooltip({ placement: 'left'});
+        .attr( "title", "Se debe utilizar además el permiso listar usuario" ).tooltip({ placement: 'left'});
 
     $('#id_permissions :checkbox[value="20"]').click(function(event){
         if (this.checked) {

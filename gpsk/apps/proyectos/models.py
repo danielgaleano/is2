@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from apps.clientes.models import Cliente
 
 
 class Proyecto(models.Model):
@@ -20,6 +21,7 @@ class Proyecto(models.Model):
     scrum_master = models.ForeignKey(User, null=True, related_name='scrum_master')
     equipo = models.ManyToManyField(User, null=True)
     estado = models.CharField(max_length=15, choices=ESTADOS_PROYECTO, default='No iniciado')
+    cliente = models.ForeignKey(Cliente, null=True, related_name='cliente_proyecto')
 
 
     def __unicode__(self):

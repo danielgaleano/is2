@@ -25,9 +25,9 @@ class IndexView(generic.ListView):
     model = Group
     template_name = 'roles_proyecto/index.html'
 
-    @method_decorator(permission_required('roles_proyecto.listar_rolproyecto'))
-    def dispatch(self, *args, **kwargs):
-        return super(IndexView, self).dispatch(*args, **kwargs)
+    #@method_decorator(permission_required('roles_proyecto.listar_rolproyecto'))
+    #def dispatch(self, *args, **kwargs):
+    #    return super(IndexView, self).dispatch(*args, **kwargs)
 
 
 class RolCreate(FormView):

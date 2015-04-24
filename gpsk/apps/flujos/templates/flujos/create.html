@@ -22,6 +22,50 @@
 <form action=" {{ flujos.get_absolute_url }} " method="post">
 	{% csrf_token %}
     {{ form.as_p }}
+    	<div class="row">
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="fa fa-sitemap fa-fw"></i>Actividades</h3>
+				</div>
+				<div class="panel-body">
+
+                    <ul id="inactive_sortable" class="sort_slides">
+                        <li id="inactive_placeholder" class="ui-state-disabled"><h2>Inactive Slides</h2></li>
+                        {% for actividad in inactive %}
+                            <li class="actividad" id="actividad_{{ actividad.pk }}">{{actividad.nombre}}</li>
+                        {% endfor %}
+                    </ul>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="fa fa-th-list fa-fw"></i>Todas las actividades</h3>
+				</div>
+				<div class="panel-body">
+
+                    <ul id="active_sortable" class="sort_slides">
+                        <li id="active_placeholder" class="ui-state-disabled"><h2>Active Slides</h2></li>
+                        {% for actividad in active %}
+                            <li class="actividad" id="actividad_{{ actividad.pk }}">{{actividad.nombre}}</li>
+                        {% endfor %}
+                    </ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
     <input type="submit" value="Crear" class="btn btn-success"/>
 </form>
 {% endblock %}

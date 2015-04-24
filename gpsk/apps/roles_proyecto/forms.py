@@ -18,7 +18,12 @@ class RolProyectoCreateForm(forms.ModelForm):
         Q(content_type__app_label='sessions') |
         Q(content_type__app_label='usuarios') |
         Q(content_type__app_label='roles_proyecto') |
-        Q(content_type__app_label='auth')), widget=forms.CheckboxSelectMultiple)
+        Q(content_type__app_label='auth') |
+        Q(content_type__app_label='clientes') |
+        Q(content_type__model='historialuserstory')
+        ),
+        widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox1'}),
+        help_text="Debe seleccionar al menos un permiso.",)
 
     class Meta:
         model = Group
@@ -49,8 +54,12 @@ class RolProyectoPermisosForm(forms.ModelForm):
         Q(content_type__app_label='sessions') |
         Q(content_type__app_label='usuarios') |
         Q(content_type__app_label='roles_proyecto') |
-        Q(content_type__app_label='auth')),
-        widget=forms.CheckboxSelectMultiple)
+        Q(content_type__app_label='auth') |
+        Q(content_type__app_label='clientes') |
+        Q(content_type__model='historialuserstory')
+        ),
+        widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox1'}),
+        help_text="Debe seleccionar al menos un permiso.",)
 
     class Meta:
         model = Group

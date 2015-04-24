@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
                 ('group', models.OneToOneField(null=True, to='auth.Group')),
             ],
             options={
+                'default_permissions': ('crear', 'modificar', 'eliminar', 'listar'),
                 'verbose_name': 'Rol de Proyecto',
                 'verbose_name_plural': 'Roles de Proyecto',
             },

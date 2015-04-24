@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.urlresolvers import reverse
 
 class Estado(models.Model):
     nombre = models.CharField(max_length=15, default="To do")

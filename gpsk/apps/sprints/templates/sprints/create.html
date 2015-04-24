@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'sprints:index' proyecto_detail.id%}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                 Crear Sprint
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+<form action=" {{ sprints.get_absolute_url }} " method="post" id="form_sprints">
+	{% csrf_token %}
+	{{ form.as_p }}
+
+    <input type="submit" value="Crear" class="btn btn-success" id="submit-sprint"/>
+</form>
+{% endblock %}

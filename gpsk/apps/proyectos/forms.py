@@ -19,7 +19,7 @@ class ProyectoCreateForm(forms.ModelForm):
 
     class Meta:
         model = Proyecto
-        fields = ['nombre_corto', 'nombre_largo', 'scrum_master', 'fecha_inicio', 'fecha_fin']
+        fields = ['cliente', 'nombre_corto', 'nombre_largo', 'scrum_master', 'fecha_inicio', 'fecha_fin']
 
     def clean_fecha_fin(self):
         fecha_inicio = self.cleaned_data['fecha_inicio']
@@ -74,7 +74,7 @@ class ProyectoUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Proyecto
-        fields = ['nombre_corto', 'nombre_largo', 'scrum_master', 'fecha_inicio', 'fecha_fin', 'estado']
+        fields = ['cliente', 'nombre_corto', 'nombre_largo', 'scrum_master', 'fecha_inicio', 'fecha_fin', 'estado']
 
     def clean_fecha_fin(self):
         fecha_inicio = self.cleaned_data['fecha_inicio']
@@ -88,10 +88,10 @@ class ProyectoUpdateForm(forms.ModelForm):
     def save(self, commit=True):
         if not commit:
             raise NotImplementedError("Can't create Proyecto without database save")
-        # proyecto = super(ProyectoUpdateForm, self).save(commit=True)
-        proyecto = Proyecto.objects.get(pk=self.instance.pk)
+        proyecto = super(ProyectoUpdateForm, self).save(commit=True)
+        proyecto_antiguo = Proyecto.objects.get(pk=self.instance.pk)
         print proyecto
-
+        print proyecto_antiguo
         estado = self.cleaned_data['estado']
 
         scrum_master = User.objects.get(pk=self.cleaned_data['scrum_master'].pk)
@@ -100,23 +100,36 @@ class ProyectoUpdateForm(forms.ModelForm):
         grupo = Group.objects.get(name='Scrum Master')
 
         #obtenemos esl usuario anterior con el rol scrum master
-        usuario_anterior = proyecto.scrum_master
+        usuario_anterior = proyecto_antiguo.scrum_master
         #asignamos al nuevo usuario como scrum master del proyecto
         proyecto.scrum_master = scrum_master
         #asignamos el nuevo estado
         proyecto.estado = estado
         #obtenemos el registro anterior
-        
-        try:
-            ver = RolProyecto_Proyecto.objects.get(user=usuario_anterior, rol_proyecto=rolproyecto, proyecto=proyecto)
-        except ObjectDoesNotExist:
-            ver =   None
 
-        if ver:
-            registro_anterior = RolProyecto_Proyecto.objects.get(user=usuario_anterior, rol_proyecto=rolproyecto, proyecto=proyecto)
-            registro_anterior.delete()
-        else:
-            pass
+        print "lisssss %s %s %s" % (usuario_anterior, rolproyecto, proyecto_antiguo)
+
+        print "anterior %s actual %s" % (usuario_anterior, scrum_master)
+
+        for miembro in proyecto_antiguo.equipo.all():
+            if miembro != scrum_master:
+                try:
+                    entrar = RolProyecto_Proyecto.objects.get(user=miembro, rol_proyecto=rolproyecto, proyecto=proyecto_antiguo)
+                except ObjectDoesNotExist:
+                    entrar = None
+                print entrar
+                if entrar:
+                    print "entro"
+                    row = RolProyecto_Proyecto.objects.get(user=miembro, rol_proyecto=rolproyecto, proyecto=proyecto_antiguo)
+                    print "for"
+                    print row
+                    if row:
+                        row.delete()
+
+                    else:
+                        pass
+
+
 
         #se le quita el rol Scrum master al usuario_anterior
         usuario_anterior.groups.remove(grupo)
@@ -139,7 +152,7 @@ class ProyectoUpdateForm(forms.ModelForm):
         scrum_master.save()
 
 
-        return scrum_master
+        return proyecto
 
     
 

@@ -18,6 +18,7 @@ class listarClientes(generic.ListView):
     model = Cliente
     template_name = 'clientes/index.html'
 
+
 class crearCliente(CreateView):
     """
     Clase que despliega el formulario para la creacion de clientes.
@@ -59,9 +60,9 @@ class actualizarCliente(UpdateView):
     model = Cliente
     template_name = 'clientes/actualizar.html'
 
-    #def get_object(self, queryset=None):
-     #   obj = Cliente.objects.get(pk = self.kwargs['pk'])
-      #  return obj
+    def get_object(self, queryset=None):
+        obj = Cliente.objects.get(pk = self.kwargs['pk'])
+        return obj
 
     def get_success_url(self):
         """

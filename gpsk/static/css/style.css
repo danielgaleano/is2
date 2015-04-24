@@ -30,3 +30,6 @@ ul {
 		padding: 5px;
 		margin-bottom: 5px;
 }
+.sort_placeholder {height: 15px; border: grey 3px solid;}
+.list_placeholder { font-weight: bolder; }
+.list {width: 130px; border: #000 2px solid; margin: 5px; float: left;}

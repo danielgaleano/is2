@@ -6,6 +6,8 @@ from django.core.urlresolvers import reverse
 from models import Proyecto
 from django.contrib.auth.models import User, Group
 from apps.roles_proyecto.models import RolProyecto, RolProyecto_Proyecto
+from apps.user_stories.models import UserStory
+from apps.sprints.models import Sprint
 from forms import AddMiembroForm, ProyectoCreateForm, ProyectoUpdateForm, RolMiembroForm
 
 from django.http import HttpResponseRedirect
@@ -28,12 +30,8 @@ class IndexView(generic.ListView):
     @ivar template_name: Nombre del template a utilizar en la vista
     @type template_name: string
     """
-    model = Proyecto
+    queryset = Proyecto.objects.all().order_by('codigo')
     template_name = 'proyectos/index.html'
-
-    #@method_decorator(permission_required('proyectos.listar_proyecto'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(IndexView, self).dispatch(*args, **kwargs)
     
 
 class ProyectoCreate(SuccessMessageMixin, CreateView):
@@ -59,9 +57,9 @@ class ProyectoCreate(SuccessMessageMixin, CreateView):
     def get_success_url(self): 
         return reverse('proyectos:index')
 
-    #@method_decorator(permission_required('proyectos.crear_proyecto'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(ProyectoCreate, self).dispatch(*args, **kwargs)
+    @method_decorator(permission_required('proyectos.crear_proyecto'))
+    def dispatch(self, *args, **kwargs):
+        return super(ProyectoCreate, self).dispatch(*args, **kwargs)
 
 
 class ProyectoUpdate(SuccessMessageMixin, UpdateView):
@@ -85,12 +83,12 @@ class ProyectoUpdate(SuccessMessageMixin, UpdateView):
     def get_success_url(self): 
         return reverse('proyectos:index')
 
-    #@method_decorator(permission_required('proyectos.modificar_proyecto'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(ProyectoUpdate, self).dispatch(*args, **kwargs)
+    @method_decorator(permission_required('proyectos.modificar_proyecto'))
+    def dispatch(self, *args, **kwargs):
+        return super(ProyectoUpdate, self).dispatch(*args, **kwargs)
 
 @login_required(login_url='/login/')
-#@permission_required('proyectos.eliminar_proyecto')
+@permission_required('proyectos.eliminar_proyecto')
 def eliminar_proyecto(request, pk_proyecto):
     if request.method == 'POST':
         proyecto_detail = get_object_or_404(Proyecto, pk=pk_proyecto)
@@ -123,11 +121,15 @@ def proyecto_index(request, pk):
 
     print nueva_lista
 
+    lista_us = UserStory.objects.filter(proyecto=pk).order_by('nombre')[:5]
+    lista_sprints = Sprint.objects.filter(proyecto=pk).order_by('pk')
+
+
     return render(request, template, locals())
 
 
 @login_required(login_url='/login/')
-#@permission_required('proyectos.asignar_rol_proyecto_proyecto')
+@permission_required('proyectos.asignar_rol_proyecto_proyecto')
 def listar_equipo(request, pk_proyecto):
     proyecto = Proyecto.objects.get(pk=pk_proyecto)
     lista_equipo = Proyecto.objects.get(pk=pk_proyecto).equipo.all()
@@ -157,9 +159,9 @@ class AddMiembro(generic.UpdateView):
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse( 'proyectos:equipo_list', args=[obj.pk])
 
-    #@method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(AddMiembro, self).dispatch(*args, **kwargs)
+    @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
+    def dispatch(self, *args, **kwargs):
+        return super(AddMiembro, self).dispatch(*args, **kwargs)
 
 
 @login_required(login_url='/login/')
@@ -223,6 +225,6 @@ class RolMiembro(UpdateView):
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse( 'proyectos:equipo_list', args=[obj.pk])
 
-    #@method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(RolMiembro, self).dispatch(*args, **kwargs)
+    @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
+    def dispatch(self, *args, **kwargs):
+        return super(RolMiembro, self).dispatch(*args, **kwargs)

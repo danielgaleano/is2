@@ -75,9 +75,9 @@ class UserCreate(FormView):
         """
         return reverse('usuarios:index')
 
-    #@method_decorator(permission_required('usuarios.crear_usuario'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(UserCreate, self).dispatch(*args, **kwargs)
+    @method_decorator(permission_required('usuarios.crear_usuario'))
+    def dispatch(self, *args, **kwargs):
+        return super(UserCreate, self).dispatch(*args, **kwargs)
 
 
 class UserUpdate(UpdateView):
@@ -122,13 +122,13 @@ class UserUpdate(UpdateView):
         """
         return reverse('usuarios:index')
 
-    #@method_decorator(permission_required('usuarios.modificar_usuario'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(UserUpdate, self).dispatch(*args, **kwargs)
+    @method_decorator(permission_required('usuarios.modificar_usuario'))
+    def dispatch(self, *args, **kwargs):
+        return super(UserUpdate, self).dispatch(*args, **kwargs)
 
 
 @login_required(login_url='/login/')
-#@permission_required('usuarios.inactivar_usuario')
+@permission_required('usuarios.inactivar_usuario')
 def inactivar_usuario(request, pk_usuario):
     """
     Funcion que inactiva la cuenta de un usuario seleccionado.
@@ -156,7 +156,7 @@ def inactivar_usuario(request, pk_usuario):
 
 
 @login_required(login_url='/login/')
-#@permission_required('usuarios.activar_usuario')
+@permission_required('usuarios.activar_usuario')
 def activar_usuario(request, pk_usuario):
     """
     Funcion que activa la cuenta de un usuario seleccionado.
@@ -222,9 +222,9 @@ class DetailViewRoles(generic.DetailView):
         context['proyectos_list'] = proyectos_del_usuario
         return context
 
-    #@method_decorator(permission_required('usuarios.modificar_usuario'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(DetailViewRoles, self).dispatch(*args, **kwargs)
+    @method_decorator(permission_required('usuarios.modificar_usuario'))
+    def dispatch(self, *args, **kwargs):
+        return super(DetailViewRoles, self).dispatch(*args, **kwargs)
 
 
 class UserRoles(UpdateView):
@@ -240,12 +240,12 @@ class UserRoles(UpdateView):
         obj = User.objects.get(pk=self.kwargs['pk'])
         return reverse('usuarios:detail_roles', args=[obj.pk])
 
-    #@method_decorator(permission_required('usuarios.modificar_usuario'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(UserRoles, self).dispatch(*args, **kwargs)
+    @method_decorator(permission_required('usuarios.modificar_usuario'))
+    def dispatch(self, *args, **kwargs):
+        return super(UserRoles, self).dispatch(*args, **kwargs)
 
 
-#@permission_required('usuarios.modificar_usuario')
+@permission_required('usuarios.modificar_usuario')
 @login_required(login_url='/login/')
 def user_change_password(request, pk_usuario):
     """

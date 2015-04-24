@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'sprints:index' proyecto.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                <i class="fa fa-list fa-fw"></i>Sprint Backlog <small>{{sprint}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+
+
+
+
+
+	<table class="table table-striped">
+	<thead>
+		<tr>
+
+            <th>Nombre</th>
+			<th>Usuario</th>
+            <th>Estado</th>
+            <th>Flujo</th>
+            <th>Actividad</th>
+            <th>Estado-Actividad</th>
+
+		</tr>
+	</thead>
+	<tbody>
+
+		{% for userstory in  userstory_list %}
+
+
+
+				<tr>
+
+                    <td>{{userstory.nombre}}</td>
+
+
+
+					<td>{{userstory.usuario}}</td>
+
+                    <td>{{userstory.estado}}</td>
+
+                    <td>{{userstory.flujo}}</td>
+
+                    <td></td>
+
+                    <td></td>
+
+
+				</tr>
+
+		{% endfor %}
+
+	</tbody>
+</table>
+
+
+{% endblock %}

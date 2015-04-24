@@ -17,6 +17,12 @@
 
 <form action=" {{ proyecto.get_absolute_url }} " method="post" id="form_proyecto">
 	{% csrf_token %}
+
+    <p>{{ form.cliente.errors }}
+	<label for="cliente">Cliente</label>
+	{{ form.cliente }}
+	</p>
+
 	<p>{{ form.nombre_corto.errors }}
 	<label for="nombre_corto">Nombre corto</label>
 	{{ form.nombre_corto }}
@@ -41,7 +47,7 @@
 	<label for="fecha_fin">Fecha de fin</label>
 	{{ form.fecha_fin }}
 	</p>
-
+    <p>* Todos los campos son obligatorios</p>
     <input type="submit" value="Crear" class="btn btn-success" id="submit-proyecto"/>
 </form>
 {% endblock %}

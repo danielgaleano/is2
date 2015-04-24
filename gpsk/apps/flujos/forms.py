@@ -10,20 +10,19 @@ class MyModelMultipleChoiceField(ModelMultipleChoiceField):
 
 
 class FlujoCreateForm(forms.ModelForm):
-    actividades = MyModelMultipleChoiceField(Actividad.objects.all(), 
-            widget=forms.CheckboxSelectMultiple, required=True)
+    #actividades = MyModelMultipleChoiceField(Actividad.objects.all(),
+    #                                         widget=forms.CheckboxSelectMultiple, required=True)
     
     class Meta:
         model = Flujo
-        fields = [ 'nombre', 'actividades']
-
+        fields = ['nombre']
 
 
 class ActividadCreateForm(forms.ModelForm):
     
     class Meta:
         model = Actividad
-        fields = [ 'nombre', 'orden' ]
+        fields = ['nombre']
 
     def save(self, commit=True):
         if not commit:

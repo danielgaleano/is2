@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'proyectos:proyecto_index' proyecto.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                <i class="fa fa-tasks fa-fw"></i>Sprints <small>Administración</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+
+{% if perms.sprints.crear_sprint %}
+
+	<a type="button" class="btn btn-success pull-right" href="{% url 'sprints:create' proyecto.id %}" >
+	<i class="fa fa-lg fa-tasks"></i>
+		Nuevo Sprint
+	</a>
+
+{% endif %}
+
+
+
+
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Sprint Backlog</th>
+            <th>Nombre</th>
+			<th>Duracion</th>
+			<th>Estado</th>
+			<th>Flujos</th>
+			<th>Modificar</th>
+
+
+		</tr>
+	</thead>
+	<tbody>
+
+		{% for sprint in  sprint_list %}
+
+
+				<tr>
+
+                    <td>
+                        <a type="button" class="btn btn-warning" href="{% url 'sprints:backlog' proyecto.id sprint.id %}">
+                                <i class="fa fa-lg fa-list"></i>
+                        </a>
+                    </td>
+					<td>{{sprint.nombre}}</td>
+
+
+
+					<td>{{sprint.duracion}} días</td>
+
+                    <td>{{sprint.estado}}</td>
+
+                    <td>
+                        {% for flujo in sprint.flujos.all %}
+						<p>{{flujo.nombre}}</p>
+					    {% endfor %}
+                    </td>
+
+
+                        {% if perms.sprints.modificar_sprint and user == proyecto.scrum_master %}
+                            <td>
+                                <a type="button" class="btn btn-primary" href="{% url 'sprints:update' proyecto.id sprint.id %}">
+                                <i class="fa fa-lg fa-edit"></i>
+                                </a>
+                            </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+
+
+                        </tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+
+{% endblock %}

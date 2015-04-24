@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
                 ('direccion', models.CharField(max_length=200, verbose_name=b'Direccion')),
             ],
             options={
+                'default_permissions': ('crear', 'modificar', 'eliminar', 'listar'),
             },
             bases=(models.Model,),
         ),
