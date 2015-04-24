@@ -1,13 +1,12 @@
-import datetime
 from django.test import TestCase
 from django.test.client import RequestFactory
-
 from django.contrib.auth.models import User, Group
+from django.core.urlresolvers import reverse
+
 from models import UserStory, HistorialUserStory
 from views import IndexView, VerHistorialUserStory
 from apps.proyectos.models import Proyecto
 from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
-from django.core.urlresolvers import reverse
 
 
 class UserStoriesTest(TestCase):
@@ -23,10 +22,6 @@ class UserStoriesTest(TestCase):
         self.factory = RequestFactory()
         # Se crea el User que realiza las peticiones
         self.user = User.objects.create_user(username='testuser', email='test@test.com', password='test')
-
-        #self.proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
-                                           #nombre_largo='test', cancelado=False, scrum_master=self.user)
-        #print self.proyecto.pk
 
     def test_view_IndexView(self):
         """
@@ -54,10 +49,6 @@ class UserStoriesTest(TestCase):
                                                                    proyecto=proyecto)
         rolProyecto_Proyecto.save()
 
-        #proyecto2 = Proyecto.objects.create(codigo='cod2', nombre_corto='test2',
-                                            #nombre_largo='test2', cancelado=False, scrum_master=user2)
-        #proyecto2.save()
-        #print proyecto.pk
         # se crean 10 user stories para controlar que se retorne la lista completa de user stories, que seran 10 en total
         for i in range(10):
             user_story = UserStory.objects.create(nombre='us%s' % i, descripcion='desc%s' % i,
@@ -69,11 +60,7 @@ class UserStoriesTest(TestCase):
         # verificamos que la vista devuelva el template adecuado
         request = self.factory.get(reverse('user_stories:index', args=[proyecto.pk]))
         request.user = self.user
-        #print "request %s" % request
-        #response = self.client.get(reverse('user_stories:index', args=[proyecto.pk]))
-        #response = self.client.get('user_stories/proyecto/1/')
-        #print response
-        #view = IndexView.as_view()
+
         response = IndexView.as_view()(request, pk_proyecto=proyecto.pk)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.template_name[0], 'user_stories/index.html')
@@ -243,11 +230,7 @@ class UserStoriesTest(TestCase):
         # verificamos que la vista devuelva el template adecuado
         request = self.factory.get(reverse('user_stories:historial', args=[proyecto.pk, user_story.pk]))
         request.user = self.user
-        #print "request %s" % request
-        #response = self.client.get(reverse('user_stories:index', args=[proyecto.pk]))
-        #response = self.client.get('user_stories/proyecto/1/')
-        #print response
-        #view = IndexView.as_view()
+
         response = VerHistorialUserStory.as_view()(request, pk_proyecto=proyecto.pk, pk_user_story=user_story.pk)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.template_name[0], 'user_stories/historial.html')

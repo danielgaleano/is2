@@ -23,6 +23,8 @@ STATICFILES_DIRS = (
     BASE_DIR.child('static'),
 )
 
-STATIC_ROOT = '/home/daniel/dev/is2-env/static/'
+#STATIC_ROOT = '/home/daniel/dev/is2-env/static/'
+staticos_prod = Path(__file__).ancestor(5)
+STATIC_ROOT = staticos_prod.child('static')
 
 ALLOWED_HOSTS = ['*']
