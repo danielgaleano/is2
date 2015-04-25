@@ -33,3 +33,17 @@ ul {
 .sort_placeholder {height: 15px; border: grey 3px solid;}
 .list_placeholder { font-weight: bolder; }
 .list {width: 130px; border: #000 2px solid; margin: 5px; float: left;}
+.ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+.sort_slides li:hover {
+    cursor: pointer;
+}
+.sort_slides li {
+    margin: 0px 5px 5px;
+    padding: 5px;
+    border: 1px solid #D3D3D3;
+    background: #EFF5F5;
+}
+.invisible-li {
+    visibility: hidden;
+}
+

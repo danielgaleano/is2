@@ -137,7 +137,7 @@
         <div class="col-lg-4">
 			<div class="panel panel-warning">
 				<div class="panel-heading">
-					<a href="#"><h3 class="panel-title"><i class="fa fa-exchange fa-fw"></i>Flujos <i class="fa fa-arrow-circle-right"></i></h3></a>
+					<a href="{% url 'flujos:flujos_proyecto_index' proyecto.id %}"><h3 class="panel-title"><i class="fa fa-exchange fa-fw"></i>Flujos <i class="fa fa-arrow-circle-right"></i></h3></a>
 				</div>
 				<div class="panel-body">
 					<div class="table-responsive">
@@ -150,12 +150,14 @@
 							</thead>
 							<tbody>
 
+								{% for flujo in lista_flujos %}
 								<tr>
-									<td></td>
+									<td>{{flujo}}</td>
 
 
 
 								</tr>
+							{% endfor %}
 
 
 

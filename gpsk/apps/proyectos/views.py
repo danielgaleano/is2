@@ -2,21 +2,20 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
 from django.core.urlresolvers import reverse
-
-from models import Proyecto
 from django.contrib.auth.models import User, Group
-from apps.roles_proyecto.models import RolProyecto, RolProyecto_Proyecto
-from apps.user_stories.models import UserStory
-from apps.sprints.models import Sprint
-from forms import AddMiembroForm, ProyectoCreateForm, ProyectoUpdateForm, RolMiembroForm
-
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-
 from django.contrib.auth.decorators import permission_required
 from django.utils.decorators import method_decorator
+
+from models import Proyecto
+from apps.roles_proyecto.models import RolProyecto_Proyecto
+from apps.user_stories.models import UserStory
+from apps.sprints.models import Sprint
+from apps.flujos.models import Flujo
+from forms import AddMiembroForm, ProyectoCreateForm, ProyectoUpdateForm, RolMiembroForm
 
 
 class IndexView(generic.ListView):
@@ -123,6 +122,7 @@ def proyecto_index(request, pk):
 
     lista_us = UserStory.objects.filter(proyecto=pk).order_by('nombre')[:5]
     lista_sprints = Sprint.objects.filter(proyecto=pk).order_by('pk')
+    lista_flujos = Flujo.objects.filter(proyecto=pk).order_by('pk')
 
 
     return render(request, template, locals())
