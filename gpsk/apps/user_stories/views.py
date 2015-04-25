@@ -1,20 +1,21 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views import generic
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import UpdateView
 from django.core.urlresolvers import reverse
-from models import UserStory, HistorialUserStory
-from forms import UserStoryCreateForm, UserStoryUpdateFormPO, UserStoryUpdateFormSM
-from apps.proyectos.models import Proyecto
-from apps.roles_proyecto.models import RolProyecto_Proyecto
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
 from django.utils.decorators import method_decorator
 
+from models import UserStory, HistorialUserStory
+from forms import UserStoryCreateForm, UserStoryUpdateFormPO, UserStoryUpdateFormSM
+from apps.proyectos.models import Proyecto
+from apps.roles_proyecto.models import RolProyecto_Proyecto
+
 
 class IndexView(generic.ListView):
     """
-    Clase que despliega la lista de user stories del proyecto para su modificación
+    Clase que despliega la lista de user stories del proyecto para su modificacion
 
     @ivar template_name: Nombre del template a utilizar en la vista
     @type template_name: string
