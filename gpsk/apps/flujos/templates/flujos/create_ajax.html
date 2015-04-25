@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'flujos:index' %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                 Crear Flujo
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+	<a type="button" class="btn btn-success pull-right" href="{% url 'flujos:create_actividad' %}" >
+	<i class="fa fa-lg fa-tasks"></i>
+		Nueva Actividad
+	</a>
+
+<form id="form-plantilla-flujo" action=" {{ flujos.get_absolute_url }} " method="post">
+	{% csrf_token %}
+    {{ form.as_p }}
+    	<div class="row">
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="fa fa-sitemap fa-fw"></i>Actividades</h3>
+				</div>
+				<div class="panel-body">
+
+                    <ul id="inactive_sortable" class="sort_slides ui-sortable">
+                        <li class="invisible-li"></li>
+                        {% for actividad in inactive %}
+                            <li class="actividad ui-sortable-default ui-sortable-default" id="actividad_{{ actividad.pk }}">{{actividad.nombre}}</li>
+                        {% endfor %}
+                    </ul>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><i class="fa fa-th-list fa-fw"></i>Todas las actividades</h3>
+				</div>
+				<div class="panel-body">
+
+                    <ul id="active_sortable" class="sort_slides">
+
+                        {% for actividad in active %}
+                            <li class="actividad" id="actividad_{{ actividad.pk }}">{{actividad.nombre}}</li>
+                        {% endfor %}
+                    </ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+    <input type="submit" value="Crear" class="btn btn-success"/>
+</form>
+{% endblock %}
