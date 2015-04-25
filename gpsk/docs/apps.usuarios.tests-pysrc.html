@@ -62,17 +62,21 @@
 <a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">test</tt> <tt class="py-keyword">import</tt> <tt class="py-name">TestCase</tt> </tt>
 <a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">test</tt><tt class="py-op">.</tt><tt class="py-name">client</tt> <tt class="py-keyword">import</tt> <tt class="py-name">RequestFactory</tt> </tt>
 <a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
-<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.sprints.models=apps.sprints.models-module.html,Module apps.user_stories.models=apps.user_stories.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
 apps.flujos.models
 apps.proyectos.models
 apps.roles.models
 apps.roles_proyecto.models
+apps.sprints.models
+apps.user_stories.models
 apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-0', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">User</tt> </tt>
-<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module apps.clientes.views=apps.clientes.views-module.html,Module apps.flujos.views=apps.flujos.views-module.html,Module apps.proyectos.views=apps.proyectos.views-module.html,Module apps.roles.views=apps.roles.views-module.html,Module apps.roles_proyecto.views=apps.roles_proyecto.views-module.html,Module apps.usuarios.views=apps.usuarios.views-module.html,Module gpsk.views=gpsk.views-module.html"><a title="apps.clientes.views
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module apps.clientes.views=apps.clientes.views-module.html,Module apps.flujos.views=apps.flujos.views-module.html,Module apps.proyectos.views=apps.proyectos.views-module.html,Module apps.roles.views=apps.roles.views-module.html,Module apps.roles_proyecto.views=apps.roles_proyecto.views-module.html,Module apps.sprints.views=apps.sprints.views-module.html,Module apps.user_stories.views=apps.user_stories.views-module.html,Module apps.usuarios.views=apps.usuarios.views-module.html,Module gpsk.views=gpsk.views-module.html"><a title="apps.clientes.views
 apps.flujos.views
 apps.proyectos.views
 apps.roles.views
 apps.roles_proyecto.views
+apps.sprints.views
+apps.user_stories.views
 apps.usuarios.views
 gpsk.views" class="py-name" href="#" onclick="return doclink('link-1', 'views', 'link-1');">views</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class apps.usuarios.views.UserIndexView=apps.usuarios.views.UserIndexView-class.html"><a title="apps.usuarios.views.UserIndexView" class="py-name" href="#" onclick="return doclink('link-2', 'UserIndexView', 'link-2');">UserIndexView</a></tt> </tt>
 <a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="apps.clientes.models
@@ -80,6 +84,8 @@ apps.flujos.models
 apps.proyectos.models
 apps.roles.models
 apps.roles_proyecto.models
+apps.sprints.models
+apps.user_stories.models
 apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-3', 'models', 'link-0');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class apps.usuarios.models.Usuario=apps.usuarios.models.Usuario-class.html"><a title="apps.usuarios.models.Usuario" class="py-name" href="#" onclick="return doclink('link-4', 'Usuario', 'link-4');">Usuario</a></tt> </tt>
 <a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
 <a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
@@ -131,12 +137,15 @@ apps.usuarios.models.Usuario.direccion" class="py-name" href="#" onclick="return
 <a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-name">view</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="apps.usuarios.views.UserIndexView" class="py-name" href="#" onclick="return doclink('link-16', 'UserIndexView', 'link-2');">UserIndexView</a></tt><tt class="py-op">.</tt><tt class="py-name">as_view</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-name">view</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">)</tt> </tt>
 <a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">status_code</tt><tt class="py-op">,</tt> <tt class="py-number">200</tt><tt class="py-op">)</tt> </tt>
-<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Variable apps.clientes.views.actualizarCliente.template_name=apps.clientes.views.actualizarCliente-class.html#template_name,Variable apps.clientes.views.crearCliente.template_name=apps.clientes.views.crearCliente-class.html#template_name,Variable apps.clientes.views.listarClientes.template_name=apps.clientes.views.listarClientes-class.html#template_name,Variable apps.flujos.views.ActividadCreate.template_name=apps.flujos.views.ActividadCreate-class.html#template_name,Variable apps.flujos.views.FlujoCreate.template_name=apps.flujos.views.FlujoCreate-class.html#template_name,Variable apps.flujos.views.IndexView.template_name=apps.flujos.views.IndexView-class.html#template_name,Variable apps.proyectos.views.AddMiembro.template_name=apps.proyectos.views.AddMiembro-class.html#template_name,Variable apps.proyectos.views.IndexView.template_name=apps.proyectos.views.IndexView-class.html#template_name,Variable apps.proyectos.views.ProyectoCreate.template_name=apps.proyectos.views.ProyectoCreate-class.html#template_name,Variable apps.proyectos.views.ProyectoUpdate.template_name=apps.proyectos.views.ProyectoUpdate-class.html#template_name,Variable apps.proyectos.views.RolMiembro.template_name=apps.proyectos.views.RolMiembro-class.html#template_name,Variable apps.roles.views.IndexView.template_name=apps.roles.views.IndexView-class.html#template_name,Variable apps.roles.views.RolCreate.template_name=apps.roles.views.RolCreate-class.html#template_name,Variable apps.roles.views.RolPermisos.template_name=apps.roles.views.RolPermisos-class.html#template_name,Variable apps.roles.views.RolUpdate.template_name=apps.roles.views.RolUpdate-class.html#template_name,Variable apps.roles_proyecto.views.IndexView.template_name=apps.roles_proyecto.views.IndexView-class.html#template_name,Variable apps.roles_proyecto.views.RolCreate.template_name=apps.roles_proyecto.views.RolCreate-class.html#template_name,Variable apps.roles_proyecto.views.RolPermisos.template_name=apps.roles_proyecto.views.RolPermisos-class.html#template_name,Variable apps.roles_proyecto.views.RolUpdate.template_name=apps.roles_proyecto.views.RolUpdate-class.html#template_name,Variable apps.usuarios.views.DetailViewRoles.template_name=apps.usuarios.views.DetailViewRoles-class.html#template_name,Variable apps.usuarios.views.UserCreate.template_name=apps.usuarios.views.UserCreate-class.html#template_name,Variable apps.usuarios.views.UserIndexView.template_name=apps.usuarios.views.UserIndexView-class.html#template_name,Variable apps.usuarios.views.UserRoles.template_name=apps.usuarios.views.UserRoles-class.html#template_name,Variable apps.usuarios.views.UserUpdate.template_name=apps.usuarios.views.UserUpdate-class.html#template_name"><a title="apps.clientes.views.actualizarCliente.template_name
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Variable apps.clientes.views.actualizarCliente.template_name=apps.clientes.views.actualizarCliente-class.html#template_name,Variable apps.clientes.views.crearCliente.template_name=apps.clientes.views.crearCliente-class.html#template_name,Variable apps.clientes.views.listarClientes.template_name=apps.clientes.views.listarClientes-class.html#template_name,Variable apps.flujos.views.ActividadCreate.template_name=apps.flujos.views.ActividadCreate-class.html#template_name,Variable apps.flujos.views.FlujoCreate.template_name=apps.flujos.views.FlujoCreate-class.html#template_name,Variable apps.flujos.views.FlujoProyectoAsignar.template_name=apps.flujos.views.FlujoProyectoAsignar-class.html#template_name,Variable apps.flujos.views.FlujosProyectoIndex.template_name=apps.flujos.views.FlujosProyectoIndex-class.html#template_name,Variable apps.flujos.views.IndexView.template_name=apps.flujos.views.IndexView-class.html#template_name,Variable apps.flujos.views.PlantillaFlujoCreate.template_name=apps.flujos.views.PlantillaFlujoCreate-class.html#template_name,Variable apps.proyectos.views.AddMiembro.template_name=apps.proyectos.views.AddMiembro-class.html#template_name,Variable apps.proyectos.views.IndexView.template_name=apps.proyectos.views.IndexView-class.html#template_name,Variable apps.proyectos.views.ProyectoCreate.template_name=apps.proyectos.views.ProyectoCreate-class.html#template_name,Variable apps.proyectos.views.ProyectoUpdate.template_name=apps.proyectos.views.ProyectoUpdate-class.html#template_name,Variable apps.proyectos.views.RolMiembro.template_name=apps.proyectos.views.RolMiembro-class.html#template_name,Variable apps.roles.views.IndexView.template_name=apps.roles.views.IndexView-class.html#template_name,Variable apps.roles.views.RolCreate.template_name=apps.roles.views.RolCreate-class.html#template_name,Variable apps.roles.views.RolPermisos.template_name=apps.roles.views.RolPermisos-class.html#template_name,Variable apps.roles.views.RolUpdate.template_name=apps.roles.views.RolUpdate-class.html#template_name,Variable apps.roles_proyecto.views.IndexView.template_name=apps.roles_proyecto.views.IndexView-class.html#template_name,Variable apps.roles_proyecto.views.RolCreate.template_name=apps.roles_proyecto.views.RolCreate-class.html#template_name,Variable apps.roles_proyecto.views.RolPermisos.template_name=apps.roles_proyecto.views.RolPermisos-class.html#template_name,Variable apps.roles_proyecto.views.RolUpdate.template_name=apps.roles_proyecto.views.RolUpdate-class.html#template_name,Variable apps.sprints.views.IndexView.template_name=apps.sprints.views.IndexView-class.html#template_name,Variable apps.sprints.views.SprintBacklogIndexView.template_name=apps.sprints.views.SprintBacklogIndexView-class.html#template_name,Variable apps.sprints.views.SprintCreate.template_name=apps.sprints.views.SprintCreate-class.html#template_name,Variable apps.sprints.views.SprintUpdate.template_name=apps.sprints.views.SprintUpdate-class.html#template_name,Variable apps.user_stories.views.IndexView.template_name=apps.user_stories.views.IndexView-class.html#template_name,Variable apps.user_stories.views.UserStoryCreate.template_name=apps.user_stories.views.UserStoryCreate-class.html#template_name,Variable apps.user_stories.views.UserStoryUpdatePO.template_name=apps.user_stories.views.UserStoryUpdatePO-class.html#template_name,Variable apps.user_stories.views.UserStoryUpdateSM.template_name=apps.user_stories.views.UserStoryUpdateSM-class.html#template_name,Variable apps.user_stories.views.VerHistorialUserStory.template_name=apps.user_stories.views.VerHistorialUserStory-class.html#template_name,Variable apps.usuarios.views.DetailViewRoles.template_name=apps.usuarios.views.DetailViewRoles-class.html#template_name,Variable apps.usuarios.views.UserCreate.template_name=apps.usuarios.views.UserCreate-class.html#template_name,Variable apps.usuarios.views.UserIndexView.template_name=apps.usuarios.views.UserIndexView-class.html#template_name,Variable apps.usuarios.views.UserRoles.template_name=apps.usuarios.views.UserRoles-class.html#template_name,Variable apps.usuarios.views.UserUpdate.template_name=apps.usuarios.views.UserUpdate-class.html#template_name"><a title="apps.clientes.views.actualizarCliente.template_name
 apps.clientes.views.crearCliente.template_name
 apps.clientes.views.listarClientes.template_name
 apps.flujos.views.ActividadCreate.template_name
 apps.flujos.views.FlujoCreate.template_name
+apps.flujos.views.FlujoProyectoAsignar.template_name
+apps.flujos.views.FlujosProyectoIndex.template_name
 apps.flujos.views.IndexView.template_name
+apps.flujos.views.PlantillaFlujoCreate.template_name
 apps.proyectos.views.AddMiembro.template_name
 apps.proyectos.views.IndexView.template_name
 apps.proyectos.views.ProyectoCreate.template_name
@@ -150,6 +159,15 @@ apps.roles_proyecto.views.IndexView.template_name
 apps.roles_proyecto.views.RolCreate.template_name
 apps.roles_proyecto.views.RolPermisos.template_name
 apps.roles_proyecto.views.RolUpdate.template_name
+apps.sprints.views.IndexView.template_name
+apps.sprints.views.SprintBacklogIndexView.template_name
+apps.sprints.views.SprintCreate.template_name
+apps.sprints.views.SprintUpdate.template_name
+apps.user_stories.views.IndexView.template_name
+apps.user_stories.views.UserStoryCreate.template_name
+apps.user_stories.views.UserStoryUpdatePO.template_name
+apps.user_stories.views.UserStoryUpdateSM.template_name
+apps.user_stories.views.VerHistorialUserStory.template_name
 apps.usuarios.views.DetailViewRoles.template_name
 apps.usuarios.views.UserCreate.template_name
 apps.usuarios.views.UserIndexView.template_name
@@ -246,12 +264,19 @@ apps.usuarios.models.Usuario.telefono" class="py-name" href="#" onclick="return 
 apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-51', 'user', 'link-5');">user</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="apps.usuarios.forms.UserCreateForm.email
 apps.usuarios.forms.UserUpdateForm.email
 gpsk.forms.UserProfileForm.email" class="py-name" href="#" onclick="return doclink('link-52', 'email', 'link-6');">email</a></tt> <tt class="py-op">=</tt> <tt class="py-name">new_email</tt> </tt>
-<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Method apps.flujos.forms.ActividadCreateForm.save()=apps.flujos.forms.ActividadCreateForm-class.html#save,Method apps.proyectos.forms.AddMiembroForm.save()=apps.proyectos.forms.AddMiembroForm-class.html#save,Method apps.proyectos.forms.ProyectoCreateForm.save()=apps.proyectos.forms.ProyectoCreateForm-class.html#save,Method apps.proyectos.forms.ProyectoUpdateForm.save()=apps.proyectos.forms.ProyectoUpdateForm-class.html#save,Method apps.proyectos.forms.RolMiembroForm.save()=apps.proyectos.forms.RolMiembroForm-class.html#save,Method apps.roles_proyecto.forms.RolProyectoCreateForm.save()=apps.roles_proyecto.forms.RolProyectoCreateForm-class.html#save,Method apps.usuarios.forms.UserCreateForm.save()=apps.usuarios.forms.UserCreateForm-class.html#save,Method apps.usuarios.forms.UserUpdateForm.save()=apps.usuarios.forms.UserUpdateForm-class.html#save"><a title="apps.flujos.forms.ActividadCreateForm.save
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Method apps.flujos.forms.ActividadCreateForm.save()=apps.flujos.forms.ActividadCreateForm-class.html#save,Method apps.flujos.forms.AsignarFlujoProyectoForm.save()=apps.flujos.forms.AsignarFlujoProyectoForm-class.html#save,Method apps.flujos.forms.PlantillaFlujoCreateForm.save()=apps.flujos.forms.PlantillaFlujoCreateForm-class.html#save,Method apps.proyectos.forms.AddMiembroForm.save()=apps.proyectos.forms.AddMiembroForm-class.html#save,Method apps.proyectos.forms.ProyectoCreateForm.save()=apps.proyectos.forms.ProyectoCreateForm-class.html#save,Method apps.proyectos.forms.ProyectoUpdateForm.save()=apps.proyectos.forms.ProyectoUpdateForm-class.html#save,Method apps.proyectos.forms.RolMiembroForm.save()=apps.proyectos.forms.RolMiembroForm-class.html#save,Method apps.roles_proyecto.forms.RolProyectoCreateForm.save()=apps.roles_proyecto.forms.RolProyectoCreateForm-class.html#save,Method apps.sprints.forms.SprintCreateForm.save()=apps.sprints.forms.SprintCreateForm-class.html#save,Method apps.sprints.forms.SprintUpdateForm.save()=apps.sprints.forms.SprintUpdateForm-class.html#save,Method apps.user_stories.forms.UserStoryCreateForm.save()=apps.user_stories.forms.UserStoryCreateForm-class.html#save,Method apps.user_stories.forms.UserStoryUpdateFormPO.save()=apps.user_stories.forms.UserStoryUpdateFormPO-class.html#save,Method apps.user_stories.forms.UserStoryUpdateFormSM.save()=apps.user_stories.forms.UserStoryUpdateFormSM-class.html#save,Method apps.usuarios.forms.UserCreateForm.save()=apps.usuarios.forms.UserCreateForm-class.html#save,Method apps.usuarios.forms.UserUpdateForm.save()=apps.usuarios.forms.UserUpdateForm-class.html#save"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.flujos.forms.AsignarFlujoProyectoForm.save
+apps.flujos.forms.PlantillaFlujoCreateForm.save
 apps.proyectos.forms.AddMiembroForm.save
 apps.proyectos.forms.ProyectoCreateForm.save
 apps.proyectos.forms.ProyectoUpdateForm.save
 apps.proyectos.forms.RolMiembroForm.save
 apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.sprints.forms.SprintCreateForm.save
+apps.sprints.forms.SprintUpdateForm.save
+apps.user_stories.forms.UserStoryCreateForm.save
+apps.user_stories.forms.UserStoryUpdateFormPO.save
+apps.user_stories.forms.UserStoryUpdateFormSM.save
 apps.usuarios.forms.UserCreateForm.save
 apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-53', 'save', 'link-53');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
@@ -296,11 +321,18 @@ apps.usuarios.models.Usuario.direccion" class="py-name" href="#" onclick="return
 <a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
 apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-67', 'user', 'link-5');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">is_active</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
 <a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.flujos.forms.AsignarFlujoProyectoForm.save
+apps.flujos.forms.PlantillaFlujoCreateForm.save
 apps.proyectos.forms.AddMiembroForm.save
 apps.proyectos.forms.ProyectoCreateForm.save
 apps.proyectos.forms.ProyectoUpdateForm.save
 apps.proyectos.forms.RolMiembroForm.save
 apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.sprints.forms.SprintCreateForm.save
+apps.sprints.forms.SprintUpdateForm.save
+apps.user_stories.forms.UserStoryCreateForm.save
+apps.user_stories.forms.UserStoryUpdateFormPO.save
+apps.user_stories.forms.UserStoryUpdateFormSM.save
 apps.usuarios.forms.UserCreateForm.save
 apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-68', 'save', 'link-53');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
@@ -337,11 +369,18 @@ apps.usuarios.models.Usuario.direccion" class="py-name" href="#" onclick="return
 <a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
 apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-79', 'user', 'link-5');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">is_active</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
 <a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.flujos.forms.AsignarFlujoProyectoForm.save
+apps.flujos.forms.PlantillaFlujoCreateForm.save
 apps.proyectos.forms.AddMiembroForm.save
 apps.proyectos.forms.ProyectoCreateForm.save
 apps.proyectos.forms.ProyectoUpdateForm.save
 apps.proyectos.forms.RolMiembroForm.save
 apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.sprints.forms.SprintCreateForm.save
+apps.sprints.forms.SprintUpdateForm.save
+apps.user_stories.forms.UserStoryCreateForm.save
+apps.user_stories.forms.UserStoryUpdateFormPO.save
+apps.user_stories.forms.UserStoryUpdateFormSM.save
 apps.usuarios.forms.UserCreateForm.save
 apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-80', 'save', 'link-53');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
@@ -350,11 +389,18 @@ apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return docl
 <a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
 apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-82', 'user', 'link-5');">user</a></tt><tt class="py-op">.</tt><tt class="py-name">is_active</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
 <a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-name">usuario_prueba</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="apps.flujos.forms.ActividadCreateForm.save
+apps.flujos.forms.AsignarFlujoProyectoForm.save
+apps.flujos.forms.PlantillaFlujoCreateForm.save
 apps.proyectos.forms.AddMiembroForm.save
 apps.proyectos.forms.ProyectoCreateForm.save
 apps.proyectos.forms.ProyectoUpdateForm.save
 apps.proyectos.forms.RolMiembroForm.save
 apps.roles_proyecto.forms.RolProyectoCreateForm.save
+apps.sprints.forms.SprintCreateForm.save
+apps.sprints.forms.SprintUpdateForm.save
+apps.user_stories.forms.UserStoryCreateForm.save
+apps.user_stories.forms.UserStoryUpdateFormPO.save
+apps.user_stories.forms.UserStoryUpdateFormSM.save
 apps.usuarios.forms.UserCreateForm.save
 apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="return doclink('link-83', 'save', 'link-53');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt>
@@ -397,7 +443,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat Apr 11 11:34:21 2015
+    Generated by Epydoc 3.0.1 on Sat Apr 25 06:13:44 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

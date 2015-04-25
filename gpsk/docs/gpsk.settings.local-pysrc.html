@@ -61,13 +61,17 @@
 <pre class="py-src">
 <a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module gpsk.settings.base=gpsk.settings.base-module.html"><a title="gpsk.settings.base" class="py-name" href="#" onclick="return doclink('link-0', 'base', 'link-0');">base</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
 <a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
-<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable gpsk.settings.local.DEBUG=gpsk.settings.local-module.html#DEBUG"><a title="gpsk.settings.local.DEBUG" class="py-name" href="#" onclick="return doclink('link-1', 'DEBUG', 'link-1');">DEBUG</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable gpsk.settings.local.DEBUG=gpsk.settings.local-module.html#DEBUG,Variable gpsk.settings.production.DEBUG=gpsk.settings.production-module.html#DEBUG"><a title="gpsk.settings.local.DEBUG
+gpsk.settings.production.DEBUG" class="py-name" href="#" onclick="return doclink('link-1', 'DEBUG', 'link-1');">DEBUG</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
 <a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
-<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable gpsk.settings.local.TEMPLATE_DEBUG=gpsk.settings.local-module.html#TEMPLATE_DEBUG"><a title="gpsk.settings.local.TEMPLATE_DEBUG" class="py-name" href="#" onclick="return doclink('link-2', 'TEMPLATE_DEBUG', 'link-2');">TEMPLATE_DEBUG</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable gpsk.settings.local.TEMPLATE_DEBUG=gpsk.settings.local-module.html#TEMPLATE_DEBUG,Variable gpsk.settings.production.TEMPLATE_DEBUG=gpsk.settings.production-module.html#TEMPLATE_DEBUG"><a title="gpsk.settings.local.TEMPLATE_DEBUG
+gpsk.settings.production.TEMPLATE_DEBUG" class="py-name" href="#" onclick="return doclink('link-2', 'TEMPLATE_DEBUG', 'link-2');">TEMPLATE_DEBUG</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
 <a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
-<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable gpsk.settings.local.ALLOWED_HOSTS=gpsk.settings.local-module.html#ALLOWED_HOSTS"><a title="gpsk.settings.local.ALLOWED_HOSTS" class="py-name" href="#" onclick="return doclink('link-3', 'ALLOWED_HOSTS', 'link-3');">ALLOWED_HOSTS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable gpsk.settings.local.ALLOWED_HOSTS=gpsk.settings.local-module.html#ALLOWED_HOSTS,Variable gpsk.settings.production.ALLOWED_HOSTS=gpsk.settings.production-module.html#ALLOWED_HOSTS"><a title="gpsk.settings.local.ALLOWED_HOSTS
+gpsk.settings.production.ALLOWED_HOSTS" class="py-name" href="#" onclick="return doclink('link-3', 'ALLOWED_HOSTS', 'link-3');">ALLOWED_HOSTS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
 <a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
-<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable gpsk.settings.local.DATABASES=gpsk.settings.local-module.html#DATABASES"><a title="gpsk.settings.local.DATABASES" class="py-name" href="#" onclick="return doclink('link-4', 'DATABASES', 'link-4');">DATABASES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable gpsk.settings.local.DATABASES=gpsk.settings.local-module.html#DATABASES,Variable gpsk.settings.production.DATABASES=gpsk.settings.production-module.html#DATABASES"><a title="gpsk.settings.local.DATABASES
+gpsk.settings.production.DATABASES" class="py-name" href="#" onclick="return doclink('link-4', 'DATABASES', 'link-4');">DATABASES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
 <a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">    <tt class="py-string">'default'</tt><tt class="py-op">:</tt> <tt class="py-op">{</tt> </tt>
 <a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">        <tt class="py-string">'ENGINE'</tt><tt class="py-op">:</tt> <tt class="py-string">'django.db.backends.postgresql_psycopg2'</tt><tt class="py-op">,</tt> </tt>
 <a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt class="py-string">'NAME'</tt><tt class="py-op">:</tt> <tt class="py-string">'gpsk-dev'</tt><tt class="py-op">,</tt> </tt>
@@ -78,9 +82,11 @@
 <a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-op">}</tt> </tt>
 <a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-op">}</tt> </tt>
 <a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
-<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable gpsk.settings.local.STATIC_URL=gpsk.settings.local-module.html#STATIC_URL"><a title="gpsk.settings.local.STATIC_URL" class="py-name" href="#" onclick="return doclink('link-5', 'STATIC_URL', 'link-5');">STATIC_URL</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'/static/'</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable gpsk.settings.local.STATIC_URL=gpsk.settings.local-module.html#STATIC_URL,Variable gpsk.settings.production.STATIC_URL=gpsk.settings.production-module.html#STATIC_URL"><a title="gpsk.settings.local.STATIC_URL
+gpsk.settings.production.STATIC_URL" class="py-name" href="#" onclick="return doclink('link-5', 'STATIC_URL', 'link-5');">STATIC_URL</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'/static/'</tt> </tt>
 <a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
-<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable gpsk.settings.local.STATICFILES_DIRS=gpsk.settings.local-module.html#STATICFILES_DIRS"><a title="gpsk.settings.local.STATICFILES_DIRS" class="py-name" href="#" onclick="return doclink('link-6', 'STATICFILES_DIRS', 'link-6');">STATICFILES_DIRS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable gpsk.settings.local.STATICFILES_DIRS=gpsk.settings.local-module.html#STATICFILES_DIRS,Variable gpsk.settings.production.STATICFILES_DIRS=gpsk.settings.production-module.html#STATICFILES_DIRS"><a title="gpsk.settings.local.STATICFILES_DIRS
+gpsk.settings.production.STATICFILES_DIRS" class="py-name" href="#" onclick="return doclink('link-6', 'STATICFILES_DIRS', 'link-6');">STATICFILES_DIRS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> </tt>
 <a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable gpsk.settings.base.BASE_DIR=gpsk.settings.base-module.html#BASE_DIR"><a title="gpsk.settings.base.BASE_DIR" class="py-name" href="#" onclick="return doclink('link-7', 'BASE_DIR', 'link-7');">BASE_DIR</a></tt><tt class="py-op">.</tt><tt class="py-name">child</tt><tt class="py-op">(</tt><tt class="py-string">'static'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
 <a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-op">)</tt> </tt>
 <a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt><script type="text/javascript">
@@ -118,7 +124,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat Apr 11 11:34:21 2015
+    Generated by Epydoc 3.0.1 on Sat Apr 25 06:13:44 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
