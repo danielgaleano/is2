@@ -15,6 +15,13 @@ from django.utils.decorators import method_decorator
 
 
 class IndexView(generic.ListView):
+    """
+    Clase que despliega la lista completa de sprints en el Index
+    de la aplicacion sprints.
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     template_name = 'sprints/index.html'
 
     def get_queryset(self):
@@ -32,42 +39,96 @@ class IndexView(generic.ListView):
 
 
 class SprintCreate(UpdateView):
+    """
+    Clase que despliega el formulario para la creacion de sprints.
+
+    @ivar form_class: Formulario que se utiliza para la creacion de sprints
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     form_class = SprintCreateForm
     template_name = 'sprints/create.html'
     context_object_name = 'proyecto_detail'
 
     def get_object(self, queryset=None):
+        """
+        Metodo que obtiene los datos del usuario a ser modificado.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @type queryset: django.db.models.query
+        @param queryset: Consulta a la base de datos
+
+        @rtype: Sprint
+        @return: Sprint actual a ser modificado
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return obj
 
     def get_success_url(self):
+        """
+        Metodo que redirecciona al index de sprints una vez que el formulario se haya guardado correctamente.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @rtype: django.core.urlresolvers
+        @return: redireccion al index de la aplicacion usuarios
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse('sprints:index', args=[obj.pk])
 
     def get_form_kwargs(self):
-        """This method is what injects forms with their keyword
-            arguments."""
-        # grab the current set of form #kwargs
+        """
+        Metodo que inserta los formularios con los argumentos clave.
+        """
         kwargs = super(SprintCreate, self).get_form_kwargs()
-        # Update the kwargs with the user_id
         kwargs['user'] = self.request.user
         return kwargs
 
-    #@method_decorator(permission_required('sprints.crear_sprint'))
-    #def dispatch(self, *args, **kwargs):
-    #    return super(SprintCreate, self).dispatch(*args, **kwargs)
-
-
 class SprintUpdate(UpdateView):
+    """
+    Clase que despliega el formulario para la modficacion de sprints.
+
+    @ivar form_class: Formulario que se utiliza para la modficacion de sprints
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     form_class = SprintUpdateForm
     template_name = 'sprints/update.html'
     context_object_name = 'proyecto_detail'
 
     def get_object(self, queryset=None):
+        """
+        Metodo que obtiene los datos del sprint a ser modificado.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @type queryset: django.db.models.query
+        @param queryset: Consulta a la base de datos
+
+        @rtype: Sprint
+        @return: Sprint a ser modificado
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return obj
 
     def get_success_url(self):
+        """
+        Metodo que redirecciona al index de sprints una vez que el formulario se haya guardado correctamente.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @rtype: django.core.urlresolvers
+        @return: redireccion al index de la aplicacion sprints
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse('sprints:index', args=[obj.pk])
 
@@ -76,8 +137,6 @@ class SprintUpdate(UpdateView):
         sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         flujos_sprint = sprint.flujos
-        #flujos_row = Sprint.objects.values('flujos').distinct()
-        #flujos = Flujo.objects.filter(pk__in=sprint.flujos)
 
         flujos = []
         for f in flujos_sprint.all():
@@ -86,34 +145,31 @@ class SprintUpdate(UpdateView):
         initial['sprint'] = sprint
         initial['flujos'] = flujos
 
-        # hs = roles_proyecto_del_usuario.name
-        # print hs
         return initial
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(SprintUpdate, self).get_context_data(**kwargs)
-        # Add in the publisher
         self.sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         context['sprint'] = self.sprint
-    #    self.user = self.request.user
-    #    context['user'] = self.user
-        #print "Roles %s" % self.roles_de_proyecto
-        #context['roles_de_proyecto'] = self.r_proyecto
-        #print "Roles %s" % self.r_proyecto
         return context
 
     def get_form_kwargs(self):
-        """This method is what injects forms with their keyword
-            arguments."""
-        # grab the current set of form #kwargs
+        """
+        Metodo que inserta los formularios con los argumentos clave.
+        """
         kwargs = super(SprintUpdate, self).get_form_kwargs()
-        # Update the kwargs with the user_id
         kwargs['user'] = self.request.user
         return kwargs
 
 
 class SprintBacklogIndexView(generic.ListView):
+    """
+    Clase que despliega la lista completa de user stories del sprints en el Index
+    de la aplicacion sprints_backlog.
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     template_name = 'sprints/sprint_backlog.html'
     context_object_name = 'userstory_list'
 
@@ -123,9 +179,7 @@ class SprintBacklogIndexView(generic.ListView):
         return UserStory.objects.filter(sprint=self.sprint).exclude(estado='Descartado').order_by('nombre')
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(SprintBacklogIndexView, self).get_context_data(**kwargs)
-        # Add in the publisher
         context['sprint'] = self.sprint
         context['proyecto'] = self.proyecto
 

@@ -6,7 +6,11 @@ from apps.proyectos.models import Proyecto
 
 
 class Sprint(models.Model):
-
+    """
+    Clase Sprint.
+    Crea el formulario para los Sprint para cada instancia de Sprint,
+    el cual define los campos nombre, duracion,estado, flujos y proyecto.
+    """
     ESTADO_SPRINT = (
         ('No iniciado', 'No iniciado'),
         ('Activo', 'Activo'),

@@ -13,34 +13,61 @@ from django.utils.decorators import method_decorator
 
 
 class IndexView(generic.ListView):
+    """
+    Clase que despliega la lista de user stories del proyecto para su modificación
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     #model = UserStory
     template_name = 'user_stories/index.html'
 
     def get_queryset(self):
+        """
+        Metodo que filtra los user story correspondientes al proyecto
+
+        @rtype: django.db.models.query.Querysets
+        @return: resultado de la consulta
+        """
         self.proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
         queryset = RolProyecto_Proyecto.objects.filter(proyecto=self.kwargs['pk_proyecto'])
         self.roles_de_proyecto = get_list_or_404(queryset, user=self.request.user)
-        #self.r_proyecto = ""
-        #for rol in self.roles_de_proyecto:
-        #    print "D"
-        #    if rol.rol_proyecto.group.name == u"Product Owner":
-        #        self.r_proyecto = rol.rol_proyecto.group.name
-        #        print "Inside"
+
+
         return UserStory.objects.filter(proyecto=self.proyecto).order_by('nombre')
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+        """
+        Metodo que retorna un diccionario que representa el contexto del template.
+
+        @type
+        @param kwargs: la clave primaria del proyecto
+
+        @rtype: context
+        @return: El diccionario
+        """
+
         context = super(IndexView, self).get_context_data(**kwargs)
-        # Add in the publisher
+
         context['proyecto'] = self.proyecto
         context['roles_de_proyecto'] = self.roles_de_proyecto
-        #print "Roles %s" % self.roles_de_proyecto
-        #context['roles_de_proyecto'] = self.r_proyecto
-        #print "Roles %s" % self.r_proyecto
+
         return context
 
 
 class UserStoryCreate(UpdateView):
+    """
+    Clase que despliega el formulario para la creacion de User Stories.
+
+    @ivar form_class: Formulario que se utiliza para la creacion de User Stories
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+
+    @ivar context_object_name: Variable de contexto
+    @type context_object_name: string
+    """
     form_class = UserStoryCreateForm
     template_name = 'user_stories/create.html'
     context_object_name = 'proyecto_detail'
@@ -50,15 +77,21 @@ class UserStoryCreate(UpdateView):
         return obj
 
     def get_success_url(self):
+        """
+        Metodo que redirecciona al index de User Stories una vez que el formulario se haya guardado correctamente.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @rtype: django.core.urlresolvers
+        @return: redireccion al index de la aplicacion usuarios
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse('user_stories:index', args=[obj.pk])
 
     def get_form_kwargs(self):
-        """This method is what injects forms with their keyword
-            arguments."""
-        # grab the current set of form #kwargs
+
         kwargs = super(UserStoryCreate, self).get_form_kwargs()
-        # Update the kwargs with the user_id
         kwargs['user'] = self.request.user
         return kwargs
 
@@ -66,33 +99,47 @@ class UserStoryCreate(UpdateView):
     def dispatch(self, *args, **kwargs):
         return super(UserStoryCreate, self).dispatch(*args, **kwargs)
 
-    #def form_valid(self, form):
-    #    instance = form.save(commit=True)
-    #    instance.user = self.request.user
-    #    super(UserStoryCreate, self).save(form)
-
-    #def get_context_data(self, **kwargs):
-    #    # Call the base implementation first to get a context
-    #    context = super(UserStoryCreate, self).get_context_data(**kwargs)
-    #    # Add in the publisher
-    #    self.user = self.request.user
-    #    context['user'] = self.user
-    #   #print "Roles %s" % self.roles_de_proyecto
-    #    #context['roles_de_proyecto'] = self.r_proyecto
-    #    #print "Roles %s" % self.r_proyecto
-    #    return context
-
 
 class UserStoryUpdatePO(UpdateView):
+    """
+    Clase que despliega el formulario para la modficacion de User Stories, con privilegio de Product Owner.
+
+    @ivar form_class: Formulario que se utiliza para la modficacion de User Stories
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     form_class = UserStoryUpdateFormPO
     template_name = 'user_stories/update.html'
     context_object_name = 'proyecto_detail'
 
     def get_object(self, queryset=None):
+        """
+        Metodo que obtiene los datos del usuario a ser modificado.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @type queryset: django.db.models.query
+        @param queryset: Consulta a la base de datos
+
+        @rtype: User
+        @return: Usuario actual a ser modificado
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return obj
 
     def get_success_url(self):
+        """
+        Metodo que redirecciona al index de User Stories una vez que el formulario se haya guardado correctamente.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @rtype: django.core.urlresolvers, primary key del proyecto
+        @return: redireccion al index de la aplicacion user storie, respecto al proyecto al que corresponde
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse('user_stories:index', args=[obj.pk])
 
@@ -100,63 +147,66 @@ class UserStoryUpdatePO(UpdateView):
         initial = super(UserStoryUpdatePO, self).get_initial()
         userStory = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        #las filas con la tupla user_rol_proyecto
-        #solo_del_usuario = RolProyecto_Proyecto.objects.filter(user=user, proyecto=proyecto)
-        #print "solo_del_usuario = %s" % solo_del_usuario
-        #listar los roles en ese proyecto
-        #roles_proyecto_del_usuario = solo_del_usuario.values('rol_proyecto').distinct()
-        #print "roles_proyecto_del_usuario = %s" % roles_proyecto_del_usuario
-        #ropro = Group.objects.filter(rolproyecto__pk__in=roles_proyecto_del_usuario)
-
-        #print "ropro = %s" % ropro
-
-        # dic = {}
-        # for i in roles_proyecto_del_usuario:
-        #   dic.add(i)
-        #pasamos los roles del usuario en el proyecto
-        #initial['rolproyecto'] = ropro
-
-        #pasamos el usuario
         initial['user_story'] = userStory
         print "userStory = %s" % userStory
 
-        # hs = roles_proyecto_del_usuario.name
-        # print hs
         return initial
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(UserStoryUpdatePO, self).get_context_data(**kwargs)
-        # Add in the publisher
         self.user_story = userStory = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
         context['user_story'] = self.user_story
-    #    self.user = self.request.user
-    #    context['user'] = self.user
-        #print "Roles %s" % self.roles_de_proyecto
-        #context['roles_de_proyecto'] = self.r_proyecto
-        #print "Roles %s" % self.r_proyecto
         return context
 
     def get_form_kwargs(self):
-        """This method is what injects forms with their keyword
-            arguments."""
-        # grab the current set of form #kwargs
+        """
+        Metodo que inyecta los formularios con sus argumentos principales.
+        """
         kwargs = super(UserStoryUpdatePO, self).get_form_kwargs()
-        # Update the kwargs with the user_id
         kwargs['user'] = self.request.user
         return kwargs
 
 
 class UserStoryUpdateSM(UpdateView):
+    """
+    Clase que despliega el formulario para la modficacion de User Stories, con privilegio de Scrum Master.
+
+    @ivar form_class: Formulario que se utiliza para la modficacion de User Stories
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     form_class = UserStoryUpdateFormSM
     template_name = 'user_stories/update_sm.html'
     context_object_name = 'proyecto_detail'
 
     def get_object(self, queryset=None):
+        """
+        Metodo que obtiene los datos del usuario a ser modificado.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @type queryset: django.db.models.query
+        @param queryset: Consulta a la base de datos
+
+        @rtype: Proyecto
+        @return: Proyecto actual a ser modificado
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return obj
 
     def get_success_url(self):
+        """
+        Metodo que redirecciona al index de User Stories una vez que el formulario se haya guardado correctamente.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @rtype: django.core.urlresolvers, primary key del proyecto
+        @return: redireccion al index de la aplicacion user storie, respecto al proyecto al que corresponde
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse('user_stories:index', args=[obj.pk])
 
@@ -164,52 +214,42 @@ class UserStoryUpdateSM(UpdateView):
         initial = super(UserStoryUpdateSM, self).get_initial()
         userStory = UserStory.objects.get(pk=self.kwargs['pk_user_story_sm'])
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        #las filas con la tupla user_rol_proyecto
-        #solo_del_usuario = RolProyecto_Proyecto.objects.filter(user=user, proyecto=proyecto)
-        #print "solo_del_usuario = %s" % solo_del_usuario
-        #listar los roles en ese proyecto
-        #roles_proyecto_del_usuario = solo_del_usuario.values('rol_proyecto').distinct()
-        #print "roles_proyecto_del_usuario = %s" % roles_proyecto_del_usuario
-        #ropro = Group.objects.filter(rolproyecto__pk__in=roles_proyecto_del_usuario)
-
-        #print "ropro = %s" % ropro
-
-        # dic = {}
-        # for i in roles_proyecto_del_usuario:
-        #   dic.add(i)
-        #pasamos los roles del usuario en el proyecto
-        #initial['rolproyecto'] = ropro
-
-        #pasamos el usuario
         initial['user_story'] = userStory
         print "userStorySM = %s" % userStory
-
-        # hs = roles_proyecto_del_usuario.name
-        # print hs
         return initial
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(UserStoryUpdateSM, self).get_context_data(**kwargs)
-        # Add in the publisher
         self.user_story = userStory = UserStory.objects.get(pk=self.kwargs['pk_user_story_sm'])
         context['user_story'] = self.user_story
-        #print "Roles %s" % self.roles_de_proyecto
-        #context['roles_de_proyecto'] = self.r_proyecto
-        #print "Roles %s" % self.r_proyecto
         return context
 
     def get_form_kwargs(self):
-        """This method is what injects forms with their keyword
-            arguments."""
-        # grab the current set of form #kwargs
+        """
+        Este metodo inyecta los formularios con sus argumentos principales.
+        """
         kwargs = super(UserStoryUpdateSM, self).get_form_kwargs()
-        # Update the kwargs with the user_id
         kwargs['user'] = self.request.user
         return kwargs
 
 @login_required(login_url='/login/')
 def descartar_user_story(request, pk_proyecto, pk_user_story):
+    """
+    Metodo que descarta un user story
+
+    @param request:
+    @type
+
+    @param pk_proyecto: clave primaria del proyecto al cual corresponde el user story
+    @type
+
+    @param pk_user_story: clave primaria del user story
+    @type
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza user_stories/delete.html para obtener el formulario o
+            redirecciona a la vista index de User Stories si el user story fue descartado.
+    """
     template = 'user_stories/delete.html'
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
     user_story = get_object_or_404(UserStory, pk=pk_user_story)
@@ -234,8 +274,7 @@ def descartar_user_story(request, pk_proyecto, pk_user_story):
 
 
 class VerHistorialUserStory(generic.ListView):
-    #queryset = HistorialUserStory.objects.filter(user_story=kwargs['pk_user_story']).order_by('-fecha')
-    #pk_url_kwarg = 'pk_user_story'
+
     template_name = 'user_stories/historial.html'
     context_object_name = 'historial_list'
 
@@ -244,15 +283,9 @@ class VerHistorialUserStory(generic.ListView):
         return HistorialUserStory.objects.filter(user_story=query).order_by('-fecha')
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(VerHistorialUserStory, self).get_context_data(**kwargs)
-        # Add in the publisher
         self.proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
         context['proyecto'] = self.proyecto
         self.user_story = get_object_or_404(UserStory, pk=self.kwargs['pk_user_story'])
         context['user_story'] = self.user_story
-        #context['roles_de_proyecto'] = self.roles_de_proyecto
-        #print "Roles %s" % self.roles_de_proyecto
-        #context['roles_de_proyecto'] = self.r_proyecto
-        #print "Roles %s" % self.r_proyecto
         return context

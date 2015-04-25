@@ -8,6 +8,12 @@ from apps.sprints.models import Sprint
 
 
 class UserStory(models.Model):
+    """
+    Clase User Story.
+    Crea el formulario para los User Stories para cada instancia de la user story,
+    el cual define los campos nombre, descripcion,valor del negocio, prioridad,
+    valor técnico, estimación, usuario, estado, flujo, proyecto y sprint.
+    """
 
     PRIORIDAD_USER_STORY=(
         ('Alta', 'Alta'),
