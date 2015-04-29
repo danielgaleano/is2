@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, url
 from django.contrib.auth.decorators import login_required
+
 from . import views
+
 
 urlpatterns = patterns('apps',
                        url(r'^$', login_required(views.IndexView.as_view()), name='index'),
@@ -15,4 +17,6 @@ urlpatterns = patterns('apps',
                            name='delete_miembro'),
                        url(r'^(?P<pk_proyecto>\d+)/equipo/rol/(?P<pk_user>\d+)/$',
                            login_required(views.RolMiembro.as_view()), name='rol_miembro'),
+                       url(r'^(?P<pk_proyecto>\d+)/equipo/horas/(?P<pk_user>\d+)/$',
+                           login_required(views.HorasDeveloper.as_view()), name='horas_developer'),
                        )

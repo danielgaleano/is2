@@ -15,7 +15,7 @@ from apps.roles_proyecto.models import RolProyecto_Proyecto
 from apps.user_stories.models import UserStory
 from apps.sprints.models import Sprint
 from apps.flujos.models import Flujo
-from forms import AddMiembroForm, ProyectoCreateForm, ProyectoUpdateForm, RolMiembroForm
+from forms import AddMiembroForm, ProyectoCreateForm, ProyectoUpdateForm, RolMiembroForm, HorasDeveloperForm
 
 
 class IndexView(generic.ListView):
@@ -228,3 +228,55 @@ class RolMiembro(UpdateView):
     @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
     def dispatch(self, *args, **kwargs):
         return super(RolMiembro, self).dispatch(*args, **kwargs)
+
+
+class HorasDeveloper(UpdateView):
+    form_class = HorasDeveloperForm
+    template_name = 'proyectos/proyecto_equipo_horas_developer.html'
+    context_object_name = 'proyecto_detail'
+
+    def get_initial(self):
+        initial = super(HorasDeveloper, self).get_initial()
+        user = User.objects.get(pk=self.kwargs['pk_user'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        #las filas con la tupla user_rol_proyecto
+        solo_del_usuario = RolProyecto_Proyecto.objects.filter(user=user, proyecto=proyecto)
+        print "solo_del_usuario = %s" % solo_del_usuario
+        rol_developer = []
+        for rol in solo_del_usuario:
+            if rol.rol_proyecto.group.name == "Developer":
+                rol_developer.append(rol)
+
+        print "rol_developer = %s" % rol_developer
+
+        horas = rol_developer[0].horas_developer
+        print "rol_developer = %s" % rol_developer
+        #listar los roles en ese proyecto
+        #roles_proyecto_del_usuario = solo_del_usuario.values('rol_proyecto').distinct()
+        #print "roles_proyecto_del_usuario = %s" % roles_proyecto_del_usuario
+        #roro = Group.objects.filter(rolproyecto__pk__in=roles_proyecto_del_usuario)
+
+        #print "roro = %s" % roro
+
+        #pasamos los roles del usuario en el proyecto
+        #initial['rolproyecto'] = roro
+
+        #pasamos el usuario
+        initial['horas_developer'] = horas
+        initial['rol_developer'] = rol_developer
+        initial['user'] = user
+        print "user = %s" % user
+
+        return initial
+
+    def get_object(self, queryset=None):
+        obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        return obj
+
+    def get_success_url(self):
+        obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        return reverse( 'proyectos:equipo_list', args=[obj.pk])
+
+    @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
+    def dispatch(self, *args, **kwargs):
+        return super(HorasDeveloper, self).dispatch(*args, **kwargs)

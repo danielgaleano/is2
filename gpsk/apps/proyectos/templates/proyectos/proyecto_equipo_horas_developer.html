@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<a type="button" class="btn btn-info" href="{% url 'proyectos:equipo_list' proyecto_detail.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Horas asignadas al desarrollador <small> {{proyecto_detail}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+	<form action=" {{ proyectos.get_absolute_url }} " method="post">
+    {% csrf_token %}
+
+        {{ form.usuario.errors }}
+    	{{ form.usuario }}
+
+        {{ form.codigo.errors }}
+        {{ form.codigo }}
+    <p>
+    {{ form.horas.errors }}
+    <label for="horas">Horas</label>
+    {{ form.horas }}
+    </p>
+
+
+
+    <input type="submit" value="Guardar" class="btn btn-primary"/>
+</form>
+{% endblock %}
+

@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import Group, User
 from django.core.urlresolvers import reverse
+from django.core.validators import MinValueValidator
+
 from apps.proyectos.models import Proyecto
 
 
@@ -31,6 +33,7 @@ class RolProyecto_Proyecto(models.Model):
     user = models.ForeignKey(User, null=True)
     rol_proyecto = models.ForeignKey(RolProyecto)
     proyecto = models.ForeignKey(Proyecto)
+    horas_developer = models.IntegerField(validators=[MinValueValidator(0)], default=0)
 
     def __unicode__(self):
         return "%s %s en %s" % (self.user.username, self.rol_proyecto.group.name, self.proyecto.codigo)
