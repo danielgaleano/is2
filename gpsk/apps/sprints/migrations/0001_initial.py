@@ -8,8 +8,8 @@ import django.core.validators
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('proyectos', '0002_proyecto_cliente'),
         ('flujos', '0001_initial'),
+        ('proyectos', '0001_initial'),
     ]
 
     operations = [

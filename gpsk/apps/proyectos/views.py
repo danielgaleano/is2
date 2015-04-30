@@ -120,10 +120,13 @@ def proyecto_index(request, pk):
 
     print nueva_lista
 
+    duracion_proyecto = proyecto.fecha_fin - proyecto.fecha_inicio
+    print "duracion = %s" % duracion_proyecto.days
+    duracion = duracion_proyecto.days
+
     lista_us = UserStory.objects.filter(proyecto=pk).order_by('nombre')[:5]
     lista_sprints = Sprint.objects.filter(proyecto=pk).order_by('pk')
     lista_flujos = Flujo.objects.filter(proyecto=pk).order_by('pk')
-
 
     return render(request, template, locals())
 
@@ -251,17 +254,7 @@ class HorasDeveloper(UpdateView):
 
         horas = rol_developer[0].horas_developer
         print "rol_developer = %s" % rol_developer
-        #listar los roles en ese proyecto
-        #roles_proyecto_del_usuario = solo_del_usuario.values('rol_proyecto').distinct()
-        #print "roles_proyecto_del_usuario = %s" % roles_proyecto_del_usuario
-        #roro = Group.objects.filter(rolproyecto__pk__in=roles_proyecto_del_usuario)
 
-        #print "roro = %s" % roro
-
-        #pasamos los roles del usuario en el proyecto
-        #initial['rolproyecto'] = roro
-
-        #pasamos el usuario
         initial['horas_developer'] = horas
         initial['rol_developer'] = rol_developer
         initial['user'] = user
@@ -276,6 +269,30 @@ class HorasDeveloper(UpdateView):
     def get_success_url(self):
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse( 'proyectos:equipo_list', args=[obj.pk])
+
+    def get_context_data(self, **kwargs):
+        context = super(HorasDeveloper, self).get_context_data(**kwargs)
+        proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
+        duracion_proyecto = proyecto.fecha_fin - proyecto.fecha_inicio
+        #ocho horas por dia
+        duracion_horas = duracion_proyecto.days * 8
+        print "duracion = %s" % duracion_horas
+
+        context['duracion_horas'] = duracion_horas
+
+        #Usar al determinar la duracion del sprint
+        rows_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
+        print "rows_del_proyecto = %s" % rows_del_proyecto
+
+        horas_asignadas = 0
+        for row in rows_del_proyecto:
+            horas_asignadas = horas_asignadas + row.horas_developer
+
+        context['horas_asignadas'] = horas_asignadas
+
+        #self.user_story = get_object_or_404(UserStory, pk=self.kwargs['pk_user_story'])
+        #context['user_story'] = self.user_story
+        return context
 
     @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
     def dispatch(self, *args, **kwargs):

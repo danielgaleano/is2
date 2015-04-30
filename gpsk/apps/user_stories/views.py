@@ -223,6 +223,7 @@ class UserStoryUpdateSM(UpdateView):
         context = super(UserStoryUpdateSM, self).get_context_data(**kwargs)
         self.user_story = userStory = UserStory.objects.get(pk=self.kwargs['pk_user_story_sm'])
         context['user_story'] = self.user_story
+        print "view = %s" % self.user_story.prioridad
         return context
 
     def get_form_kwargs(self):

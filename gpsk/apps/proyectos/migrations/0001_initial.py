@@ -9,6 +9,7 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('clientes', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -24,6 +25,7 @@ class Migration(migrations.Migration):
                 ('fecha_fin', models.DateField(default=datetime.date.today)),
                 ('cancelado', models.BooleanField(default=False)),
                 ('estado', models.CharField(default=b'No iniciado', max_length=15, choices=[(b'No inciado', b'No inciado'), (b'Activo', b'Activo'), (b'Finalizado', b'Finalizado')])),
+                ('cliente', models.ForeignKey(related_name='cliente_proyecto', to='clientes.Cliente', null=True)),
                 ('equipo', models.ManyToManyField(to=settings.AUTH_USER_MODEL, null=True)),
                 ('scrum_master', models.ForeignKey(related_name='scrum_master', to=settings.AUTH_USER_MODEL, null=True)),
             ],
