@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'sprints:index' proyecto.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Gestionar User Stories <small>{{sprint}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+<div class="row">
+
+<div class="col-lg-6">
+    <div class="col-lg-12">
+        <h2>
+            <small>Asignar User Story al {{sprint}}</small>
+        </h2>
+	</div>
+    <form action=" {{ sprints.get_absolute_url }} " method="post">
+	{% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Asignar" class="btn btn-warning"/>
+</form>
+</div>
+</div>
+
+<div class="col-lg-6">
+
+    <h3>
+        Product Backlog Priorizado
+    </h3>
+    <div class="table-responsive">
+            <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Nombre</th>
+                    <th>Prioridad</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for userstory in  user_story_list_proyecto %}
+
+
+
+                        <tr>
+
+                            <td>{{userstory.nombre}}</td>
+
+
+
+                            <td>{{userstory.prioridad}}</td>
+
+                        </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="col-lg-6">
+    <h3>
+        Sprint Backlog
+    </h3>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Desarrollador</th>
+                    <th>Flujo</th>
+                    <th>Editar</th>
+                    <th></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for userstory in  user_story_list_sprint %}
+
+
+
+                        <tr>
+
+                            <td>{{userstory.nombre}}</td>
+
+
+
+                            <td>{{userstory.estado}}</td>
+
+                            <td>{{userstory.usuario}}</td>
+
+                            <td>{{userstory.flujo}}</td>
+
+                            <td>
+                                <a type="button" class="btn btn-primary" href="{% url 'sprints:gestionar_update' proyecto.id sprint.id userstory.id %}">
+                                <i class="fa fa-lg fa-edit"></i>
+                                </a>
+                            </td>
+
+                            <td>
+                                <a type="button" class="btn btn-danger" href="{% url 'sprints:gestionar_delete' proyecto.id sprint.id userstory.id %}">
+                                <i class="fa fa-lg fa-minus"></i>
+                                </a>
+                            </td>
+
+
+                        </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

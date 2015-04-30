@@ -1,17 +1,16 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views import generic
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import UpdateView
 from django.core.urlresolvers import reverse
-from models import Sprint
-from forms import SprintCreateForm, SprintUpdateForm
-from apps.proyectos.models import Proyecto
-from apps.flujos.models import Flujo
-from apps.user_stories.models import UserStory
-from apps.roles_proyecto.models import RolProyecto_Proyecto
-from django.shortcuts import get_object_or_404, get_list_or_404
+from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.decorators import permission_required
-from django.utils.decorators import method_decorator
+
+from models import Sprint
+from forms import SprintCreateForm, SprintUpdateForm, SprintAsignarUserStoryForm, SprintUpdateUserStoryForm
+from apps.proyectos.models import Proyecto
+from apps.user_stories.models import UserStory, HistorialUserStory
+from apps.roles_proyecto.models import RolProyecto_Proyecto
 
 
 class IndexView(generic.ListView):
@@ -89,6 +88,7 @@ class SprintCreate(UpdateView):
         kwargs['user'] = self.request.user
         return kwargs
 
+
 class SprintUpdate(UpdateView):
     """
     Clase que despliega el formulario para la modficacion de sprints.
@@ -136,14 +136,14 @@ class SprintUpdate(UpdateView):
         initial = super(SprintUpdate, self).get_initial()
         sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        flujos_sprint = sprint.flujos
+        #flujos_sprint = sprint.flujos
 
-        flujos = []
-        for f in flujos_sprint.all():
-            flujos.append(f)
+        #flujos = []
+        #for f in flujos_sprint.all():
+        #    flujos.append(f)
 
         initial['sprint'] = sprint
-        initial['flujos'] = flujos
+        #initial['flujos'] = flujos
 
         return initial
 
@@ -184,3 +184,161 @@ class SprintBacklogIndexView(generic.ListView):
         context['proyecto'] = self.proyecto
 
         return context
+
+
+class SprintGestionar(UpdateView):
+    form_class = SprintAsignarUserStoryForm
+    template_name = 'sprints/sprint_gestionar.html'
+    context_object_name = 'proyecto_detail'
+
+    def get_object(self, queryset=None):
+        obj = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        return obj
+
+    def get_success_url(self):
+        obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        obj2 = Proyecto.objects.get(pk=self.kwargs['pk_sprint'])
+        return reverse('sprints:gestionar', args=[obj.pk, obj2.pk])
+
+    def get_form_kwargs(self):
+        kwargs = super(SprintGestionar, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def get_initial(self):
+        initial = super(SprintGestionar, self).get_initial()
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+
+        solo_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
+        print "solo_del_proyecto = %s" % solo_del_proyecto
+        users_rol_developer = []
+        for rol in solo_del_proyecto:
+            if rol.rol_proyecto.group.name == "Developer":
+                users_rol_developer.append(rol.user)
+
+        print "rol_developer = %s" % users_rol_developer
+
+        initial['sprint'] = sprint
+        initial['proyecto'] = proyecto
+        initial['users_rol_developer'] = users_rol_developer
+        #initial['flujos'] = flujos
+
+        return initial
+
+    def get_context_data(self, **kwargs):
+        context = super(SprintGestionar, self).get_context_data(**kwargs)
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        user_story_list_proyecto = UserStory.objects.filter(
+            proyecto=proyecto).exclude(Q(estado='Activo') |
+                                       Q(estado='Descartado') |
+                                       Q(estado='Finalizado') |
+                                       Q(estado='Aprobado') |
+                                       Q(sprint=sprint)).order_by('-prioridad')
+        user_story_list_sprint = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
+        context['sprint'] = sprint
+        context['proyecto'] = proyecto
+        context['user_story_list_proyecto'] = user_story_list_proyecto
+        context['user_story_list_sprint'] = user_story_list_sprint
+
+        return context
+
+
+class SprintGestionarUpdate(UpdateView):
+    form_class = SprintUpdateUserStoryForm
+    template_name = 'sprints/sprint_gestionar_update.html'
+    context_object_name = 'proyecto_detail'
+
+    def get_object(self, queryset=None):
+        obj = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        return obj
+
+    def get_success_url(self):
+        obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        obj2 = Proyecto.objects.get(pk=self.kwargs['pk_sprint'])
+        return reverse('sprints:gestionar', args=[obj.pk, obj2.pk])
+
+    def get_form_kwargs(self):
+        kwargs = super(SprintGestionarUpdate, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def get_initial(self):
+        initial = super(SprintGestionarUpdate, self).get_initial()
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+
+        solo_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
+        print "solo_del_proyecto = %s" % solo_del_proyecto
+        users_rol_developer = []
+        for rol in solo_del_proyecto:
+            if rol.rol_proyecto.group.name == "Developer":
+                users_rol_developer.append(rol.user)
+
+        print "rol_developer = %s" % users_rol_developer
+
+        initial['user_story'] = user_story
+        initial['sprint'] = sprint
+        initial['proyecto'] = proyecto
+        initial['users_rol_developer'] = users_rol_developer
+        #initial['flujos'] = flujos
+
+        return initial
+
+    def get_context_data(self, **kwargs):
+        context = super(SprintGestionarUpdate, self).get_context_data(**kwargs)
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        self.user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+        user_story_list_proyecto = UserStory.objects.filter(
+            proyecto=proyecto).exclude(Q(estado='Activo') |
+                                       Q(estado='Descartado') |
+                                       Q(estado='Finalizado') |
+                                       Q(estado='Aprobado') |
+                                       Q(sprint=sprint)).order_by('-prioridad')
+        user_story_list_sprint = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
+        context['user_story'] = self.user_story
+        context['sprint'] = sprint
+        context['proyecto'] = proyecto
+        context['user_story_list_proyecto'] = user_story_list_proyecto
+        context['user_story_list_sprint'] = user_story_list_sprint
+
+        return context
+
+
+@login_required(login_url='/login/')
+def desasignar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
+    template = 'sprints/sprint_gestionar_delete.html'
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    user_story = get_object_or_404(UserStory, pk=pk_user_story)
+    usuario = request.user
+    if request.method == 'POST':
+
+        if str(user_story.estado) == 'Finalizado' or str(user_story.estado) == 'Aprobado':
+            mensaje = 'No se puede desasignar del sprint un user story Finalizado o Aprobado'
+
+            return render(request, template, locals())
+
+        else:
+            user_story.estado = 'No asignado'
+            user_story.sprint = None
+            user_story.flujo = None
+            user_story.usuario = None
+            user_story.save()
+
+            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="desarrollador",
+                                                  valor='Ninguno', usuario=usuario)
+            historial_us.save()
+            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="sprint",
+                                                  valor='Ninguno', usuario=usuario)
+            historial_us.save()
+            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
+                                                  valor='Ninguno', usuario=usuario)
+            historial_us.save()
+
+            return HttpResponseRedirect(reverse('sprints:gestionar', args=[pk_proyecto, pk_sprint]))
+
+    return render(request, template, locals())

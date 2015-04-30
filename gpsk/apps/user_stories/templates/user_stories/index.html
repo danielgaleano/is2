@@ -35,7 +35,7 @@
 			<th>Historial</th>
             <th>Nombre</th>
 
-			<th>Valor de Negocio</th>
+			<th>Valor Negocio</th>
 			<th>Prioridad</th>
 			<th>Valor Tecnico</th>
 			<th>Estimacion</th>
@@ -84,11 +84,7 @@
                     <td>{{userstory.usuario}}</td>
 
 
-					<td>
-
-						{{userstory.estado}}
-
-					</td>
+					<td>{{userstory.estado}}</td>
 
                     <td>{{userstory.flujo}}</td>
                     <td>{{userstory.sprint}}</td>
@@ -117,8 +113,6 @@
                             {% if userstory.estado|stringformat:"s" != "Finalizado" %}
                             {% if userstory.estado|stringformat:"s" != "Aprobado" %}
                             <td>
-
-
                                 <a type="button" class="btn btn-danger" href="{% url 'user_stories:delete' proyecto.id userstory.id %}">
                                 <i class="fa fa-lg fa-remove"></i>
                                 </a>

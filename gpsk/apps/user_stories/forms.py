@@ -9,7 +9,7 @@ class UserStoryCreateForm(forms.ModelForm):
         super(UserStoryCreateForm, self).__init__(**kwargs)
         self.user = user
 
-    valor_negocio = forms.IntegerField(required=True, min_value=0, max_value=10)
+    valor_negocio = forms.IntegerField(required=True, min_value=0, max_value=10, initial=0)
 
     class Meta:
         model = UserStory
@@ -127,19 +127,9 @@ class UserStoryUpdateFormSM(forms.ModelForm):
     def __init__(self, user, *args, **kwargs):
         context = super(UserStoryUpdateFormSM, self).__init__(*args, **kwargs)
         self.user = user
-        miembros_actuales = Proyecto.objects.get(pk=kwargs['instance'].pk).equipo.all()
 
-        #roles = kwargs['initial']['rolproyecto']
         user_story_string = kwargs['initial']['user_story']
         kwargs.pop('initial')
-
-        #self.fields['rolproyecto'] = forms.ModelMultipleChoiceField(Group.objects.all().filter(rolproyecto__es_rol_proyecto=True).exclude(name='Scrum Master'),
-        #        widget=forms.CheckboxSelectMultiple, required=False)
-
-        #dic = {}
-        #for arr in roles:
-        #    dic[arr.pk] = arr
-        #self.fields['rolproyecto'].initial = dic
 
         user_story = UserStory.objects.get(pk=user_story_string.pk)
 
@@ -158,32 +148,14 @@ class UserStoryUpdateFormSM(forms.ModelForm):
         self.fields['valor_tecnico'] = forms.IntegerField(required=True, min_value=0, max_value=10)
         self.fields['estimacion'] = forms.IntegerField(required=True, min_value=0, max_value=240,
                                                        help_text='En horas. Maximo 240 horas.')
-        #self.fields['usuario'] = forms.ModelChoiceField(Proyecto.objects.get(pk=kwargs['instance'].pk).equipo.all(),
-        #                                               required=False)
-        #self.fields['estado'] = forms.ChoiceField(choices=ESTADO_USER_STORY, widget=forms.HiddenInput())
-        #flitrar solo los flujos del proyecto
-        #self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=False)
-        #flitrar solo los sprints del proyecto
-        #self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=kwargs['instance'].pk).order_by('pk'),
-        #                                               required=False)
 
-        #if str(user_story.estado) == 'Finalizado':
-        #    self.fields['usuario'] = forms.ModelChoiceField(Proyecto.objects.get(pk=kwargs['instance'].pk).equipo.all(),
-        #                                                    required=False,
-        #                                                    widget=forms.HiddenInput(attrs={'value':user_story.usuario}))
-
-
-        #self.fields['usuario'].initial = user
         self.fields['id'].initial = user_story.id
         self.fields['prioridad'].intial = user_story.prioridad
         self.fields['valor_tecnico'].initial = user_story.valor_tecnico
         self.fields['estimacion'].initial = user_story.estimacion
+        print user_story.prioridad
         print "prioridad initial = %s" % self.fields['prioridad'].initial
         print "valor_tecnico initial = %s" % self.fields['valor_tecnico'].initial
-        #self.fields['usuario'].initial = user_story.usuario
-        #self.fields['estado'].initial = user_story.estado
-        #self.fields['flujo'].initial = user_story.flujo
-        #self.fields['sprint'].initial = user_story.sprint
 
     codigo = forms.CharField(widget=forms.HiddenInput(), required=True)
 
@@ -197,12 +169,8 @@ class UserStoryUpdateFormSM(forms.ModelForm):
         proyecto = Proyecto.objects.get(pk=self.instance.pk)
 
         proyecto = super(UserStoryUpdateFormSM, self).save(commit=True)
-        #user_story = UserStory.objects.get(pk=self.context[''])
+
         user_story = UserStory.objects.get(pk=self.cleaned_data['id'])
-        #user_story.prioridad = self.cleaned_data['prioridad']
-        #user_story.valor_tecnico = self.cleaned_data['valor_tecnico']
-        #user_story.estimacion = self.cleaned_data['estimacion']
-        #user_story.usuario = self.cleaned_data['usuario']
 
         if user_story.usuario is None:
             user_story.estado = 'No asignado'

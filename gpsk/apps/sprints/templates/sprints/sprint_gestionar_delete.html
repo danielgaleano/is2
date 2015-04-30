@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'sprints:gestionar' proyecto.id sprint.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                 Desasignar User Story
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+{% if mensaje != null %}
+		<div class="alert alert-danger" role="alert">
+  			<i class="fa fa-fw fa-warning"></i>
+  			<span class="sr-only">Error:</span>
+ 			 {{mensaje}}
+		</div>
+	{% endif %}
+
+
+<form action="{{ sprints.get_absolute_url }}" method="post">
+	{% csrf_token %}
+    <p>¿Está seguro que desea desasignar el user story "{{ user_story }}" del sprint {{sprint}}?</p>
+    <input type="submit" value="Desasignar" class="btn btn-danger"/>
+</form>
+{% endblock %}

@@ -69,5 +69,5 @@ class HistorialUserStory(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
-        return "%s %s %s a %s por %s el %s" % (self.user_story.nombre, self.operacion, self.campo, self.valor,
+        return "%s %s %s a %s por el usuario %s el %s" % (self.user_story.nombre, self.operacion, self.campo, self.valor,
                                                self.usuario.username, self.fecha.strftime('%d-%m-%Y %H:%M:%S'))
