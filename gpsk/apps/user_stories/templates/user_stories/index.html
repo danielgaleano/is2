@@ -98,7 +98,7 @@
                                 <i class="fa fa-lg fa-edit"></i>
                                 </a>
                             </td>
-                        {% elif  perms.user_stories.definir_valor_tecnico_y_estimacion_userstory or perms.users_stories.asignar_flujo_userstory or perms.user_stories.asignar_sprint_userstory or perms.user_stories.asignar_usuario_userstory and user == proyecto.scrum_master %}
+                        {% elif  perms.user_stories.definir_valor_tecnico_y_estimacion_userstory and perms.user_stories.asignar_sprint_userstory and perms.user_stories.asignar_usuario_userstory and user == proyecto.scrum_master %}
                             <td>
                                 <a type="button" class="btn btn-primary" href="{% url 'user_stories:update_sm' proyecto.id userstory.id %}">
                                 <i class="fa fa-lg fa-edit"></i>

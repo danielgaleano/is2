@@ -119,7 +119,7 @@ class ProyectoUpdateForm(forms.ModelForm):
                     entrar2 = None
                 if entrar2:
                     #se le quita el rol Scrum master al usuario_anterior
-                    miembro.groups.remove(grupo)
+                    #miembro.groups.remove(grupo)
                     row_scrum = RolProyecto_Proyecto.objects.get(user=miembro, rol_proyecto=rolproyecto, proyecto=proyecto_antiguo)
                     row_scrum.delete()
 

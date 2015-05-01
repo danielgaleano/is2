@@ -39,6 +39,7 @@
 			<th>Estado</th>
 
 			<th>Modificar</th>
+            <th></th>
 
 
 		</tr>
@@ -57,7 +58,7 @@
                     </td>
 
                     <td>
-                        <a type="button" class="btn btn-success" href="{% url 'sprints:backlog' proyecto.id sprint.id %}">
+                        <a type="button" class="btn btn-info" href="{% url 'sprints:backlog' proyecto.id sprint.id %}">
                                 <i class="fa fa-lg fa-list"></i>
                         </a>
                     </td>
@@ -76,6 +77,26 @@
                             <td>
                                 <a type="button" class="btn btn-primary" href="{% url 'sprints:update' proyecto.id sprint.id %}">
                                 <i class="fa fa-lg fa-edit"></i>
+                                </a>
+                            </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+
+                        {% if perms.sprints.iniciar_sprint and user == proyecto.scrum_master and "No iniciado" == sprint.estado|stringformat:"s" and hay_activo == False %}
+                            <td>
+                                <a type="button" class="btn btn-success" href="{% url 'sprints:iniciar' proyecto.id sprint.id %}">
+                                <i class="fa fa-lg fa-play"></i> Iniciar Sprint
+                                </a>
+                            </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+
+                        {% if perms.sprints.finalizar_sprint and user == proyecto.scrum_master and "Activo" == sprint.estado|stringformat:"s" %}
+                            <td>
+                                <a type="button" class="btn btn-danger" href="#">
+                                <i class="fa fa-lg fa-stop"></i> Finalizar Sprint
                                 </a>
                             </td>
                         {% else %}

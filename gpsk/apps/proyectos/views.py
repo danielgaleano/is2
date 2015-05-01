@@ -234,11 +234,24 @@ class RolMiembro(UpdateView):
 
 
 class HorasDeveloper(UpdateView):
+    """
+    Clase que despliega el formulario para la modficacion de las horas asignadas a un desarrollador.
+
+    @ivar form_class: Formulario que se utiliza para la asignacion de horas
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     form_class = HorasDeveloperForm
     template_name = 'proyectos/proyecto_equipo_horas_developer.html'
     context_object_name = 'proyecto_detail'
 
     def get_initial(self):
+        """
+        Metodo que retorna datos iniciales a ser utilizados en el formulario
+        @return:
+        """
         initial = super(HorasDeveloper, self).get_initial()
         user = User.objects.get(pk=self.kwargs['pk_user'])
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
@@ -263,14 +276,28 @@ class HorasDeveloper(UpdateView):
         return initial
 
     def get_object(self, queryset=None):
+        """
+        Metodo que retorna el proyecto actual
+        @param queryset:
+        @return:
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return obj
 
     def get_success_url(self):
+        """
+        Metodo que realiza la redireccion si la modificacion de horas es exitosa
+        @return:
+        """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse( 'proyectos:equipo_list', args=[obj.pk])
 
     def get_context_data(self, **kwargs):
+        """
+        Metodo que retorna datos a utilizar en el template de la vista
+        @param kwargs:
+        @return:
+        """
         context = super(HorasDeveloper, self).get_context_data(**kwargs)
         proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
         duracion_proyecto = proyecto.fecha_fin - proyecto.fecha_inicio

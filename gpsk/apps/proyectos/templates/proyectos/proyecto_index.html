@@ -33,8 +33,12 @@
 					<div class="list-group">
                         {% for sprint in lista_sprints %}
 
-                            <a href="#" class="list-group-item">{{ sprint }}</a>
+                            {% if sprint.estado|stringformat:"s" == "Activo" %}
 
+                                <a href="{% url 'sprints:kanban' proyecto.id sprint.id %}" class="list-group-item list-group-item-success">{{ sprint }}</a>
+                            {% else %}
+                                <a href="#" class="list-group-item">{{ sprint }}</a>
+                            {% endif %}
                         {% endfor %}
 
 

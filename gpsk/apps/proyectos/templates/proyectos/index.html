@@ -48,9 +48,16 @@
 			{% if proyecto.cancelado == False %}
 				
 				<tr>
-					<td><a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_index' proyecto.id %}">
+                    {% if proyecto.estado|stringformat:"s" == "Activo" %}
+					<td>
+                        <a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_index' proyecto.id %}">
 						<i class="fa fa-lg fa-archive"></i>
-						</a></td>
+						</a>
+                    </td>
+                    {% else %}
+                    <td></td>
+                    {%endif%}
+
 					<td>{{proyecto.codigo}}</td>
 					<td>{{proyecto.nombre_corto}}</td>
 					

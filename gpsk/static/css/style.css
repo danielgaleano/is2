@@ -46,4 +46,36 @@ ul {
 .invisible-li {
     visibility: hidden;
 }
+th {
+    text-align: center;
+}
+.row-kanban {
+    height: 200px;
+}
+.us-kanban {
+    height: 51;
+    width: 100px;
+    border: solid rgb(48, 65, 74) 2px;
+    border-radius: 5px;
+    margin: 1px;
+}
+.us-kanban:hover
+{
+    height: 53px;
+    border: solid rgb(48, 65, 74) 3px;
+    cursor: pointer;
+
+}
+#opciones:hover {
+    opacity: 1.0;
+}
+#opciones {
+    opacity: 0.5;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+    padding: 0.5px;
+}
 

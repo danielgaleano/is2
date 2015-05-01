@@ -1,9 +1,11 @@
+import datetime
+
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-from apps.flujos.models import Flujo
+from apps.flujos.models import Flujo, Actividad, Estado
 from apps.proyectos.models import Proyecto
 from apps.sprints.models import Sprint
 
@@ -71,3 +73,34 @@ class HistorialUserStory(models.Model):
     def __unicode__(self):
         return "%s %s %s a %s por el usuario %s el %s" % (self.user_story.nombre, self.operacion, self.campo, self.valor,
                                                self.usuario.username, self.fecha.strftime('%d-%m-%Y %H:%M:%S'))
+
+
+class UserStoryDetalle(models.Model):
+    user_story = models.OneToOneField(UserStory)
+    actividad = models.ForeignKey(Actividad, related_name='actividad_us')
+    estado = models.ForeignKey(Estado, related_name='estado_us')
+
+    def __unicode__(self):
+        return self.user_story.nombre
+
+    class Meta:
+        default_permissions = ()
+
+
+class Tarea(models.Model):
+    user_story = models.ForeignKey(UserStory, related_name='user_story_tarea')
+    descripcion = models.TextField(max_length=140)
+    horas_de_trabajo = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(240)], default=0)
+    actividad = models.ForeignKey(Actividad, related_name='actividad_tarea')
+    estado = models.ForeignKey(Estado, related_name='estado_tarea')
+    sprint = models.ForeignKey(Sprint, related_name='sprint_tarea')
+    flujo = models.ForeignKey(Flujo, related_name='flujo_tarea')
+    fecha = models.DateTimeField(auto_now_add=True, default=datetime.date.today)
+
+    def __unicode__(self):
+        return "%s %s en %s - %s - %s - %s por el usuario %s el %s" % ("Tarea en ", self.user_story.nombre, self.sprint,
+                                                    self.flujo, self.actividad, self.estado, self.user_story.usuario,
+                                                    self.fecha)
+
+    class Meta:
+        default_permissions = ()

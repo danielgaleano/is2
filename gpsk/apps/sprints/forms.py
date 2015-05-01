@@ -4,7 +4,7 @@ from django.db.models import Q
 from models import Sprint
 from apps.proyectos.models import Proyecto
 from apps.flujos.models import Flujo
-from apps.user_stories.models import UserStory, HistorialUserStory
+from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea
 
 
 class SprintCreateForm(forms.ModelForm):
@@ -190,6 +190,12 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
 
         user_story.save()
 
+
+        actividades = user_story.flujo.actividades.all()
+        estados = actividades[0].estados.all()
+        detalle = UserStoryDetalle(user_story=user_story, actividad=actividades[0], estado=estados[0])
+        detalle.save()
+
         return sprint
 
 
@@ -271,5 +277,60 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
 
         user_story.estado = self.cleaned_data['estado']
         user_story.save()
+
+        return sprint
+
+
+class RegistrarTareaForm(forms.ModelForm):
+    def __init__(self, user, *args, **kwargs):
+        context = super(RegistrarTareaForm, self).__init__(*args, **kwargs)
+        self.user = user
+
+        user_story_string = kwargs['initial']['user_story']
+        sprint_string = kwargs['initial']['sprint']
+        proyecto_string = kwargs['initial']['proyecto']
+        rol_developer = kwargs['initial']['users_rol_developer']
+        kwargs.pop('initial')
+
+        user_story = UserStory.objects.get(pk=user_story_string.pk)
+        sprint = Sprint.objects.get(pk=sprint_string.pk)
+        proyecto = Sprint.objects.get(pk=proyecto_string.pk)
+
+        pk_rol = []
+        for rol in rol_developer:
+            pk_rol.append(rol.pk)
+
+        self.fields['id'] = forms.ModelChoiceField(UserStory.objects.filter(proyecto=proyecto).order_by('-prioridad'),
+                                                   widget=forms.HiddenInput())
+
+        self.fields['descripcion'] = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'required': True}))
+        self.fields['horas'] = forms.IntegerField(required=True, min_value=0)
+
+        self.fields['id'].initial = user_story.id
+
+    nombre = forms.CharField(widget=forms.HiddenInput(), required=True)
+
+    class Meta:
+        model = Sprint
+        fields = ['nombre']
+
+    def save(self, commit=True):
+        cleaned_data = super(RegistrarTareaForm, self).clean()
+        #usuario = Usuario.objects.get(user=self.instance)
+        proyecto = Proyecto.objects.get(pk=self.instance.pk)
+
+        sprint = super(RegistrarTareaForm, self).save(commit=True)
+
+        user_story = UserStory.objects.get(pk=self.cleaned_data['id'].pk)
+
+        tarea = Tarea()
+        tarea.user_story = user_story
+        tarea.descripcion = self.cleaned_data['descripcion']
+        tarea.horas_de_trabajo = self.cleaned_data['horas']
+        tarea.sprint = sprint
+        tarea.flujo = user_story.flujo
+        tarea.actividad = user_story.userstorydetalle.actividad
+        tarea.estado = user_story.userstorydetalle.estado
+        tarea.save()
 
         return sprint

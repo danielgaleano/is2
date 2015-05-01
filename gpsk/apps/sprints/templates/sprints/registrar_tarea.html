@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'sprints:kanban' proyecto.id sprint.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                 Registrar Tarea <small>{{user_story}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+<form action=" {{ sprints.get_absolute_url }} " method="post">
+	{% csrf_token %}
+    <p>
+        {{ form.nombre.errors }}
+        {{ form.nombre }}
+        </p>
+
+    <p>
+        {{ form.id.errors }}
+        {{ form.id }}
+        </p>
+    <p>
+        {{ form.descripcion.errors }}
+        {{ form.descripcion.label }}<br/>
+        {{ form.descripcion }}
+        </p>
+    <p>
+        {{ form.horas.errors }}
+        {{ form.horas.label }}
+        {{ form.horas }}
+        </p>
+    <input type="submit" value="Registrar" class="btn btn-primary"/>
+</form>
+
+
+
+
+{% endblock %}

@@ -6,7 +6,8 @@ from django.core.urlresolvers import reverse
 from models import Sprint
 from views import IndexView, SprintBacklogIndexView
 from apps.proyectos.models import Proyecto
-from apps.user_stories.models import UserStory
+from apps.user_stories.models import UserStory, UserStoryDetalle, Tarea
+from apps.flujos.models import Flujo, Actividad, Estado
 
 
 class SprintsTest(TestCase):
@@ -145,3 +146,148 @@ class SprintsTest(TestCase):
         self.assertEqual(len(response.context_data['object_list']), 10)
 
         print 'Test de SprintBacklogIndexView de Sprints realizado exitosamente'
+
+    def test_view_SprintGestionar(self):
+        """
+        Funcion que realiza el test sobre la vista SprintGestionar que modifica
+        un user story existente
+        """
+        # se loguea el usuario testuser
+        user = self.client.login(username='testuser', password='test')
+        self.assertTrue(user)
+
+        user4 = User.objects.create_user(username='user_prueba4', email='test@test224.com', password='prueba')
+        # se crea un usuario
+        proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
+                                           nombre_largo='test', cancelado=False, scrum_master=user4)
+
+        proyecto.save()
+
+        sprint = Sprint.objects.create(nombre='sprint', duracion=15, proyecto=proyecto)
+        sprint.save()
+
+        user_story = UserStory.objects.create(nombre='us', descripcion='desc',
+                                              valor_negocio=20, proyecto=proyecto, sprint=sprint, usuario=user4)
+        user_story.save()
+
+
+
+        self.assertEqual(user_story.sprint, sprint)
+        self.assertEqual(user_story.usuario, user4)
+
+        print 'Test de SprintGestionar realizado exitosamente'
+
+    def test_view_desasignar_user_story(self):
+        """
+        Funcion que realiza el test sobre la vista desasignar_user_story que modifica
+        un user story existente
+        """
+        # se loguea el usuario testuser
+        user = self.client.login(username='testuser', password='test')
+        self.assertTrue(user)
+
+        user4 = User.objects.create_user(username='user_prueba4', email='test@test224.com', password='prueba')
+        # se crea un usuario
+        proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
+                                           nombre_largo='test', cancelado=False, scrum_master=user4)
+
+        proyecto.save()
+
+        sprint = Sprint.objects.create(nombre='sprint', duracion=15, proyecto=proyecto)
+        sprint.save()
+
+        user_story = UserStory.objects.create(nombre='us', descripcion='desc',
+                                              valor_negocio=20, proyecto=proyecto, sprint=sprint, usuario=user4)
+        user_story.save()
+
+        user_story.estado = 'No asignado'
+        user_story.usuario = None
+        user_story.sprint = None
+        user_story.save()
+
+        self.assertEqual(user_story.estado, 'No asignado')
+        self.assertEqual(user_story.sprint, None)
+        self.assertEqual(user_story.usuario, None)
+
+        print 'Test de desasignar_user_story realizado exitosamente'
+
+    def test_view_iniciar_sprint(self):
+        """
+        Funcion que realiza el test sobre la funcion iniciar_sprint que inicia
+        un sprint dado
+        """
+        # se loguea el usuario testuser
+        user = self.client.login(username='testuser', password='test')
+        self.assertTrue(user)
+
+        user4 = User.objects.create_user(username='user_prueba4', email='test@test224.com', password='prueba')
+        # se crea un usuario
+        proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
+                                           nombre_largo='test', cancelado=False, scrum_master=user4)
+
+        proyecto.save()
+
+        sprint = Sprint.objects.create(nombre='sprint', duracion=15, proyecto=proyecto)
+        sprint.save()
+
+        user_story = UserStory.objects.create(nombre='us', descripcion='desc',
+                                              valor_negocio=20, proyecto=proyecto, sprint=sprint, usuario=user4)
+        user_story.save()
+
+        sprint.estado = 'Activo'
+        sprint.save()
+
+        actividad = Actividad(nombre='actividad')
+        actividad.save()
+
+        estado = Estado(nombre='estado')
+        estado.save()
+
+        detalle = UserStoryDetalle(user_story=user_story, actividad=actividad, estado=estado)
+        detalle.save()
+
+        self.assertEqual(user_story, detalle.user_story)
+
+        print 'Test de iniciar_sprint realizado exitosamente'
+
+    def test_view_RegistarTarea(self):
+        """
+        Funcion que realiza el test sobre la vista RegistrarTarea que registra
+        una tarea al user story
+        """
+        # se loguea el usuario testuser
+        user = self.client.login(username='testuser', password='test')
+        self.assertTrue(user)
+
+        user4 = User.objects.create_user(username='user_prueba4', email='test@test224.com', password='prueba')
+        # se crea un usuario
+        proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
+                                           nombre_largo='test', cancelado=False, scrum_master=user4)
+
+        proyecto.save()
+
+        sprint = Sprint.objects.create(nombre='sprint', duracion=15, proyecto=proyecto)
+        sprint.save()
+
+        user_story = UserStory.objects.create(nombre='us', descripcion='desc',
+                                              valor_negocio=20, proyecto=proyecto, sprint=sprint, usuario=user4)
+        user_story.save()
+
+        actividad = Actividad(nombre='actividad')
+        actividad.save()
+
+        estado = Estado(nombre='estado')
+        estado.save()
+
+        flujo = Flujo(nombre='flujo')
+        flujo.save()
+
+        tarea = Tarea.objects.create(user_story=user_story, descripcion='Una descripcion', horas_de_trabajo=20,
+                                     actividad=actividad, estado=estado, sprint=sprint, flujo=flujo)
+        tarea.save()
+
+        self.assertEqual(tarea.user_story, user_story)
+        self.assertEqual(tarea.descripcion, 'Una descripcion')
+        self.assertEqual(tarea.horas_de_trabajo, 20)
+
+        print 'Test de RegistrarTarea realizado exitosamente'
