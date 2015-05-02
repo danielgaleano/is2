@@ -49,17 +49,7 @@ class UserStoryUpdateFormPO(forms.ModelForm):
         user_story_string = kwargs['initial']['user_story']
         kwargs.pop('initial')
 
-        #self.fields['rolproyecto'] = forms.ModelMultipleChoiceField(Group.objects.all().filter(rolproyecto__es_rol_proyecto=True).exclude(name='Scrum Master'),
-        #        widget=forms.CheckboxSelectMultiple, required=False)
-
-        #dic = {}
-        #for arr in roles:
-        #    dic[arr.pk] = arr
-        #self.fields['rolproyecto'].initial = dic
-
         user_story = UserStory.objects.get(pk=user_story_string.pk)
-
-        #self.fields['usuario'] = forms.CharField(required=True, widget=forms.HiddenInput())
 
         self.fields['id'] = forms.CharField(required=True, widget=forms.HiddenInput())
 
@@ -67,7 +57,6 @@ class UserStoryUpdateFormPO(forms.ModelForm):
         self.fields['descripcion'] = forms.CharField(required=True)
         self.fields['valor_negocio'] = forms.IntegerField(required=True, min_value=0, max_value=10)
 
-        #self.fields['usuario'].initial = user
         self.fields['id'].initial = user_story.id
         self.fields['nombre'].initial = user_story.nombre
         self.fields['descripcion'].initial = user_story.descripcion
@@ -79,21 +68,11 @@ class UserStoryUpdateFormPO(forms.ModelForm):
         model = Proyecto
         fields = ['codigo']
 
-    #def clean(self):
-    #    cleaned_data =super(UserStoryUpdateFormPO, self).clean()
-    #    user_story = UserStory.objects.get(pk=self.cleaned_data['id'])
-    #    if user_story.nombre != cleaned_data['nombre']:
-    #        print 'cambio el nombre %s ' % user_story.nombre
-
-    #    return cleaned_data
-
     def save(self, commit=True):
         cleaned_data = super(UserStoryUpdateFormPO, self).clean()
-        #usuario = Usuario.objects.get(user=self.instance)
         proyecto = Proyecto.objects.get(pk=self.instance.pk)
 
         proyecto = super(UserStoryUpdateFormPO, self).save(commit=True)
-        #user_story = UserStory.objects.get(pk=self.context[''])
         user_story = UserStory.objects.get(pk=self.cleaned_data['id'])
 
         if user_story.nombre != cleaned_data['nombre']:
@@ -115,9 +94,6 @@ class UserStoryUpdateFormPO(forms.ModelForm):
             historial_us.save()
             print 'cambio el valor de negocio %s ' % user_story.valor_negocio
 
-        #user_story.nombre = self.cleaned_data['nombre']
-        #user_story.descripcion = self.cleaned_data['descripcion']
-        #user_story.valor_negocio = self.cleaned_data['valor_negocio']
         user_story.save()
 
         return proyecto
@@ -141,7 +117,6 @@ class UserStoryUpdateFormSM(forms.ModelForm):
         ('Aprobado', 'Aprobado'),
         ('Descartado', 'Descartado'),
         )
-        #self.fields['usuario'] = forms.CharField(required=True, widget=forms.HiddenInput())
 
         self.fields['id'] = forms.CharField(required=True, widget=forms.HiddenInput())
         self.fields['prioridad'] = forms.IntegerField(required=True, min_value=0, max_value=10)
@@ -165,7 +140,6 @@ class UserStoryUpdateFormSM(forms.ModelForm):
 
     def save(self, commit=True):
         cleaned_data = super(UserStoryUpdateFormSM, self).clean()
-        #usuario = Usuario.objects.get(user=self.instance)
         proyecto = Proyecto.objects.get(pk=self.instance.pk)
 
         proyecto = super(UserStoryUpdateFormSM, self).save(commit=True)
@@ -198,14 +172,6 @@ class UserStoryUpdateFormSM(forms.ModelForm):
                                               valor=self.cleaned_data['estimacion'], usuario=self.user)
             historial_us.save()
 
-
-        #user_story.estado = self.cleaned_data['estado']
-
-        #user_story.flujo = self.cleaned_data['flujo']
-        #user_story.sprint = self.cleaned_data['sprint']
         user_story.save()
-
-        #historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', usuario=self.user)
-        #historial_us.save()
 
         return proyecto

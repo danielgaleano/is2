@@ -6,7 +6,12 @@ from apps.clientes.models import Cliente
 
 
 class Proyecto(models.Model):
-
+    """
+    Clase Proyecto.
+    Crea el formulario para los proyectos para cada instancia de Proyecto,
+    el cual define los campos codigo, nombre corto y nombre largo, fecha de inicio, fecha de fin, (estado) Cancelado,
+    Scrum master, equipo, estado y cliente.
+    """
     ESTADOS_PROYECTO=(
         ('No inciado', 'No inciado'),
         ('Activo', 'Activo'),

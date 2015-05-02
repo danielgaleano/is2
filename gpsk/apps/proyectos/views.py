@@ -48,9 +48,6 @@ class ProyectoCreate(SuccessMessageMixin, CreateView):
     success_message = "%(nombre_corto)s fue creado de manera exitosa"
     
     def form_valid(self, form):
-        # This method is called when valid form data has been POSTed.
-        # It should return an HttpResponse.
-        # form.save() Eliminar porque guarda dos veces
         return super(ProyectoCreate, self).form_valid(form)
 
     def get_success_url(self): 
@@ -89,6 +86,12 @@ class ProyectoUpdate(SuccessMessageMixin, UpdateView):
 @login_required(login_url='/login/')
 @permission_required('proyectos.eliminar_proyecto')
 def eliminar_proyecto(request, pk_proyecto):
+    """
+    Elimina proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: template con texto renderizado
+    """
     if request.method == 'POST':
         proyecto_detail = get_object_or_404(Proyecto, pk=pk_proyecto)
         proyecto_detail.cancelado = True
@@ -105,10 +108,15 @@ def eliminar_proyecto(request, pk_proyecto):
 
 @login_required(login_url='/login/')
 def proyecto_index(request, pk):
+    """
+    Redirige al index de Proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: template con texto renderizado
+    """
     proyecto = Proyecto.objects.get(pk=pk)
     template = 'proyectos/proyecto_index.html'
 
-    #Equipo
     lista_equipo = Proyecto.objects.get(pk=pk).equipo.all()
     print lista_equipo
     
@@ -134,6 +142,12 @@ def proyecto_index(request, pk):
 @login_required(login_url='/login/')
 @permission_required('proyectos.asignar_rol_proyecto_proyecto')
 def listar_equipo(request, pk_proyecto):
+    """
+    Lista equipo del proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: template con texto renderizado
+    """
     proyecto = Proyecto.objects.get(pk=pk_proyecto)
     lista_equipo = Proyecto.objects.get(pk=pk_proyecto).equipo.all()
     print lista_equipo
@@ -150,6 +164,15 @@ def listar_equipo(request, pk_proyecto):
 
 
 class AddMiembro(generic.UpdateView):
+    """
+    Clase que despliega el formulario para la agregacion de miembros.
+
+    @ivar form_class: Formulario que se utiliza para la agregacion de usuarios
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     form_class = AddMiembroForm
     template_name = 'proyectos/proyecto_equipo_add_miembro.html'
     context_object_name = 'proyecto_detail'
@@ -170,6 +193,13 @@ class AddMiembro(generic.UpdateView):
 @login_required(login_url='/login/')
 @permission_required('proyectos.asignar_rol_proyecto_proyecto')
 def delete_miembro(request, pk_proyecto, pk_user):
+    """
+    Elimina miembro del equipo del proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @param pk_user: clave primaria de usuario
+    @return: template con texto renderizado
+    """
     template = 'proyectos/proyecto_equipo_delete_miembro.html'
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
     usuario = get_object_or_404(User, pk=pk_user)
@@ -193,6 +223,15 @@ def delete_miembro(request, pk_proyecto, pk_user):
 
 
 class RolMiembro(UpdateView):
+    """
+    Clase que despliega el template para la especificar los roles de los miembros.
+
+    @ivar form_class: Formulario que se utiliza para la agregacion roles para el usuario
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     form_class = RolMiembroForm
     template_name = 'proyectos/proyecto_equipo_rol_miembro.html'
     context_object_name = 'proyecto_detail'
@@ -201,20 +240,16 @@ class RolMiembro(UpdateView):
         initial = super(RolMiembro, self).get_initial()
         user = User.objects.get(pk=self.kwargs['pk_user'])
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        #las filas con la tupla user_rol_proyecto
         solo_del_usuario = RolProyecto_Proyecto.objects.filter(user=user, proyecto=proyecto)
         print "solo_del_usuario = %s" % solo_del_usuario
-        #listar los roles en ese proyecto
         roles_proyecto_del_usuario = solo_del_usuario.values('rol_proyecto').distinct()
         print "roles_proyecto_del_usuario = %s" % roles_proyecto_del_usuario
         roro = Group.objects.filter(rolproyecto__pk__in=roles_proyecto_del_usuario) 
 
         print "roro = %s" % roro
 
-        #pasamos los roles del usuario en el proyecto
         initial['rolproyecto'] = roro
 
-        #pasamos el usuario
         initial['user'] = user
         print "user = %s" % user
 
@@ -255,7 +290,6 @@ class HorasDeveloper(UpdateView):
         initial = super(HorasDeveloper, self).get_initial()
         user = User.objects.get(pk=self.kwargs['pk_user'])
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        #las filas con la tupla user_rol_proyecto
         solo_del_usuario = RolProyecto_Proyecto.objects.filter(user=user, proyecto=proyecto)
         print "solo_del_usuario = %s" % solo_del_usuario
         rol_developer = []
@@ -301,13 +335,11 @@ class HorasDeveloper(UpdateView):
         context = super(HorasDeveloper, self).get_context_data(**kwargs)
         proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
         duracion_proyecto = proyecto.fecha_fin - proyecto.fecha_inicio
-        #ocho horas por dia
         duracion_horas = duracion_proyecto.days * 8
         print "duracion = %s" % duracion_horas
 
         context['duracion_horas'] = duracion_horas
 
-        #Usar al determinar la duracion del sprint
         rows_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
         print "rows_del_proyecto = %s" % rows_del_proyecto
 
@@ -317,8 +349,6 @@ class HorasDeveloper(UpdateView):
 
         context['horas_asignadas'] = horas_asignadas
 
-        #self.user_story = get_object_or_404(UserStory, pk=self.kwargs['pk_user_story'])
-        #context['user_story'] = self.user_story
         return context
 
     @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))

@@ -30,9 +30,7 @@ class IndexView(generic.ListView):
         return Sprint.objects.filter(proyecto=self.proyecto).order_by('pk')
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(IndexView, self).get_context_data(**kwargs)
-        # Add in the publisher
         lista_sprints = Sprint.objects.filter(proyecto=self.proyecto).order_by('pk')
 
         hay_activo = False
@@ -145,14 +143,8 @@ class SprintUpdate(UpdateView):
         initial = super(SprintUpdate, self).get_initial()
         sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        #flujos_sprint = sprint.flujos
-
-        #flujos = []
-        #for f in flujos_sprint.all():
-        #    flujos.append(f)
 
         initial['sprint'] = sprint
-        #initial['flujos'] = flujos
 
         return initial
 
@@ -206,8 +198,7 @@ class SprintGestionar(UpdateView):
     def get_object(self, queryset=None):
         """
         Metodo que retona el sprint actual
-        @param queryset:
-        @return:
+        @return: objeto de Sprint
         """
         obj = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         return obj
@@ -215,7 +206,7 @@ class SprintGestionar(UpdateView):
     def get_success_url(self):
         """
         Metodo que realiza la redireccion si la gestion del user story es exitosa
-        @return:
+        @return: redireccion al index de gestion de sprints
         """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         obj2 = Proyecto.objects.get(pk=self.kwargs['pk_sprint'])
@@ -224,7 +215,7 @@ class SprintGestionar(UpdateView):
     def get_form_kwargs(self):
         """
         Metodo que obtiene el usuario actual del contexto de la vista
-        @return:
+        @return: clave
         """
         kwargs = super(SprintGestionar, self).get_form_kwargs()
         kwargs['user'] = self.request.user
@@ -233,7 +224,7 @@ class SprintGestionar(UpdateView):
     def get_initial(self):
         """
         Metodo que retorna datos iniciales a ser utilizados en el formulario
-        @return:
+        @return: copia de sprint
         """
         initial = super(SprintGestionar, self).get_initial()
         sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
@@ -251,7 +242,6 @@ class SprintGestionar(UpdateView):
         initial['sprint'] = sprint
         initial['proyecto'] = proyecto
         initial['users_rol_developer'] = users_rol_developer
-        #initial['flujos'] = flujos
 
         return initial
 
@@ -291,7 +281,7 @@ class SprintGestionarUpdate(UpdateView):
         """
         Metodo que retona el sprint actual
         @param queryset:
-        @return:
+        @return: objeto de Sprint
         """
         obj = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         return obj
@@ -337,7 +327,6 @@ class SprintGestionarUpdate(UpdateView):
         initial['sprint'] = sprint
         initial['proyecto'] = proyecto
         initial['users_rol_developer'] = users_rol_developer
-        #initial['flujos'] = flujos
 
         return initial
 
@@ -345,7 +334,7 @@ class SprintGestionarUpdate(UpdateView):
         """
         Metodo que retorna datos a utilizar en el template de la vista
         @param kwargs:
-        @return:
+        @return: copia de sprint
         """
         context = super(SprintGestionarUpdate, self).get_context_data(**kwargs)
         sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
@@ -371,11 +360,11 @@ class SprintGestionarUpdate(UpdateView):
 def desasignar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
     """
     Funcion que realiza la desasignacion de un user story a un sprint, flujo y developer
-    @param request:
-    @param pk_proyecto:
-    @param pk_sprint:
-    @param pk_user_story:
-    @return:
+    @param request: user story
+    @param pk_proyecto: clave primaria de proyecto
+    @param pk_sprint: clave primaria de sprint
+    @param pk_user_story: clave primaria de user story
+    @return: template con texto renderizado
     """
     template = 'sprints/sprint_gestionar_delete.html'
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
@@ -418,10 +407,10 @@ def desasignar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
 def iniciar_sprint(request, pk_proyecto, pk_sprint):
     """
     Funcion que realiza la inicializacion del sprint
-    @param request:
-    @param pk_proyecto:
-    @param pk_sprint:
-    @return:
+    @param request: sprint
+    @param pk_proyecto: clave primaria de proyecto
+    @param pk_sprint: clave primaria de sprint
+    @return: redirige al index de Sprints
     """
     sprint = get_object_or_404(Sprint, pk=pk_sprint)
 
@@ -430,22 +419,16 @@ def iniciar_sprint(request, pk_proyecto, pk_sprint):
 
     user_stories = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
 
-    #for us in user_stories:
-    #    actividades = us.flujo.actividades.all()
-    #    estados = actividades[0].estados.all()
-    #    detalle = UserStoryDetalle(user_story=us, actividad=actividades[0], estado=estados[0])
-    #    detalle.save()
-
     return HttpResponseRedirect(reverse('sprints:index', args=[pk_proyecto]))
 
 
 def sprint_kanban(request, pk_proyecto, pk_sprint):
     """
     Funcion que genera el o los tableros kanban que corresponden al sprint
-    @param request:
-    @param pk_proyecto:
-    @param pk_sprint:
-    @return:
+    @param request: objeto de Sprint
+    @param pk_proyecto: clave primaria de proyecto
+    @param pk_sprint: clave primaria de sprint
+    @return: template con texto renderizado
     """
     template = 'sprints/sprint_kanban.html'
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
@@ -453,8 +436,6 @@ def sprint_kanban(request, pk_proyecto, pk_sprint):
 
     todos_flujos = Flujo.objects.all()
     user_stories = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado')
-
-    #user_story = get_object_or_404(UserStory, pk=pk_user_story)
 
     flujos_distintos = user_stories.values_list('flujo').distinct()
 
@@ -468,7 +449,6 @@ def sprint_kanban(request, pk_proyecto, pk_sprint):
 
     return render(request, template, locals())
 
-
 class RegistrarTarea(UpdateView):
     """
     Clase que permite registrar la tarea realizada sobre el user story
@@ -480,8 +460,7 @@ class RegistrarTarea(UpdateView):
     def get_object(self, queryset=None):
         """
         Metodo que retona el sprint actual
-        @param queryset:
-        @return:
+        @return: objeto de Sprint
         """
         obj = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         return obj
@@ -489,7 +468,7 @@ class RegistrarTarea(UpdateView):
     def get_success_url(self):
         """
         Metodo que realiza la redireccion si el registro de la tarea es exitoso
-        @return:
+        @return: redirige al template de kanban
         """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         obj2 = Proyecto.objects.get(pk=self.kwargs['pk_sprint'])
@@ -498,7 +477,7 @@ class RegistrarTarea(UpdateView):
     def get_form_kwargs(self):
         """
         Metodo que obtiene el usuario actual del contexto de la vista
-        @return:
+        @return: formulario de tareas
         """
         kwargs = super(RegistrarTarea, self).get_form_kwargs()
         kwargs['user'] = self.request.user
@@ -507,7 +486,7 @@ class RegistrarTarea(UpdateView):
     def get_initial(self):
         """
         Metodo que retorna datos iniciales a ser utilizados en el formulario
-        @return:
+        @return: formulario completado
         """
         initial = super(RegistrarTarea, self).get_initial()
         sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
@@ -527,7 +506,6 @@ class RegistrarTarea(UpdateView):
         initial['sprint'] = sprint
         initial['proyecto'] = proyecto
         initial['users_rol_developer'] = users_rol_developer
-        #initial['flujos'] = flujos
 
         return initial
 
@@ -535,7 +513,7 @@ class RegistrarTarea(UpdateView):
         """
         Metodo que retorna datos a utilizar en el template de la vista
         @param kwargs:
-        @return:
+        @return: diccionario con el contexto del template
         """
         context = super(RegistrarTarea, self).get_context_data(**kwargs)
         sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
@@ -566,10 +544,8 @@ class TareasIndexView(generic.ListView):
     def get_queryset(self):
         """
         Metodo que realiza el filtrado de la lista de tareas a mostrar en la vista
-        @return:
+        @return: tarea específica
         """
-        #self.sprint = get_object_or_404(Sprint, pk=self.kwargs['pk_sprint'])
-        #self.proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
         self.user_story = get_object_or_404(UserStory, pk=self.kwargs['pk_user_story'])
 
         return Tarea.objects.filter(user_story=self.user_story).order_by('-fecha')
@@ -578,11 +554,9 @@ class TareasIndexView(generic.ListView):
         """
         Metodo que retorna datos a utilizar en el template de la vista
         @param kwargs:
-        @return:
+        @return: template completado
         """
-        # Call the base implementation first to get a context
         context = super(TareasIndexView, self).get_context_data(**kwargs)
-        # Add in the publisher
         sprint = get_object_or_404(Sprint, pk=self.kwargs['pk_sprint'])
         proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
 

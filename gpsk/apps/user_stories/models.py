@@ -4,6 +4,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+from apps.flujos.models import Flujo
 
 from apps.flujos.models import Flujo, Actividad, Estado
 from apps.proyectos.models import Proyecto
@@ -18,20 +19,24 @@ class UserStory(models.Model):
     valor tecnico, estimacion, usuario, estado, flujo, proyecto y sprint.
     """
 
+    PRIORIDAD_USER_STORY=(
+        ('Alta', 'Alta'),
+        ('Media', 'Media'),
+        ('Baja', 'Baja'),
+    )
     ESTADO_USER_STORY=(
         ('No asignado', 'No asignado'),
         ('Activo', 'Activo'),
-        ('Pendiente', 'Pendiente'),
         ('Finalizado', 'Finalizado'),
         ('Aprobado', 'Aprobado'),
         ('Descartado', 'Descartado'),
     )
     nombre = models.CharField(max_length=15)
     descripcion = models.CharField(max_length=40)
-    valor_negocio = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], default=0)
-    prioridad = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], default=0)
-    valor_tecnico = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], default=0)
-    estimacion = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(240)], default=0)
+    valor_negocio = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
+    prioridad = models.CharField(max_length=15, choices=PRIORIDAD_USER_STORY, default='Baja')
+    valor_tecnico = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0)
+    estimacion = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(176)], default=0)
     usuario = models.ForeignKey(User, null=True, related_name='usuario_user_story')
     estado = models.CharField(max_length=15, choices=ESTADO_USER_STORY, default='No asignado')
     flujo = models.ForeignKey(Flujo, null=True, related_name='flujo')
@@ -65,8 +70,6 @@ class UserStory(models.Model):
 class HistorialUserStory(models.Model):
     user_story = models.ForeignKey(UserStory, related_name='historial_user_story')
     operacion = models.CharField(max_length=50)
-    campo = models.CharField(max_length=25, default="")
-    valor = models.CharField(max_length=40, default="")
     usuario = models.ForeignKey(User, related_name='historial_usuario_us')
     fecha = models.DateTimeField(auto_now_add=True)
 

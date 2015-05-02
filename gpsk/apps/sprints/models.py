@@ -19,7 +19,6 @@ class Sprint(models.Model):
     nombre = models.CharField(max_length=15)
     duracion = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(30)], default=0)
     estado = models.CharField(max_length=15, choices=ESTADO_SPRINT, default='No iniciado')
-    #flujos = models.ManyToManyField(Flujo, null=True)
     proyecto = models.ForeignKey(Proyecto, null=True, related_name='proyecto_sprint')
 
     def __unicode__(self):
