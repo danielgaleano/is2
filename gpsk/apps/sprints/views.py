@@ -544,7 +544,7 @@ class TareasIndexView(generic.ListView):
     def get_queryset(self):
         """
         Metodo que realiza el filtrado de la lista de tareas a mostrar en la vista
-        @return: tarea específica
+        @return: tarea especifica
         """
         self.user_story = get_object_or_404(UserStory, pk=self.kwargs['pk_user_story'])
 
