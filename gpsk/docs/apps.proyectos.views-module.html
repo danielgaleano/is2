@@ -105,14 +105,26 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="apps.proyectos.views.AddMiembro-class.html" class="summary-name">AddMiembro</a>
+        <a href="apps.proyectos.views.AddMiembro-class.html" class="summary-name">AddMiembro</a><br />
+      Clase que despliega el formulario para la agregacion de miembros.
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="apps.proyectos.views.RolMiembro-class.html" class="summary-name">RolMiembro</a>
+        <a href="apps.proyectos.views.RolMiembro-class.html" class="summary-name">RolMiembro</a><br />
+      Clase que despliega el template para la especificar los roles de los 
+      miembros.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.proyectos.views.HorasDeveloper-class.html" class="summary-name">HorasDeveloper</a><br />
+      Clase que despliega el formulario para la modficacion de las horas 
+      asignadas a un desarrollador.
     </td>
   </tr>
 </table>
@@ -140,7 +152,8 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="apps.proyectos.views-module.html#eliminar_proyecto" class="summary-sig-name">eliminar_proyecto</a>(<span class="summary-sig-arg">request</span>,
-        <span class="summary-sig-arg">pk_proyecto</span>)</span></td>
+        <span class="summary-sig-arg">pk_proyecto</span>)</span><br />
+      Elimina proyecto</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.proyectos.views-pysrc.html#eliminar_proyecto">source&nbsp;code</a></span>
             
@@ -157,7 +170,8 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="apps.proyectos.views-module.html#proyecto_index" class="summary-sig-name">proyecto_index</a>(<span class="summary-sig-arg">request</span>,
-        <span class="summary-sig-arg">pk</span>)</span></td>
+        <span class="summary-sig-arg">pk</span>)</span><br />
+      Redirige al index de Proyecto</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.proyectos.views-pysrc.html#proyecto_index">source&nbsp;code</a></span>
             
@@ -174,7 +188,8 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="apps.proyectos.views-module.html#listar_equipo" class="summary-sig-name">listar_equipo</a>(<span class="summary-sig-arg">request</span>,
-        <span class="summary-sig-arg">pk_proyecto</span>)</span></td>
+        <span class="summary-sig-arg">pk_proyecto</span>)</span><br />
+      Lista equipo del proyecto</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.proyectos.views-pysrc.html#listar_equipo">source&nbsp;code</a></span>
             
@@ -192,7 +207,8 @@
         <tr>
           <td><span class="summary-sig"><a href="apps.proyectos.views-module.html#delete_miembro" class="summary-sig-name">delete_miembro</a>(<span class="summary-sig-arg">request</span>,
         <span class="summary-sig-arg">pk_proyecto</span>,
-        <span class="summary-sig-arg">pk_user</span>)</span></td>
+        <span class="summary-sig-arg">pk_user</span>)</span><br />
+      Elimina miembro del equipo del proyecto</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.proyectos.views-pysrc.html#delete_miembro">source&nbsp;code</a></span>
             
@@ -236,8 +252,15 @@
     </td>
   </tr></table>
   
-  
+  <p>Elimina proyecto</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - Proyecto</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>template con texto renderizado</dd>
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
         <li><code>@login_required(login_url= '/login/')</code></li>
@@ -261,8 +284,15 @@
     </td>
   </tr></table>
   
-  
+  <p>Redirige al index de Proyecto</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - Proyecto</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>template con texto renderizado</dd>
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
         <li><code>@login_required(login_url= '/login/')</code></li>
@@ -285,8 +315,15 @@
     </td>
   </tr></table>
   
-  
+  <p>Lista equipo del proyecto</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - Proyecto</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>template con texto renderizado</dd>
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
         <li><code>@login_required(login_url= '/login/')</code></li>
@@ -311,8 +348,16 @@
     </td>
   </tr></table>
   
-  
+  <p>Elimina miembro del equipo del proyecto</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - Proyecto</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+        <li><strong class="pname"><code>pk_user</code></strong> - clave primaria de usuario</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>template con texto renderizado</dd>
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
         <li><code>@login_required(login_url= '/login/')</code></li>
@@ -350,7 +395,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Apr 27 14:40:21 2015
+    Generated by Epydoc 3.0.1 on Mon May  4 09:49:21 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

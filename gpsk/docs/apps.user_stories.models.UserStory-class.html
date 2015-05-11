@@ -168,15 +168,9 @@ django.db.models.Model --+
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="apps.user_stories.models.UserStory-class.html#PRIORIDAD_USER_STORY" class="summary-name">PRIORIDAD_USER_STORY</a> = <code title="'Alta', 'Alta', ('Media', 'Media'), ('Baja', 'Baja'),">'Alta', 'Alta', ('Media', 'Media'), ('B<code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="apps.user_stories.models.UserStory-class.html#ESTADO_USER_STORY" class="summary-name">ESTADO_USER_STORY</a> = <code title="'No asignado', 'No asignado', ('Activo', 'Activo'), ('Finalizado', 'Fi\
-nalizado'), ('Aprobado', 'Aprobado'), ('Descartado', 'Descartado'),">'No asignado', 'No asignado', ('Activo', '<code class="variable-ellipsis">...</code></code>
+        <a href="apps.user_stories.models.UserStory-class.html#ESTADO_USER_STORY" class="summary-name">ESTADO_USER_STORY</a> = <code title="'No asignado', 'No asignado', ('Activo', 'Activo'), ('Pendiente', 'Pen\
+diente'), ('Finalizado', 'Finalizado'), ('Aprobado', 'Aprobado'), ('De\
+scartado', 'Descartado'),">'No asignado', 'No asignado', ('Activo', '<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -198,15 +192,15 @@ nalizado'), ('Aprobado', 'Aprobado'), ('Descartado', 'Descartado'),">'No asignad
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="apps.user_stories.models.UserStory-class.html#valor_negocio" class="summary-name">valor_negocio</a> = <code title="models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat\
-or(100)], default= 0)">models.IntegerField(validators= [MinValueValid<code class="variable-ellipsis">...</code></code>
+or(10)], default= 0)">models.IntegerField(validators= [MinValueValid<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="apps.user_stories.models.UserStory-class.html#prioridad" class="summary-name">prioridad</a> = <code title="models.CharField(max_length= 15, choices= PRIORIDAD_USER_STORY, defaul\
-t= 'Baja')">models.CharField(max_length= 15, choices= PRIORIDA<code class="variable-ellipsis">...</code></code>
+        <a href="apps.user_stories.models.UserStory-class.html#prioridad" class="summary-name">prioridad</a> = <code title="models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat\
+or(10)], default= 0)">models.IntegerField(validators= [MinValueValidator<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -214,7 +208,7 @@ t= 'Baja')">models.CharField(max_length= 15, choices= PRIORIDA<code class="varia
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="apps.user_stories.models.UserStory-class.html#valor_tecnico" class="summary-name">valor_tecnico</a> = <code title="models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat\
-or(100)], default= 0)">models.IntegerField(validators= [MinValueValid<code class="variable-ellipsis">...</code></code>
+or(10)], default= 0)">models.IntegerField(validators= [MinValueValid<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -222,7 +216,7 @@ or(100)], default= 0)">models.IntegerField(validators= [MinValueValid<code class
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="apps.user_stories.models.UserStory-class.html#estimacion" class="summary-name">estimacion</a> = <code title="models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat\
-or(176)], default= 0)">models.IntegerField(validators= [MinValueValidato<code class="variable-ellipsis">...</code></code>
+or(240)], default= 0)">models.IntegerField(validators= [MinValueValidato<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -283,24 +277,6 @@ tory')">models.ForeignKey(Proyecto, null= True, related_nam<code class="variable
   </td>
 </tr>
 </table>
-<a name="PRIORIDAD_USER_STORY"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">PRIORIDAD_USER_STORY</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-'Alta', 'Alta', ('Media', 'Media'), ('Baja', 'Baja'),
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
 <a name="ESTADO_USER_STORY"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -313,8 +289,9 @@ tory')">models.ForeignKey(Proyecto, null= True, related_nam<code class="variable
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-'No asignado', 'No asignado', ('Activo', 'Activo'), ('Finalizado', 'Fi<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-nalizado'), ('Aprobado', 'Aprobado'), ('Descartado', 'Descartado'),
+'No asignado', 'No asignado', ('Activo', 'Activo'), ('Pendiente', 'Pen<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+diente'), ('Finalizado', 'Finalizado'), ('Aprobado', 'Aprobado'), ('De<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+scartado', 'Descartado'),
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -333,7 +310,7 @@ nalizado'), ('Aprobado', 'Aprobado'), ('Descartado', 'Descartado'),
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
 models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-or(100)], default= 0)
+or(10)], default= 0)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -351,8 +328,8 @@ or(100)], default= 0)
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-models.CharField(max_length= 15, choices= PRIORIDAD_USER_STORY, defaul<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-t= 'Baja')
+models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+or(10)], default= 0)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -371,7 +348,7 @@ t= 'Baja')
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
 models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-or(100)], default= 0)
+or(10)], default= 0)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -390,7 +367,7 @@ or(100)], default= 0)
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
 models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-or(176)], default= 0)
+or(240)], default= 0)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -519,7 +496,7 @@ models.ForeignKey(Sprint, null= True, related_name= 'sprint_user_story<span clas
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Apr 27 14:40:21 2015
+    Generated by Epydoc 3.0.1 on Mon May  4 09:49:21 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -125,7 +125,7 @@ class UserStoryUpdateFormSM(forms.ModelForm):
                                                        help_text='En horas. Maximo 240 horas.')
 
         self.fields['id'].initial = user_story.id
-        self.fields['prioridad'].intial = user_story.prioridad
+        self.fields['prioridad'].initial = user_story.prioridad
         self.fields['valor_tecnico'].initial = user_story.valor_tecnico
         self.fields['estimacion'].initial = user_story.estimacion
         print user_story.prioridad

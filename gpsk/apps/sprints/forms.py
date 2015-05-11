@@ -120,7 +120,7 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
         kwargs.pop('initial')
 
         sprint = Sprint.objects.get(pk=sprint_string.pk)
-        proyecto = Sprint.objects.get(pk=proyecto_string.pk)
+        proyecto = Proyecto.objects.get(pk=proyecto_string.pk)
 
         ESTADO_USER_STORY=(
         ('No asignado', 'No asignado'),
@@ -148,7 +148,7 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
         #flitrar solo los flujos del proyecto
         self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
         #flitrar solo los sprints del proyecto
-        self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=kwargs['instance'].pk).order_by('pk'),
+        self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=proyecto).order_by('pk'),
                                                        required=False, widget=forms.HiddenInput())
 
         self.fields['sprint'].initial = sprint.id
@@ -162,7 +162,7 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
     def save(self, commit=True):
         cleaned_data = super(SprintAsignarUserStoryForm, self).clean()
         #usuario = Usuario.objects.get(user=self.instance)
-        proyecto = Proyecto.objects.get(pk=self.instance.pk)
+        #proyecto = Proyecto.objects.get(pk=self.instance.pk)
 
         sprint = super(SprintAsignarUserStoryForm, self).save(commit=True)
 
@@ -212,7 +212,7 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
 
         user_story = UserStory.objects.get(pk=user_story_string.pk)
         sprint = Sprint.objects.get(pk=sprint_string.pk)
-        proyecto = Sprint.objects.get(pk=proyecto_string.pk)
+        proyecto = Proyecto.objects.get(pk=proyecto_string.pk)
 
         ESTADO_USER_STORY=(
         ('No asignado', 'No asignado'),
@@ -237,7 +237,7 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
         #flitrar solo los flujos del proyecto
         self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
         #flitrar solo los sprints del proyecto
-        self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=kwargs['instance'].pk).order_by('pk'),
+        self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=proyecto).order_by('pk'),
                                                        required=False, widget=forms.HiddenInput())
 
         self.fields['id'].initial = user_story.id
@@ -255,7 +255,7 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
     def save(self, commit=True):
         cleaned_data = super(SprintUpdateUserStoryForm, self).clean()
         #usuario = Usuario.objects.get(user=self.instance)
-        proyecto = Proyecto.objects.get(pk=self.instance.pk)
+        #proyecto = Proyecto.objects.get(pk=self.instance.pk)
 
         sprint = super(SprintUpdateUserStoryForm, self).save(commit=True)
 
@@ -317,7 +317,7 @@ class RegistrarTareaForm(forms.ModelForm):
     def save(self, commit=True):
         cleaned_data = super(RegistrarTareaForm, self).clean()
         #usuario = Usuario.objects.get(user=self.instance)
-        proyecto = Proyecto.objects.get(pk=self.instance.pk)
+        #proyecto = Proyecto.objects.get(pk=self.instance.pk)
 
         sprint = super(RegistrarTareaForm, self).save(commit=True)
 

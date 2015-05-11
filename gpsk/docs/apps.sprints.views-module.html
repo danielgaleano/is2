@@ -110,7 +110,237 @@
       el Index de la aplicacion sprints_backlog.
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.views.SprintGestionar-class.html" class="summary-name">SprintGestionar</a><br />
+      Clase que se utiliza para asignar y gestionar los user stories del 
+      sprint
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.views.SprintGestionarUpdate-class.html" class="summary-name">SprintGestionarUpdate</a><br />
+      Clase que se utiliza para modificar la asignacion de los user stories
+      del sprint
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.views.RegistrarTarea-class.html" class="summary-name">RegistrarTarea</a><br />
+      Clase que permite registrar la tarea realizada sobre el user story
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.views.TareasIndexView-class.html" class="summary-name">TareasIndexView</a><br />
+      Clase que despliega la lista de tareas realizadas en un user story
+    </td>
+  </tr>
 </table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#desasignar_user_story" class="summary-sig-name">desasignar_user_story</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>,
+        <span class="summary-sig-arg">pk_user_story</span>)</span><br />
+      Funcion que realiza la desasignacion de un user story a un sprint, 
+      flujo y developer</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#desasignar_user_story">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#iniciar_sprint" class="summary-sig-name">iniciar_sprint</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>)</span><br />
+      Funcion que realiza la inicializacion del sprint</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#iniciar_sprint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#sprint_kanban" class="summary-sig-name">sprint_kanban</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>)</span><br />
+      Funcion que genera el o los tableros kanban que corresponden al 
+      sprint</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#sprint_kanban">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="desasignar_user_story"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">desasignar_user_story</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>,
+        <span class="sig-arg">pk_user_story</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#desasignar_user_story">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que realiza la desasignacion de un user story a un sprint, 
+  flujo y developer</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - user story</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> - clave primaria de sprint</li>
+        <li><strong class="pname"><code>pk_user_story</code></strong> - clave primaria de user story</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>template con texto renderizado</dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@login_required(login_url= '/login/')</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="iniciar_sprint"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">iniciar_sprint</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#iniciar_sprint">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que realiza la inicializacion del sprint</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - sprint</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> - clave primaria de sprint</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>redirige al index de Sprints</dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@login_required(login_url= '/login/')</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="sprint_kanban"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sprint_kanban</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#sprint_kanban">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que genera el o los tableros kanban que corresponden al 
+  sprint</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - objeto de Sprint</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> - clave primaria de sprint</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>template con texto renderizado</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
        bgcolor="#a0c0ff" cellspacing="0">
@@ -139,7 +369,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Apr 27 14:40:21 2015
+    Generated by Epydoc 3.0.1 on Mon May  4 09:49:21 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

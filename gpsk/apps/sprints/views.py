@@ -209,7 +209,7 @@ class SprintGestionar(UpdateView):
         @return: redireccion al index de gestion de sprints
         """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        obj2 = Proyecto.objects.get(pk=self.kwargs['pk_sprint'])
+        obj2 = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         return reverse('sprints:gestionar', args=[obj.pk, obj2.pk])
 
     def get_form_kwargs(self):
@@ -292,7 +292,7 @@ class SprintGestionarUpdate(UpdateView):
         @return:
         """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        obj2 = Proyecto.objects.get(pk=self.kwargs['pk_sprint'])
+        obj2 = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         return reverse('sprints:gestionar', args=[obj.pk, obj2.pk])
 
     def get_form_kwargs(self):
@@ -471,7 +471,7 @@ class RegistrarTarea(UpdateView):
         @return: redirige al template de kanban
         """
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
-        obj2 = Proyecto.objects.get(pk=self.kwargs['pk_sprint'])
+        obj2 = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         return reverse('sprints:kanban', args=[obj.pk, obj2.pk])
 
     def get_form_kwargs(self):
