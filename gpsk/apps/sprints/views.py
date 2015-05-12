@@ -10,7 +10,7 @@ from models import Sprint
 from forms import SprintCreateForm, SprintUpdateForm, SprintAsignarUserStoryForm, SprintUpdateUserStoryForm, RegistrarTareaForm
 from apps.proyectos.models import Proyecto
 from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea
-from apps.roles_proyecto.models import RolProyecto_Proyecto
+from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
 from apps.flujos.models import Flujo
 
 
@@ -266,7 +266,64 @@ class SprintGestionar(UpdateView):
         context['user_story_list_proyecto'] = user_story_list_proyecto
         context['user_story_list_sprint'] = user_story_list_sprint
 
+        rol_developer = RolProyecto.objects.get(group__name='Developer')
+        miembros = RolProyecto_Proyecto.objects.filter(proyecto=proyecto, rol_proyecto=rol_developer)
+        cantidad_developers = miembros.count()
+        #horas_hombre_totales = 0
+        #for miembro in miembros:
+        #    horas_hombre_totales = horas_hombre_totales + miembro.horas_developer
+
+        horas_asignadas_sprint = 0
+        for us in user_story_list_sprint:
+            horas_asignadas_sprint = horas_asignadas_sprint + us.estimacion
+
+        horas_totales_sprint = sprint.duracion * cantidad_developers * 8
+        horas_disponibles = horas_totales_sprint - horas_asignadas_sprint
+        context['cantidad'] = cantidad_developers
+        context['horas_asignadas'] = horas_asignadas_sprint
+        context['horas_disponibles'] = horas_disponibles
+        context['horas_totales'] = horas_totales_sprint
+
         return context
+
+
+def detalle_horas(request, pk_proyecto, pk_sprint):
+    template = 'sprints/detalle_horas.html'
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    user_story_list_sprint = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
+    usuario = request.user
+
+
+    rol_developer = RolProyecto.objects.get(group__name='Developer')
+    lista_developers = RolProyecto_Proyecto.objects.filter(proyecto=proyecto, rol_proyecto=rol_developer).order_by('id')
+    cantidad_developers = lista_developers.count()
+
+
+    dic = {}
+    for arr in lista_developers:
+        dic[arr.pk] = arr
+
+    dev_horas_disponibles = []
+    dev_horas_asignadas = []
+    for developer in lista_developers:
+        user_story_list_sprint_usuario = UserStory.objects.filter(usuario=developer.user, sprint=sprint)
+        total_horas_us_user = 0
+        for us in user_story_list_sprint_usuario:
+            total_horas_us_user = total_horas_us_user + us.estimacion
+        dev_horas_disponibles.append(developer.horas_developer - total_horas_us_user)
+        dev_horas_asignadas.append(total_horas_us_user)
+
+
+    horas_asignadas_sprint = 0
+    for us in user_story_list_sprint:
+        horas_asignadas_sprint = horas_asignadas_sprint + us.estimacion
+
+    horas_totales_sprint = sprint.duracion * cantidad_developers * 8
+
+    horas_disponibles = horas_totales_sprint - horas_asignadas_sprint
+
+    return render(request, template, locals())
 
 
 class SprintGestionarUpdate(UpdateView):
@@ -381,7 +438,7 @@ def desasignar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
         else:
             user_story.estado = 'No asignado'
             user_story.sprint = None
-            user_story.flujo = None
+            #user_story.flujo = None
             user_story.usuario = None
             user_story.save()
 
@@ -391,9 +448,9 @@ def desasignar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
             historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="sprint",
                                                   valor='Ninguno', usuario=usuario)
             historial_us.save()
-            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
-                                                  valor='Ninguno', usuario=usuario)
-            historial_us.save()
+            #historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
+            #                                      valor='Ninguno', usuario=usuario)
+            #historial_us.save()
 
             detalle = UserStoryDetalle.objects.get(user_story=user_story)
             detalle.delete()

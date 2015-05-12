@@ -12,6 +12,7 @@
 	            </h1>
 	        </div>
             <p class="btn btn-default pull-right"  >
+                Duracion del proyecto: {{duracion_proyecto}} dias<br/>
 		        Total de horas del proyecto: {{duracion_horas}}
 	        </p>
 	    </div>
@@ -19,7 +20,7 @@
 
 	<form action=" {{ proyectos.get_absolute_url }} " method="post">
     {% csrf_token %}
-
+        <p>Teniendo en cuenta 8 horas de trabajo por dia</p>
         {{ form.usuario.errors }}
     	{{ form.usuario }}
 

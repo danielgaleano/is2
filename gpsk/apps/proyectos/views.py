@@ -149,7 +149,7 @@ def listar_equipo(request, pk_proyecto):
     @return: template con texto renderizado
     """
     proyecto = Proyecto.objects.get(pk=pk_proyecto)
-    lista_equipo = Proyecto.objects.get(pk=pk_proyecto).equipo.all()
+    lista_equipo = Proyecto.objects.get(pk=pk_proyecto).equipo.all().order_by('id')
     print lista_equipo
     
     nueva_lista = []
@@ -157,6 +157,11 @@ def listar_equipo(request, pk_proyecto):
         usu = RolProyecto_Proyecto.objects.filter(proyecto=proyecto, user=u)
         print usu
         nueva_lista.append(usu)
+
+    miembros = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
+    horas_hombre_totales = 0
+    for miembro in miembros:
+        horas_hombre_totales = horas_hombre_totales + miembro.horas_developer
 
     print nueva_lista
     template = 'proyectos/proyecto_equipo_list.html'
@@ -338,6 +343,7 @@ class HorasDeveloper(UpdateView):
         duracion_horas = duracion_proyecto.days * 8
         print "duracion = %s" % duracion_horas
 
+        context['duracion_proyecto'] = duracion_proyecto.days
         context['duracion_horas'] = duracion_horas
 
         rows_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)

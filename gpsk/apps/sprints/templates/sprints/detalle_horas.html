@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'sprints:gestionar' proyecto.id sprint.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Detalle de horas
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+    <table class="table table-striped">
+        <tr class="success">
+            <td>Fuerza de trabajo en el sprint</td>
+
+            <td>{{horas_totales_sprint}} horas</td>
+        </tr>
+        <tr class="warning">
+            <td>Horas disponibles para asignar en el sprint</td>
+
+            <td>{{horas_disponibles}} horas</td>
+        </tr>
+        <tr class="info">
+            <td>Total horas asignadas</td>
+
+            <td>{{horas_asignadas_sprint}} horas</td>
+        </tr>
+    </table>
+
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Desarrollador</th>
+
+			<th>Horas asignadas</th>
+
+
+
+		</tr>
+	</thead>
+	<tbody>
+
+		{% for developer in  lista_developers %}
+
+				<tr>
+
+					<td>{{developer.user}}</td>
+
+
+                    <td>
+                        {% load index %}
+                        {{ dev_horas_asignadas |index:forloop.counter0}}
+                    </td>
+                </tr>
+
+		{% endfor %}
+
+
+
+	</tbody>
+</table>
+
+
+{% endblock %}
