@@ -31,6 +31,7 @@
         Detalle de horas <br/>
 
     </a>
+    {% if sprint.estado == 'No iniciado' %}
     <div class="col-lg-12">
         <h2>
             <small>Asignar User Story al {{sprint}}</small>
@@ -40,8 +41,9 @@
 	{% csrf_token %}
     {{ form.as_table }}
     <input type="submit" value="Asignar" class="btn btn-warning"/>
-</form>
-
+    </form>
+    {% else %}
+    {% endif %}
 </div>
 </div>
 

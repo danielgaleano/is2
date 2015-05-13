@@ -54,10 +54,10 @@ th {
 }
 .us-kanban {
     height: 51;
-    width: 100px;
+    width: 110px;
     border: solid rgb(48, 65, 74) 2px;
     border-radius: 5px;
-    margin: 1px;
+    margin: 0 0 1px 0;
 }
 .us-kanban:hover
 {
@@ -77,5 +77,11 @@ th {
     -o-transition: all 500ms ease-in-out;
     transition: all 500ms ease-in-out;
     padding: 0.5px;
+}
+.btn-sm {
+    padding: 5px;
+}
+#form-revertir {
+    display: inline-block;
 }
 

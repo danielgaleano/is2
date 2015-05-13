@@ -1,3 +1,5 @@
+from operator import attrgetter
+
 from django.shortcuts import render, HttpResponseRedirect
 from django.views import generic
 from django.views.generic.edit import UpdateView
@@ -7,7 +9,8 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from models import Sprint
-from forms import SprintCreateForm, SprintUpdateForm, SprintAsignarUserStoryForm, SprintUpdateUserStoryForm, RegistrarTareaForm
+from forms import SprintCreateForm, SprintUpdateForm, SprintAsignarUserStoryForm, SprintUpdateUserStoryForm, \
+    RegistrarTareaForm
 from apps.proyectos.models import Proyecto
 from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea
 from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
@@ -476,9 +479,10 @@ def iniciar_sprint(request, pk_proyecto, pk_sprint):
 
     user_stories = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
 
-    return HttpResponseRedirect(reverse('sprints:index', args=[pk_proyecto]))
+    return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
 
 
+@login_required(login_url='/login/')
 def sprint_kanban(request, pk_proyecto, pk_sprint):
     """
     Funcion que genera el o los tableros kanban que corresponden al sprint
@@ -502,9 +506,156 @@ def sprint_kanban(request, pk_proyecto, pk_sprint):
     for flujo in flujos_distintos:
         flujos_sprint.append(Flujo.objects.get(pk=flujo[0]))
 
+    flujos_sprint = sorted(flujos_sprint, key=attrgetter('pk'))
+
+    #flujos_sprint = Flujo.objects.filter(pk__in=flujos_sprint_t).order_by('pk')
     print flujos_sprint
 
     return render(request, template, locals())
+
+
+@login_required(login_url='/login/')
+def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    user_story = get_object_or_404(UserStory, pk=pk_user_story)
+
+    actividades = user_story.flujo.actividades.all().order_by('pk')
+    #estados = actividades[0].estados.all()
+    detalle = UserStoryDetalle.objects.get(user_story=user_story)
+    us_original_act = user_story.userstorydetalle.actividad
+    us_original_est = user_story.userstorydetalle.estado
+
+    for index, act in enumerate(actividades):
+        estados = act.estados.all()
+        if us_original_act == act:
+            if us_original_est == estados[0]:
+                detalle.estado = estados[1]
+
+                tarea = Tarea()
+                tarea.user_story = user_story
+                tarea.descripcion = "Cambio de estado: %s -> %s" % (estados[0], estados[1])
+                tarea.horas_de_trabajo = 0
+                tarea.sprint = sprint
+                tarea.flujo = user_story.flujo
+                tarea.actividad = user_story.userstorydetalle.actividad
+                tarea.estado = detalle.estado
+                tarea.save()
+
+            elif us_original_est == estados[1] and actividades.reverse()[0] != act:
+                detalle.estado = estados[2]
+
+                tarea = Tarea()
+                tarea.user_story = user_story
+                tarea.descripcion = "Cambio de estado: %s -> %s" % (estados[1], estados[2])
+                tarea.horas_de_trabajo = 0
+                tarea.sprint = sprint
+                tarea.flujo = user_story.flujo
+                tarea.actividad = user_story.userstorydetalle.actividad
+                tarea.estado = detalle.estado
+                tarea.save()
+
+                detalle.actividad = actividades[index+1]
+
+                tarea = Tarea()
+                tarea.user_story = user_story
+                tarea.descripcion = "Cambio de actividad: %s -> %s" % (act, actividades[index+1])
+                tarea.horas_de_trabajo = 0
+                tarea.sprint = sprint
+                tarea.flujo = user_story.flujo
+                tarea.actividad = detalle.actividad
+                est = actividades[index+1].estados.all()
+                tarea.estado = est[0]
+                tarea.save()
+
+                detalle.estado = est[0]
+
+            elif us_original_est == estados[1] and actividades.reverse()[0] == act:
+                detalle.estado = estados[2]
+
+                tarea = Tarea()
+                tarea.user_story = user_story
+                tarea.descripcion = "Cambio de estado: %s -> %s" % (estados[1], estados[2])
+                tarea.horas_de_trabajo = 0
+                tarea.sprint = sprint
+                tarea.flujo = user_story.flujo
+                tarea.actividad = user_story.userstorydetalle.actividad
+                tarea.estado = detalle.estado
+                tarea.save()
+
+                user_story.estado = 'Finalizado'
+
+                tarea = Tarea()
+                tarea.user_story = user_story
+                tarea.descripcion = "Finalizar user story"
+                tarea.horas_de_trabajo = 0
+                tarea.sprint = sprint
+                tarea.flujo = user_story.flujo
+                tarea.actividad = user_story.userstorydetalle.actividad
+                tarea.estado = detalle.estado
+                tarea.save()
+
+    detalle.save()
+    user_story.save()
+
+    return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
+
+
+def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    user_story = get_object_or_404(UserStory, pk=pk_user_story)
+
+    actividades = user_story.flujo.actividades.all().order_by('pk')
+    #estados = actividades[0].estados.all()
+    detalle = UserStoryDetalle.objects.get(user_story=user_story)
+    us_original_act = user_story.userstorydetalle.actividad
+    us_original_est = user_story.userstorydetalle.estado
+
+    for index, act in enumerate(actividades):
+        estados = act.estados.all()
+        if us_original_act == act:
+
+            if actividades[0] != us_original_act:
+
+                if user_story.estado == 'Activo':
+                    detalle.actividad = actividades[index-1]
+
+                    tarea = Tarea()
+                    tarea.user_story = user_story
+                    tarea.descripcion = "Revertir: - Actividad: %s -> %s" % (us_original_act, actividades[index-1])
+                    tarea.horas_de_trabajo = 0
+                    tarea.sprint = sprint
+                    tarea.flujo = user_story.flujo
+                    tarea.actividad = detalle.actividad
+                    est = actividades[index-1].estados.all()
+                    tarea.estado = est[0]
+                    #tarea.estado = detalle.estado
+                    tarea.save()
+                    detalle.estado = est[0]
+
+                if user_story.estado == 'Finalizado':
+                    detalle.actividad = actividades[index]
+
+                    tarea = Tarea()
+                    tarea.user_story = user_story
+                    tarea.descripcion = "Revertir: - Estado: %s -> %s" % (us_original_est, actividades[index].estados.all()[0])
+                    tarea.horas_de_trabajo = 0
+                    tarea.sprint = sprint
+                    tarea.flujo = user_story.flujo
+                    tarea.actividad = detalle.actividad
+                    est = actividades[index].estados.all()
+                    tarea.estado = est[0]
+                    #tarea.estado = detalle.estado
+                    tarea.save()
+                    detalle.estado = est[0]
+                    user_story.estado = 'Activo'
+
+    detalle.save()
+    user_story.save()
+
+    return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
+
 
 class RegistrarTarea(UpdateView):
     """

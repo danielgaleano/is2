@@ -33,7 +33,8 @@
                 <th colspan="3">{{ act }}</th>
 
                 {% endfor %}
-
+                <th rowspan="2">Finalizado</th>
+                <th rowspan="2">Aprobado</th>
 		    </tr>
         <tr>
             {% for act in flujo.actividades.all %}
@@ -42,6 +43,7 @@
                 {% endfor %}
             {% endfor %}
         </tr>
+
 	</thead>
 	<tbody>
 
@@ -53,16 +55,24 @@
                         {% for userstory in  user_stories %}
 
                             {% if proyecto.scrum_master == user or userstory.usuario == user%}
-                            {% if userstory.flujo == flujo and userstory.userstorydetalle.actividad == act and userstory.userstorydetalle.estado == est %}
+                            {% if userstory.flujo == flujo and userstory.userstorydetalle.actividad == act and userstory.userstorydetalle.estado == est and userstory.estado != 'Finalizado' and userstory.estado != 'Aprobado' %}
                             <div class="us-kanban">
                                 {{userstory}}
 
-                                <span class="btn-group-vertical" id="opciones">
-                                    <a type="button" class="btn btn-warning btn-sm" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
+                                <span class="btn-group" id="opciones">
+                                    <a type="button" class="btn btn-warning btn-sm" title="Ver tareas" id="ver" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-search"></i>
                                     </a>
-                                    <a type="button" class="btn btn-primary btn-sm" href="{% url 'sprints:registrar_tarea' proyecto.id sprint.id userstory.id %}">
+                                    <a type="button" class="btn btn-primary btn-sm" title="Registrar tarea" id="registrar" href="{% url 'sprints:registrar_tarea' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-pencil"></i>
+                                    </a>
+                                    {% if proyecto.scrum_master == user and flujo.actividades.all.0.estados.all.0 != est and flujo.actividades.all.0 != act %}
+                                    <a type="button" class="btn btn-danger btn-sm" title="Revertir" id="revertir" href="{% url 'sprints:revertir_estado' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-arrow-left"></i>
+                                    </a>
+                                    {% endif %}
+                                    <a type="button" class="btn btn-info btn-sm" title="Cambiar estado" id="cambiar" href="{% url 'sprints:cambiar_estado' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-arrow-right"></i>
                                     </a>
                                 </span>
 
@@ -75,6 +85,67 @@
                     </th>
                 {% endfor %}
             {% endfor %}
+
+
+                    <th>
+                        {% for userstory in  user_stories %}
+
+
+                            {% if proyecto.scrum_master == user or userstory.usuario == user%}
+                            {% if userstory.flujo == flujo and userstory.estado == 'Finalizado'%}
+                            <div class="us-kanban">
+                                {{userstory}}
+
+                                <span class="btn-group" id="opciones">
+                                    <a type="button" class="btn btn-warning btn-sm" title="Ver tareas" id="ver" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-search"></i>
+                                    </a>
+                                    <a type="button" class="btn btn-primary btn-sm" title="Registrar tarea" id="registrar" href="{% url 'sprints:registrar_tarea' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-pencil"></i>
+                                    </a>
+                                    {% if proyecto.scrum_master == user%}
+                                    <a type="button" class="btn btn-danger btn-sm" title="Revertir" id="revertir" href="{% url 'sprints:revertir_estado' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-arrow-left"></i>
+                                    </a>
+                                    <a type="button" class="btn btn-success btn-sm" title="Aprobar" id="aprobar" href="{% url 'sprints:revertir_estado' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-check-circle"></i>
+                                    </a>
+                                    {% endif %}
+
+                                </span>
+
+                            </div>
+                            {% endif %}
+                            {% endif %}
+
+		                {% endfor %}
+
+                    </th>
+                    <th>
+                        {% for userstory in  user_stories %}
+
+
+                            {% if proyecto.scrum_master == user or userstory.usuario == user%}
+                            {% if userstory.flujo == flujo and userstory.estado == 'Aprobado'%}
+                            <div class="us-kanban">
+                                {{userstory}}
+                                <br/>
+                                <span class="btn-group" id="opciones">
+
+                                    <a type="button" class="btn btn-warning btn-sm" title="Ver tareas" id="ver" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-search"></i>
+                                    </a>
+
+
+                                </span>
+
+                            </div>
+                            {% endif %}
+                            {% endif %}
+
+		                {% endfor %}
+
+                    </th>
         </tr>
 
 
