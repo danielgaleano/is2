@@ -656,6 +656,39 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
 
     return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
 
+@login_required(login_url='/login/')
+def aprobar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
+
+    template = 'sprints/user_story_aprobar.html'
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    user_story = get_object_or_404(UserStory, pk=pk_user_story)
+    usuario = request.user
+    detalle = UserStoryDetalle.objects.get(user_story=user_story)
+    lista_tareas_us = Tarea.objects.filter(user_story=user_story)
+    horas_acumuladas = 0
+
+    for tarea in lista_tareas_us:
+        horas_acumuladas = horas_acumuladas + tarea.horas_de_trabajo
+
+    if request.method == 'POST':
+        user_story.estado = 'Aprobado'
+        user_story.save()
+
+        tarea = Tarea()
+        tarea.user_story = user_story
+        tarea.descripcion = "Aprobar user story"
+        tarea.horas_de_trabajo = 0
+        tarea.sprint = sprint
+        tarea.flujo = user_story.flujo
+        tarea.actividad = user_story.userstorydetalle.actividad
+        tarea.estado = user_story.userstorydetalle.estado
+        tarea.save()
+
+        return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
+
+    return render(request, template, locals())
+
 
 class RegistrarTarea(UpdateView):
     """
@@ -768,8 +801,15 @@ class TareasIndexView(generic.ListView):
         sprint = get_object_or_404(Sprint, pk=self.kwargs['pk_sprint'])
         proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
 
+        lista_tareas_us = Tarea.objects.filter(user_story=self.user_story)
+        horas_acumuladas = 0
+
+        for tarea in lista_tareas_us:
+            horas_acumuladas = horas_acumuladas + tarea.horas_de_trabajo
+
         context['proyecto'] = proyecto
         context['sprint'] = sprint
         context['user_story'] = self.user_story
+        context['horas_acumuladas'] = horas_acumuladas
 
         return context

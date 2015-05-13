@@ -34,7 +34,7 @@
 
                 {% endfor %}
                 <th rowspan="2">Finalizado</th>
-                <th rowspan="2">Aprobado</th>
+                <th rowspan="2" class="success">Aprobado</th>
 		    </tr>
         <tr>
             {% for act in flujo.actividades.all %}
@@ -107,7 +107,7 @@
                                     <a type="button" class="btn btn-danger btn-sm" title="Revertir" id="revertir" href="{% url 'sprints:revertir_estado' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-arrow-left"></i>
                                     </a>
-                                    <a type="button" class="btn btn-success btn-sm" title="Aprobar" id="aprobar" href="{% url 'sprints:revertir_estado' proyecto.id sprint.id userstory.id %}">
+                                    <a type="button" class="btn btn-success btn-sm" title="Aprobar" id="aprobar" href="{% url 'sprints:aprobar' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-check-circle"></i>
                                     </a>
                                     {% endif %}
@@ -121,7 +121,7 @@
 		                {% endfor %}
 
                     </th>
-                    <th>
+                    <th class="success">
                         {% for userstory in  user_stories %}
 
 

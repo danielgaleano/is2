@@ -28,7 +28,7 @@
 
 
 
-
+<div class="table-responsive">
 	<table class="table table-striped">
 	<thead>
 		<tr>
@@ -58,8 +58,15 @@
 
 
 			{% if userstory.estado != 'Descartado' %}
-
-				<tr>
+                {% if userstory.estado == 'Activo' %}
+				    <tr class="info">
+                {% elif userstory.estado == 'Aprobado' %}
+                    <tr class="success">
+                {% elif userstory.estado == 'Pendiente' %}
+                    <tr class="warning">
+                {% else %}
+                    <tr>
+                {% endif %}
                     {% if perms.user_stories.consultar_historial_userstory %}
 					<td>
                         <a type="button" class="btn btn-warning" href="{% url 'user_stories:historial' proyecto.id userstory.id %}">
@@ -129,7 +136,7 @@
 
 				</tr>
 			{% else %}
-				<tr>
+				<tr class="danger">
                     {% if perms.user_stories.consultar_historial_userstory %}
                     <td>
                         <a type="button" class="btn btn-warning" href="{% url 'user_stories:historial' proyecto.id userstory.id %}">
@@ -182,6 +189,6 @@
 
 	</tbody>
 </table>
-
+</div>
 
 {% endblock %}
