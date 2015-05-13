@@ -7,6 +7,13 @@ from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDet
 from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
 
 
+# 2.5MB - 2621440
+# 5MB - 5242880
+# 10MB - 10485760
+# 20MB - 20971520
+MAX_UPLOAD_SIZE = "5242880"
+
+
 class SprintCreateForm(forms.ModelForm):
     def __init__(self, user, **kwargs):
         super(SprintCreateForm, self).__init__(**kwargs)
@@ -363,3 +370,16 @@ class RegistrarTareaForm(forms.ModelForm):
         tarea.save()
 
         return sprint
+
+
+class AdjuntarArchivoForm(forms.Form):
+    archivo = forms.FileField()
+
+    #def clean_archivo(self):
+    #    print "clean"
+    #    archivo = self.cleaned_data['archivo']
+    #    if archivo._size > MAX_UPLOAD_SIZE:
+    #        print "if"
+    #        raise forms.ValidationError('Archivo mayor a %s. Su archivo tiene %s' % (defaultfilters.filesizeformat(MAX_UPLOAD_SIZE), defaultfilters.filesizeformat(archivo._size)))
+
+    #    return archivo

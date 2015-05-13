@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'sprints:kanban' proyecto.id sprint.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                 Adjuntar Archivo
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+{% if mensaje != null %}
+		<div class="alert alert-danger" role="alert">
+  			<i class="fa fa-fw fa-warning"></i>
+  			<span class="sr-only">Error:</span>
+ 			 {{mensaje}}
+		</div>
+	{% endif %}
+
+{% if user_story.usuario == user %}
+<form action="{{ sprints.get_absolute_url }}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Agregar" class="btn btn-primary"/>
+</form>
+{% endif %}
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Archivo</th>
+            <th>Tamaño</th>
+
+		</tr>
+	</thead>
+	<tbody>
+    {% for archivo in lista_archivos %}
+
+    <tr>
+        <td>
+            <a href="{{archivo.archivo.url}}">{{archivo.filename}}</a>
+        </td>
+        <td>
+            {{archivo.archivo.file.size|filesizeformat}}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -58,22 +58,29 @@
                             {% if userstory.flujo == flujo and userstory.userstorydetalle.actividad == act and userstory.userstorydetalle.estado == est and userstory.estado != 'Finalizado' and userstory.estado != 'Aprobado' %}
                             <div class="us-kanban">
                                 {{userstory}}
-
+                                <br/>
                                 <span class="btn-group" id="opciones">
                                     <a type="button" class="btn btn-warning btn-sm" title="Ver tareas" id="ver" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-search"></i>
                                     </a>
+                                    {% if userstory.usuario == user%}
                                     <a type="button" class="btn btn-primary btn-sm" title="Registrar tarea" id="registrar" href="{% url 'sprints:registrar_tarea' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-pencil"></i>
+                                    </a>
+                                    {% endif %}
+                                    <a type="button" class="btn btn-success btn-sm" title="Archivos" id="adjuntar" href="{% url 'sprints:adjuntar_archivo' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-paperclip"></i>
                                     </a>
                                     {% if proyecto.scrum_master == user and flujo.actividades.all.0.estados.all.0 != est and flujo.actividades.all.0 != act %}
                                     <a type="button" class="btn btn-danger btn-sm" title="Revertir" id="revertir" href="{% url 'sprints:revertir_estado' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-arrow-left"></i>
                                     </a>
                                     {% endif %}
+                                    {% if userstory.usuario == user%}
                                     <a type="button" class="btn btn-info btn-sm" title="Cambiar estado" id="cambiar" href="{% url 'sprints:cambiar_estado' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-arrow-right"></i>
                                     </a>
+                                    {% endif %}
                                 </span>
 
                             </div>
@@ -95,7 +102,7 @@
                             {% if userstory.flujo == flujo and userstory.estado == 'Finalizado'%}
                             <div class="us-kanban">
                                 {{userstory}}
-
+                                <br/>
                                 <span class="btn-group" id="opciones">
                                     <a type="button" class="btn btn-warning btn-sm" title="Ver tareas" id="ver" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-search"></i>

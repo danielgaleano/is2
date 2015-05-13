@@ -4,7 +4,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
@@ -27,4 +27,7 @@ STATICFILES_DIRS = (
 staticos_prod = Path(__file__).ancestor(5)
 STATIC_ROOT = staticos_prod.child('static')
 
-ALLOWED_HOSTS = ['*']
+MEDIA_URL = '/media/'
+
+media_prod = Path(__file__).ancestor(5)
+MEDIA_ROOT = media_prod.child('media')

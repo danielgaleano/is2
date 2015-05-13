@@ -10,9 +10,9 @@ from django.contrib.auth.decorators import login_required
 
 from models import Sprint
 from forms import SprintCreateForm, SprintUpdateForm, SprintAsignarUserStoryForm, SprintUpdateUserStoryForm, \
-    RegistrarTareaForm
+    RegistrarTareaForm, AdjuntarArchivoForm
 from apps.proyectos.models import Proyecto
-from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea
+from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea, Archivo
 from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
 from apps.flujos.models import Flujo
 
@@ -807,9 +807,64 @@ class TareasIndexView(generic.ListView):
         for tarea in lista_tareas_us:
             horas_acumuladas = horas_acumuladas + tarea.horas_de_trabajo
 
+        lista_archivos = Archivo.objects.filter(user_story=self.user_story)
+        cantidad_archivos = lista_archivos.count()
+
         context['proyecto'] = proyecto
         context['sprint'] = sprint
         context['user_story'] = self.user_story
         context['horas_acumuladas'] = horas_acumuladas
+        context['cantidad_archivos'] = cantidad_archivos
 
         return context
+
+
+def adjuntar_archivo(request, pk_proyecto, pk_sprint, pk_user_story):
+
+    template = 'sprints/user_story_adjuntar_archivo.html'
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    user_story = get_object_or_404(UserStory, pk=pk_user_story)
+    usuario = request.user
+    detalle = UserStoryDetalle.objects.get(user_story=user_story)
+
+    lista_archivos = Archivo.objects.filter(user_story=user_story)
+
+    if request.method == 'POST':
+        form = AdjuntarArchivoForm(request.POST, request.FILES)
+
+        try:
+            if form.is_valid:
+                nuevo_archivo = Archivo(user_story=user_story, archivo=request.FILES['archivo'])
+                #nuevo_archivo.user_Story = user_story
+                nuevo_archivo.save()
+
+                tarea = Tarea()
+                tarea.user_story = user_story
+                tarea.descripcion = "Adjuntar archivo"
+                tarea.horas_de_trabajo = 0
+                tarea.sprint = sprint
+                tarea.flujo = user_story.flujo
+                tarea.actividad = user_story.userstorydetalle.actividad
+                tarea.estado = user_story.userstorydetalle.estado
+                tarea.save()
+
+                return HttpResponseRedirect(reverse('sprints:adjuntar_archivo', args=[pk_proyecto, pk_sprint, pk_user_story]))
+        except Exception, e:
+            print e
+            mensaje = 'No se pudo subir el archivo.'
+            return render(request, 'sprints/user_story_adjuntar_archivo.html', locals())
+
+    else:
+        form = AdjuntarArchivoForm()
+
+    return render(request, template, locals())
+
+
+#def abrir_archivo(request, pk_proyecto, pk_sprint, pk_user_story, pk_archivo):
+#    archivo = Archivo.objetcs.get(pk=pk_archivo)
+#    archivo = Archivo.File.url
+#    print archivo
+#    archivo_nombre, extension_archivo = os.path.splitext(archivo.file.name)
+#    response = HttpResponse(content_type='application/pdf')
+#    response['Content-Disposition'] = 'attachment; filename="somefilename.pdf"'

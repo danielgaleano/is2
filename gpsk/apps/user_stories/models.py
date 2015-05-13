@@ -1,4 +1,5 @@
 import datetime
+import os
 
 from django.db import models
 from django.core.urlresolvers import reverse
@@ -101,6 +102,20 @@ class Tarea(models.Model):
         return "%s %s en %s - %s - %s - %s por el usuario %s el %s" % ("Tarea en ", self.user_story.nombre, self.sprint,
                                                     self.flujo, self.actividad, self.estado, self.user_story.usuario,
                                                     self.fecha)
+
+    class Meta:
+        default_permissions = ()
+
+
+class Archivo(models.Model):
+    user_story = models.ForeignKey(UserStory, related_name='user_story_archivo')
+    archivo = models.FileField(upload_to='user-stories')
+
+    def filename(self):
+        return os.path.basename(self.archivo.name)
+
+    def __unicode__(self):
+        return "Archivo - %s - %s" % (self.user_story.nombre, datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S'))
 
     class Meta:
         default_permissions = ()

@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
@@ -26,4 +28,4 @@ urlpatterns = patterns('',
                        url(r'^flujos/', include('apps.flujos.urls', namespace="flujos")),
                        url(r'^user_stories/', include('apps.user_stories.urls', namespace="user_stories")),
                        url(r'^sprints/', include('apps.sprints.urls', namespace="sprints")),
-                       )
+                       )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
