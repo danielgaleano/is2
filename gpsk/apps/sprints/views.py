@@ -1,4 +1,5 @@
 from operator import attrgetter
+import  urlparse
 
 from django.shortcuts import render, HttpResponseRedirect
 from django.views import generic
@@ -15,6 +16,7 @@ from apps.proyectos.models import Proyecto
 from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea, Archivo
 from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
 from apps.flujos.models import Flujo
+from tasks import cambio_estado, fin_user_story, reversion_estado, aprobacion_user_story
 
 
 class IndexView(generic.ListView):
@@ -526,6 +528,13 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
     us_original_act = user_story.userstorydetalle.actividad
     us_original_est = user_story.userstorydetalle.estado
 
+    us_id = user_story.id
+    uri = request.build_absolute_uri()
+    print "uri= %s" % uri
+
+    uri_us = urlparse.urljoin(uri, '../../tareas/%s/' % us_id)
+    print "uri_us= %s" % uri_us
+
     for index, act in enumerate(actividades):
         estados = act.estados.all()
         if us_original_act == act:
@@ -541,6 +550,9 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.actividad = user_story.userstorydetalle.actividad
                 tarea.estado = detalle.estado
                 tarea.save()
+
+                #se envia la notificacion a traves de celery
+                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
 
             elif us_original_est == estados[1] and actividades.reverse()[0] != act:
                 detalle.estado = estados[2]
@@ -570,6 +582,9 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
 
                 detalle.estado = est[0]
 
+                #se envia la notificacion a traves de celery
+                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+
             elif us_original_est == estados[1] and actividades.reverse()[0] == act:
                 detalle.estado = estados[2]
 
@@ -595,6 +610,9 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.estado = detalle.estado
                 tarea.save()
 
+                #se envia la notificacion a traves de celery
+                fin_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+
     detalle.save()
     user_story.save()
 
@@ -611,6 +629,13 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
     detalle = UserStoryDetalle.objects.get(user_story=user_story)
     us_original_act = user_story.userstorydetalle.actividad
     us_original_est = user_story.userstorydetalle.estado
+
+    us_id = user_story.id
+    uri = request.build_absolute_uri()
+    print "uri= %s" % uri
+
+    uri_us = urlparse.urljoin(uri, '../../tareas/%s/' % us_id)
+    print "uri_us= %s" % uri_us
 
     for index, act in enumerate(actividades):
         estados = act.estados.all()
@@ -634,6 +659,9 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     tarea.save()
                     detalle.estado = est[0]
 
+                    #se envia la notificacion a traves de celery
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+
                 if user_story.estado == 'Finalizado':
                     detalle.actividad = actividades[index]
 
@@ -650,6 +678,9 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     tarea.save()
                     detalle.estado = est[0]
                     user_story.estado = 'Activo'
+
+                    #se envia la notificacion a traves de celery
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
 
     detalle.save()
     user_story.save()
@@ -668,6 +699,13 @@ def aprobar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
     lista_tareas_us = Tarea.objects.filter(user_story=user_story)
     horas_acumuladas = 0
 
+    us_id = user_story.id
+    uri = request.build_absolute_uri()
+    print "uri= %s" % uri
+
+    uri_us = urlparse.urljoin(uri, '../../tareas/%s/' % us_id)
+    print "uri_us= %s" % uri_us
+
     for tarea in lista_tareas_us:
         horas_acumuladas = horas_acumuladas + tarea.horas_de_trabajo
 
@@ -684,6 +722,9 @@ def aprobar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
         tarea.actividad = user_story.userstorydetalle.actividad
         tarea.estado = user_story.userstorydetalle.estado
         tarea.save()
+
+        #se envia la notificacion a traves de celery
+        aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
 
         return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
 

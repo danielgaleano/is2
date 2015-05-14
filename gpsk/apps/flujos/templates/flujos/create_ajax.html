@@ -21,7 +21,9 @@
 
 <form id="form-plantilla-flujo" action=" {{ flujos.get_absolute_url }} " method="post">
 	{% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_p}}
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre"/>
     	<div class="row">
 		<div class="col-lg-6">
 			<div class="panel panel-default">

@@ -63,11 +63,11 @@
                                     <a type="button" class="btn btn-warning btn-sm" title="Ver tareas" id="ver" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-search"></i>
                                     </a>
-                                    {% if userstory.usuario == user%}
+
                                     <a type="button" class="btn btn-primary btn-sm" title="Registrar tarea" id="registrar" href="{% url 'sprints:registrar_tarea' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-pencil"></i>
                                     </a>
-                                    {% endif %}
+
                                     <a type="button" class="btn btn-success btn-sm" title="Archivos" id="adjuntar" href="{% url 'sprints:adjuntar_archivo' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-paperclip"></i>
                                     </a>
@@ -107,8 +107,13 @@
                                     <a type="button" class="btn btn-warning btn-sm" title="Ver tareas" id="ver" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-search"></i>
                                     </a>
+                                    {% if proyecto.scrum_master == user%}
                                     <a type="button" class="btn btn-primary btn-sm" title="Registrar tarea" id="registrar" href="{% url 'sprints:registrar_tarea' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-pencil"></i>
+                                    </a>
+                                    {% endif %}
+                                    <a type="button" class="btn btn-success btn-sm" title="Archivos" id="adjuntar" href="{% url 'sprints:adjuntar_archivo' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-paperclip"></i>
                                     </a>
                                     {% if proyecto.scrum_master == user%}
                                     <a type="button" class="btn btn-danger btn-sm" title="Revertir" id="revertir" href="{% url 'sprints:revertir_estado' proyecto.id sprint.id userstory.id %}">
@@ -141,6 +146,9 @@
 
                                     <a type="button" class="btn btn-warning btn-sm" title="Ver tareas" id="ver" href="{% url 'sprints:ver_tareas' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-search"></i>
+                                    </a>
+                                    <a type="button" class="btn btn-success btn-sm" title="Archivos" id="adjuntar" href="{% url 'sprints:adjuntar_archivo' proyecto.id sprint.id userstory.id %}">
+                                        <i class="fa fa-lg fa-paperclip"></i>
                                     </a>
 
 
