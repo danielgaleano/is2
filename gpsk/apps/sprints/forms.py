@@ -7,6 +7,7 @@ from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDet
 from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
 
 
+
 # 2.5MB - 2621440
 # 5MB - 5242880
 # 10MB - 10485760
@@ -367,6 +368,8 @@ class RegistrarTareaForm(forms.ModelForm):
         tarea.flujo = user_story.flujo
         tarea.actividad = user_story.userstorydetalle.actividad
         tarea.estado = user_story.userstorydetalle.estado
+        tarea.tipo = 'Registro de Tarea'
+        tarea.usuario = self.user
         tarea.save()
 
         return sprint

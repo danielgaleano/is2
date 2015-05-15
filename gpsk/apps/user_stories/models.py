@@ -89,6 +89,10 @@ class UserStoryDetalle(models.Model):
 
 
 class Tarea(models.Model):
+    TIPO_TAREA = (
+        ('Registro de Tarea', 'Registro de Tarea'),
+        ('Cambio de Estado', 'Cambio de Estado'),
+    )
     user_story = models.ForeignKey(UserStory, related_name='user_story_tarea')
     descripcion = models.TextField(max_length=140)
     horas_de_trabajo = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(240)], default=0)
@@ -97,10 +101,12 @@ class Tarea(models.Model):
     sprint = models.ForeignKey(Sprint, related_name='sprint_tarea')
     flujo = models.ForeignKey(Flujo, related_name='flujo_tarea')
     fecha = models.DateTimeField(auto_now_add=True, default=datetime.date.today)
+    tipo = models.CharField(max_length=25, choices=TIPO_TAREA, default='Cambio de Estado')
+    usuario = models.ForeignKey(User, related_name='user_tarea', default=1)
 
     def __unicode__(self):
-        return "%s %s en %s - %s - %s - %s por el usuario %s el %s" % ("Tarea en ", self.user_story.nombre, self.sprint,
-                                                    self.flujo, self.actividad, self.estado, self.user_story.usuario,
+        return "%s %s en %s - %s - %s - %s el %s" % ("Tarea en ", self.user_story.nombre, self.sprint,
+                                                    self.flujo, self.actividad, self.estado,
                                                     self.fecha)
 
     class Meta:

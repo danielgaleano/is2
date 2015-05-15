@@ -44,6 +44,16 @@
             </table>
         </div>
     </div>
+        <div class="col-lg-5">
+            <h4>Ver tipos de tareas</h4>
+            <input type="hidden" value="{{user_story.id}}" id="user_story_id"/>
+            <select id="tipos">
+                <option>Todas las tareas</option>
+                {% for tipo in tipos_tareas %}
+                    <option value="{{ tipo }}">{{ tipo }}</option>
+                {% endfor %}
+            </select>
+    </div>
     </div>
 
 <table class="table table-striped">
@@ -53,12 +63,13 @@
             <th>Horas</th>
             <th>Actividad</th>
             <th>Estado</th>
+            <th>Usuario</th>
             <th>Fecha</th>
 
 
 		</tr>
 	</thead>
-	<tbody>
+	<tbody id="tabla_tareas">
     {% for tarea in tarea_list %}
 
     <tr>
@@ -73,6 +84,9 @@
         </td>
         <td>
             {{tarea.estado}}
+        </td>
+        <td>
+            {{tarea.usuario}}
         </td>
         <td>
             {{tarea.fecha}}

@@ -1,7 +1,9 @@
 from operator import attrgetter
-import  urlparse
+import urlparse
+import json
+import locale
 
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.views import generic
 from django.views.generic.edit import UpdateView
 from django.core.urlresolvers import reverse
@@ -549,6 +551,8 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.flujo = user_story.flujo
                 tarea.actividad = user_story.userstorydetalle.actividad
                 tarea.estado = detalle.estado
+                tarea.tipo = 'Cambio de Estado'
+                tarea.usuario = request.user
                 tarea.save()
 
                 #se envia la notificacion a traves de celery
@@ -565,6 +569,8 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.flujo = user_story.flujo
                 tarea.actividad = user_story.userstorydetalle.actividad
                 tarea.estado = detalle.estado
+                tarea.tipo = 'Cambio de Estado'
+                tarea.usuario = request.user
                 tarea.save()
 
                 detalle.actividad = actividades[index+1]
@@ -578,6 +584,8 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.actividad = detalle.actividad
                 est = actividades[index+1].estados.all()
                 tarea.estado = est[0]
+                tarea.tipo = 'Cambio de Estado'
+                tarea.usuario = request.user
                 tarea.save()
 
                 detalle.estado = est[0]
@@ -596,6 +604,8 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.flujo = user_story.flujo
                 tarea.actividad = user_story.userstorydetalle.actividad
                 tarea.estado = detalle.estado
+                tarea.tipo = 'Cambio de Estado'
+                tarea.usuario = request.user
                 tarea.save()
 
                 user_story.estado = 'Finalizado'
@@ -608,6 +618,8 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.flujo = user_story.flujo
                 tarea.actividad = user_story.userstorydetalle.actividad
                 tarea.estado = detalle.estado
+                tarea.tipo = 'Cambio de Estado'
+                tarea.usuario = request.user
                 tarea.save()
 
                 #se envia la notificacion a traves de celery
@@ -655,6 +667,8 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     tarea.actividad = detalle.actividad
                     est = actividades[index-1].estados.all()
                     tarea.estado = est[0]
+                    tarea.tipo = 'Cambio de Estado'
+                    tarea.usuario = request.user
                     #tarea.estado = detalle.estado
                     tarea.save()
                     detalle.estado = est[0]
@@ -674,6 +688,8 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     tarea.actividad = detalle.actividad
                     est = actividades[index].estados.all()
                     tarea.estado = est[0]
+                    tarea.tipo = 'Cambio de Estado'
+                    tarea.usuario = request.user
                     #tarea.estado = detalle.estado
                     tarea.save()
                     detalle.estado = est[0]
@@ -721,6 +737,8 @@ def aprobar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
         tarea.flujo = user_story.flujo
         tarea.actividad = user_story.userstorydetalle.actividad
         tarea.estado = user_story.userstorydetalle.estado
+        tarea.tipo = 'Cambio de Estado'
+        tarea.usuario = request.user
         tarea.save()
 
         #se envia la notificacion a traves de celery
@@ -851,11 +869,14 @@ class TareasIndexView(generic.ListView):
         lista_archivos = Archivo.objects.filter(user_story=self.user_story)
         cantidad_archivos = lista_archivos.count()
 
+        tipos_tareas = ['Registro de Tarea', 'Cambio de Estado']
+
         context['proyecto'] = proyecto
         context['sprint'] = sprint
         context['user_story'] = self.user_story
         context['horas_acumuladas'] = horas_acumuladas
         context['cantidad_archivos'] = cantidad_archivos
+        context['tipos_tareas'] = tipos_tareas
 
         return context
 
@@ -888,6 +909,8 @@ def adjuntar_archivo(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.flujo = user_story.flujo
                 tarea.actividad = user_story.userstorydetalle.actividad
                 tarea.estado = user_story.userstorydetalle.estado
+                tarea.tipo = 'Registro de Tarea'
+                tarea.usuario = request.user
                 tarea.save()
 
                 return HttpResponseRedirect(reverse('sprints:adjuntar_archivo', args=[pk_proyecto, pk_sprint, pk_user_story]))
@@ -900,6 +923,60 @@ def adjuntar_archivo(request, pk_proyecto, pk_sprint, pk_user_story):
         form = AdjuntarArchivoForm()
 
     return render(request, template, locals())
+
+
+class TareasIndexViewAjax(generic.TemplateView):
+
+    def get(self, request, *args, **kwargs):
+        tipo_tarea = request.GET['tipo']
+        print "tipo_tarea= %s" % tipo_tarea
+
+        user_story_id = request.GET['id_us']
+        print "us= %s" % user_story_id
+
+        tareas_x_tipo = Tarea.objects.filter(user_story__id=user_story_id, tipo=tipo_tarea).order_by('-fecha')
+        print tareas_x_tipo
+
+        locale.setlocale(locale.LC_ALL, 'es_PY.utf8')
+
+        if tareas_x_tipo:
+            lista = []
+            for tarea in tareas_x_tipo:
+                #fecha = str(tarea.fecha)
+                lista.append({'descripcion': tarea.descripcion, 'horas_de_trabajo': tarea.horas_de_trabajo,
+                              'actividad': tarea.actividad.nombre, 'estado': tarea.estado.nombre,
+                              'usuario': tarea.usuario.username,
+                              'fecha': tarea.fecha.strftime('%d de %B de %Y a las %H:%M')})
+            print tarea.fecha
+            #print fecha
+            data = json.dumps(lista)
+
+            #data = serializers.serialize('json', tareas_x_tipo,
+            #                             fields=('descripcion', 'horas_de_trabajo', 'actividad_tarea', 'estado', 'fecha'))
+
+            print data
+
+        elif tipo_tarea == 'Todas las tareas' and Tarea.objects.filter(user_story__id=user_story_id):
+            todas = Tarea.objects.filter(user_story__id=user_story_id).order_by('-fecha')
+            print todas
+
+            lista = []
+            for tarea in todas:
+                #fecha = str(tarea.fecha)
+                lista.append({'descripcion': tarea.descripcion, 'horas_de_trabajo': tarea.horas_de_trabajo,
+                              'actividad': tarea.actividad.nombre, 'estado': tarea.estado.nombre,
+                              'usuario': tarea.usuario.username,
+                              'fecha': tarea.fecha.strftime('%d de %B de %Y a las %H:%M')})
+            print tarea.fecha
+            #print fecha
+            data = json.dumps(lista)
+
+        else:
+            print "sin tipo"
+            data = [{}]
+            return HttpResponse(data, content_type='application/json')
+
+        return HttpResponse(data, content_type='application/json')
 
 
 #def abrir_archivo(request, pk_proyecto, pk_sprint, pk_user_story, pk_archivo):
