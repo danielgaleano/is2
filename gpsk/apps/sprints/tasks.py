@@ -10,6 +10,28 @@ from apps.user_stories.models import UserStory
 
 @shared_task
 def cambio_estado(proyecto, sprint, user_story, flujo, uri):
+    """
+    Funcion que envia la notificacion al scrum master sobre el cambio de estado del user story
+    dentro del flujo del kanban.
+
+    @type proyecto: String
+    @param proyecto: Nombre del proyecto actual
+
+    @type sprint: String
+    @param sprint: Nombre del spring actual
+
+    @type user_story: String
+    @param user_story: Nombre del user story actual
+
+    @type flujo: string
+    @param flujo: Nombre del flujo actual
+
+    @type uri: string
+    @param uri: uri de la lista de registro de tareas del user story
+
+    @rtype: String
+    @return: Imprime los datos del email de notificacion
+    """
     proy = Proyecto.objects.get(nombre_corto=proyecto)
     scrum_master = proy.scrum_master
     email_scrum = scrum_master.email
@@ -34,6 +56,28 @@ def cambio_estado(proyecto, sprint, user_story, flujo, uri):
 
 @shared_task
 def fin_user_story(proyecto, sprint, user_story, flujo, uri):
+    """
+    Funcion que envia la notificacion al scrum master sobre la finalizacion del user story
+    dentro del flujo del kanban.
+
+    @type proyecto: String
+    @param proyecto: Nombre del proyecto actual
+
+    @type sprint: String
+    @param sprint: Nombre del spring actual
+
+    @type user_story: String
+    @param user_story: Nombre del user story actual
+
+    @type flujo: string
+    @param flujo: Nombre del flujo actual
+
+    @type uri: string
+    @param uri: uri de la lista de registro de tareas del user story
+
+    @rtype: String
+    @return: Imprime los datos del email de notificacion
+    """
     proy = Proyecto.objects.get(nombre_corto=proyecto)
     scrum_master = proy.scrum_master
     email_scrum = scrum_master.email
@@ -57,6 +101,28 @@ def fin_user_story(proyecto, sprint, user_story, flujo, uri):
 
 @shared_task
 def reversion_estado(proyecto, sprint, user_story, flujo, uri):
+    """
+    Funcion que envia la notificacion al desarrollador sobre la reversion de estado del user story
+    dentro del flujo del kanban.
+
+    @type proyecto: String
+    @param proyecto: Nombre del proyecto actual
+
+    @type sprint: String
+    @param sprint: Nombre del spring actual
+
+    @type user_story: String
+    @param user_story: Nombre del user story actual
+
+    @type flujo: string
+    @param flujo: Nombre del flujo actual
+
+    @type uri: string
+    @param uri: uri de la lista de registro de tareas del user story
+
+    @rtype: String
+    @return: Imprime los datos del email de notificacion
+    """
     us = UserStory.objects.get(nombre=user_story)
     developer = us.usuario
     email_dev = developer.email
@@ -82,6 +148,28 @@ def reversion_estado(proyecto, sprint, user_story, flujo, uri):
 
 @shared_task
 def aprobacion_user_story(proyecto, sprint, user_story, flujo, uri):
+    """
+    Funcion que envia la notificacion al desarrollador sobre la aprobacion del user story
+    dentro del flujo del kanban.
+
+    @type proyecto: String
+    @param proyecto: Nombre del proyecto actual
+
+    @type sprint: String
+    @param sprint: Nombre del spring actual
+
+    @type user_story: String
+    @param user_story: Nombre del user story actual
+
+    @type flujo: string
+    @param flujo: Nombre del flujo actual
+
+    @type uri: string
+    @param uri: uri de la lista de registro de tareas del user story
+
+    @rtype: String
+    @return: Imprime los datos del email de notificacion
+    """
     us = UserStory.objects.get(nombre=user_story)
     developer = us.usuario
     email_dev = developer.email

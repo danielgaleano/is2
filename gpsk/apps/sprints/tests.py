@@ -291,3 +291,158 @@ class SprintsTest(TestCase):
         self.assertEqual(tarea.horas_de_trabajo, 20)
 
         print 'Test de RegistrarTarea realizado exitosamente'
+
+    def test_view_cambiar_estado(self):
+        """
+        Funcion que realiza el test sobre la vista cambiar estado que cambia
+        el estado al user story
+        """
+        # se loguea el usuario testuser
+        user = self.client.login(username='testuser', password='test')
+        self.assertTrue(user)
+
+        user4 = User.objects.create_user(username='user_prueba4', email='test@test224.com', password='prueba')
+        # se crea un usuario
+        proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
+                                           nombre_largo='test', cancelado=False, scrum_master=user4)
+
+        proyecto.save()
+
+        sprint = Sprint.objects.create(nombre='sprint', duracion=15, proyecto=proyecto)
+        sprint.save()
+
+        user_story = UserStory.objects.create(nombre='us', descripcion='desc',
+                                              valor_negocio=20, proyecto=proyecto, sprint=sprint, usuario=user4)
+        user_story.save()
+
+        actividad = Actividad(nombre='actividad')
+        actividad.save()
+
+        estado = Estado(nombre='estado')
+        estado.save()
+
+        flujo = Flujo(nombre='flujo')
+        flujo.save()
+
+        tarea = Tarea.objects.create(user_story=user_story, descripcion='Una descripcion', horas_de_trabajo=20,
+                                     actividad=actividad, estado=estado, sprint=sprint, flujo=flujo)
+        tarea.save()
+
+        actividad2 = Actividad(nombre='actividad2')
+        actividad2.save()
+
+        estado2 = Estado(nombre='estado2')
+        estado2.save()
+
+        detalle = UserStoryDetalle(user_story=user_story, actividad=actividad, estado=estado)
+        detalle.save()
+
+        detalle.actividad = actividad2
+        detalle.estado = estado2
+        detalle.save()
+
+        self.assertEqual(detalle.actividad, actividad2)
+        self.assertEqual(detalle.estado, estado2)
+
+        print 'Test de cambiar_estado realizado exitosamente'
+
+    def test_view_revertir_estado(self):
+        """
+        Funcion que realiza el test sobre la vista revertir estado que cambia
+        el estado al user story a un estado anterior
+        """
+        # se loguea el usuario testuser
+        user = self.client.login(username='testuser', password='test')
+        self.assertTrue(user)
+
+        user4 = User.objects.create_user(username='user_prueba4', email='test@test224.com', password='prueba')
+        # se crea un usuario
+        proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
+                                           nombre_largo='test', cancelado=False, scrum_master=user4)
+
+        proyecto.save()
+
+        sprint = Sprint.objects.create(nombre='sprint', duracion=15, proyecto=proyecto)
+        sprint.save()
+
+        user_story = UserStory.objects.create(nombre='us', descripcion='desc',
+                                              valor_negocio=20, proyecto=proyecto, sprint=sprint, usuario=user4)
+        user_story.save()
+
+        actividad = Actividad(nombre='actividad')
+        actividad.save()
+
+        estado = Estado(nombre='estado')
+        estado.save()
+
+        flujo = Flujo(nombre='flujo')
+        flujo.save()
+
+        tarea = Tarea.objects.create(user_story=user_story, descripcion='Una descripcion', horas_de_trabajo=20,
+                                     actividad=actividad, estado=estado, sprint=sprint, flujo=flujo)
+        tarea.save()
+
+        actividad2 = Actividad(nombre='actividad2')
+        actividad2.save()
+
+        estado2 = Estado(nombre='estado2')
+        estado2.save()
+
+        detalle = UserStoryDetalle(user_story=user_story, actividad=actividad, estado=estado)
+        detalle.save()
+
+        detalle.actividad = actividad2
+        detalle.estado = estado2
+        detalle.save()
+
+        detalle.actividad = actividad
+        detalle.estado = estado
+        detalle.save()
+
+        self.assertEqual(detalle.actividad, actividad)
+        self.assertEqual(detalle.estado, estado)
+
+        print 'Test de revertir_estado realizado exitosamente'
+
+    def test_view_aprobar_user_story(self):
+        """
+        Funcion que realiza el test sobre la vista aprobar_user_story que aprueba
+        un user story finalizado
+        """
+        # se loguea el usuario testuser
+        user = self.client.login(username='testuser', password='test')
+        self.assertTrue(user)
+
+        user4 = User.objects.create_user(username='user_prueba4', email='test@test224.com', password='prueba')
+        # se crea un usuario
+        proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
+                                           nombre_largo='test', cancelado=False, scrum_master=user4)
+
+        proyecto.save()
+
+        sprint = Sprint.objects.create(nombre='sprint', duracion=15, proyecto=proyecto)
+        sprint.save()
+
+        user_story = UserStory.objects.create(nombre='us', descripcion='desc',
+                                              valor_negocio=20, proyecto=proyecto, sprint=sprint, usuario=user4)
+        user_story.save()
+
+        actividad = Actividad(nombre='actividad')
+        actividad.save()
+
+        estado = Estado(nombre='estado')
+        estado.save()
+
+        flujo = Flujo(nombre='flujo')
+        flujo.save()
+
+        tarea = Tarea.objects.create(user_story=user_story, descripcion='Una descripcion', horas_de_trabajo=20,
+                                     actividad=actividad, estado=estado, sprint=sprint, flujo=flujo)
+        tarea.save()
+
+        user_story.estado = 'Aprobado'
+        user_story.save()
+
+        self.assertEqual(user_story.estado, 'Aprobado')
+
+        print 'Test de aprobar_user_story realizado exitosamente'

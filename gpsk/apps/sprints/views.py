@@ -298,6 +298,21 @@ class SprintGestionar(UpdateView):
 
 
 def detalle_horas(request, pk_proyecto, pk_sprint):
+    """
+    Funcion que permite ver el detalle de la asignacion de horas en un sprint.
+
+    @type request: django.http.HttpRequest
+    @param request: Contiene informacion sobre la peticion actual
+
+    @type pk_proyecto: string
+    @param pk_proyecto: id del proyecto
+
+    @type pk_sprint: string
+    @param pk_sprint: id del sprint
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza sprints/detalle_horas.html para obtener el detalle de horas.
+    """
     template = 'sprints/detalle_horas.html'
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
     sprint = get_object_or_404(Sprint, pk=pk_sprint)
@@ -531,6 +546,24 @@ def sprint_kanban(request, pk_proyecto, pk_sprint):
 
 @login_required(login_url='/login/')
 def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
+    """
+    Funcion que cambia el estado y/o la actividad de un user story seleccionado en un flujo.
+
+    @type request: django.http.HttpRequest
+    @param request: Contiene informacion sobre la peticion actual
+
+    @type pk_proyecto: string
+    @param pk_proyecto: id del proyecto
+
+    @type pk_sprint: string
+    @param pk_sprint: id del sprint
+
+    @type pk_user_story: string
+    @param pk_user_story: id del user story
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza sprints/sprint_kanban.html para obtener el kanban actual
+    """
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
     sprint = get_object_or_404(Sprint, pk=pk_sprint)
     user_story = get_object_or_404(UserStory, pk=pk_user_story)
@@ -643,6 +676,24 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
 
 
 def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
+    """
+    Funcion que revierte el estado y/o la actividad de un user story seleccionado en un flujo.
+
+    @type request: django.http.HttpRequest
+    @param request: Contiene informacion sobre la peticion actual
+
+    @type pk_proyecto: string
+    @param pk_proyecto: id del proyecto
+
+    @type pk_sprint: string
+    @param pk_sprint: id del sprint
+
+    @type pk_user_story: string
+    @param pk_user_story: id del user story
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza sprints/sprint_kanban.html para obtener el kanban actual
+    """
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
     sprint = get_object_or_404(Sprint, pk=pk_sprint)
     user_story = get_object_or_404(UserStory, pk=pk_user_story)
@@ -716,6 +767,24 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
 
 @login_required(login_url='/login/')
 def aprobar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
+    """
+    Funcion que permite aprobar un user story finalizado en un flujo.
+
+    @type request: django.http.HttpRequest
+    @param request: Contiene informacion sobre la peticion actual
+
+    @type pk_proyecto: string
+    @param pk_proyecto: id del proyecto
+
+    @type pk_sprint: string
+    @param pk_sprint: id del sprint
+
+    @type pk_user_story: string
+    @param pk_user_story: id del user story
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza sprints/sprint_kanban.html para obtener el kanban actual
+    """
 
     template = 'sprints/user_story_aprobar.html'
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
@@ -893,6 +962,24 @@ class TareasIndexView(generic.ListView):
 
 
 def adjuntar_archivo(request, pk_proyecto, pk_sprint, pk_user_story):
+    """
+    Funcion que permite adjuntar un archivo a un user story seleccionado en un flujo.
+
+    @type request: django.http.HttpRequest
+    @param request: Contiene informacion sobre la peticion actual
+
+    @type pk_proyecto: string
+    @param pk_proyecto: id del proyecto
+
+    @type pk_sprint: string
+    @param pk_sprint: id del sprint
+
+    @type pk_user_story: string
+    @param pk_user_story: id del user story
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza sprints/sprint_kanban.html para obtener el kanban actual
+    """
 
     template = 'sprints/user_story_adjuntar_archivo.html'
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
@@ -937,8 +1024,23 @@ def adjuntar_archivo(request, pk_proyecto, pk_sprint, pk_user_story):
 
 
 class TareasIndexViewAjax(generic.TemplateView):
+    """
+    Clase que despliega la lista de tareas realizadas en un user story utilizando Ajax para el filtrado
+    """
 
     def get(self, request, *args, **kwargs):
+        """
+        Metodo que obtiene los datos a ser enviados al template de la vista
+
+        @type self: FormView
+        @param self: Informacion sobre la vista actual
+
+        @type request: django.http.HttpRequest
+        @param request: Contiene informacion sobre la peticion actual
+
+        @rtype: django.http.HttpResponse
+        @return: Renderiza sprints/ver_tareas.html para obtener las tareas del user story
+        """
         tipo_tarea = request.GET['tipo']
         print "tipo_tarea= %s" % tipo_tarea
 

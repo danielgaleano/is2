@@ -144,6 +144,15 @@
       Clase que despliega la lista de tareas realizadas en un user story
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.views.TareasIndexViewAjax-class.html" class="summary-name">TareasIndexViewAjax</a><br />
+      Clase que despliega la lista de tareas realizadas en un user story 
+      utilizando Ajax para el filtrado
+    </td>
+  </tr>
 </table>
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
@@ -162,6 +171,26 @@
     </table>
   </td>
 </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">django.http.HttpResponseRedirect</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#detalle_horas" class="summary-sig-name">detalle_horas</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>)</span><br />
+      Funcion que permite ver el detalle de la asignacion de horas en un 
+      sprint.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#detalle_horas">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -222,6 +251,89 @@
       
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">django.http.HttpResponseRedirect</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#cambiar_estado" class="summary-sig-name">cambiar_estado</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>,
+        <span class="summary-sig-arg">pk_user_story</span>)</span><br />
+      Funcion que cambia el estado y/o la actividad de un user story 
+      seleccionado en un flujo.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#cambiar_estado">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">django.http.HttpResponseRedirect</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#revertir_estado" class="summary-sig-name">revertir_estado</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>,
+        <span class="summary-sig-arg">pk_user_story</span>)</span><br />
+      Funcion que revierte el estado y/o la actividad de un user story 
+      seleccionado en un flujo.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#revertir_estado">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">django.http.HttpResponseRedirect</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#aprobar_user_story" class="summary-sig-name">aprobar_user_story</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>,
+        <span class="summary-sig-arg">pk_user_story</span>)</span><br />
+      Funcion que permite aprobar un user story finalizado en un flujo.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#aprobar_user_story">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">django.http.HttpResponseRedirect</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#adjuntar_archivo" class="summary-sig-name">adjuntar_archivo</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>,
+        <span class="summary-sig-arg">pk_user_story</span>)</span><br />
+      Funcion que permite adjuntar un archivo a un user story seleccionado 
+      en un flujo.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#adjuntar_archivo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
 </table>
 <!-- ==================== FUNCTION DETAILS ==================== -->
 <a name="section-FunctionDetails"></a>
@@ -241,6 +353,37 @@
   </td>
 </tr>
 </table>
+<a name="detalle_horas"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">detalle_horas</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#detalle_horas">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que permite ver el detalle de la asignacion de horas en un 
+  sprint.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (django.http.HttpRequest) - Contiene informacion sobre la peticion actual</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> (string) - id del proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> (string) - id del sprint</li>
+    </ul></dd>
+    <dt>Returns: django.http.HttpResponseRedirect</dt>
+        <dd>Renderiza sprints/detalle_horas.html para obtener el detalle de 
+          horas.</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="desasignar_user_story"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -337,6 +480,149 @@
     </ul></dd>
     <dt>Returns:</dt>
         <dd>template con texto renderizado</dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@login_required(login_url= '/login/')</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="cambiar_estado"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">cambiar_estado</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>,
+        <span class="sig-arg">pk_user_story</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#cambiar_estado">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que cambia el estado y/o la actividad de un user story 
+  seleccionado en un flujo.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (django.http.HttpRequest) - Contiene informacion sobre la peticion actual</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> (string) - id del proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> (string) - id del sprint</li>
+        <li><strong class="pname"><code>pk_user_story</code></strong> (string) - id del user story</li>
+    </ul></dd>
+    <dt>Returns: django.http.HttpResponseRedirect</dt>
+        <dd>Renderiza sprints/sprint_kanban.html para obtener el kanban 
+          actual</dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@login_required(login_url= '/login/')</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="revertir_estado"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">revertir_estado</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>,
+        <span class="sig-arg">pk_user_story</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#revertir_estado">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que revierte el estado y/o la actividad de un user story 
+  seleccionado en un flujo.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (django.http.HttpRequest) - Contiene informacion sobre la peticion actual</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> (string) - id del proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> (string) - id del sprint</li>
+        <li><strong class="pname"><code>pk_user_story</code></strong> (string) - id del user story</li>
+    </ul></dd>
+    <dt>Returns: django.http.HttpResponseRedirect</dt>
+        <dd>Renderiza sprints/sprint_kanban.html para obtener el kanban 
+          actual</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="aprobar_user_story"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">aprobar_user_story</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>,
+        <span class="sig-arg">pk_user_story</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#aprobar_user_story">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que permite aprobar un user story finalizado en un flujo.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (django.http.HttpRequest) - Contiene informacion sobre la peticion actual</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> (string) - id del proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> (string) - id del sprint</li>
+        <li><strong class="pname"><code>pk_user_story</code></strong> (string) - id del user story</li>
+    </ul></dd>
+    <dt>Returns: django.http.HttpResponseRedirect</dt>
+        <dd>Renderiza sprints/sprint_kanban.html para obtener el kanban 
+          actual</dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@login_required(login_url= '/login/')</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="adjuntar_archivo"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">adjuntar_archivo</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>,
+        <span class="sig-arg">pk_user_story</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#adjuntar_archivo">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que permite adjuntar un archivo a un user story seleccionado 
+  en un flujo.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (django.http.HttpRequest) - Contiene informacion sobre la peticion actual</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> (string) - id del proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> (string) - id del sprint</li>
+        <li><strong class="pname"><code>pk_user_story</code></strong> (string) - id del user story</li>
+    </ul></dd>
+    <dt>Returns: django.http.HttpResponseRedirect</dt>
+        <dd>Renderiza sprints/sprint_kanban.html para obtener el kanban 
+          actual</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -369,7 +655,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon May  4 09:49:21 2015
+    Generated by Epydoc 3.0.1 on Sat May 16 00:04:36 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

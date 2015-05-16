@@ -358,13 +358,15 @@ apps.usuarios.views.UserUpdate.template_name" class="py-name" href="#" onclick="
 <a name="user_profile"></a><div id="user_profile-def"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
 <a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">login_required</tt><tt class="py-op">(</tt><tt class="py-name">login_url</tt><tt class="py-op">=</tt><tt class="py-string">'/login/'</tt><tt class="py-op">)</tt> </tt>
 <a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="user_profile-toggle" onclick="return toggle('user_profile');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="gpsk.views-module.html#user_profile">user_profile</a><tt class="py-op">(</tt><tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="user_profile-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="user_profile-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable apps.user_stories.models.HistorialUserStory.usuario=apps.user_stories.models.HistorialUserStory-class.html#usuario,Variable apps.user_stories.models.UserStory.usuario=apps.user_stories.models.UserStory-class.html#usuario"><a title="apps.user_stories.models.HistorialUserStory.usuario
+</div><div id="user_profile-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="user_profile-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable apps.user_stories.models.HistorialUserStory.usuario=apps.user_stories.models.HistorialUserStory-class.html#usuario,Variable apps.user_stories.models.Tarea.usuario=apps.user_stories.models.Tarea-class.html#usuario,Variable apps.user_stories.models.UserStory.usuario=apps.user_stories.models.UserStory-class.html#usuario"><a title="apps.user_stories.models.HistorialUserStory.usuario
+apps.user_stories.models.Tarea.usuario
 apps.user_stories.models.UserStory.usuario" class="py-name" href="#" onclick="return doclink('link-12', 'usuario', 'link-12');">usuario</a></tt> <tt class="py-op">=</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="apps.roles_proyecto.models.RolProyecto_Proyecto.user
 apps.usuarios.models.Usuario.user" class="py-name" href="#" onclick="return doclink('link-13', 'user', 'link-6');">user</a></tt> </tt>
 <a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">method</tt> <tt class="py-op">==</tt> <tt class="py-string">'POST'</tt><tt class="py-op">:</tt> </tt>
 <a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
 <a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
 <a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="gpsk.forms.UserProfileForm" class="py-name" href="#" onclick="return doclink('link-14', 'UserProfileForm', 'link-3');">UserProfileForm</a></tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">POST</tt><tt class="py-op">,</tt> <tt class="py-name">instance</tt><tt class="py-op">=</tt><tt id="link-15" class="py-name"><a title="apps.user_stories.models.HistorialUserStory.usuario
+apps.user_stories.models.Tarea.usuario
 apps.user_stories.models.UserStory.usuario" class="py-name" href="#" onclick="return doclink('link-15', 'usuario', 'link-12');">usuario</a></tt><tt class="py-op">)</tt> </tt>
 <a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
 <a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">is_valid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -390,6 +392,7 @@ apps.usuarios.forms.UserUpdateForm.save" class="py-name" href="#" onclick="retur
 <a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">HttpResponseRedirect</tt><tt class="py-op">(</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-string">'home'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 <a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
 <a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="gpsk.forms.UserProfileForm" class="py-name" href="#" onclick="return doclink('link-17', 'UserProfileForm', 'link-3');">UserProfileForm</a></tt><tt class="py-op">(</tt><tt class="py-name">instance</tt><tt class="py-op">=</tt><tt id="link-18" class="py-name"><a title="apps.user_stories.models.HistorialUserStory.usuario
+apps.user_stories.models.Tarea.usuario
 apps.user_stories.models.UserStory.usuario" class="py-name" href="#" onclick="return doclink('link-18', 'usuario', 'link-12');">usuario</a></tt><tt class="py-op">)</tt> </tt>
 <a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
 <a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render</tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-string">'mi_perfil.html'</tt><tt class="py-op">,</tt> <tt class="py-name">locals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
@@ -479,7 +482,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon May  4 09:49:22 2015
+    Generated by Epydoc 3.0.1 on Sat May 16 00:04:37 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
