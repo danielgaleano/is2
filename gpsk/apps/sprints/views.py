@@ -276,15 +276,18 @@ class SprintGestionar(UpdateView):
         rol_developer = RolProyecto.objects.get(group__name='Developer')
         miembros = RolProyecto_Proyecto.objects.filter(proyecto=proyecto, rol_proyecto=rol_developer)
         cantidad_developers = miembros.count()
-        #horas_hombre_totales = 0
-        #for miembro in miembros:
-        #    horas_hombre_totales = horas_hombre_totales + miembro.horas_developer
 
         horas_asignadas_sprint = 0
         for us in user_story_list_sprint:
             horas_asignadas_sprint = horas_asignadas_sprint + us.estimacion
 
-        horas_totales_sprint = sprint.duracion * cantidad_developers * 8
+        horas_totales_sprint = 0
+        for miembro in miembros:
+            horas_developer_sprint = 0
+            horas_developer_sprint = miembro.horas_developer * sprint.duracion
+            horas_totales_sprint = horas_totales_sprint + horas_developer_sprint
+
+        #horas_totales_sprint = sprint.duracion * cantidad_developers * 8
         horas_disponibles = horas_totales_sprint - horas_asignadas_sprint
         context['cantidad'] = cantidad_developers
         context['horas_asignadas'] = horas_asignadas_sprint
@@ -313,20 +316,28 @@ def detalle_horas(request, pk_proyecto, pk_sprint):
 
     dev_horas_disponibles = []
     dev_horas_asignadas = []
+    dev_total_horas = []
     for developer in lista_developers:
         user_story_list_sprint_usuario = UserStory.objects.filter(usuario=developer.user, sprint=sprint)
         total_horas_us_user = 0
         for us in user_story_list_sprint_usuario:
             total_horas_us_user = total_horas_us_user + us.estimacion
-        dev_horas_disponibles.append(developer.horas_developer - total_horas_us_user)
+        dev_horas_disponibles.append(developer.horas_developer * sprint.duracion - total_horas_us_user)
         dev_horas_asignadas.append(total_horas_us_user)
+        dev_total_horas.append(developer.horas_developer * sprint.duracion)
 
 
     horas_asignadas_sprint = 0
     for us in user_story_list_sprint:
         horas_asignadas_sprint = horas_asignadas_sprint + us.estimacion
 
-    horas_totales_sprint = sprint.duracion * cantidad_developers * 8
+    horas_totales_sprint = 0
+    for miembro in lista_developers:
+        horas_developer_sprint = 0
+        horas_developer_sprint = miembro.horas_developer * sprint.duracion
+        horas_totales_sprint = horas_totales_sprint + horas_developer_sprint
+
+    #horas_totales_sprint = sprint.duracion * cantidad_developers * 8
 
     horas_disponibles = horas_totales_sprint - horas_asignadas_sprint
 

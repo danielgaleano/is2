@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
@@ -128,9 +130,12 @@ def proyecto_index(request, pk):
 
     print nueva_lista
 
-    duracion_proyecto = proyecto.fecha_fin - proyecto.fecha_inicio
-    print "duracion = %s" % duracion_proyecto.days
-    duracion = duracion_proyecto.days
+    #duracion_proyecto = proyecto.fecha_fin - proyecto.fecha_inicio
+    #print "duracion = %s" % duracion_proyecto.days
+    #duracion = duracion_proyecto.days
+
+    duracion = habiles(proyecto.fecha_inicio, proyecto.fecha_fin)
+
 
     lista_us = UserStory.objects.filter(proyecto=pk).order_by('nombre')[:5]
     lista_sprints = Sprint.objects.filter(proyecto=pk).order_by('pk')
@@ -151,7 +156,9 @@ def listar_equipo(request, pk_proyecto):
     proyecto = Proyecto.objects.get(pk=pk_proyecto)
     lista_equipo = Proyecto.objects.get(pk=pk_proyecto).equipo.all().order_by('id')
     print lista_equipo
-    
+
+    duracion = habiles(proyecto.fecha_inicio, proyecto.fecha_fin)
+
     nueva_lista = []
     for u in lista_equipo:
         usu = RolProyecto_Proyecto.objects.filter(proyecto=proyecto, user=u)
@@ -161,7 +168,9 @@ def listar_equipo(request, pk_proyecto):
     miembros = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
     horas_hombre_totales = 0
     for miembro in miembros:
-        horas_hombre_totales = horas_hombre_totales + miembro.horas_developer
+        horas_developer_proyecto = 0
+        horas_developer_proyecto = miembro.horas_developer * duracion
+        horas_hombre_totales = horas_hombre_totales + horas_developer_proyecto
 
     print nueva_lista
     template = 'proyectos/proyecto_equipo_list.html'
@@ -339,12 +348,13 @@ class HorasDeveloper(UpdateView):
         """
         context = super(HorasDeveloper, self).get_context_data(**kwargs)
         proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
-        duracion_proyecto = proyecto.fecha_fin - proyecto.fecha_inicio
-        duracion_horas = duracion_proyecto.days * 8
-        print "duracion = %s" % duracion_horas
+        #duracion_proyecto = proyecto.fecha_fin - proyecto.fecha_inicio
+        duracion_proyecto = habiles(proyecto.fecha_inicio, proyecto.fecha_fin)
+        #duracion_horas = duracion_proyecto * 8
+        #print "duracion = %s" % duracion_horas
 
-        context['duracion_proyecto'] = duracion_proyecto.days
-        context['duracion_horas'] = duracion_horas
+        context['duracion_proyecto'] = duracion_proyecto
+        #context['duracion_horas'] = duracion_horas
 
         rows_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
         print "rows_del_proyecto = %s" % rows_del_proyecto
@@ -360,3 +370,42 @@ class HorasDeveloper(UpdateView):
     @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
     def dispatch(self, *args, **kwargs):
         return super(HorasDeveloper, self).dispatch(*args, **kwargs)
+
+
+#Recibe dos fechas y calcula cuantos dias habiles hay entre las mismas,
+#incluyendo la fecha de inicio
+def habiles(fecha1, fecha2):
+
+    time1 = int(str(datetime.weekday(fecha1)))
+    time2 = int(str(datetime.weekday(fecha2)))
+    dia = time1 - time2
+    diferencia = fecha2 - fecha1
+    valor = int(str(diferencia.days))
+
+    if valor >= 7:
+        val = ((valor+dia)//7)*2
+        habiles = valor-val+1
+
+        if time1 > 4 or time2 > 4:
+            if time2 > time1:
+                if time2 == 5:
+                    habiles = habiles-1
+                else:
+                    if time2 == 6:
+                        habiles = habiles-2
+            else:
+                if (time1 > time2 and time1 == 6) and time2 != 5:
+                    habiles = habiles+1
+                else:
+                    if time1 == time2:
+                        habiles=habiles-1
+    else:
+        if (time1+valor) > 5:
+            habiles = valor-1
+        else:
+            if (time1+valor) == 5:
+                habiles = valor
+            else:
+                habiles = valor+1
+
+    return habiles

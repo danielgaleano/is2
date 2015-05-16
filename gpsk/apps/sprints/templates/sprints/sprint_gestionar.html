@@ -4,7 +4,9 @@
 <a type="button" class="btn btn-info" href="{% url 'sprints:index' proyecto.id %}" >
 	<i class="fa fa-fw fa-chevron-left"></i> Atrás
 </a>
-
+<a type="button" class="btn btn-default pull-right" href="{% url 'proyectos:proyecto_index' proyecto.id %}" >
+	<i class="fa fa-lg fa-home"></i> {{proyecto.nombre_corto}}
+</a>
 
 	<!-- Page Heading -->
 	    <div class="row">
@@ -18,16 +20,16 @@
 <div class="row">
 
 <div class="col-lg-12">
-    <p class="pull-right">
+    <p class=" btn btn-default pull-right">
         Duracion del sprint: {{sprint.duracion}} dias
 
     </p>
     <br/>
     <br/>
-    <p class="pull-right">
+    <p class=" btn btn-default pull-right">
         Cantidad de desarrolladores: {{cantidad}}
     </p>
-    <a class="btn btn-default" href="{% url 'sprints:detalle_horas' proyecto.id sprint.id %}">
+    <a class="btn btn-success" href="{% url 'sprints:detalle_horas' proyecto.id sprint.id %}">
         Detalle de horas <br/>
 
     </a>

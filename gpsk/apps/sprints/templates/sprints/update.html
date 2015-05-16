@@ -4,6 +4,9 @@
 <a type="button" class="btn btn-info" href="{% url 'sprints:index' proyecto_detail.id%}" >
 	<i class="fa fa-fw fa-chevron-left"></i> Atrás
 </a>
+<a type="button" class="btn btn-default pull-right" href="{% url 'proyectos:proyecto_index' proyecto_detail.id %}" >
+	<i class="fa fa-lg fa-home"></i> {{proyecto_detail.nombre_corto}}
+</a>
 
 	<!-- Page Heading -->
 	    <div class="row">

@@ -4,6 +4,9 @@
 	<i class="fa fa-fw fa-chevron-left"></i> Atrás
 </a>
 
+<p class="btn btn-default pull-right"  >
+		Duración del proyecto: {{duracion}} días
+	</p>
 	<!-- Page Heading -->
 	    <div class="row">
 	        <div class="col-lg-12">
@@ -31,7 +34,7 @@
 			<th>Roles</th>
 			<th>Editar</th>
 			<th>Eliminar</th>
-            <th>Horas</th>
+            <th>Horas por día</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -90,7 +93,7 @@
 				{% endfor %}
 
                 <tr class="info">
-                    <td>Fuerza de trabajo total del Proyecto</td>
+                    <td>Fuerza de trabajo total del Proyecto en {{duracion}} días</td>
                     <td></td>
                     <td></td>
                     <td></td>

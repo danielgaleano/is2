@@ -4,7 +4,9 @@
 <a type="button" class="btn btn-info" href="{% url 'sprints:gestionar' proyecto.id sprint.id %}" >
 	<i class="fa fa-fw fa-chevron-left"></i> Atrás
 </a>
-
+<a type="button" class="btn btn-default pull-right" href="{% url 'proyectos:proyecto_index' proyecto.id %}" >
+	<i class="fa fa-lg fa-home"></i> {{proyecto.nombre_corto}}
+</a>
 
 	<!-- Page Heading -->
 	    <div class="row">
@@ -40,6 +42,8 @@
 			<th>Desarrollador</th>
 
 			<th>Horas asignadas</th>
+            <th>Horas disponibles</th>
+            <th>Total de horas</th>
 
 
 
@@ -57,6 +61,12 @@
                     <td>
                         {% load index %}
                         {{ dev_horas_asignadas |index:forloop.counter0}}
+                    </td>
+                    <td>
+                        {{ dev_horas_disponibles |index:forloop.counter0}}
+                    </td>
+                    <td>
+                        {{ dev_total_horas |index:forloop.counter0}}
                     </td>
                 </tr>
 
