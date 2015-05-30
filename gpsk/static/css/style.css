@@ -85,4 +85,44 @@ th {
 #form-revertir {
     display: inline-block;
 }
+//.list-group {
+    //display: inline;
 
+//}
+
+//#button-burn {
+    //float: left;
+    //clear: both;
+//}
+
+#sprint-activo:hover {
+    cursor: pointer;
+    background-color: #5cb85c;
+}
+#sprint-finalizado:hover {
+    cursor: pointer;
+    background-color: #d9534f;
+}
+#td-burn {
+    padding: 0;
+}
+#t-restante {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    color: #000;
+    //font-size: 22px;
+    height: 50px;
+    width: 200px;
+    float: left;
+    position: relative;
+    margin-top: 50px;
+    display: inline;
+    vertical-align:bottom;
+}
+#myfirstchart {
+    //display: inline-block;
+    //width: 900px;
+}

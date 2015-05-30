@@ -44,6 +44,7 @@
 			<th>Horas asignadas</th>
             <th>Horas disponibles</th>
             <th>Total de horas</th>
+            <th>Porcentaje de asignación</th>
 
 
 
@@ -53,6 +54,9 @@
 
 		{% for developer in  lista_developers %}
 
+                {% load index %}
+                {% if dev_horas_disponibles|index:forloop.counter0 >= 0 %}
+
 				<tr>
 
 					<td>{{developer.user}}</td>
@@ -60,15 +64,42 @@
 
                     <td>
                         {% load index %}
-                        {{ dev_horas_asignadas |index:forloop.counter0}}
+                        {{ dev_horas_asignadas|index:forloop.counter0}}
                     </td>
                     <td>
-                        {{ dev_horas_disponibles |index:forloop.counter0}}
+                        {{ dev_horas_disponibles|index:forloop.counter0}}
                     </td>
                     <td>
-                        {{ dev_total_horas |index:forloop.counter0}}
+                        {{ dev_total_horas|index:forloop.counter0}}
                     </td>
+                    <td>
+                        {{ dev_porcentaje|index:forloop.counter0}}%
+                    </td>
+
                 </tr>
+                {% else %}
+                <tr class="danger">
+
+					<td>{{developer.user}}</td>
+
+
+                    <td>
+                        {% load index %}
+                        {{ dev_horas_asignadas|index:forloop.counter0}}
+                    </td>
+                    <td>
+                        {{ dev_horas_disponibles|index:forloop.counter0}}
+                    </td>
+                    <td>
+                        {{ dev_total_horas|index:forloop.counter0}}
+                    </td>
+                    <td>
+                        {{ dev_porcentaje|index:forloop.counter0}}%
+                    </td>
+
+                </tr>
+                {% endif %}
+
 
 		{% endfor %}
 

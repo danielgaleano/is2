@@ -1,10 +1,11 @@
 from django import forms
 from django.db.models import Q
+from django.core.exceptions import ObjectDoesNotExist
 
 from models import Sprint
 from apps.proyectos.models import Proyecto
 from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea
-from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
+
 
 
 
@@ -171,6 +172,55 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
         model = Sprint
         fields = ['nombre']
 
+    def save(self, commit=True):
+        cleaned_data = super(SprintAsignarUserStoryForm, self).clean()
+        #usuario = Usuario.objects.get(user=self.instance)
+        #proyecto = Proyecto.objects.get(pk=self.instance.pk)
+
+        sprint = super(SprintAsignarUserStoryForm, self).save(commit=True)
+
+        user_story = UserStory.objects.get(pk=self.data.get('user_story'))
+
+
+
+        user_story.usuario = self.cleaned_data['desarrollador']
+        historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="desarrollador",
+                                              valor=self.cleaned_data['desarrollador'], usuario=self.user)
+        historial_us.save()
+        #user_story.flujo = self.cleaned_data['flujo']
+        #historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
+        #                                      valor=self.cleaned_data['flujo'], usuario=self.user)
+        #historial_us.save()
+        user_story.sprint = sprint
+        historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="sprint",
+                                              valor=sprint, usuario=self.user)
+        historial_us.save()
+        user_story.estado = 'Activo'
+
+        historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="estado",
+                                              valor='Activo', usuario=self.user)
+        historial_us.save()
+
+        user_story.save()
+
+
+        actividades = user_story.flujo.actividades.all()
+        estados = actividades[0].estados.all()
+        existe = True
+        try:
+            UserStoryDetalle.objects.get(user_story=user_story)
+        except ObjectDoesNotExist:
+            print 'No existe el user story!'
+            existe = False
+        if existe:
+            pass
+        else:
+            detalle = UserStoryDetalle(user_story=user_story, actividad=actividades[0], estado=estados[0])
+            detalle.save()
+
+        return sprint
+
+'''
     def clean_user_story(self):
         sprint = super(SprintAsignarUserStoryForm, self).save(commit=True)
 
@@ -218,45 +268,7 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
             raise forms.ValidationError("No existen suficientes horas disponibles para asignar en el sprint.")
 
         return horas_disponibles
-
-    def save(self, commit=True):
-        cleaned_data = super(SprintAsignarUserStoryForm, self).clean()
-        #usuario = Usuario.objects.get(user=self.instance)
-        #proyecto = Proyecto.objects.get(pk=self.instance.pk)
-
-        sprint = super(SprintAsignarUserStoryForm, self).save(commit=True)
-
-        user_story = UserStory.objects.get(pk=self.data.get('user_story'))
-
-
-
-        user_story.usuario = self.cleaned_data['desarrollador']
-        historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="desarrollador",
-                                              valor=self.cleaned_data['desarrollador'], usuario=self.user)
-        historial_us.save()
-        #user_story.flujo = self.cleaned_data['flujo']
-        #historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
-        #                                      valor=self.cleaned_data['flujo'], usuario=self.user)
-        #historial_us.save()
-        user_story.sprint = sprint
-        historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="sprint",
-                                              valor=sprint, usuario=self.user)
-        historial_us.save()
-        user_story.estado = 'Activo'
-
-        historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="estado",
-                                              valor='Activo', usuario=self.user)
-        historial_us.save()
-
-        user_story.save()
-
-
-        actividades = user_story.flujo.actividades.all()
-        estados = actividades[0].estados.all()
-        detalle = UserStoryDetalle(user_story=user_story, actividad=actividades[0], estado=estados[0])
-        detalle.save()
-
-        return sprint
+'''
 
 
 class SprintUpdateUserStoryForm(forms.ModelForm):

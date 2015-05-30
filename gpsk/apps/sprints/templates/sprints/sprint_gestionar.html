@@ -55,13 +55,15 @@
         Product Backlog Priorizado
     </h3>
     <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table">
             <thead>
                 <tr>
 
                     <th>Nombre</th>
                     <th>Estimacion</th>
                     <th>Prioridad</th>
+                    <th>Valor Técnico</th>
+                    <th>Valor de negocio</th>
 
 
                 </tr>
@@ -71,7 +73,7 @@
                 {% for userstory in  user_story_list_proyecto %}
 
 
-
+                        {% if "Pendiente" != userstory.estado|stringformat:"s" %}
                         <tr>
 
                             <td>{{userstory.nombre}}</td>
@@ -80,7 +82,24 @@
 
                             <td>{{userstory.prioridad}}</td>
 
+                            <td>{{userstory.valor_tecnico}}</td>
+
+                            <td>{{userstory.valor_negocio}}</td>
                         </tr>
+                        {% else %}
+                        <tr class="warning">
+
+                            <td>{{userstory.nombre}}</td>
+
+                            <td>{{userstory.estimacion}} horas</td>
+
+                            <td>{{userstory.prioridad}}</td>
+
+                            <td>{{userstory.valor_tecnico}}</td>
+
+                            <td>{{userstory.valor_negocio}}</td>
+                        </tr>
+                        {% endif %}
 
                 {% endfor %}
 
@@ -124,17 +143,23 @@
 
                             <td>{{userstory.flujo}}</td>
 
+                            {% if "Finalizado" != sprint.estado|stringformat:"s" %}
                             <td>
                                 <a type="button" class="btn btn-primary" href="{% url 'sprints:gestionar_update' proyecto.id sprint.id userstory.id %}">
                                 <i class="fa fa-lg fa-edit"></i>
                                 </a>
                             </td>
 
+
                             <td>
                                 <a type="button" class="btn btn-danger" href="{% url 'sprints:gestionar_delete' proyecto.id sprint.id userstory.id %}">
                                 <i class="fa fa-lg fa-minus"></i>
                                 </a>
                             </td>
+                            {% else %}
+                            <td></td>
+                            <td></td>
+                            {% endif %}
 
 
                         </tr>

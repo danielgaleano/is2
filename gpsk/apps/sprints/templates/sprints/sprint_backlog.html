@@ -34,6 +34,7 @@
             <th>Flujo</th>
             <th>Actividad</th>
             <th>Estado-Actividad</th>
+            <th>Descartar</th>
 
 		</tr>
 	</thead>
@@ -55,9 +56,21 @@
 
                     <td>{{userstory.flujo}}</td>
 
-                    <td></td>
+                    <td>{{userstory.userstorydetalle.actividad}}</td>
 
-                    <td></td>
+                    <td>{{userstory.userstorydetalle.estado}}</td>
+
+                    {% if user == proyecto.scrum_master and "Finalizado" == sprint.estado|stringformat:"s" or "Aprobado" == sprint.estado|stringformat:"s" %}
+                    <td>
+
+                    </td>
+                    {% else %}
+                    <td>
+                        <a type="button" class="btn btn-danger" href="{% url 'sprints:descartar' proyecto.id sprint.id userstory.id %}">
+                        <i class="fa fa-lg fa-remove"></i>
+                        </a>
+                    </td>
+                    {% endif %}
 
 
 				</tr>

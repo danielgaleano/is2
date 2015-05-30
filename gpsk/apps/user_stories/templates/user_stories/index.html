@@ -28,8 +28,8 @@
 
 
 
-<div class="table-responsive">
-	<table class="table table-striped">
+
+	<table class="table table-responsive">
 	<thead>
 		<tr>
 			<th>Historial</th>
@@ -44,7 +44,7 @@
             <th>Flujo</th>
             <th>Sprint</th>
             <th>Editar</th>
-            <th>Descartar</th>
+
 
 		</tr>
 	</thead>
@@ -119,19 +119,15 @@
                         {% if perms.user_stories.descartar_userstory and user == proyecto.scrum_master %}
                             {% if userstory.estado|stringformat:"s" != "Finalizado" %}
                             {% if userstory.estado|stringformat:"s" != "Aprobado" %}
-                            <td>
-                                <a type="button" class="btn btn-danger" href="{% url 'user_stories:delete' proyecto.id userstory.id %}">
-                                <i class="fa fa-lg fa-remove"></i>
-                                </a>
-                            </td>
+
                             {% else %}
-                            <td></td>
+
                             {% endif %}
                             {% else %}
-                            <td></td>
+
                             {% endif %}
                         {% else %}
-                            <td></td>
+
                         {% endif %}
 
 				</tr>
@@ -177,9 +173,7 @@
 
 
 
-					<td>
 
-					</td>
 
 
 				</tr>
@@ -189,6 +183,6 @@
 
 	</tbody>
 </table>
-</div>
+
 
 {% endblock %}

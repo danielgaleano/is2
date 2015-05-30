@@ -17,6 +17,8 @@ var user_story_id = $('#user_story_id').val();
                         html += '<tr>'+
                                     '<td>'+ data[i].descripcion +'</td>'+
                                     '<td>'+ data[i].horas_de_trabajo +'</td>'+
+                                    '<td>'+ data[i].sprint +'</td>'+
+                                    '<td>'+ data[i].flujo +'</td>'+
                                     '<td>'+ data[i].actividad +'</td>'+
                                     '<td>'+ data[i].estado +'</td>'+
                                     '<td>'+ data[i].usuario +'</td>'+

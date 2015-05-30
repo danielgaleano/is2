@@ -61,6 +61,8 @@
 		<tr>
 			<th>Descripcion</th>
             <th>Horas</th>
+            <th>Sprint</th>
+            <th>Flujo</th>
             <th>Actividad</th>
             <th>Estado</th>
             <th>Usuario</th>
@@ -80,6 +82,12 @@
             {{tarea.horas_de_trabajo}}
         </td>
         <td>
+            {{tarea.sprint}}
+        </td>
+        <td>
+            {{tarea.flujo}}
+        </td>
+        <td>
             {{tarea.actividad}}
         </td>
         <td>
@@ -89,7 +97,7 @@
             {{tarea.usuario}}
         </td>
         <td>
-            {{tarea.fecha}}
+            {{tarea.fecha|date:"d/m/Y"}}
         </td>
     </tr>
     {% endfor %}

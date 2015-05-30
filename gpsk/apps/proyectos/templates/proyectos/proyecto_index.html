@@ -30,24 +30,60 @@
 					{% endif %}
                 </div>
 				<div class="panel-body">
-					<div class="list-group">
+					<table class="table table-condensed tabla-sprints">
+                        <thead>
+                            <tr>
+                                <th class="col-md-12"></th>
+                                <th class="col-md-4"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         {% for sprint in lista_sprints %}
 
                             {% if sprint.estado|stringformat:"s" == "Activo" %}
-
-                                <a href="{% url 'sprints:kanban' proyecto.id sprint.id %}" class="list-group-item list-group-item-success">{{ sprint }}</a>
+                            <tr>
+                                <td id="sprint-activo" data-href="{% url 'sprints:kanban' proyecto.id sprint.id %}" class="success">
+                                {{ sprint }}
+                                </td>
+                                <td class="success" id="td-burn">
+                                    <a type="button" class="btn btn-warning btn-block" id="button-burn" href="{% url 'sprints:burndown_chart' proyecto.id sprint.id %}" >
+	                                    <i class="fa fa-fw fa-area-chart"></i> Burndown Chart
+                                    </a>
+                                </td>
+                            </tr>
+                            {% elif sprint.estado|stringformat:"s" == "Finalizado" %}
+                            <tr>
+                                <td id="sprint-finalizado" data-href="{% url 'sprints:kanban' proyecto.id sprint.id %}" class="danger">
+                                {{ sprint }}
+                                </td>
+                                <td class="success" id="td-burn">
+                                    <a type="button" class="btn btn-warning btn-block" id="button-burn" href="{% url 'sprints:burndown_chart' proyecto.id sprint.id %}" >
+	                                    <i class="fa fa-fw fa-area-chart"></i> Burndown Chart
+                                    </a>
+                                </td>
+                            </tr>
                             {% else %}
-                                <a href="#" class="list-group-item">{{ sprint }}</a>
+                            <tr>
+                                <td data-href="{% url 'sprints:kanban' proyecto.id sprint.id %}">
+                                {{ sprint }}
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+
                             {% endif %}
+
+
                         {% endfor %}
+                        </tbody>
 
 
 
 
 
 
-
-					</div>
+					</table>
 					</div>
 
 				</div>
