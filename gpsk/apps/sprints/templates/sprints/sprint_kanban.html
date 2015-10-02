@@ -68,7 +68,7 @@
                                         <i class="fa fa-lg fa-pencil"></i>
                                     </a>
                                     {% endif %}
-                                    <a type="button" class="btn btn-success btn-sm" title="Archivos" id="adjuntar" href="{% url 'sprints:adjuntar_archivo' proyecto.id sprint.id userstory.id %}">
+                                    <a type="button" class="btn btn-success btn-sm" title="Archivos" id="adjuntar" href="{% url 'sprints:agregar_adjunto' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-paperclip"></i>
                                     </a>
                                     {% if proyecto.scrum_master == user and flujo.actividades.all.0.estados.all.0 != est and flujo.actividades.all.0 != act and sprint.estado != 'Finalizado' %}

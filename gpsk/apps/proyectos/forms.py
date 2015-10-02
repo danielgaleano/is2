@@ -66,7 +66,7 @@ class ProyectoUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Proyecto
-        fields = ['cliente', 'nombre_corto', 'nombre_largo', 'scrum_master', 'fecha_inicio', 'fecha_fin', 'estado']
+        fields = ['cliente', 'nombre_corto', 'nombre_largo', 'scrum_master', 'fecha_inicio', 'fecha_fin']
 
     def clean_fecha_fin(self):
         fecha_inicio = self.cleaned_data['fecha_inicio']
@@ -84,7 +84,7 @@ class ProyectoUpdateForm(forms.ModelForm):
         proyecto_antiguo = Proyecto.objects.get(pk=self.instance.pk)
         print proyecto
         print proyecto_antiguo
-        estado = self.cleaned_data['estado']
+        #estado = self.cleaned_data['estado']
 
         scrum_master = User.objects.get(pk=self.cleaned_data['scrum_master'].pk)
 
@@ -96,7 +96,7 @@ class ProyectoUpdateForm(forms.ModelForm):
         #asignamos al nuevo usuario como scrum master del proyecto
         proyecto.scrum_master = scrum_master
         #asignamos el nuevo estado
-        proyecto.estado = estado
+        #proyecto.estado = estado
 
         for miembro in proyecto_antiguo.equipo.all():
             if miembro != scrum_master:

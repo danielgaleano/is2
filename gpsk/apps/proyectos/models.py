@@ -1,7 +1,9 @@
 import datetime
+
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+
 from apps.clientes.models import Cliente
 
 
@@ -13,7 +15,7 @@ class Proyecto(models.Model):
     Scrum master, equipo, estado y cliente.
     """
     ESTADOS_PROYECTO=(
-        ('No inciado', 'No inciado'),
+        ('No iniciado', 'No iniciado'),
         ('Activo', 'Activo'),
         ('Finalizado', 'Finalizado'),
     )

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+<a type="button" class="btn btn-info" href="{% url 'proyectos:proyecto_index' proyecto.id %}" >
+            <i class="fa fa-fw fa-chevron-left"></i> Atrás
+        </a>
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                <i class="fa fa-fw fa-table"></i>Reportes <small>{{proyecto}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+
+
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Reporte</th>
+			<th>Ver</th>
+			<th>Descargar</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<tr>
+            <td>Cantidad de trabajos en curso por equipo</td>
+            <td>
+                <a type="button" class="btn btn-warning" href="{% url 'proyectos:reporte_trabajo_equipo' proyecto.id %}" target="_blank" >
+                    <i class="fa fa-fw fa-file-pdf-o"></i>
+                </a>
+            </td>
+            <td>
+                <a type="button" class="btn btn-info" href="{% url 'proyectos:reporte_trabajo_equipo_download' proyecto.id %}" >
+                    <i class="fa fa-fw fa-download"></i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>Cantidad de trabajos por usuario pendiente, en curso, finalizados</td>
+            <td>
+                <a type="button" class="btn btn-warning" href="#" >
+                    <i class="fa fa-fw fa-file-pdf-o"></i>
+                </a>
+            </td>
+            <td>
+                <a type="button" class="btn btn-info" href="#" >
+                    <i class="fa fa-fw fa-download"></i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>Lista clasificada por orden de prioridad de todas las actividades  para completar un proyecto.</td>
+            <td>
+                <a type="button" class="btn btn-warning" href="#" >
+                    <i class="fa fa-fw fa-file-pdf-o"></i>
+                </a>
+            </td>
+            <td>
+                <a type="button" class="btn btn-info" href="#" >
+                    <i class="fa fa-fw fa-download"></i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>Lista de Tiempo estimado por  proyecto y la ejecución del mismo (graficado, sprint por proyecto)</td>
+            <td>
+                <a type="button" class="btn btn-warning" href="#" >
+                    <i class="fa fa-fw fa-file-pdf-o"></i>
+                </a>
+            </td>
+            <td>
+                <a type="button" class="btn btn-info" href="#" >
+                    <i class="fa fa-fw fa-download"></i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>El Backlog del Producto, lista ordenada de HU, en el orden que esperamos deban terminarse</td>
+            <td>
+                <a type="button" class="btn btn-warning" href="#" >
+                    <i class="fa fa-fw fa-file-pdf-o"></i>
+                </a>
+            </td>
+            <td>
+                <a type="button" class="btn btn-info" href="#" >
+                    <i class="fa fa-fw fa-download"></i>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>El Backlog del Sprint, lista de los elementos del Backlog del Producto, elegidos para ser desarrollador en el Sprint actual</td>
+            <td>
+                <a type="button" class="btn btn-warning" href="#" >
+                    <i class="fa fa-fw fa-file-pdf-o"></i>
+                </a>
+            </td>
+            <td>
+                <a type="button" class="btn btn-info" href="#" >
+                    <i class="fa fa-fw fa-download"></i>
+                </a>
+            </td>
+        </tr>
+	</tbody>
+</table>
+
+
+{% endblock %}

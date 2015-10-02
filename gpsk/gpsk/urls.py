@@ -28,4 +28,5 @@ urlpatterns = patterns('',
                        url(r'^flujos/', include('apps.flujos.urls', namespace="flujos")),
                        url(r'^user_stories/', include('apps.user_stories.urls', namespace="user_stories")),
                        url(r'^sprints/', include('apps.sprints.urls', namespace="sprints")),
+                       url(r'^files/', include('db_file_storage.urls')),
                        )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

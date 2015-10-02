@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'sprints:gestionar' proyecto.id sprint.id %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                Asignar sprint <small>{{sprint}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+<div class="col-lg-5">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Nombre</td>
+                    <td>{{user_story}}</td>
+                </tr>
+                <tr>
+                    <td>Descripción</td>
+                    <td>{{user_story.descripcion}}</td>
+                </tr>
+                <tr>
+                    <td>Estado</td>
+                    <td>{{user_story.estado}}</td>
+                </tr>
+                <tr>
+                    <td>Flujo</td>
+                    <td>{{user_story.flujo}}</td>
+                </tr>
+                <tr>
+                    <td>Estimación</td>
+                    <td>{{user_story.estimacion}}</td>
+                </tr>
+                <tr>
+                    <td>Prioridad</td>
+                    <td>{{user_story.prioridad}}</td>
+                </tr>
+                <tr>
+                    <td>Valor Técnico</td>
+                    <td>{{user_story.valor_tecnico}}</td>
+                </tr>
+                <tr>
+                    <td>Valor de Negocio</td>
+                    <td>{{user_story.valor_negocio}}</td>
+                </tr>
+                <tr>
+                    <td>Horas Acumuladas</td>
+                    <td>{{user_story.horas_acumuladas}}</td>
+                </tr>
+                <tr>
+                    <td>Developer</td>
+                    <td>{{user_story.usuario}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<div class="col-lg-5">
+    <form action=" {{ sprints.get_absolute_url }} " method="post">
+	{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Asignar" class="btn btn-warning"/>
+    </form>
+</div>
+{% endblock %}

@@ -1,12 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-<a type="button" class="btn btn-info" href="{% url 'proyectos:index' %}" >
-	<i class="fa fa-fw fa-chevron-left"></i> Atrás
-</a>
+<div class="row">
+    <div class="col-lg-2 pull-left">
+        <a type="button" class="btn btn-info" href="{% url 'proyectos:index' %}" >
+            <i class="fa fa-fw fa-chevron-left"></i> Atrás
+        </a>
+    </div>
+    <div class="col-lg-10 pull-right">
+        <div class="col-lg-2 pull-right">
+            <a type="button" class="btn btn-success pull-right" href="{% url 'proyectos:proyecto_reportes' proyecto.id %}" >
+                <i class="fa fa-fw fa-newspaper-o"></i> Reportes
+            </a>
+        </div>
+        <div class="col-lg-8 pull-right">
+            <p class="btn btn-default pull-right"  >
+                    Duración del proyecto: {{duracion}} días
+            </p>
+        </div>
 
-<p class="btn btn-default pull-right"  >
-		Duración del proyecto: {{duracion}} días
-	</p>
+    </div>
+</div>
 
 	<!-- Page Heading -->
 		<div class="row">

@@ -16,21 +16,26 @@
 	<!-- /.row -->
 
 <div class="row">
-    <div class="col-lg-7">
+    <div class="col-lg-9">
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
-
+                        <th>Descripción</th>
                         <th>Desarrollador</th>
                         <th>Estimacion</th>
                         <th>Horas Acumuladas</th>
                         <th>Archivos adjuntos</th>
+                        {% if user_story.estado == 'Aprobado' %}
+                            <th>Nota</th>
+                        {% endif %}
 
                     </tr>
                 </thead>
                 <tbody>
                 <tr>
+                    <td>{{user_story.descripcion}}</td>
+
                     <td>{{user_story.usuario}}</td>
 
                     <td>{{user_story.estimacion}}</td>
@@ -38,13 +43,17 @@
                     <td>{{horas_acumuladas}}</td>
 
                     <td>{{cantidad_archivos}}</td>
+
+                    {% if user_story.estado == 'Aprobado' %}
+                        <td>{{nota.texto}}</td>
+                    {% endif %}
                 </tr>
 
                 </tbody>
             </table>
         </div>
     </div>
-        <div class="col-lg-5">
+        <div class="col-lg-3 pull-right">
             <h4>Ver tipos de tareas</h4>
             <input type="hidden" value="{{user_story.id}}" id="user_story_id"/>
             <select id="tipos">

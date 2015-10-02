@@ -1,16 +1,23 @@
+
 from datetime import datetime
+#import datetime
 
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User, Group
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.utils.decorators import method_decorator
+
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.pagesizes import A4
+from io import BytesIO
 
 from models import Proyecto
 from apps.roles_proyecto.models import RolProyecto_Proyecto
@@ -409,3 +416,201 @@ def habiles(fecha1, fecha2):
                 habiles = valor+1
 
     return habiles
+
+
+@login_required(login_url='/login/')
+def proyecto_reportes(request, pk):
+    """
+    Redirige a la vista de reportes del proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: template con texto renderizado
+    """
+    proyecto = Proyecto.objects.get(pk=pk)
+    template = 'proyectos/proyecto_reportes.html'
+
+    return render(request, template, locals())
+
+
+@login_required(login_url='/login/')
+def proyecto_reporte_trabajos_equipo(request, pk):
+    """
+    Redirige a la vista de reporte de trabajos por equipo del proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: template con texto renderizado
+    """
+    proyecto = Proyecto.objects.get(pk=pk)
+    pdf_name = "reporte_trabajos_equipo_" + proyecto.nombre_corto + ".pdf"
+
+    # Create the HttpResponse object with the appropriate PDF headers.
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="%s" ' % pdf_name
+
+    def print_footer_header(canvas, doc):
+        # Save the state of our canvas so we can draw on it
+        canvas.saveState()
+        styles = getSampleStyleSheet()
+
+        # Header
+        header = Paragraph("GPSK System", styles['Normal'])
+        w, h = header.wrap(doc.width, doc.topMargin)
+        header.drawOn(canvas, doc.leftMargin, doc.height + doc.topMargin - h)
+
+        date = datetime.now()
+        dateFormat = date.strftime("%d-%m-%Y")
+        # Footer 1
+        footer_1 = Paragraph(dateFormat, styles['Normal'])
+        w, h = footer_1.wrap(doc.width, doc.bottomMargin)
+        footer_1.drawOn(canvas, doc.leftMargin, h)
+
+        # Release the canvas
+        canvas.restoreState()
+
+    buff = BytesIO()
+    doc = SimpleDocTemplate(buff,
+                            pagesize=A4,
+                            rightMargin=40,
+                            leftMargin=40,
+                            topMargin=40,
+                            bottomMargin=20,
+                            )
+
+    elementos = []
+    styles = getSampleStyleSheet()
+    header = Paragraph(proyecto.nombre_largo, styles['Heading1'])
+    sub_header = Paragraph("User Stories en curso", styles['Heading2'])
+    elementos.append(header)
+    elementos.append(sub_header)
+    headings = ('User Story')
+    lista_user_stories = [(p.nombre) for p in UserStory.objects.filter(proyecto=pk).filter(sprint__estado='Activo').filter(estado='Activo')]
+
+    for us in lista_user_stories:
+        elementos.append(Paragraph(us, styles['Normal']))
+    doc.build(elementos, onFirstPage=print_footer_header, onLaterPages=print_footer_header)
+    response.write(buff.getvalue())
+    buff.close()
+
+    return response
+
+
+@login_required(login_url='/login/')
+def proyecto_reporte_trabajos_equipo_download(request, pk):
+    """
+    Redirige a la vista de descarga del reporte de trabajos por equipo del proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: template con texto renderizado
+    """
+    proyecto = Proyecto.objects.get(pk=pk)
+    pdf_name = "reporte_trabajos_equipo_" + proyecto.nombre_corto + ".pdf"
+
+    # Create the HttpResponse object with the appropriate PDF headers.
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="%s" ' % pdf_name
+
+    def print_footer_header(canvas, doc):
+        # Save the state of our canvas so we can draw on it
+        canvas.saveState()
+        styles = getSampleStyleSheet()
+
+        # Header
+        header = Paragraph("GPSK System", styles['Normal'])
+        w, h = header.wrap(doc.width, doc.topMargin)
+        header.drawOn(canvas, doc.leftMargin, doc.height + doc.topMargin - h)
+
+        date = datetime.now()
+        dateFormat = date.strftime("%d-%m-%Y")
+        # Footer 1
+        footer_1 = Paragraph(dateFormat, styles['Normal'])
+        w, h = footer_1.wrap(doc.width, doc.bottomMargin)
+        footer_1.drawOn(canvas, doc.leftMargin, h)
+
+        # Release the canvas
+        canvas.restoreState()
+
+    buff = BytesIO()
+    doc = SimpleDocTemplate(buff,
+                            pagesize=A4,
+                            rightMargin=40,
+                            leftMargin=40,
+                            topMargin=40,
+                            bottomMargin=20,
+                            )
+
+    elementos = []
+    styles = getSampleStyleSheet()
+    header = Paragraph(proyecto.nombre_largo, styles['Heading1'])
+    sub_header = Paragraph("User Stories en curso", styles['Heading2'])
+    elementos.append(header)
+    elementos.append(sub_header)
+    headings = ('User Story')
+    lista_user_stories = [(p.nombre) for p in UserStory.objects.filter(proyecto=pk).filter(sprint__estado='Activo').filter(estado='Activo')]
+
+    for us in lista_user_stories:
+        elementos.append(Paragraph(us, styles['Normal']))
+    doc.build(elementos, onFirstPage=print_footer_header, onLaterPages=print_footer_header)
+    response.write(buff.getvalue())
+    buff.close()
+
+    return response
+
+
+@login_required(login_url='/login/')
+def iniciar_proyecto(request, pk_proyecto):
+    """
+    Funcion que realiza la inicializacion del proyecto
+    @param request: proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: redirige al index de Proyectos
+    """
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+
+    proyecto.estado = 'Activo'
+    proyecto.fecha_inicio = datetime.now()
+
+    proyecto.save()
+
+    return HttpResponseRedirect(reverse('proyectos:index'))
+
+
+@login_required(login_url='/login/')
+def finalizar_proyecto(request, pk_proyecto):
+    """
+    Funcion que realiza la finalizacion del proyecto
+    @param request: proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: redirige al index de Proyectos
+    """
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+
+    template = 'proyectos/proyecto_finalizar.html'
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+
+    sprints = Sprint.objects.filter(proyecto=proyecto, estado='Activo')
+
+    if request.method == 'POST':
+
+        proyecto.estado = 'Finalizado'
+        print "fecha = %s" % datetime.date.today()
+        proyecto.fecha_fin = datetime.date.today()
+
+        proyecto.save()
+
+        for sprint in sprints:
+            sprint.estado = 'Finalizado'
+            sprint.fecha_fin = datetime.date.today()
+
+            user_stories = UserStory.objects.filter(sprint=sprint, estado='Activo')
+
+            for us in user_stories:
+                us.estado = 'Pendiente'
+                us.save()
+
+            sprint.save()
+
+        return HttpResponseRedirect(reverse('proyectos:index', args=[pk_proyecto]))
+    if sprints:
+        mensaje = 'Existen sprints que no han finalizado.'
+
+    return render(request, template, locals())

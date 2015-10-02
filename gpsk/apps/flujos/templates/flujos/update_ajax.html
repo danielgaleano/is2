@@ -9,40 +9,18 @@
 	    <div class="row">
 	        <div class="col-lg-12">
 	            <h1 class="page-header">
-	                 Crear Plantilla de Flujo
+	                 Modificar Flujo
 	            </h1>
 	        </div>
 	    </div>
 	<!-- /.row -->
-	<a type="button" class="btn btn-success pull-right" href="{% url 'flujos:create_actividad' %}" >
-	<i class="fa fa-lg fa-tasks"></i>
-		Nueva Actividad
-	</a>
-<div class="row">
-    <div id="error-agregado"></div>
-</div>
-<form id="form-plantilla-flujo-create" action=" {{ flujos.get_absolute_url }} " method="post">
+
+
+<form id="form-plantilla-flujo-update" action=" {{ flujos.get_absolute_url }} " method="post">
 	{% csrf_token %}
     {{ form.as_p}}
-    {% if mensaje_error_repetido != null %}
-		<div id="hay-error-repetido" class="alert alert-danger" role="alert">
-  			<i class="fa fa-fw fa-warning"></i>
-  			<span class="sr-only">Error:</span>
- 			 {{mensaje_error_repetido}}
-		</div>
-
-	{% endif %}
-    {% if mensaje_error_vacio != null %}
-		<div id="hay-error-vacio" class="alert alert-danger" role="alert">
-  			<i class="fa fa-fw fa-warning"></i>
-  			<span class="sr-only">Error:</span>
- 			 {{mensaje_error_vacio}}
-		</div>
-
-	{% endif %}
-
     <label for="nombre">Nombre</label>
-    <input type="text" id="nombre"/>
+    <input type="text" id="nombre" value="{{nombre_plantilla}}"/>
 
     	<div class="row">
         <p style="text-align: center">Arrastre y ordene las actividades que desea seleccionar en el panel izquierdo</p>
@@ -70,7 +48,7 @@
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><i class="fa fa-th-list fa-fw"></i>Todas las actividades</h3>
+					<h3 class="panel-title"><i class="fa fa-th-list fa-fw"></i>Actividades disponibles</h3>
 				</div>
 				<div class="panel-body">
 
@@ -91,6 +69,6 @@
 
 
 
-    <input type="submit" value="Crear" class="btn btn-success"/>
+    <input type="submit" value="Modificar" class="btn btn-success"/>
 </form>
 {% endblock %}

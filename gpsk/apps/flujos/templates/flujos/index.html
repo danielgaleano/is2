@@ -5,7 +5,7 @@
 	    <div class="row">
 	        <div class="col-lg-12">
 	            <h1 class="page-header">
-	                Flujos <small>Administración</small>
+	                Plantilla de Flujos <small>Administración</small>
 	            </h1>
 	        </div>
 	    </div>
@@ -15,7 +15,7 @@
 {% if perms.flujos.crear_plantillaflujo %}
 	<a type="button" class="btn btn-success pull-right" href="{% url 'flujos:create' %}" >
 	<i class="fa fa-lg fa-exchange"></i>
-		Nuevo Flujo
+		Nueva  Plantilla de Flujo
 	</a>
 {% endif %}
 
@@ -31,7 +31,7 @@
 	</thead>
 	<tbody>
 
-		{% for flujo in  flujo_list %}
+		{% for flujo in  plantillaflujo_list %}
 			
 				
 				<tr>
@@ -39,12 +39,12 @@
 					<td>{{flujo.nombre}}</td>
 					
 					<td>
-					{% for act in flujo.actividades.all %}
-						<p>{{act.nombre}}</p>
+					{% for act in flujo.actividades.all|dictsort:"orden" %}
+						<p>{{act.orden}}. {{act.nombre}}</p>
 					{% endfor %}
 					</td>
                     <td>
-					    <a type="button" class="btn btn-primary" href="#">
+					    <a type="button" class="btn btn-primary" href="{% url 'flujos:update' flujo.id %}">
 						<i class="fa fa-lg fa-edit"></i>
 						</a>
 					</td>

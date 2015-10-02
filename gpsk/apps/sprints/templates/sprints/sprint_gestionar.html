@@ -17,36 +17,50 @@
 	        </div>
 	    </div>
 	<!-- /.row -->
+
 <div class="row">
 
 <div class="col-lg-12">
-    <p class=" btn btn-default pull-right">
-        Duracion del sprint: {{sprint.duracion}} dias
 
-    </p>
-    <br/>
-    <br/>
-    <p class=" btn btn-default pull-right">
-        Cantidad de desarrolladores: {{cantidad}}
-    </p>
-    <a class="btn btn-success" href="{% url 'sprints:detalle_horas' proyecto.id sprint.id %}">
-        Detalle de horas <br/>
+    <div class="col-lg-6">
+        <table class="table table-striped">
+            <tr class="success">
+                <td>Fuerza de trabajo en el sprint</td>
 
-    </a>
-    {% if sprint.estado == 'No iniciado' %}
-    <div class="col-lg-12">
-        <h2>
-            <small>Asignar User Story al {{sprint}}</small>
-        </h2>
-	</div>
-    <form action=" {{ sprints.get_absolute_url }} " method="post">
-	{% csrf_token %}
-    {{ form.as_table }}
-    <input type="submit" value="Asignar" class="btn btn-warning"/>
-    </form>
-    {% else %}
-    {% endif %}
+                <td>{{horas_totales_sprint}} horas</td>
+            </tr>
+            <tr class="warning">
+                <td>Horas disponibles para asignar en el sprint</td>
+
+                <td>{{horas_disponibles}} horas</td>
+            </tr>
+            <tr class="info">
+                <td>Total horas asignadas</td>
+
+                <td>{{horas_asignadas_sprint}} horas</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <div class="col-lg-6">
+            <a class="btn btn-success" href="{% url 'sprints:detalle_horas' proyecto.id sprint.id %}">
+                Detalle de horas
+            </a>
+        </div>
+        <div class="col-lg-6">
+            <p class=" btn btn-default pull-right">
+                Duracion del sprint: {{sprint.duracion}} dias
+            </p>
+            <br/>
+            <br/>
+            <p class=" btn btn-default pull-right">
+                Cantidad de desarrolladores: {{cantidad_developers}}
+            </p>
+        </div>
+
+    </div>
 </div>
+
 </div>
 
 <div class="col-lg-6">
@@ -64,6 +78,7 @@
                     <th>Prioridad</th>
                     <th>Valor Técnico</th>
                     <th>Valor de negocio</th>
+                    <th></th>
 
 
                 </tr>
@@ -85,6 +100,14 @@
                             <td>{{userstory.valor_tecnico}}</td>
 
                             <td>{{userstory.valor_negocio}}</td>
+                            {% if sprint.estado == 'No iniciado' %}
+                            <td>
+                                <a type="button" class="btn btn-warning" href="{% url 'sprints:asignar_sprint' proyecto.id sprint.id userstory.id %}">
+                                Asignar
+                                </a>
+                            </td>
+                            {% else %}
+                            {% endif %}
                         </tr>
                         {% else %}
                         <tr class="warning">
@@ -98,6 +121,14 @@
                             <td>{{userstory.valor_tecnico}}</td>
 
                             <td>{{userstory.valor_negocio}}</td>
+                            {% if sprint.estado == 'No iniciado' %}
+                            <td>
+                                <a type="button" class="btn btn-warning" href="{% url 'sprints:asignar_sprint' proyecto.id sprint.id userstory.id %}">
+                                Asignar
+                                </a>
+                            </td>
+                            {% else %}
+                            {% endif %}
                         </tr>
                         {% endif %}
 

@@ -38,6 +38,7 @@ class UserStory(models.Model):
     flujo = models.ForeignKey(Flujo, null=True, related_name='flujo')
     proyecto = models.ForeignKey(Proyecto, null=True, related_name='proyecto_user_story')
     sprint = models.ForeignKey(Sprint, null=True, related_name='sprint_user_story')
+    horas_acumuladas = models.IntegerField(validators=[MinValueValidator(0)], default=0)
 
     def __unicode__(self):
         return self.nombre
@@ -119,6 +120,39 @@ class Archivo(models.Model):
 
     def filename(self):
         return os.path.basename(self.archivo.name)
+
+    def __unicode__(self):
+        return "Archivo - %s - %s" % (self.user_story.nombre, datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S'))
+
+    class Meta:
+        default_permissions = ()
+
+
+class Nota(models.Model):
+    texto = models.TextField(max_length=140)
+    user_story = models.ForeignKey(UserStory, related_name='user_story_nota')
+    fecha = models.DateTimeField(auto_now_add=True, default=datetime.date.today)
+    usuario = models.ForeignKey(User, related_name='user_nota', default=1)
+
+    def __unicode__(self):
+        return "%s %s el %s por %s" % ("Nota en ", self.user_story.nombre, self.fecha, self.usuario.username)
+
+    class Meta:
+        default_permissions = ()
+
+
+class AdjuntoFileModel(models.Model):
+    bytes = models.TextField()
+    filename = models.CharField(max_length=255)
+    mimetype = models.CharField(max_length=50)
+
+    class Meta:
+        default_permissions = ()
+
+
+class Adjunto(models.Model):
+    user_story = models.ForeignKey(UserStory, related_name='user_story_adjunto')
+    archivo = models.FileField(upload_to='user_stories.AdjuntoFileModel/bytes/filename/mimetype', blank=True, null=True)
 
     def __unicode__(self):
         return "Archivo - %s - %s" % (self.user_story.nombre, datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S'))

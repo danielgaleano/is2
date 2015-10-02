@@ -33,6 +33,7 @@ INSTALLED_APPS = (
     'apps.flujos',
     'apps.user_stories',
     'apps.sprints',
+    'db_file_storage',
 
 )
 
@@ -80,3 +81,5 @@ BROKER_URL = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+DEFAULT_FILE_STORAGE = 'db_file_storage.storage.DatabaseFileStorage'

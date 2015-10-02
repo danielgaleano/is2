@@ -1,10 +1,12 @@
 from django import forms
-from django.db.models import Q
 from django.core.exceptions import ObjectDoesNotExist
+from db_file_storage.form_widgets import DBClearableFileInput
 
 from models import Sprint
 from apps.proyectos.models import Proyecto
-from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea
+from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea, Nota, Adjunto
+from apps.flujos.models import Flujo
+
 
 
 
@@ -124,11 +126,14 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
         context = super(SprintAsignarUserStoryForm, self).__init__(*args, **kwargs)
         self.user = user
 
+
         sprint_string = kwargs['initial']['sprint']
         proyecto_string = kwargs['initial']['proyecto']
+        user_story_string = kwargs['initial']['user_story']
         rol_developer = kwargs['initial']['users_rol_developer']
         kwargs.pop('initial')
 
+        user_story = UserStory.objects.get(pk=user_story_string.pk)
         sprint = Sprint.objects.get(pk=sprint_string.pk)
         proyecto = Proyecto.objects.get(pk=proyecto_string.pk)
 
@@ -145,25 +150,30 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
         for rol in rol_developer:
             pk_rol.append(rol.pk)
 
-        self.fields['user_story'] = forms.ModelChoiceField(UserStory.objects.filter(proyecto=proyecto).exclude(Q(estado='Activo') |
-                                                                                                               Q(estado='Descartado') |
-                                                                                                               Q(estado='Finalizado') |
-                                                                                                               Q(estado='Aprobado') |
-                                                                                                               Q(sprint=sprint)).order_by('-prioridad'))
+        # self.fields['user_story'] = forms.ModelChoiceField(UserStory.objects.filter(proyecto=proyecto).exclude(Q(estado='Activo') |
+        #                                                                                                       Q(estado='Descartado') |
+        #                                                                                                       Q(estado='Finalizado') |
+        #                                                                                                       Q(estado='Aprobado') |
+        #                                                                                                       Q(sprint=sprint)).order_by('-prioridad'))
         print "modelfield = %s" % UserStory.objects.all()
+        print " user_story = %s" % user_story.pk
+
+        self.fields['user_story'] = forms.ModelChoiceField(UserStory.objects.all(), required=False, widget=forms.HiddenInput())
+
         self.fields['desarrollador'] = forms.ModelChoiceField(
             Proyecto.objects.get(pk=proyecto.pk).equipo.all().filter(pk__in=pk_rol),
             required=True)
         self.fields['estado'] = forms.ChoiceField(choices=ESTADO_USER_STORY, widget=forms.HiddenInput(), required=False)
         #flitrar solo los flujos del proyecto
-        #self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
+        self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
         #flitrar solo los sprints del proyecto
         self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=proyecto).order_by('pk'),
                                                        required=False, widget=forms.HiddenInput())
 
         self.fields['proyecto'] = forms.ModelChoiceField(Proyecto.objects.all(), widget=forms.HiddenInput(), required=False)
-        self.fields['proyecto'].initial = proyecto.id
 
+        self.fields['user_story'].initial = user_story.id
+        self.fields['proyecto'].initial = proyecto.id
         self.fields['sprint'].initial = sprint.id
 
     nombre = forms.CharField(widget=forms.HiddenInput(), required=True)
@@ -179,23 +189,28 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
 
         sprint = super(SprintAsignarUserStoryForm, self).save(commit=True)
 
-        user_story = UserStory.objects.get(pk=self.data.get('user_story'))
+        user_story = UserStory.objects.get(pk=self.cleaned_data['user_story'].pk)
 
+        old_flujo = user_story.flujo
 
+        user_story.flujo = self.cleaned_data['flujo']
+        user_story.estado = 'Activo'
 
         user_story.usuario = self.cleaned_data['desarrollador']
+        user_story.sprint = sprint
+
         historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="desarrollador",
                                               valor=self.cleaned_data['desarrollador'], usuario=self.user)
         historial_us.save()
-        #user_story.flujo = self.cleaned_data['flujo']
-        #historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
-        #                                      valor=self.cleaned_data['flujo'], usuario=self.user)
-        #historial_us.save()
-        user_story.sprint = sprint
+
+        historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
+                                              valor=self.cleaned_data['flujo'], usuario=self.user)
+        historial_us.save()
+
         historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="sprint",
                                               valor=sprint, usuario=self.user)
         historial_us.save()
-        user_story.estado = 'Activo'
+
 
         historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="estado",
                                               valor='Activo', usuario=self.user)
@@ -208,7 +223,14 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
         estados = actividades[0].estados.all()
         existe = True
         try:
-            UserStoryDetalle.objects.get(user_story=user_story)
+            detalle = UserStoryDetalle.objects.get(user_story=user_story)
+            if detalle.userstory.flujo == user_story.flujo:
+                pass
+            # si se cambia de flujo a un user_story pendiente
+            else:
+                detalle.actividad = actividades[0]
+                detalle.estado = estados[0]
+                detalle.save()
         except ObjectDoesNotExist:
             print 'No existe el user story!'
             existe = False
@@ -307,7 +329,7 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
 
         self.fields['estado'] = forms.ChoiceField(choices=ESTADO_USER_STORY, widget=forms.HiddenInput(), required=False)
         #flitrar solo los flujos del proyecto
-        #self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
+        self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
         #flitrar solo los sprints del proyecto
         self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=proyecto).order_by('pk'),
                                                        required=False, widget=forms.HiddenInput())
@@ -315,7 +337,7 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
         self.fields['id'].initial = user_story.id
         self.fields['desarrollador'].initial = user_story.usuario
         self.fields['estado'].initial = user_story.estado
-        #self.fields['flujo'].initial = user_story.flujo
+        self.fields['flujo'].initial = user_story.flujo
         self.fields['sprint'].initial = user_story.sprint
 
     nombre = forms.CharField(widget=forms.HiddenInput(), required=True)
@@ -339,11 +361,11 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
                                               valor=self.cleaned_data['desarrollador'], usuario=self.user)
             historial_us.save()
 
-        #if user_story.flujo != self.cleaned_data['flujo']:
-        #    user_story.flujo = self.cleaned_data['flujo']
-        #    historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
-        #                                          valor=self.cleaned_data['flujo'], usuario=self.user)
-        #    historial_us.save()
+        if user_story.flujo != self.cleaned_data['flujo']:
+            user_story.flujo = self.cleaned_data['flujo']
+            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
+                                                  valor=self.cleaned_data['flujo'], usuario=self.user)
+            historial_us.save()
 
         user_story.sprint = self.cleaned_data['sprint']
 
@@ -407,6 +429,9 @@ class RegistrarTareaForm(forms.ModelForm):
         tarea.usuario = self.user
         tarea.save()
 
+        user_story.horas_acumuladas = user_story.horas_acumuladas + tarea.horas_de_trabajo
+        user_story.save()
+
         return sprint
 
 
@@ -421,3 +446,95 @@ class AdjuntarArchivoForm(forms.Form):
     #        raise forms.ValidationError('Archivo mayor a %s. Su archivo tiene %s' % (defaultfilters.filesizeformat(MAX_UPLOAD_SIZE), defaultfilters.filesizeformat(archivo._size)))
 
     #    return archivo
+
+
+class AgregarAdjuntoForm(forms.ModelForm):
+    class Meta:
+        model = Adjunto
+        exclude = ['user_story']
+        widgets = {
+            'archivo': DBClearableFileInput
+        }
+
+
+class AgregarNotaForm(forms.ModelForm):
+    def __init__(self, user, *args, **kwargs):
+        context = super(AgregarNotaForm, self).__init__(*args, **kwargs)
+        self.user = user
+
+        user_story_string = kwargs['initial']['user_story']
+        sprint_string = kwargs['initial']['sprint']
+        proyecto_string = kwargs['initial']['proyecto']
+        rol_developer = kwargs['initial']['users_rol_developer']
+        kwargs.pop('initial')
+
+        user_story = UserStory.objects.get(pk=user_story_string.pk)
+        sprint = Sprint.objects.get(pk=sprint_string.pk)
+        proyecto = Sprint.objects.get(pk=proyecto_string.pk)
+
+        #pk_rol = []
+        #for rol in rol_developer:
+        #    pk_rol.append(rol.pk)
+
+        print "init nota = %s" % user_story
+
+        self.fields['id'] = forms.ModelChoiceField(UserStory.objects.all(), widget=forms.HiddenInput())
+
+        self.fields['texto'] = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'required': True}))
+        #self.fields['proyecto'] = forms.ModelChoiceField(Proyecto.objects.all(), widget=forms.HiddenInput())
+
+        self.fields['id'].initial = user_story.id
+        #self.fields['proyecto'].initial = proyecto.id
+
+
+    texto = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'required': True}))
+    nombre = forms.CharField(widget=forms.HiddenInput(), required=True)
+
+    class Meta:
+        model = Sprint
+        fields = ['nombre']
+
+    def save(self, commit=True):
+        print "saaaaa"
+        cleaned_data = super(AgregarNotaForm, self).clean()
+        #usuario = Usuario.objects.get(user=self.instance)
+        #proyecto = Proyecto.objects.get(pk=self.instance.pk)
+
+        sprint = super(AgregarNotaForm, self).save(commit=True)
+
+        user_story = UserStory.objects.get(pk=self.cleaned_data['id'].pk)
+        #proyecto = Proyecto.objects.get(pk=self.cleaned_data['proyecto'].pk)
+
+        nota = Nota()
+        nota.texto = self.cleaned_data['texto']
+        nota.user_story = user_story
+        nota.usuario = self.user
+
+        print "save nota = %s" % user_story
+
+        user_story.estado = 'Aprobado'
+        user_story.save()
+
+        tarea = Tarea()
+        tarea.user_story = user_story
+        tarea.descripcion = "Aprobar user story"
+        tarea.horas_de_trabajo = 0
+        tarea.sprint = sprint
+        tarea.flujo = user_story.flujo
+        tarea.actividad = user_story.userstorydetalle.actividad
+        tarea.estado = user_story.userstorydetalle.estado
+        tarea.tipo = 'Cambio de Estado'
+        tarea.usuario = self.user
+        tarea.save()
+
+        historial_us = HistorialUserStory(user_story=user_story, operacion='aprobado', usuario=self.user)
+        historial_us.save()
+
+
+
+
+
+
+        nota.save()
+
+        return sprint

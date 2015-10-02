@@ -11,13 +11,14 @@ from django.core.urlresolvers import reverse
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 
 from models import Sprint
 from forms import SprintCreateForm, SprintUpdateForm, SprintAsignarUserStoryForm, SprintUpdateUserStoryForm, \
-    RegistrarTareaForm, AdjuntarArchivoForm
+    RegistrarTareaForm, AdjuntarArchivoForm, AgregarNotaForm, AgregarAdjuntoForm
 from apps.proyectos.models import Proyecto
 from apps.proyectos.views import habiles
-from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea, Archivo
+from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea, Archivo, Nota, Adjunto
 from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
 from apps.flujos.models import Flujo
 from tasks import cambio_estado, fin_user_story, reversion_estado, aprobacion_user_story
@@ -200,7 +201,7 @@ class SprintGestionar(UpdateView):
     """
     Clase que se utiliza para asignar y gestionar los user stories del sprint
     """
-    form_class = SprintAsignarUserStoryForm
+    #form_class = SprintAsignarUserStoryForm
     template_name = 'sprints/sprint_gestionar.html'
     context_object_name = 'proyecto_detail'
 
@@ -292,9 +293,125 @@ class SprintGestionar(UpdateView):
         #horas_totales_sprint = sprint.duracion * cantidad_developers * 8
         horas_disponibles = horas_totales_sprint - horas_asignadas_sprint
         context['cantidad'] = cantidad_developers
-        context['horas_asignadas'] = horas_asignadas_sprint
+        context['horas_asignadas_sprint'] = horas_asignadas_sprint
         context['horas_disponibles'] = horas_disponibles
-        context['horas_totales'] = horas_totales_sprint
+        context['horas_totales_sprint'] = horas_totales_sprint
+
+        return context
+
+
+def sprint_gestionar(request, pk_proyecto, pk_sprint):
+
+    template = 'sprints/sprint_gestionar.html'
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    user_story_list_proyecto = UserStory.objects.filter(
+        proyecto=proyecto).exclude(Q(estado='Activo') |
+                                   Q(estado='Descartado') |
+                                   Q(estado='Finalizado') |
+                                   Q(estado='Aprobado') |
+                                   Q(sprint=sprint)).order_by('-prioridad')
+    user_story_list_sprint = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
+    #context['sprint'] = sprint
+    #context['proyecto'] = proyecto
+    #context['user_story_list_proyecto'] = user_story_list_proyecto
+    #context['user_story_list_sprint'] = user_story_list_sprint
+
+    rol_developer = RolProyecto.objects.get(group__name='Developer')
+    miembros = RolProyecto_Proyecto.objects.filter(proyecto=proyecto, rol_proyecto=rol_developer)
+    cantidad_developers = miembros.count()
+
+    horas_asignadas_sprint = 0
+    for us in user_story_list_sprint:
+        horas_asignadas_sprint = horas_asignadas_sprint + us.estimacion
+
+    horas_totales_sprint = 0
+    for miembro in miembros:
+        horas_developer_sprint = 0
+        horas_developer_sprint = miembro.horas_developer * sprint.duracion
+        horas_totales_sprint = horas_totales_sprint + horas_developer_sprint
+
+    #horas_totales_sprint = sprint.duracion * cantidad_developers * 8
+    horas_disponibles = horas_totales_sprint - horas_asignadas_sprint
+
+    return render(request, template, locals())
+
+
+class SprintAsignar(UpdateView):
+    """
+    Clase que se utiliza para asignar los user stories al sprint
+    """
+    form_class = SprintAsignarUserStoryForm
+    template_name = 'sprints/asignar_sprint.html'
+    context_object_name = 'proyecto_detail'
+
+    def get_object(self, queryset=None):
+        """
+        Metodo que retona el sprint actual
+        @return: objeto de Sprint
+        """
+        obj = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        return obj
+
+    def get_success_url(self):
+        """
+        Metodo que realiza la redireccion si la asignacion del user story es exitosa
+        @return: redireccion al index de gestion de sprints
+        """
+        obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        obj2 = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        return reverse('sprints:gestionar', args=[obj.pk, obj2.pk])
+
+    def get_form_kwargs(self):
+        """
+        Metodo que obtiene el usuario actual del contexto de la vista
+        @return: clave
+        """
+        kwargs = super(SprintAsignar, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def get_initial(self):
+        """
+        Metodo que retorna datos iniciales a ser utilizados en el formulario
+        @return: copia de sprint
+        """
+        initial = super(SprintAsignar, self).get_initial()
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+
+        solo_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
+        print "solo_del_proyecto = %s" % solo_del_proyecto
+        users_rol_developer = []
+        for rol in solo_del_proyecto:
+            if rol.rol_proyecto.group.name == "Developer":
+                users_rol_developer.append(rol.user)
+
+        print "rol_developer = %s" % users_rol_developer
+
+        initial['sprint'] = sprint
+        initial['proyecto'] = proyecto
+        initial['user_story'] = user_story
+        initial['users_rol_developer'] = users_rol_developer
+
+        return initial
+
+    def get_context_data(self, **kwargs):
+        """
+        Metodo que retorna datos a utilizar en el template de la vista
+        @param kwargs:
+        @return:
+        """
+        context = super(SprintAsignar, self).get_context_data(**kwargs)
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+
+        context['sprint'] = sprint
+        context['proyecto'] = proyecto
+        context['user_story'] = user_story
+
 
         return context
 
@@ -485,9 +602,9 @@ def desasignar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
             historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="sprint",
                                                   valor='Ninguno', usuario=usuario)
             historial_us.save()
-            #historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
-            #                                      valor='Ninguno', usuario=usuario)
-            #historial_us.save()
+            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
+                                                  valor='Ninguno', usuario=usuario)
+            historial_us.save()
 
 
             #detalle = UserStoryDetalle.objects.get(user_story=user_story)
@@ -522,6 +639,25 @@ def iniciar_sprint(request, pk_proyecto, pk_sprint):
 
 
     user_stories = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
+
+    # registrar el inicio del kanban en el user story
+    for user_story in user_stories:
+        detalle = UserStoryDetalle.objects.get(user_story=user_story)
+
+        tarea = Tarea()
+        tarea.user_story = user_story
+        tarea.descripcion = "Inicio en el kanban"
+        tarea.horas_de_trabajo = 0
+        tarea.sprint = sprint
+        tarea.flujo = user_story.flujo
+        tarea.actividad = user_story.userstorydetalle.actividad
+        tarea.estado = detalle.estado
+        tarea.tipo = 'Cambio de Estado'
+        tarea.usuario = user_story.usuario
+        tarea.save()
+
+        historial_us = HistorialUserStory(user_story=user_story, operacion='iniciado', usuario=user_story.usuario)
+        historial_us.save()
 
     return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
 
@@ -671,6 +807,11 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.usuario = request.user
                 tarea.save()
 
+                #se envia la notificacion a traves de celery
+                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+
+            elif us_original_est == estados[2] and actividades.reverse()[0] == act:
+
                 user_story.estado = 'Finalizado'
 
                 tarea = Tarea()
@@ -684,6 +825,9 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.tipo = 'Cambio de Estado'
                 tarea.usuario = request.user
                 tarea.save()
+
+                historial_us = HistorialUserStory(user_story=user_story, operacion='finalizado', usuario=request.user)
+                historial_us.save()
 
                 #se envia la notificacion a traves de celery
                 fin_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
@@ -736,7 +880,28 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
 
             if actividades[0] != us_original_act:
 
-                if user_story.estado == 'Activo':
+                if user_story.estado == 'Activo' and us_original_est != estados[0]:
+                    #detalle.actividad = actividades[index-1]
+
+                    tarea = Tarea()
+                    tarea.user_story = user_story
+                    tarea.descripcion = "Revertir: - Estado: %s -> %s" % (us_original_est, estados[0])
+                    tarea.horas_de_trabajo = 0
+                    tarea.sprint = sprint
+                    tarea.flujo = user_story.flujo
+                    tarea.actividad = us_original_act
+                    est = actividades[index].estados.all()
+                    tarea.estado = est[0]
+                    tarea.tipo = 'Cambio de Estado'
+                    tarea.usuario = request.user
+                    #tarea.estado = detalle.estado
+                    tarea.save()
+                    detalle.estado = est[0]
+
+                    #se envia la notificacion a traves de celery
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+
+                if user_story.estado == 'Activo' and us_original_est == estados[0]:
                     detalle.actividad = actividades[index-1]
 
                     tarea = Tarea()
@@ -825,27 +990,155 @@ def aprobar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
         horas_acumuladas = horas_acumuladas + tarea.horas_de_trabajo
 
     if request.method == 'POST':
-        user_story.estado = 'Aprobado'
-        user_story.save()
+        form = AgregarNotaForm(request.POST, request.user, initial={'user_story': user_story})
 
-        tarea = Tarea()
-        tarea.user_story = user_story
-        tarea.descripcion = "Aprobar user story"
-        tarea.horas_de_trabajo = 0
-        tarea.sprint = sprint
-        tarea.flujo = user_story.flujo
-        tarea.actividad = user_story.userstorydetalle.actividad
-        tarea.estado = user_story.userstorydetalle.estado
-        tarea.tipo = 'Cambio de Estado'
-        tarea.usuario = request.user
-        tarea.save()
+        if form.is_valid:
+            user_story.estado = 'Aprobado'
+            user_story.save()
+
+            tarea = Tarea()
+            tarea.user_story = user_story
+            tarea.descripcion = "Aprobar user story"
+            tarea.horas_de_trabajo = 0
+            tarea.sprint = sprint
+            tarea.flujo = user_story.flujo
+            tarea.actividad = user_story.userstorydetalle.actividad
+            tarea.estado = user_story.userstorydetalle.estado
+            tarea.tipo = 'Cambio de Estado'
+            tarea.usuario = request.user
+            tarea.save()
+
+            historial_us = HistorialUserStory(user_story=user_story, operacion='aprobado', usuario=request.user)
+            historial_us.save()
+
+            #se envia la notificacion a traves de celery
+            aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+
+            print "en view nota"
+
+            return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
+
+    else:
+        form = AgregarNotaForm(request.user, initial={'user_story': user_story})
+
+    return render(request, template, locals())
+
+
+class AprobarUserStory(UpdateView):
+    """
+    Clase que permite aprobar el user story
+    """
+    form_class = AgregarNotaForm
+    template_name = 'sprints/user_story_aprobar.html'
+    context_object_name = 'proyecto_detail'
+
+    def get_object(self, queryset=None):
+        """
+        Metodo que retona el sprint actual
+        @return: objeto de Sprint
+        """
+        obj = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        return obj
+
+    def get_success_url(self):
+        """
+        Metodo que realiza la redireccion si la aprobacion es exitosa
+        @return: redirige al template de kanban
+        """
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+
+        us_id = user_story.id
+        uri = self.request.build_absolute_uri()
+
+        uri_us = urlparse.urljoin(uri, '../../tareas/%s/' % us_id)
+
+        print "uri_us= %s en success" % uri_us
 
         #se envia la notificacion a traves de celery
         aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
 
-        return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
+        return reverse('sprints:kanban', args=[proyecto.pk, sprint.pk])
 
-    return render(request, template, locals())
+    def get_form_kwargs(self):
+        """
+        Metodo que obtiene el usuario actual del contexto de la vista
+        @return: formulario de tareas
+        """
+        kwargs = super(AprobarUserStory, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def get_initial(self):
+        """
+        Metodo que retorna datos iniciales a ser utilizados en el formulario
+        @return: formulario completado
+        """
+        initial = super(AprobarUserStory, self).get_initial()
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+
+        solo_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
+        print "solo_del_proyecto = %s" % solo_del_proyecto
+        users_rol_developer = []
+        for rol in solo_del_proyecto:
+            if rol.rol_proyecto.group.name == "Developer":
+                users_rol_developer.append(rol.user)
+
+        print "rol_developer = %s" % users_rol_developer
+
+        initial['user_story'] = user_story
+        initial['sprint'] = sprint
+        initial['proyecto'] = proyecto
+        initial['users_rol_developer'] = users_rol_developer
+
+        return initial
+
+    def get_context_data(self, **kwargs):
+        """
+        Metodo que retorna datos a utilizar en el template de la vista
+        @param kwargs:
+        @return: diccionario con el contexto del template
+        """
+        context = super(AprobarUserStory, self).get_context_data(**kwargs)
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        self.user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+        user_story_list_proyecto = UserStory.objects.filter(
+            proyecto=proyecto).exclude(Q(estado='Activo') |
+                                       Q(estado='Descartado') |
+                                       Q(estado='Finalizado') |
+                                       Q(estado='Aprobado') |
+                                       Q(sprint=sprint)).order_by('-prioridad')
+        user_story_list_sprint = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
+
+        detalle = UserStoryDetalle.objects.get(user_story=self.user_story)
+        lista_tareas_us = Tarea.objects.filter(user_story=self.user_story)
+        horas_acumuladas = 0
+
+        us_id = self.user_story.id
+        uri = self.request.build_absolute_uri()
+        print "uri= %s" % uri
+
+        uri_us = urlparse.urljoin(uri, '../../tareas/%s/' % us_id)
+        print "uri_us= %s" % uri_us
+
+        for tarea in lista_tareas_us:
+            horas_acumuladas = horas_acumuladas + tarea.horas_de_trabajo
+
+        #nota = Nota.objects.get(user_story=self.user_story)
+        #print "nota.texto = %s" % nota.texto
+
+        context['user_story'] = self.user_story
+        context['sprint'] = sprint
+        context['proyecto'] = proyecto
+        context['user_story_list_proyecto'] = user_story_list_proyecto
+        context['user_story_list_sprint'] = user_story_list_sprint
+        #context['nota'] = nota.texto
+
+        return context
 
 
 class RegistrarTarea(UpdateView):
@@ -965,17 +1258,26 @@ class TareasIndexView(generic.ListView):
         for tarea in lista_tareas_us:
             horas_acumuladas = horas_acumuladas + tarea.horas_de_trabajo
 
-        lista_archivos = Archivo.objects.filter(user_story=self.user_story)
+        lista_archivos = Adjunto.objects.filter(user_story=self.user_story)
         cantidad_archivos = lista_archivos.count()
 
+        self.user_story.horas_acumuladas = horas_acumuladas
+
         tipos_tareas = ['Registro de Tarea', 'Cambio de Estado']
+
+        try:
+            nota = Nota.objects.get(user_story=self.user_story)
+            print "nota = %s" % nota
+        except ObjectDoesNotExist:
+            nota = ""
 
         context['proyecto'] = proyecto
         context['sprint'] = sprint
         context['user_story'] = self.user_story
-        context['horas_acumuladas'] = horas_acumuladas
+        context['horas_acumuladas'] = self.user_story.horas_acumuladas
         context['cantidad_archivos'] = cantidad_archivos
         context['tipos_tareas'] = tipos_tareas
+        context['nota'] = nota
 
         return context
 
@@ -1009,6 +1311,8 @@ def adjuntar_archivo(request, pk_proyecto, pk_sprint, pk_user_story):
 
     lista_archivos = Archivo.objects.filter(user_story=user_story)
 
+    # nota = Nota.objects.get(user_story=user_story)
+
     if request.method == 'POST':
         form = AdjuntarArchivoForm(request.POST, request.FILES)
 
@@ -1038,6 +1342,78 @@ def adjuntar_archivo(request, pk_proyecto, pk_sprint, pk_user_story):
 
     else:
         form = AdjuntarArchivoForm()
+
+    return render(request, template, locals())
+
+
+def agregar_adjunto(request, pk_proyecto, pk_sprint, pk_user_story):
+    """
+    Funcion que permite adjuntar un archivo a un user story seleccionado en un flujo.
+
+    @type request: django.http.HttpRequest
+    @param request: Contiene informacion sobre la peticion actual
+
+    @type pk_proyecto: string
+    @param pk_proyecto: id del proyecto
+
+    @type pk_sprint: string
+    @param pk_sprint: id del sprint
+
+    @type pk_user_story: string
+    @param pk_user_story: id del user story
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza sprints/sprint_kanban.html para obtener el kanban actual
+    """
+
+    template = 'sprints/user_story_agregar_adjunto.html'
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    user_story = get_object_or_404(UserStory, pk=pk_user_story)
+    usuario = request.user
+    detalle = UserStoryDetalle.objects.get(user_story=user_story)
+
+    lista_archivos = Adjunto.objects.filter(user_story=user_story)
+
+    # nota = Nota.objects.get(user_story=user_story)
+
+    if request.method == 'POST':
+        form = AgregarAdjuntoForm(request.POST)
+
+        try:
+            if form.is_valid:
+                nuevo_archivo = Adjunto(user_story=user_story, archivo=request.FILES['archivo'])
+                #nuevo_archivo.user_Story = user_story
+                nuevo_archivo.save()
+                #form.save()
+
+                tarea = Tarea()
+                tarea.user_story = user_story
+                tarea.descripcion = "Adjuntar archivo"
+                tarea.horas_de_trabajo = 0
+                tarea.sprint = sprint
+                tarea.flujo = user_story.flujo
+                tarea.actividad = user_story.userstorydetalle.actividad
+                tarea.estado = user_story.userstorydetalle.estado
+                tarea.tipo = 'Registro de Tarea'
+                tarea.usuario = request.user
+                tarea.save()
+
+                exito = "Archivo agregado"
+
+                return render(request, template, locals())
+
+                #return HttpResponseRedirect(reverse('sprints:agregar_adjunto', args=[pk_proyecto, pk_sprint, pk_user_story]))
+            else:
+                mensaje = 'Seleccione un archivo.'
+                return render(request, 'sprints/user_story_agregar_adjunto.html', locals())
+        except Exception, e:
+            print e
+            mensaje = 'No se pudo subir el archivo.'
+            return render(request, 'sprints/user_story_agregar_adjunto.html', locals())
+
+    else:
+        form = AgregarAdjuntoForm()
 
     return render(request, template, locals())
 

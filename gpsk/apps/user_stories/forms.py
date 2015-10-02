@@ -2,7 +2,6 @@ from django import forms
 
 from models import UserStory, HistorialUserStory
 from apps.proyectos.models import Proyecto
-from apps.flujos.models import Flujo
 
 
 class UserStoryCreateForm(forms.ModelForm):
@@ -124,13 +123,13 @@ class UserStoryUpdateFormSM(forms.ModelForm):
         self.fields['valor_tecnico'] = forms.IntegerField(required=True, min_value=0, max_value=10)
         self.fields['estimacion'] = forms.IntegerField(required=True, min_value=0, max_value=240,
                                                        help_text='En horas. Maximo 240 horas.')
-        self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
+        #self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
 
         self.fields['id'].initial = user_story.id
         self.fields['prioridad'].initial = user_story.prioridad
         self.fields['valor_tecnico'].initial = user_story.valor_tecnico
         self.fields['estimacion'].initial = user_story.estimacion
-        self.fields['flujo'].initial = user_story.flujo
+        #self.fields['flujo'].initial = user_story.flujo
         print user_story.prioridad
         print "prioridad initial = %s" % self.fields['prioridad'].initial
         print "valor_tecnico initial = %s" % self.fields['valor_tecnico'].initial
@@ -175,11 +174,11 @@ class UserStoryUpdateFormSM(forms.ModelForm):
                                               valor=self.cleaned_data['estimacion'], usuario=self.user)
             historial_us.save()
 
-        if user_story.flujo != cleaned_data['flujo']:
-            user_story.flujo = self.cleaned_data['flujo']
-            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
-                                              valor=self.cleaned_data['flujo'], usuario=self.user)
-            historial_us.save()
+        #if user_story.flujo != cleaned_data['flujo']:
+        #    user_story.flujo = self.cleaned_data['flujo']
+        #    historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
+        #                                      valor=self.cleaned_data['flujo'], usuario=self.user)
+        #    historial_us.save()
 
         user_story.save()
 

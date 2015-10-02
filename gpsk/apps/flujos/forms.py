@@ -116,10 +116,18 @@ class AsignarFlujoProyectoForm(forms.ModelForm):
     def __init__(self, user, *args, **kwargs):
         context = super(AsignarFlujoProyectoForm, self).__init__(*args, **kwargs)
         proyecto = Proyecto.objects.get(pk=kwargs['instance'].pk)
-        flujos_actuales = Flujo.objects.filter(proyecto=proyecto)
+
+        flujos_actuales = []
+
+        for f in Flujo.objects.filter(proyecto=proyecto):
+            for p in PlantillaFlujo.objects.all():
+                if f.nombre == p.nombre:
+                    flujos_actuales.append(p)
+
+
 
         #self.fields['usuario'] = forms.ModelChoiceField(User.objects.exclude(Q(is_staff=True) | Q(id__in=miembros_actuales)), required=True)
-        self.fields['flujos'] = forms.ModelMultipleChoiceField(Flujo.objects.all().order_by('id'),
+        self.fields['flujos'] = forms.ModelMultipleChoiceField(PlantillaFlujo.objects.all().order_by('id'),
                                                                widget=forms.CheckboxSelectMultiple, required=True)
 
         dic = {}
@@ -144,14 +152,55 @@ class AsignarFlujoProyectoForm(forms.ModelForm):
 
         proyecto = super(AsignarFlujoProyectoForm, self).save(commit=True)
 
-        lista_completa = Flujo.objects.all()
+        lista_completa = PlantillaFlujo.objects.all()
+        seleccionados = self.cleaned_data['flujos']
         print "self %s" % self.cleaned_data['flujos']
-        for flujo in self.cleaned_data['flujos']:
-            flujo.proyecto = proyecto
-            flujo.save()
-            for f in lista_completa:
-                if f not in self.cleaned_data['flujos']:
-                    f.proyecto = None
-                    f.save()
+
+        lc_nombres = []
+        for i in lista_completa:
+            lc_nombres.append(i.nombre)
+
+        ls_nombres = []
+        for i in seleccionados:
+            ls_nombres.append(i.nombre)
+
+        la_nombres = []
+        for i in Flujo.objects.filter(proyecto=proyecto):
+            la_nombres.append(i.nombre)
+
+        for s in ls_nombres:
+            if s not in la_nombres:
+                nuevo_flujo = Flujo(nombre=s, proyecto=proyecto)
+
+                plantilla_flujo = PlantillaFlujo.objects.get(nombre=s)
+                for act in plantilla_flujo.actividades.all():
+                    estado1 = Estado(nombre="To do")
+                    estado1.save()
+                    estado2 = Estado(nombre="Doing")
+                    estado2.save()
+                    estado3 = Estado(nombre="Done")
+                    estado3.save()
+
+                    actividad = Actividad(nombre=act.nombre, orden=act.orden)
+                    actividad.save()
+                    actividad.estados.add(estado1)
+                    actividad.estados.add(estado2)
+                    actividad.estados.add(estado3)
+
+                    actividad.save()
+                    nuevo_flujo.save()
+                    nuevo_flujo.actividades.add(actividad)
+
+                nuevo_flujo.save()
+                print "Creado nuevo flujo"
+
+        for c in lc_nombres:
+            if c in la_nombres and c not in ls_nombres:
+                flujo_pro = Flujo.objects.get(nombre=c, proyecto=proyecto)
+                # flujo_pro.proyecto = None
+                # flujo_pro.save()
+                flujo_pro.delete()
+
+        #
 
         return proyecto

@@ -8,8 +8,8 @@ class Estado(models.Model):
     nombre = models.CharField(max_length=15, default="To do")
 
     class Meta:
-        verbose_name = "Actividad"
-        verbose_name_plural = "Actividades"
+        verbose_name = "Estado"
+        verbose_name_plural = "Estados"
 
     def __unicode__(self):
         return self.nombre
