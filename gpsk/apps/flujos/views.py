@@ -7,7 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from apps.proyectos.models import Proyecto
 from forms import PlantillaFlujoCreateForm, ActividadCreateForm, AsignarFlujoProyectoForm, FlujoCreateForm
-from models import Flujo, Actividad, ActividadFlujo, Estado, PlantillaFlujo
+from models import Flujo, ActividadFlujo, ActividadFlujoPlantilla, Estado, PlantillaFlujo
 
 
 class IndexView(generic.ListView):
@@ -70,7 +70,7 @@ def prueba(request):
 
 @csrf_exempt
 def crear_plantilla_flujo(request):
-    slide_list = Actividad.objects.all()
+    slide_list = ActividadFlujo.objects.all()
     active = []
     inactive = []
 
@@ -125,8 +125,8 @@ def crear_plantilla_flujo(request):
                 #lista_flujo_act = []
 
                 for ele in slides:
-                    act = Actividad.objects.get(pk=int(ele))
-                    nueva_actividad_flujo = ActividadFlujo.objects.create(nombre=act.nombre, orden=act.orden)
+                    act = ActividadFlujo.objects.get(pk=int(ele))
+                    nueva_actividad_flujo = ActividadFlujoPlantilla.objects.create(nombre=act.nombre, orden=act.orden)
 
                     estado1 = Estado(nombre="To do")
                     estado1.save()
@@ -147,7 +147,7 @@ def crear_plantilla_flujo(request):
                 print "Hola"
                 for slide_obj in lista_flujo_act:
                     #slide = Actividad.objects.get(pk=int(slide_obj))
-                    actividadFlujo = ActividadFlujo.objects.get(pk=slide_obj.pk)
+                    actividadFlujo = ActividadFlujoPlantilla.objects.get(pk=slide_obj.pk)
 
                     #print slide.orden
                     if trash:
@@ -206,10 +206,11 @@ def crear_plantilla_flujo(request):
 
 @csrf_exempt
 def editar_plantilla_flujo(request, pk_plantilla_flujo):
-    slide_list = Actividad.objects.all()
+    slide_list = ActividadFlujo.objects.all()
     active = []
     inactive = []
     inactive_clean = []
+    inactive_nombres = []
 
 
     lista_flujo_act = []
@@ -223,13 +224,28 @@ def editar_plantilla_flujo(request, pk_plantilla_flujo):
     for a in lista_actividades_plantilla:
         inactive.append(a)
         inactive_clean.append(a.pk)
+        inactive_nombres.append(a.nombre)
 
     print "inactive= %s" % inactive
+    print "inactive_clean= %s" % inactive_clean
     print "slide_list= %s" % slide_list
 
-    for slide in slide_list:
-        print "slide= %s" % slide.orden
-        active.append(slide)
+
+    lista_nombre_plantilla_flujo = []
+    for i in slide_list:
+        lista_nombre_plantilla_flujo.append(i.nombre)
+
+    print "lista_nombre_plantilla_flujo = %s" % lista_nombre_plantilla_flujo
+
+    for i in lista_nombre_plantilla_flujo:
+        if i not in inactive_nombres:
+            active.append(ActividadFlujo.objects.get(nombre=i))
+
+
+    #for slide in slide_list:
+    #    print "slide= %s" % slide.orden
+    #    active.append(slide)
+
     if request.is_ajax():
         print("POST")
 
@@ -249,81 +265,126 @@ def editar_plantilla_flujo(request, pk_plantilla_flujo):
         def update_slides(id_list, active, trash=False):
 
             nombre_plantilla = request.POST.get('nombre_plantilla')
-            plantilla_flujo.nombre = nombre_plantilla
+
+            print "nombre_plan= %s" % nombre_plantilla
+
+
+            try:
+                pl = PlantillaFlujo.objects.get(nombre=nombre_plantilla)
+                if pl.pk == plantilla_flujo.pk:
+                    existe = False
+                else:
+                    existe = True
+            except ObjectDoesNotExist:
+                existe = False
+            if existe:
+                error = True
+                mensaje_error_repetido = 'Ya existe una plantilla de flujo ese nombre, escriba otro nombre.'
+                return error
+            else:
+                error = False
+
+            # nombre_plantilla = request.POST.get('nombre_plantilla')
+            # plantilla_flujo.nombre = nombre_plantilla
             #plantilla_flujo = PlantillaFlujo(nombre=nombre_plantilla)
-            plantilla_flujo.save()
+            # plantilla_flujo.save()
 
-            print id_list
-            clean_ids = clean_id_list(id_list)
-            print clean_ids
-            #slides = Actividad.objects.filter(pk__in=clean_ids)
-            slides = clean_ids
-            print slides
+            if error==False:
 
-            #lista_flujo_act = []
-
-            for ele in slides:
-                print "ele = %s" % ele
-                if ele not in inactive_clean:
-                    act = Actividad.objects.get(pk=int(ele))
-                    nueva_actividad_flujo = ActividadFlujo.objects.create(nombre=act.nombre, orden=act.orden)
-
-                    estado1 = Estado(nombre="To do")
-                    estado1.save()
-                    estado2 = Estado(nombre="Doing")
-                    estado2.save()
-                    estado3 = Estado(nombre="Done")
-                    estado3.save()
-
-                    nueva_actividad_flujo.estados.add(estado1)
-                    nueva_actividad_flujo.estados.add(estado2)
-                    nueva_actividad_flujo.estados.add(estado3)
-                    nueva_actividad_flujo.save()
-
-                    lista_flujo_act.append(nueva_actividad_flujo)
-                    print lista_flujo_act
-
-                else:
-                    acti = ActividadFlujo.objects.get(pk=int(ele))
-                    acti.save()
-                    lista_flujo_act.append(acti)
-
-            sorting_counter = 1
-            print "Hola"
-            for slide_obj in lista_flujo_act:
-                #slide = Actividad.objects.get(pk=int(slide_obj))
-                actividadFlujo = ActividadFlujo.objects.get(pk=slide_obj.pk)
-
-                #print slide.orden
-                if trash:
-                    print "IF"
-                    # While this is fine for my requirements, you may want
-                    # to check permissions here (I have @login_required)
-                    actividadFlujo.delete()
-                else:
-                    print "Else"
-                    actividadFlujo.orden = sorting_counter
-                    #slide.active = active
-                    actividadFlujo.save()
-                    sorting_counter += 1
-
-                todas_act_plantilla = plantilla_flujo.actividades.all()
-
-                if slide_obj in inactive_clean:
-                    print "slide_obj= %s" % slide_obj
-                    print "actividadFlujo= %s" % slide_obj
-                    plantilla_flujo.actividades.delete(actividadFlujo)
-
-                plantilla_flujo.actividades.add(actividadFlujo)
+                plantilla_flujo.nombre = nombre_plantilla
                 plantilla_flujo.save()
-            print "plantilla %s" % plantilla_flujo
+
+                print id_list
+                clean_ids = clean_id_list(id_list)
+                print clean_ids
+                #slides = Actividad.objects.filter(pk__in=clean_ids)
+                slides = clean_ids
+                print slides
+
+                #lista_flujo_act = []
+
+                for ele in slides:
+                    print "ele = %s" % ele
+                    if ele not in inactive_clean:
+                        act = ActividadFlujo.objects.get(pk=int(ele))
+                        #act = ActividadFlujo.objects.get(nombre=)
+                        nueva_actividad_flujo = ActividadFlujoPlantilla.objects.create(nombre=act.nombre, orden=act.orden)
+
+                        estado1 = Estado(nombre="To do")
+                        estado1.save()
+                        estado2 = Estado(nombre="Doing")
+                        estado2.save()
+                        estado3 = Estado(nombre="Done")
+                        estado3.save()
+
+                        nueva_actividad_flujo.estados.add(estado1)
+                        nueva_actividad_flujo.estados.add(estado2)
+                        nueva_actividad_flujo.estados.add(estado3)
+                        nueva_actividad_flujo.save()
+
+                        lista_flujo_act.append(nueva_actividad_flujo)
+                        print lista_flujo_act
+
+                    else:
+                        acti = ActividadFlujoPlantilla.objects.get(pk=int(ele))
+                        acti.save()
+                        lista_flujo_act.append(acti)
+
+                sorting_counter = 1
+                print "Hola"
+                for slide_obj in lista_flujo_act:
+                    #slide = Actividad.objects.get(pk=int(slide_obj))
+                    actividadFlujo = ActividadFlujoPlantilla.objects.get(pk=slide_obj.pk)
+
+                    #print slide.orden
+                    if trash:
+                        print "IF"
+                        # While this is fine for my requirements, you may want
+                        # to check permissions here (I have @login_required)
+                        actividadFlujo.delete()
+                    else:
+                        print "Else"
+                        actividadFlujo.orden = sorting_counter
+                        #slide.active = active
+                        actividadFlujo.save()
+                        sorting_counter += 1
+
+                    todas_act_plantilla = plantilla_flujo.actividades.all()
+
+                #    if int(slide_obj.pk) not in inactive_clean:
+                #        print "slide_obj= %s" % slide_obj
+                #        print "actividadFlujo= %s" % slide_obj
+                #        plantilla_flujo.actividades.remove(actividadFlujo)
+
+                    plantilla_flujo.actividades.add(actividadFlujo)
+                    plantilla_flujo.save()
+
+                for actividad in plantilla_flujo.actividades.all():
+                    print "actividad %s" % actividad
+                    print "actividad.pk %s - slides %s" % (actividad.pk, slides)
+                    afp = ActividadFlujoPlantilla.objects.get(pk=actividad.pk)
+                    actividad_flujo = ActividadFlujo.objects.get(nombre=afp.nombre)
+                    print "afp %s - %s" % (afp.pk, afp)
+                    print "actividad_flujo %s-> %s - slides %s" % (actividad_flujo, actividad_flujo.pk, slides)
+                    if actividad not in lista_flujo_act:
+                        print "se remueve %s" % afp
+                        plantilla_flujo.actividades.remove(actividad)
+
+                print "plantilla %s" % plantilla_flujo
+                return error
+
 
 
         if 'inactive' in request.POST:
             inactive_list = request.POST.getlist('actividad[]')
             print 'inactive_list: %s :' % inactive_list
             print "request %s" % request.POST
-            update_slides(inactive_list, active=False)
+            resultado = update_slides(inactive_list, active=False)
+            print "Resultado= %s" % resultado
+            if resultado:
+                mensaje_error_repetido = 'Ya existe una plantilla de flujo ese nombre, escriba otro nombre.'
+                print "mensaje= %s" % mensaje_error_repetido
+                return render(request, 'flujos/create_ajax.html', locals())
 
         print "en views %s" % lista_flujo_act
         # form = PlantillaFlujoCreateForm(request.POST, lista=lista_flujo_act)

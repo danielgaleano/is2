@@ -15,7 +15,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from models import Sprint
 from forms import SprintCreateForm, SprintUpdateForm, SprintAsignarUserStoryForm, SprintUpdateUserStoryForm, \
-    RegistrarTareaForm, AdjuntarArchivoForm, AgregarNotaForm, AgregarAdjuntoForm
+    RegistrarTareaForm, AdjuntarArchivoForm, AgregarNotaForm, AgregarAdjuntoForm, AgregarNotaFormNoAprobar
 from apps.proyectos.models import Proyecto
 from apps.proyectos.views import habiles
 from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea, Archivo, Nota, Adjunto
@@ -750,7 +750,7 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.save()
 
                 #se envia la notificacion a traves de celery
-                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             elif us_original_est == estados[1] and actividades.reverse()[0] != act:
                 detalle.estado = estados[2]
@@ -768,7 +768,7 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.save()
 
                 #se envia la notificacion a traves de celery
-                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             elif us_original_est == estados[2] and actividades.reverse()[0] != act:
                 #detalle.estado = estados[2]
@@ -790,7 +790,7 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 detalle.estado = est[0]
 
                 #se envia la notificacion a traves de celery
-                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             elif us_original_est == estados[1] and actividades.reverse()[0] == act:
                 detalle.estado = estados[2]
@@ -808,7 +808,7 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.save()
 
                 #se envia la notificacion a traves de celery
-                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             elif us_original_est == estados[2] and actividades.reverse()[0] == act:
 
@@ -830,7 +830,7 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 historial_us.save()
 
                 #se envia la notificacion a traves de celery
-                fin_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+                fin_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
     detalle.save()
     user_story.save()
@@ -899,7 +899,7 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     detalle.estado = est[0]
 
                     #se envia la notificacion a traves de celery
-                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
                 if user_story.estado == 'Activo' and us_original_est == estados[0]:
                     detalle.actividad = actividades[index-1]
@@ -920,7 +920,7 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     detalle.estado = est[0]
 
                     #se envia la notificacion a traves de celery
-                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
                 if user_story.estado == 'Finalizado':
                     detalle.actividad = actividades[index]
@@ -942,7 +942,7 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     user_story.estado = 'Activo'
 
                     #se envia la notificacion a traves de celery
-                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
     detalle.save()
     user_story.save()
@@ -1012,7 +1012,7 @@ def aprobar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
             historial_us.save()
 
             #se envia la notificacion a traves de celery
-            aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+            aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             print "en view nota"
 
@@ -1048,6 +1048,7 @@ class AprobarUserStory(UpdateView):
         proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
         user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+        detalle = UserStoryDetalle.objects.get(user_story=user_story)
 
         us_id = user_story.id
         uri = self.request.build_absolute_uri()
@@ -1057,7 +1058,7 @@ class AprobarUserStory(UpdateView):
         print "uri_us= %s en success" % uri_us
 
         #se envia la notificacion a traves de celery
-        aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, uri_us)
+        aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
         return reverse('sprints:kanban', args=[proyecto.pk, sprint.pk])
 
@@ -1666,3 +1667,101 @@ def descartar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
             return HttpResponseRedirect(reverse('sprints:backlog', args=[proyecto.pk, sprint.pk]))
 
     return render(request, template, locals())
+
+
+class AgregarNota(UpdateView):
+    """
+    Clase que permite agregar notas al user story
+    """
+    form_class = AgregarNotaFormNoAprobar
+    template_name = 'sprints/user_story_nota.html'
+    context_object_name = 'proyecto_detail'
+
+    def get_object(self, queryset=None):
+        """
+        Metodo que retona el sprint actual
+        @return: objeto de Sprint
+        """
+        obj = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        return obj
+
+    def get_success_url(self):
+        """
+        Metodo que realiza la redireccion si la aprobacion es exitosa
+        @return: redirige al template de kanban
+        """
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+        detalle = UserStoryDetalle.objects.get(user_story=user_story)
+
+        return reverse('sprints:kanban', args=[proyecto.pk, sprint.pk])
+
+    def get_form_kwargs(self):
+        """
+        Metodo que obtiene el usuario actual del contexto de la vista
+        @return: formulario de tareas
+        """
+        kwargs = super(AgregarNota, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def get_initial(self):
+        """
+        Metodo que retorna datos iniciales a ser utilizados en el formulario
+        @return: formulario completado
+        """
+        initial = super(AgregarNota, self).get_initial()
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+
+        solo_del_proyecto = RolProyecto_Proyecto.objects.filter(proyecto=proyecto)
+        print "solo_del_proyecto = %s" % solo_del_proyecto
+        users_rol_developer = []
+        for rol in solo_del_proyecto:
+            if rol.rol_proyecto.group.name == "Developer":
+                users_rol_developer.append(rol.user)
+
+        print "rol_developer = %s" % users_rol_developer
+
+        initial['user_story'] = user_story
+        initial['sprint'] = sprint
+        initial['proyecto'] = proyecto
+        initial['users_rol_developer'] = users_rol_developer
+
+        return initial
+
+    def get_context_data(self, **kwargs):
+        """
+        Metodo que retorna datos a utilizar en el template de la vista
+        @param kwargs:
+        @return: diccionario con el contexto del template
+        """
+        context = super(AgregarNota, self).get_context_data(**kwargs)
+        sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+        proyecto = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
+        self.user_story = UserStory.objects.get(pk=self.kwargs['pk_user_story'])
+        user_story_list_proyecto = UserStory.objects.filter(
+            proyecto=proyecto).exclude(Q(estado='Activo') |
+                                       Q(estado='Descartado') |
+                                       Q(estado='Finalizado') |
+                                       Q(estado='Aprobado') |
+                                       Q(sprint=sprint)).order_by('-prioridad')
+        user_story_list_sprint = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
+
+        lista_notas_us = Nota.objects.filter(user_story=self.user_story)
+
+
+
+        #nota = Nota.objects.get(user_story=self.user_story)
+        #print "nota.texto = %s" % nota.texto
+
+        context['user_story'] = self.user_story
+        context['sprint'] = sprint
+        context['proyecto'] = proyecto
+        context['user_story_list_proyecto'] = user_story_list_proyecto
+        context['user_story_list_sprint'] = user_story_list_sprint
+        context['nota_list'] = lista_notas_us
+
+        return context

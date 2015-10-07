@@ -43,9 +43,21 @@ class ActividadFlujo(models.Model):
         default_permissions = ()
 
 
+class ActividadFlujoPlantilla(models.Model):
+    nombre = models.CharField(max_length=15)
+    estados = models.ManyToManyField(Estado)
+    orden = models.IntegerField(max_length=10, default=0)
+
+    def __unicode__(self):
+        return self.nombre
+
+    class Meta:
+        default_permissions = ()
+
+
 class PlantillaFlujo(models.Model):
     nombre = models.CharField(max_length=15)
-    actividades = models.ManyToManyField(ActividadFlujo, null=True)
+    actividades = models.ManyToManyField(ActividadFlujoPlantilla, null=True)
 
     def __unicode__(self):
         return self.nombre

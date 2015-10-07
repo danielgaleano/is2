@@ -88,7 +88,7 @@ class PlantillaFlujoUpdateForm(forms.ModelForm):
 class ActividadCreateForm(forms.ModelForm):
     
     class Meta:
-        model = Actividad
+        model = ActividadFlujo
         fields = ['nombre']
 
     def save(self, commit=True):

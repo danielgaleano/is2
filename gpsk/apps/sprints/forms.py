@@ -12,6 +12,7 @@ from apps.flujos.models import Flujo
 
 
 
+
 # 2.5MB - 2621440
 # 5MB - 5242880
 # 10MB - 10485760
@@ -534,6 +535,68 @@ class AgregarNotaForm(forms.ModelForm):
 
 
 
+
+        nota.save()
+
+        return sprint
+
+
+class AgregarNotaFormNoAprobar(forms.ModelForm):
+    def __init__(self, user, *args, **kwargs):
+        context = super(AgregarNotaFormNoAprobar, self).__init__(*args, **kwargs)
+        self.user = user
+
+        user_story_string = kwargs['initial']['user_story']
+        sprint_string = kwargs['initial']['sprint']
+        proyecto_string = kwargs['initial']['proyecto']
+        rol_developer = kwargs['initial']['users_rol_developer']
+        kwargs.pop('initial')
+
+        user_story = UserStory.objects.get(pk=user_story_string.pk)
+        sprint = Sprint.objects.get(pk=sprint_string.pk)
+        proyecto = Sprint.objects.get(pk=proyecto_string.pk)
+
+        #pk_rol = []
+        #for rol in rol_developer:
+        #    pk_rol.append(rol.pk)
+
+        print "init nota = %s" % user_story
+
+        self.fields['id'] = forms.ModelChoiceField(UserStory.objects.all(), widget=forms.HiddenInput())
+
+        self.fields['texto'] = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'required': True, 'class': 'form-control', 'rows': '3'}))
+        #self.fields['proyecto'] = forms.ModelChoiceField(Proyecto.objects.all(), widget=forms.HiddenInput())
+
+        self.fields['id'].initial = user_story.id
+        #self.fields['proyecto'].initial = proyecto.id
+
+
+    texto = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'required': True}))
+    nombre = forms.CharField(widget=forms.HiddenInput(), required=True)
+
+    class Meta:
+        model = Sprint
+        fields = ['nombre']
+
+    def save(self, commit=True):
+        print "saaaaa"
+        cleaned_data = super(AgregarNotaFormNoAprobar, self).clean()
+        #usuario = Usuario.objects.get(user=self.instance)
+        #proyecto = Proyecto.objects.get(pk=self.instance.pk)
+
+        sprint = super(AgregarNotaFormNoAprobar, self).save(commit=True)
+
+        user_story = UserStory.objects.get(pk=self.cleaned_data['id'].pk)
+        #proyecto = Proyecto.objects.get(pk=self.cleaned_data['proyecto'].pk)
+
+        nota = Nota()
+        nota.texto = self.cleaned_data['texto']
+        nota.user_story = user_story
+        nota.usuario = self.user
+
+        print "save nota = %s" % user_story
+
+        user_story.save()
 
         nota.save()
 

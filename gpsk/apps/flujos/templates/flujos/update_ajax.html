@@ -14,11 +14,31 @@
 	        </div>
 	    </div>
 	<!-- /.row -->
-
+<div class="row">
+    <div id="error-agregado"></div>
+</div>
 
 <form id="form-plantilla-flujo-update" action=" {{ flujos.get_absolute_url }} " method="post">
 	{% csrf_token %}
     {{ form.as_p}}
+
+    {% if mensaje_error_repetido != null %}
+		<div id="hay-error-repetido" class="alert alert-danger" role="alert">
+  			<i class="fa fa-fw fa-warning"></i>
+  			<span class="sr-only">Error:</span>
+ 			 {{mensaje_error_repetido}}
+		</div>
+
+	{% endif %}
+    {% if mensaje_error_vacio != null %}
+		<div id="hay-error-vacio" class="alert alert-danger" role="alert">
+  			<i class="fa fa-fw fa-warning"></i>
+  			<span class="sr-only">Error:</span>
+ 			 {{mensaje_error_vacio}}
+		</div>
+
+	{% endif %}
+
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" value="{{nombre_plantilla}}"/>
 

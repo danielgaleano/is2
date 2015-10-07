@@ -9,7 +9,7 @@ from apps.user_stories.models import UserStory
 
 
 @shared_task
-def cambio_estado(proyecto, sprint, user_story, flujo, uri):
+def cambio_estado(proyecto, sprint, user_story, flujo, actividad, estado, usuario, uri):
     """
     Funcion que envia la notificacion al scrum master sobre el cambio de estado del user story
     dentro del flujo del kanban.
@@ -39,11 +39,14 @@ def cambio_estado(proyecto, sprint, user_story, flujo, uri):
     html = 'User story: <strong>%s</strong>' \
            '<ul>' \
            '<li>Proyecto: <strong>%s</strong></li>' \
-           '<li>Sprint <strong>%s</strong></li>' \
-           '<li>Flujo <strong>%s</strong></li>' \
+           '<li>Sprint: <strong>%s</strong></li>' \
+           '<li>Flujo: <strong>%s</strong></li>' \
+           '<li>Actividad: <strong>%s</strong></li>' \
+           '<li>Estado: <strong>%s</strong></li>' \
+           '<li>Developer: <strong>%s</strong></li>' \
            '</ul>' \
            'Enlace: %s' \
-           '<br/>' % (user_story, proyecto, sprint, flujo, uri)
+           '<br/>' % (user_story, proyecto, sprint, flujo, actividad, estado, usuario, uri)
     send_mail('Notificacion cambio de estado en user story: %s - %s' % (user_story,
                                                                         datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')),
               'Cambio de estado:',
@@ -55,7 +58,7 @@ def cambio_estado(proyecto, sprint, user_story, flujo, uri):
 
 
 @shared_task
-def fin_user_story(proyecto, sprint, user_story, flujo, uri):
+def fin_user_story(proyecto, sprint, user_story, flujo, actividad, estado, usuario, uri):
     """
     Funcion que envia la notificacion al scrum master sobre la finalizacion del user story
     dentro del flujo del kanban.
@@ -87,9 +90,12 @@ def fin_user_story(proyecto, sprint, user_story, flujo, uri):
            '<li>Proyecto: <strong>%s</strong></li>' \
            '<li>Sprint <strong>%s</strong></li>' \
            '<li>Flujo <strong>%s</strong></li>' \
+           '<li>Actividad: <strong>%s</strong></li>' \
+           '<li>Estado: <strong>%s</strong></li>' \
+           '<li>Developer: <strong>%s</strong></li>' \
            '</ul>' \
            'Enlace: %s' \
-           '<br/>' % (user_story, proyecto, sprint, flujo, uri)
+           '<br/>' % (user_story, proyecto, sprint, flujo, actividad, estado, usuario, uri)
     send_mail('Notificacion finalizacion de user story: %s - %s' % (user_story,
                                                                     datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')),
               'Finalizacion de user story:',
@@ -100,7 +106,7 @@ def fin_user_story(proyecto, sprint, user_story, flujo, uri):
 
 
 @shared_task
-def reversion_estado(proyecto, sprint, user_story, flujo, uri):
+def reversion_estado(proyecto, sprint, user_story, flujo, actividad, estado, usuario, uri):
     """
     Funcion que envia la notificacion al desarrollador sobre la reversion de estado del user story
     dentro del flujo del kanban.
@@ -134,9 +140,12 @@ def reversion_estado(proyecto, sprint, user_story, flujo, uri):
            '<li>Proyecto: <strong>%s</strong></li>' \
            '<li>Sprint <strong>%s</strong></li>' \
            '<li>Flujo <strong>%s</strong></li>' \
+           '<li>Actividad: <strong>%s</strong></li>' \
+           '<li>Estado: <strong>%s</strong></li>' \
+           '<li>Developer: <strong>%s</strong></li>' \
            '</ul>' \
            'Enlace: %s' \
-           '<br/>' % (user_story, proyecto, sprint, flujo, uri)
+           '<br/>' % (user_story, proyecto, sprint, flujo, actividad, estado, usuario, uri)
     send_mail('Notificacion revertir estado de user story: %s - %s' % (user_story,
                                                                        datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')),
               'Revertir estado de user story:',
@@ -147,7 +156,7 @@ def reversion_estado(proyecto, sprint, user_story, flujo, uri):
 
 
 @shared_task
-def aprobacion_user_story(proyecto, sprint, user_story, flujo, uri):
+def aprobacion_user_story(proyecto, sprint, user_story, flujo, actividad, estado, usuario, uri):
     """
     Funcion que envia la notificacion al desarrollador sobre la aprobacion del user story
     dentro del flujo del kanban.
@@ -181,9 +190,12 @@ def aprobacion_user_story(proyecto, sprint, user_story, flujo, uri):
            '<li>Proyecto: <strong>%s</strong></li>' \
            '<li>Sprint <strong>%s</strong></li>' \
            '<li>Flujo <strong>%s</strong></li>' \
+           '<li>Actividad: <strong>%s</strong></li>' \
+           '<li>Estado: <strong>%s</strong></li>' \
+           '<li>Developer: <strong>%s</strong></li>' \
            '</ul>' \
            'Enlace: %s' \
-           '<br/>' % (user_story, proyecto, sprint, flujo, uri)
+           '<br/>' % (user_story, proyecto, sprint, flujo, actividad, estado, usuario, uri)
     send_mail('Notificacion aprobacion de user story: %s - %s' % (user_story,
                                                                   datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')),
               'Aprobacion de user story:',
