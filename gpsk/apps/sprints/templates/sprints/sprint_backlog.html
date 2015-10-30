@@ -19,7 +19,7 @@
 	    </div>
 	<!-- /.row -->
 
-
+{% load index %}
 
 
 
@@ -60,16 +60,18 @@
 
                     <td>{{userstory.userstorydetalle.estado}}</td>
 
-                    {% if user == proyecto.scrum_master and "Finalizado" == sprint.estado|stringformat:"s" or "Aprobado" == sprint.estado|stringformat:"s" %}
-                    <td>
-
-                    </td>
+                    {% if permisos|tiene_permiso:'descartar_userstory' %}
+                        {% if "Finalizado" == userstory.estado|stringformat:"s" or "Aprobado" == userstory.estado|stringformat:"s" %}
+                        <td></td>
+                        {% else %}
+                        <td>
+                            <a type="button" class="btn btn-danger" href="{% url 'sprints:descartar' proyecto.id sprint.id userstory.id %}">
+                            <i class="fa fa-lg fa-remove"></i>
+                            </a>
+                        </td>
+                        {% endif %}
                     {% else %}
-                    <td>
-                        <a type="button" class="btn btn-danger" href="{% url 'sprints:descartar' proyecto.id sprint.id userstory.id %}">
-                        <i class="fa fa-lg fa-remove"></i>
-                        </a>
-                    </td>
+                    <td></td>
                     {% endif %}
 
 

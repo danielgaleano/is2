@@ -2,14 +2,13 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.models import Group, User
-from forms import RolCreateForm, RolUpdateForm, RolAsignarPermisosForm
-
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-
 from django.contrib.auth.decorators import permission_required
 from django.utils.decorators import method_decorator
+
+from forms import RolCreateForm, RolUpdateForm, RolAsignarPermisosForm
 
 
 class IndexView(generic.ListView):
@@ -23,8 +22,12 @@ class IndexView(generic.ListView):
     @ivar template_name: Nombre del template a utilizar en la vista
     @type template_name: string
     """
-    model = Group
+    #model = Group
     template_name = 'roles/index.html'
+
+    def get_queryset(self):
+
+        return Group.objects.all().order_by('pk')
 
 
 class RolCreate(CreateView):

@@ -18,7 +18,9 @@ class RolCreateForm(forms.ModelForm):
         Q(content_type__app_label='sessions') |
         Q(content_type__model='permission') |
         Q(content_type__model='user') |
-        Q(content_type__app_label='user_stories')),
+        Q(content_type__app_label='user_stories') |
+        Q(content_type__app_label='sprints') |
+        Q(content_type__model='flujo')),
         widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox1'}),
         )
 
@@ -42,7 +44,9 @@ class RolAsignarPermisosForm(forms.ModelForm):
         Q(content_type__app_label='sessions') |
         Q(content_type__model='permission') |
         Q(content_type__model='user') |
-        Q(content_type__app_label='user_stories')),
+        Q(content_type__app_label='user_stories') |
+        Q(content_type__app_label='sprints') |
+        Q(content_type__model='flujo')),
         widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox1'}),
         help_text="Debe seleccionar al menos un permiso.",)
 

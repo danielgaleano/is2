@@ -9,9 +9,9 @@ from django.views import generic
 from django.views.generic.edit import UpdateView
 from django.core.urlresolvers import reverse
 from django.db.models import Q
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import Permission
 
 from models import Sprint
 from forms import SprintCreateForm, SprintUpdateForm, SprintAsignarUserStoryForm, SprintUpdateUserStoryForm, \
@@ -36,6 +36,28 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         self.proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
+        queryset = RolProyecto_Proyecto.objects.filter(proyecto=self.kwargs['pk_proyecto'])
+        self.roles_de_proyecto = get_list_or_404(queryset, user=self.request.user)
+
+        print "roles de proyecto %s" % self.roles_de_proyecto
+
+        permisos = self.roles_de_proyecto[0].rol_proyecto.group.permissions
+        todos_permisos = []
+        self.todos_permisos = permisos.all()
+        print "permisos del rol de proyecto"
+        print "permisos todos %s" % todos_permisos
+        print permisos.all()
+        for permiso in permisos.all():
+            print "- %s" % permiso
+
+        el_permiso = Permission.objects.get(codename='crear_userstory')
+        print "El permiso %s" % el_permiso
+        tiene = False
+
+        if el_permiso in permisos.all():
+            tiene = True
+
+        print tiene
 
         return Sprint.objects.filter(proyecto=self.proyecto).order_by('pk')
 
@@ -50,6 +72,8 @@ class IndexView(generic.ListView):
 
         context['hay_activo'] = hay_activo
         context['proyecto'] = self.proyecto
+        context['roles_de_proyecto'] = self.roles_de_proyecto
+        context['permisos'] = self.todos_permisos
 
         return context
 
@@ -187,12 +211,38 @@ class SprintBacklogIndexView(generic.ListView):
     def get_queryset(self):
         self.proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
         self.sprint = Sprint.objects.get(pk=self.kwargs['pk_sprint'])
+
+        queryset = RolProyecto_Proyecto.objects.filter(proyecto=self.kwargs['pk_proyecto'])
+        self.roles_de_proyecto = get_list_or_404(queryset, user=self.request.user)
+
+        print "roles de proyecto %s" % self.roles_de_proyecto
+
+        permisos = self.roles_de_proyecto[0].rol_proyecto.group.permissions
+        todos_permisos = []
+        self.todos_permisos = permisos.all()
+        print "permisos del rol de proyecto"
+        print "permisos todos %s" % todos_permisos
+        print permisos.all()
+        for permiso in permisos.all():
+            print "- %s" % permiso
+
+        el_permiso = Permission.objects.get(codename='crear_userstory')
+        print "El permiso %s" % el_permiso
+        tiene = False
+
+        if el_permiso in permisos.all():
+            tiene = True
+
+        print tiene
+
         return UserStory.objects.filter(sprint=self.sprint).exclude(estado='Descartado').order_by('nombre')
 
     def get_context_data(self, **kwargs):
         context = super(SprintBacklogIndexView, self).get_context_data(**kwargs)
         context['sprint'] = self.sprint
         context['proyecto'] = self.proyecto
+        context['roles_de_proyecto'] = self.roles_de_proyecto
+        context['permisos'] = self.todos_permisos
 
         return context
 
@@ -624,42 +674,65 @@ def iniciar_sprint(request, pk_proyecto, pk_sprint):
     @param pk_sprint: clave primaria de sprint
     @return: redirige al index de Sprints
     """
+    template = 'sprints/index.html'
     sprint = get_object_or_404(Sprint, pk=pk_sprint)
+    proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
+    sprint_list = Sprint.objects.filter(proyecto=proyecto).order_by('pk')
 
-    sprint.estado = 'Activo'
-    sprint.fecha_inicio = datetime.date.today()
-    cant_dias_habiles = 0
-    for i in range(0, sprint.duracion+1):
-        cant_dias_habiles = habiles(sprint.fecha_inicio, (sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i)))
-        if cant_dias_habiles == sprint.duracion:
-            sprint.fecha_fin = sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i)
-            break
+    hay_activo = False
+    for sprint in sprint_list:
+        if sprint.estado == 'Activo':
+            hay_activo = True
 
-    sprint.save()
+    lista_flujos = Flujo.objects.filter(proyecto=proyecto).order_by('pk')
+
+    lista_us = UserStory.objects.filter(sprint=sprint)
+
+    if len(lista_us) == 0:
+        mensaje = "Se deben asignar los user stories al sprint %s antes de iniciarlo." % sprint
+
+        return render(request, template, locals())
+
+    if len(lista_flujos) == 0:
+        mensaje = 'Se deben asignar flujos al proyecto.'
+
+        return render(request, template, locals())
+
+    else:
+        sprint.estado = 'Activo'
+        sprint.fecha_inicio = datetime.date.today()
+        cant_dias_habiles = 0
+        for i in range(0, sprint.duracion+1):
+            cant_dias_habiles = habiles(sprint.fecha_inicio, (sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i)))
+            if cant_dias_habiles == sprint.duracion:
+                sprint.fecha_fin = sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i)
+                break
+
+        sprint.save()
 
 
-    user_stories = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
+        user_stories = UserStory.objects.filter(sprint=sprint).exclude(estado='Descartado').order_by('nombre')
 
-    # registrar el inicio del kanban en el user story
-    for user_story in user_stories:
-        detalle = UserStoryDetalle.objects.get(user_story=user_story)
+        # registrar el inicio del kanban en el user story
+        for user_story in user_stories:
+            detalle = UserStoryDetalle.objects.get(user_story=user_story)
 
-        tarea = Tarea()
-        tarea.user_story = user_story
-        tarea.descripcion = "Inicio en el kanban"
-        tarea.horas_de_trabajo = 0
-        tarea.sprint = sprint
-        tarea.flujo = user_story.flujo
-        tarea.actividad = user_story.userstorydetalle.actividad
-        tarea.estado = detalle.estado
-        tarea.tipo = 'Cambio de Estado'
-        tarea.usuario = user_story.usuario
-        tarea.save()
+            tarea = Tarea()
+            tarea.user_story = user_story
+            tarea.descripcion = "Inicio en el kanban"
+            tarea.horas_de_trabajo = 0
+            tarea.sprint = sprint
+            tarea.flujo = user_story.flujo
+            tarea.actividad = user_story.userstorydetalle.actividad
+            tarea.estado = detalle.estado
+            tarea.tipo = 'Cambio de Estado'
+            tarea.usuario = user_story.usuario
+            tarea.save()
 
-        historial_us = HistorialUserStory(user_story=user_story, operacion='iniciado', usuario=user_story.usuario)
-        historial_us.save()
+            historial_us = HistorialUserStory(user_story=user_story, operacion='iniciado', usuario=user_story.usuario)
+            historial_us.save()
 
-    return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
+        return HttpResponseRedirect(reverse('sprints:kanban', args=[pk_proyecto, pk_sprint]))
 
 
 @login_required(login_url='/login/')
@@ -1266,11 +1339,11 @@ class TareasIndexView(generic.ListView):
 
         tipos_tareas = ['Registro de Tarea', 'Cambio de Estado']
 
-        try:
-            nota = Nota.objects.get(user_story=self.user_story)
-            print "nota = %s" % nota
-        except ObjectDoesNotExist:
-            nota = ""
+        #try:
+        #    nota = Nota.objects.get(user_story=self.user_story)
+        #    print "nota = %s" % nota
+        #except ObjectDoesNotExist:
+        #    nota = ""
 
         context['proyecto'] = proyecto
         context['sprint'] = sprint
@@ -1278,7 +1351,7 @@ class TareasIndexView(generic.ListView):
         context['horas_acumuladas'] = self.user_story.horas_acumuladas
         context['cantidad_archivos'] = cantidad_archivos
         context['tipos_tareas'] = tipos_tareas
-        context['nota'] = nota
+        #context['nota'] = nota
 
         return context
 
@@ -1569,6 +1642,11 @@ def burndown_chart(request, pk_proyecto, pk_sprint):
                 if calculado >= 0:
                     calculado = calculado - tarea.horas_de_trabajo
 
+                    #aqui se podria agregar que si la resta es menor a cero
+                    #asignarle cero para que la linea de trabajo realizado no sea negativa
+                    #se deberia ver tambien si se termina antes de la fecha de finalizacion esperada
+                    #la linea de trabajo realizado deberia teminar alli
+
                     print "calculado = %s" % calculado
 
         #if entro:
@@ -1607,6 +1685,7 @@ def finalizar_sprint(request, pk_proyecto, pk_sprint):
     sprint = get_object_or_404(Sprint, pk=pk_sprint)
 
     user_stories = UserStory.objects.filter(sprint=sprint, estado='Activo')
+    usuario = request.user
 
     if request.method == 'POST':
 
@@ -1619,6 +1698,9 @@ def finalizar_sprint(request, pk_proyecto, pk_sprint):
         for us in user_stories:
             us.estado = 'Pendiente'
             us.save()
+            historial_us = HistorialUserStory(user_story=us, operacion='modificado', campo="estado",
+                                              valor='Pendiente', usuario=usuario)
+            historial_us.save()
 
         return HttpResponseRedirect(reverse('sprints:index', args=[pk_proyecto]))
     if user_stories:

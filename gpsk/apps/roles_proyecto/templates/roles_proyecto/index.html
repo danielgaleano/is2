@@ -58,7 +58,7 @@
 					</td>
 
 					{% if perms.roles_proyecto.modificar_rolproyecto %}
-					{% if group.name == 'Scrum Master' %}
+					{% if group.name == 'Scrum Master' or group.name == 'Product Owner' or group.name == 'Developer' %}
 					<td></td>
 					{% else %}
 					<td>
@@ -77,7 +77,7 @@
 					<td></td>
 					{% endif %}
 					{% if perms.roles_proyecto.eliminar_rolproyecto %}
-					{% if group.name == 'Scrum Master' %}
+					{% if group.name == 'Scrum Master' or group.name == 'Product Owner' or group.name == 'Developer' %}
 					<td></td>
 					{% else %}
 					<td>

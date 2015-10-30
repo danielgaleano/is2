@@ -4,8 +4,10 @@ from db_file_storage.form_widgets import DBClearableFileInput
 
 from models import Sprint
 from apps.proyectos.models import Proyecto
+from apps.proyectos.views import habiles
 from apps.user_stories.models import UserStory, HistorialUserStory, UserStoryDetalle, Tarea, Nota, Adjunto
 from apps.flujos.models import Flujo
+
 
 
 
@@ -31,6 +33,31 @@ class SprintCreateForm(forms.ModelForm):
     class Meta:
         model = Sprint
         fields = ['nombre', 'duracion']
+
+    def clean_duracion(self):
+        duracion = self.cleaned_data['duracion']
+        proyecto = Proyecto.objects.get(pk=self.instance.pk)
+
+        duracion_proyecto = habiles(proyecto.fecha_inicio, proyecto.fecha_fin)
+        lista_sprints = Sprint.objects.filter(proyecto=proyecto).order_by('pk')
+
+        duracion_total_sprints = 0
+        for sprint in lista_sprints:
+            duracion_total_sprints = duracion_total_sprints + sprint.duracion
+
+        print "duracion_total_sprints %s" % duracion_total_sprints
+
+        total = duracion_total_sprints + duracion
+
+        if total > duracion_proyecto:
+            print("duracion mayor")
+            raise forms.ValidationError("La duracion de los sprints no debe ser mayor a la del proyecto.\n"
+                                        "Sugerencia: Aumente la duracion del proyecto.")
+
+        if duracion == 0:
+            raise forms.ValidationError("La duracion del sprint debe ser mayor a cero.")
+
+        return duracion
 
     def save(self, commit=True):
         if not commit:
@@ -95,6 +122,31 @@ class SprintUpdateForm(forms.ModelForm):
     class Meta:
         model = Proyecto
         fields = ['codigo']
+
+    def clean_duracion(self):
+        duracion = self.cleaned_data['duracion']
+        proyecto = Proyecto.objects.get(pk=self.instance.pk)
+
+        duracion_proyecto = habiles(proyecto.fecha_inicio, proyecto.fecha_fin)
+        lista_sprints = Sprint.objects.filter(proyecto=proyecto).order_by('pk')
+
+        duracion_total_sprints = 0
+        for sprint in lista_sprints:
+            duracion_total_sprints = duracion_total_sprints + sprint.duracion
+
+        print "duracion_total_sprints %s" % duracion_total_sprints
+
+        total = duracion_total_sprints + duracion
+
+        if total > duracion_proyecto:
+            print("duracion mayor")
+            raise forms.ValidationError("La duracion de los sprints no debe ser mayor a la del proyecto.\n"
+                                        "Sugerencia: Aumente la duracion del proyecto.")
+
+        if duracion == 0:
+            raise forms.ValidationError("La duracion del sprint debe ser mayor a cero.")
+
+        return duracion
 
     def save(self, commit=True):
         #usuario = Usuario.objects.get(user=self.instance)

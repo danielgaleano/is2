@@ -16,10 +16,18 @@
 	    </div>
 	<!-- /.row -->
 
-
-{% if perms.user_stories.crear_userstory and "Product Owner" in roles_de_proyecto.0.rol_proyecto.group.name|stringformat:"s" %}
+{% load index %}
+{% if permisos|tiene_permiso:'crear_userstory' and user != proyecto.scrum_master %}
 
 	<a type="button" class="btn btn-success pull-right" href="{% url 'user_stories:create' proyecto.id %}" >
+	<i class="fa fa-lg fa-file"></i>
+		Nuevo User Story
+	</a>
+
+{% endif %}
+{% if permisos|tiene_permiso:'crear_userstory' and user == proyecto.scrum_master %}
+
+	<a type="button" class="btn btn-success pull-right" href="{% url 'user_stories:create_sm' proyecto.id %}" >
 	<i class="fa fa-lg fa-file"></i>
 		Nuevo User Story
 	</a>
@@ -67,7 +75,8 @@
                 {% else %}
                     <tr>
                 {% endif %}
-                    {% if perms.user_stories.consultar_historial_userstory %}
+                    {% if permisos|tiene_permiso:'consultar_historial_userstory' %}
+
 					<td>
                         <a type="button" class="btn btn-warning" href="{% url 'user_stories:historial' proyecto.id userstory.id %}">
                                 <i class="fa fa-lg fa-history"></i>
@@ -88,24 +97,26 @@
 
                     <td>{{userstory.estimacion}} horas</td>
 
-                    <td>{{userstory.usuario}}</td>
+
+                    <td>{{userstory.usuario|default_if_none:"-"}}</td>
 
 
 					<td>{{userstory.estado}}</td>
 
-                    <td>{{userstory.flujo}}</td>
-                    <td>{{userstory.sprint}}</td>
+                    <td>{{userstory.flujo|default_if_none:"-"}}</td>
+                    <td>{{userstory.sprint|default_if_none:"-"}}</td>
 
                         {% if userstory.estado|stringformat:"s" == "Aprobado" %}
                             <td></td>
                         {% else %}
-                        {% if perms.user_stories.redefinir_userstory and "Product Owner" in roles_de_proyecto.0.rol_proyecto.group.name|stringformat:"s" %}
+                        {% if permisos|tiene_permiso:'redefinir_userstory' and user != proyecto.scrum_master %}
+
                             <td>
                                 <a type="button" class="btn btn-primary" href="{% url 'user_stories:update' proyecto.id userstory.id %}">
                                 <i class="fa fa-lg fa-edit"></i>
                                 </a>
                             </td>
-                        {% elif  perms.user_stories.definir_valor_tecnico_y_estimacion_userstory and perms.user_stories.asignar_sprint_userstory and perms.user_stories.asignar_usuario_userstory and user == proyecto.scrum_master %}
+                        {% elif  permisos|tiene_permiso:'definir_valor_tecnico_y_estimacion_userstory' and user == proyecto.scrum_master %}
                             <td>
                                 <a type="button" class="btn btn-primary" href="{% url 'user_stories:update_sm' proyecto.id userstory.id %}">
                                 <i class="fa fa-lg fa-edit"></i>
@@ -133,7 +144,7 @@
 				</tr>
 			{% else %}
 				<tr class="danger">
-                    {% if perms.user_stories.consultar_historial_userstory %}
+                    {% if permisos|tiene_permiso:'consultar_historial_userstory' %}
                     <td>
                         <a type="button" class="btn btn-warning" href="{% url 'user_stories:historial' proyecto.id userstory.id %}">
                                 <i class="fa fa-lg fa-history"></i>

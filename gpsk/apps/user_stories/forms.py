@@ -10,6 +10,7 @@ class UserStoryCreateForm(forms.ModelForm):
         self.user = user
 
     valor_negocio = forms.IntegerField(required=True, min_value=0, max_value=10, initial=0)
+    descripcion = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '2'}))
 
     class Meta:
         model = UserStory
@@ -40,6 +41,48 @@ class UserStoryCreateForm(forms.ModelForm):
         return proyecto
 
 
+class UserStoryCreateFormSM(forms.ModelForm):
+    def __init__(self, user, **kwargs):
+        super(UserStoryCreateFormSM, self).__init__(**kwargs)
+        self.user = user
+
+    #valor_negocio = forms.IntegerField(required=True, min_value=0, max_value=10, initial=0)
+    descripcion = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '2'}))
+    prioridad = forms.IntegerField(required=True, min_value=0, max_value=10, initial=0)
+    valor_tecnico = forms.IntegerField(required=True, min_value=0, max_value=10, initial=0)
+    estimacion = forms.IntegerField(required=True, min_value=0, max_value=240, initial=0, help_text='En horas. Maximo 240 horas.')
+
+    class Meta:
+        model = UserStory
+        fields = ['nombre', 'descripcion', 'prioridad', 'valor_tecnico', 'estimacion']
+
+    def save(self, commit=True):
+        if not commit:
+            raise NotImplementedError("Can't create UserStory without database save")
+        #userStory = super(UserStoryCreateForm, self).save(commit=True)
+        proyecto = Proyecto.objects.get(pk=self.instance.pk)
+
+        userStory = UserStory.objects.create(nombre=self.cleaned_data['nombre'],
+                                             descripcion=self.cleaned_data['descripcion'],
+                                             prioridad=self.cleaned_data['prioridad'],
+                                             valor_tecnico=self.cleaned_data['valor_tecnico'],
+                                             estimacion=self.cleaned_data['estimacion'],
+                                             proyecto=proyecto)
+        print userStory
+        print proyecto
+
+        #userStory.proyecto = self.cleaned_data['proyecto']
+        #print self.cleaned_data['proyecto']
+        userStory.save()
+        print userStory
+
+        historial_us = HistorialUserStory(user_story=userStory, operacion='creado', usuario=self.user)
+        historial_us.save()
+
+        #print "nombre %s" % self.cleaned_data['nombre']
+        return proyecto
+
+
 class UserStoryUpdateFormPO(forms.ModelForm):
     def __init__(self, user, *args, **kwargs):
         context = super(UserStoryUpdateFormPO, self).__init__(*args, **kwargs)
@@ -54,7 +97,7 @@ class UserStoryUpdateFormPO(forms.ModelForm):
         self.fields['id'] = forms.CharField(required=True, widget=forms.HiddenInput())
 
         self.fields['nombre'] = forms.CharField(required=True)
-        self.fields['descripcion'] = forms.CharField(required=True)
+        self.fields['descripcion'] = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '2'}))
         self.fields['valor_negocio'] = forms.IntegerField(required=True, min_value=0, max_value=10)
 
         self.fields['id'].initial = user_story.id
@@ -119,6 +162,8 @@ class UserStoryUpdateFormSM(forms.ModelForm):
         )
 
         self.fields['id'] = forms.CharField(required=True, widget=forms.HiddenInput())
+        self.fields['nombre'] = forms.CharField(required=True)
+        self.fields['descripcion'] = forms.CharField(max_length=140, required=True, widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '2'}))
         self.fields['prioridad'] = forms.IntegerField(required=True, min_value=0, max_value=10)
         self.fields['valor_tecnico'] = forms.IntegerField(required=True, min_value=0, max_value=10)
         self.fields['estimacion'] = forms.IntegerField(required=True, min_value=0, max_value=240,
@@ -126,6 +171,8 @@ class UserStoryUpdateFormSM(forms.ModelForm):
         #self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
 
         self.fields['id'].initial = user_story.id
+        self.fields['nombre'].initial = user_story.nombre
+        self.fields['descripcion'].initial = user_story.descripcion
         self.fields['prioridad'].initial = user_story.prioridad
         self.fields['valor_tecnico'].initial = user_story.valor_tecnico
         self.fields['estimacion'].initial = user_story.estimacion
@@ -155,6 +202,18 @@ class UserStoryUpdateFormSM(forms.ModelForm):
                 pass
             else:
                 user_story.estado = 'Activo'
+
+        if user_story.nombre != cleaned_data['nombre']:
+            user_story.nombre = self.cleaned_data['nombre']
+            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="nombre",
+                                              valor=self.cleaned_data['nombre'], usuario=self.user)
+            historial_us.save()
+
+        if user_story.descripcion != cleaned_data['descripcion']:
+            user_story.descripcion = self.cleaned_data['descripcion']
+            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="descripcion",
+                                              valor=self.cleaned_data['descripcion'], usuario=self.user)
+            historial_us.save()
 
         if user_story.prioridad != cleaned_data['prioridad']:
             user_story.prioridad = self.cleaned_data['prioridad']

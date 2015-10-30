@@ -73,9 +73,9 @@
                         <a href="{% url 'proyectos:index' %}"><i class="fa fa-lg fa-table"></i> Proyectos</a>
                     </li>
                     {% endif %}
-                    {% if perms.flujos %}
+                    {% if perms.flujos.crear_plantillaflujo or perms.flujos.listar_plantillaflujo or perms.flujos.modificar_plantillaflujo or perms.flujos.eliminar_plantillaflujo%}
                     <li>
-                        <a href="{% url 'flujos:index' %}"><i class="fa fa-lg fa-exchange"></i> Flujos</a>
+                        <a href="{% url 'flujos:index' %}"><i class="fa fa-lg fa-exchange"></i> Plantilla de Flujos</a>
                     </li>
                     {% endif %}
                     {% if perms.clientes %}

@@ -26,9 +26,7 @@
                         <th>Estimacion</th>
                         <th>Horas Acumuladas</th>
                         <th>Archivos adjuntos</th>
-                        {% if user_story.estado == 'Aprobado' %}
-                            <th>Nota</th>
-                        {% endif %}
+
 
                     </tr>
                 </thead>
@@ -44,9 +42,7 @@
 
                     <td>{{cantidad_archivos}}</td>
 
-                    {% if user_story.estado == 'Aprobado' %}
-                        <td>{{nota.texto}}</td>
-                    {% endif %}
+
                 </tr>
 
                 </tbody>

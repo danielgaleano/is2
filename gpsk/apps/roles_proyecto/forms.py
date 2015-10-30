@@ -1,9 +1,9 @@
 from django import forms
 from django.contrib.auth.models import Group, Permission
 from django.db.models import Q
-from models import RolProyecto
-
 from django.forms import ModelMultipleChoiceField
+
+from models import RolProyecto
 
 
 class MyModelMultipleChoiceField(ModelMultipleChoiceField):
@@ -20,7 +20,8 @@ class RolProyectoCreateForm(forms.ModelForm):
         Q(content_type__app_label='roles_proyecto') |
         Q(content_type__app_label='auth') |
         Q(content_type__app_label='clientes') |
-        Q(content_type__model='historialuserstory')
+        Q(content_type__model='historialuserstory') |
+        Q(content_type__model='plantillaflujo')
         ),
         widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox1'}),
         help_text="Debe seleccionar al menos un permiso.",)
@@ -56,7 +57,8 @@ class RolProyectoPermisosForm(forms.ModelForm):
         Q(content_type__app_label='roles_proyecto') |
         Q(content_type__app_label='auth') |
         Q(content_type__app_label='clientes') |
-        Q(content_type__model='historialuserstory')
+        Q(content_type__model='historialuserstory') |
+        Q(content_type__model='plantillaflujo')
         ),
         widget=forms.CheckboxSelectMultiple(attrs={'class':'checkbox1'}),
         help_text="Debe seleccionar al menos un permiso.",)

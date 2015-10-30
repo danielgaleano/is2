@@ -17,25 +17,29 @@
 
 
     <div class="row">
-        <div class="col-xs-4">
-        <form action="{{ sprints.get_absolute_url }}" method="post">
-            {% csrf_token %}
-            <p>
-                {{ form.nombre.errors }}
-                {{ form.nombre }}
-            </p>
-            <p>
-                {{ form.id.errors }}
-                {{ form.id }}
-            </p>
-            <label for="texto">Nota:</label>
-            <p>
-                {{ form.texto.errors }}
-                {{ form.texto }}
-            </p>
-            <input type="submit" value="Agregar nota" class="btn btn-success"/>
-        </form>
-        </div>
+
+        {% if user_story.estado|stringformat:"s" != 'Aprobado' and sprint.estado|stringformat:"s" != 'Finalizado' %}
+
+            <div class="col-xs-4">
+            <form action="{{ sprints.get_absolute_url }}" method="post">
+                {% csrf_token %}
+                <p>
+                    {{ form.nombre.errors }}
+                    {{ form.nombre }}
+                </p>
+                <p>
+                    {{ form.id.errors }}
+                    {{ form.id }}
+                </p>
+                <label for="texto">Nota:</label>
+                <p>
+                    {{ form.texto.errors }}
+                    {{ form.texto }}
+                </p>
+                <input type="submit" value="Agregar nota" class="btn btn-success"/>
+            </form>
+            </div>
+        {% endif %}
         <div class="col-xs-8">
             <table class="table table-striped">
                 <thead>
@@ -66,6 +70,7 @@
 
 
         </div>
+
     </div>
 
 

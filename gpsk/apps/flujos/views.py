@@ -1,11 +1,13 @@
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView
 from django.core.urlresolvers import reverse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import Permission
 
 from apps.proyectos.models import Proyecto
+from apps.roles_proyecto.models import RolProyecto_Proyecto
 from forms import PlantillaFlujoCreateForm, ActividadCreateForm, AsignarFlujoProyectoForm, FlujoCreateForm
 from models import Flujo, ActividadFlujo, ActividadFlujoPlantilla, Estado, PlantillaFlujo
 
@@ -34,7 +36,6 @@ class FlujoCreate(CreateView):
 
     def get_success_url(self):
         return reverse( 'flujos:index')
-
 
 
 class PlantillaFlujoCreate(CreateView):
@@ -434,6 +435,30 @@ class FlujosProyectoIndex(generic.ListView):
     def get_queryset(self):
         self.proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
         #print Flujo.objects.filter(proyecto=self.proyecto).order_by('pk')
+
+        queryset = RolProyecto_Proyecto.objects.filter(proyecto=self.kwargs['pk_proyecto'])
+        self.roles_de_proyecto = get_list_or_404(queryset, user=self.request.user)
+
+        print "roles de proyecto %s" % self.roles_de_proyecto
+
+        permisos = self.roles_de_proyecto[0].rol_proyecto.group.permissions
+        todos_permisos = []
+        self.todos_permisos = permisos.all()
+        print "permisos del rol de proyecto"
+        print "permisos todos %s" % todos_permisos
+        print permisos.all()
+        for permiso in permisos.all():
+            print "- %s" % permiso
+
+        el_permiso = Permission.objects.get(codename='crear_userstory')
+        print "El permiso %s" % el_permiso
+        tiene = False
+
+        if el_permiso in permisos.all():
+            tiene = True
+
+        print tiene
+
         return Flujo.objects.filter(proyecto=self.proyecto).order_by('pk')
 
     def get_context_data(self, **kwargs):
@@ -441,6 +466,8 @@ class FlujosProyectoIndex(generic.ListView):
         context = super(FlujosProyectoIndex, self).get_context_data(**kwargs)
         # Add in the publisher
         context['proyecto'] = self.proyecto
+        context['roles_de_proyecto'] = self.roles_de_proyecto
+        context['permisos'] = self.todos_permisos
 
         return context
 

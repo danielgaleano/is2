@@ -17,7 +17,8 @@
 	<!-- /.row -->
 
 
-{% if perms.flujos.crear_flujo %}
+{% load index %}
+{% if permisos|tiene_permiso:'crear_flujo' or permisos|tiene_permiso:'modificar_flujo' or permisos|tiene_permiso:'eliminar_flujo' %}
 
 	<a type="button" class="btn btn-success pull-right" href="{% url 'flujos:asignar' proyecto.id %}" >
 	<i class="fa fa-lg fa-exchange"></i>

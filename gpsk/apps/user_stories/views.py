@@ -4,11 +4,10 @@ from django.views.generic.edit import UpdateView
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.decorators import permission_required
-from django.utils.decorators import method_decorator
+from django.contrib.auth.models import Permission
 
 from models import UserStory, HistorialUserStory
-from forms import UserStoryCreateForm, UserStoryUpdateFormPO, UserStoryUpdateFormSM
+from forms import UserStoryCreateForm, UserStoryUpdateFormPO, UserStoryUpdateFormSM, UserStoryCreateFormSM
 from apps.proyectos.models import Proyecto
 from apps.roles_proyecto.models import RolProyecto_Proyecto
 
@@ -34,6 +33,25 @@ class IndexView(generic.ListView):
         queryset = RolProyecto_Proyecto.objects.filter(proyecto=self.kwargs['pk_proyecto'])
         self.roles_de_proyecto = get_list_or_404(queryset, user=self.request.user)
 
+        print "roles de proyecto %s" % self.roles_de_proyecto
+
+        permisos = self.roles_de_proyecto[0].rol_proyecto.group.permissions
+        todos_permisos = []
+        self.todos_permisos = permisos.all()
+        print "permisos del rol de proyecto"
+        print "permisos todos %s" % todos_permisos
+        print permisos.all()
+        for permiso in permisos.all():
+            print "- %s" % permiso
+
+        el_permiso = Permission.objects.get(codename='crear_userstory')
+        print "El permiso %s" % el_permiso
+        tiene = False
+
+        if el_permiso in permisos.all():
+            tiene = True
+
+        print tiene
 
         return UserStory.objects.filter(proyecto=self.proyecto).order_by('nombre')
 
@@ -52,6 +70,7 @@ class IndexView(generic.ListView):
 
         context['proyecto'] = self.proyecto
         context['roles_de_proyecto'] = self.roles_de_proyecto
+        context['permisos'] = self.todos_permisos
 
         return context
 
@@ -96,9 +115,54 @@ class UserStoryCreate(UpdateView):
         kwargs['user'] = self.request.user
         return kwargs
 
-    @method_decorator(permission_required('user_stories.crear_userstory'))
-    def dispatch(self, *args, **kwargs):
-        return super(UserStoryCreate, self).dispatch(*args, **kwargs)
+    #@method_decorator(permission_required('user_stories.crear_userstory'))
+    #def dispatch(self, *args, **kwargs):
+    #    return super(UserStoryCreate, self).dispatch(*args, **kwargs)
+
+
+class UserStoryCreateSM(UpdateView):
+    """
+    Clase que despliega el formulario para la creacion de User Stories.
+
+    @ivar form_class: Formulario que se utiliza para la creacion de User Stories
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+
+    @ivar context_object_name: Variable de contexto
+    @type context_object_name: string
+    """
+    form_class = UserStoryCreateFormSM
+    template_name = 'user_stories/create_sm.html'
+    context_object_name = 'proyecto_detail'
+
+    def get_object(self, queryset=None):
+        obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto_sm'])
+        return obj
+
+    def get_success_url(self):
+        """
+        Metodo que redirecciona al index de User Stories una vez que el formulario se haya guardado correctamente.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @rtype: django.core.urlresolvers
+        @return: redireccion al index de la aplicacion usuarios
+        """
+        obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto_sm'])
+        return reverse('user_stories:index', args=[obj.pk])
+
+    def get_form_kwargs(self):
+
+        kwargs = super(UserStoryCreateSM, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    #@method_decorator(permission_required('user_stories.crear_userstory'))
+    #def dispatch(self, *args, **kwargs):
+    #    return super(UserStoryCreateSM, self).dispatch(*args, **kwargs)
 
 
 class UserStoryUpdatePO(UpdateView):

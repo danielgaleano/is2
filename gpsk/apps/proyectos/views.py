@@ -11,8 +11,6 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.contrib.auth.decorators import permission_required
-from django.utils.decorators import method_decorator
 
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
@@ -62,9 +60,9 @@ class ProyectoCreate(SuccessMessageMixin, CreateView):
     def get_success_url(self): 
         return reverse('proyectos:index')
 
-    @method_decorator(permission_required('proyectos.crear_proyecto'))
-    def dispatch(self, *args, **kwargs):
-        return super(ProyectoCreate, self).dispatch(*args, **kwargs)
+    #@method_decorator(permission_required('proyectos.crear_proyecto'))
+    #def dispatch(self, *args, **kwargs):
+    #    return super(ProyectoCreate, self).dispatch(*args, **kwargs)
 
 
 class ProyectoUpdate(SuccessMessageMixin, UpdateView):
@@ -88,12 +86,12 @@ class ProyectoUpdate(SuccessMessageMixin, UpdateView):
     def get_success_url(self): 
         return reverse('proyectos:index')
 
-    @method_decorator(permission_required('proyectos.modificar_proyecto'))
-    def dispatch(self, *args, **kwargs):
-        return super(ProyectoUpdate, self).dispatch(*args, **kwargs)
+    #@method_decorator(permission_required('proyectos.modificar_proyecto'))
+    #def dispatch(self, *args, **kwargs):
+    #    return super(ProyectoUpdate, self).dispatch(*args, **kwargs)
 
+#@permission_required('proyectos.eliminar_proyecto')
 @login_required(login_url='/login/')
-@permission_required('proyectos.eliminar_proyecto')
 def eliminar_proyecto(request, pk_proyecto):
     """
     Elimina proyecto
@@ -151,8 +149,8 @@ def proyecto_index(request, pk):
     return render(request, template, locals())
 
 
+#@permission_required('proyectos.asignar_rol_proyecto_proyecto')
 @login_required(login_url='/login/')
-@permission_required('proyectos.asignar_rol_proyecto_proyecto')
 def listar_equipo(request, pk_proyecto):
     """
     Lista equipo del proyecto
@@ -206,13 +204,12 @@ class AddMiembro(generic.UpdateView):
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse( 'proyectos:equipo_list', args=[obj.pk])
 
-    @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
-    def dispatch(self, *args, **kwargs):
-        return super(AddMiembro, self).dispatch(*args, **kwargs)
+    #@method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
+    #def dispatch(self, *args, **kwargs):
+    #    return super(AddMiembro, self).dispatch(*args, **kwargs)
 
-
+#@permission_required('proyectos.asignar_rol_proyecto_proyecto')
 @login_required(login_url='/login/')
-@permission_required('proyectos.asignar_rol_proyecto_proyecto')
 def delete_miembro(request, pk_proyecto, pk_user):
     """
     Elimina miembro del equipo del proyecto
@@ -284,9 +281,9 @@ class RolMiembro(UpdateView):
         obj = Proyecto.objects.get(pk=self.kwargs['pk_proyecto'])
         return reverse( 'proyectos:equipo_list', args=[obj.pk])
 
-    @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
-    def dispatch(self, *args, **kwargs):
-        return super(RolMiembro, self).dispatch(*args, **kwargs)
+    #@method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
+    #def dispatch(self, *args, **kwargs):
+    #    return super(RolMiembro, self).dispatch(*args, **kwargs)
 
 
 class HorasDeveloper(UpdateView):
@@ -374,9 +371,9 @@ class HorasDeveloper(UpdateView):
 
         return context
 
-    @method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
-    def dispatch(self, *args, **kwargs):
-        return super(HorasDeveloper, self).dispatch(*args, **kwargs)
+    #@method_decorator(permission_required('proyectos.asignar_rol_proyecto_proyecto'))
+    #def dispatch(self, *args, **kwargs):
+    #    return super(HorasDeveloper, self).dispatch(*args, **kwargs)
 
 
 #Recibe dos fechas y calcula cuantos dias habiles hay entre las mismas,
