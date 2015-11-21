@@ -14,7 +14,7 @@
 	        </div>
 	    </div>
 	<!-- /.row -->
-
+<div id="filesize_alert"></div>
 {% if mensaje != null %}
 		<div class="alert alert-danger" role="alert">
   			<i class="fa fa-fw fa-warning"></i>
@@ -41,7 +41,7 @@
 	    </div>
 	<!-- /.row -->
 <form action="{{ sprints.get_absolute_url }}" method="post" enctype="multipart/form-data">
-    <p>Tamaño máximo de 5 MB.</p>
+    <p>Tamaño máximo de 2.5 MB.</p>
 	{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Agregar" class="btn btn-primary"/>
