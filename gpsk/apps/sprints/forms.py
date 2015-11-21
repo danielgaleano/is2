@@ -10,16 +10,12 @@ from apps.flujos.models import Flujo
 
 
 
-
-
-
-
-
+# 1 MB - 1048576
 # 2.5MB - 2621440
 # 5MB - 5242880
 # 10MB - 10485760
 # 20MB - 20971520
-MAX_UPLOAD_SIZE = "5242880"
+MAX_UPLOAD_SIZE = "1048576"
 
 
 class SprintCreateForm(forms.ModelForm):
@@ -508,6 +504,15 @@ class AgregarAdjuntoForm(forms.ModelForm):
         widgets = {
             'archivo': DBClearableFileInput
         }
+
+    #def clean_archivo(self):
+        #print "clean"
+        #archivo = self.cleaned_data['archivo']
+        #print archivo
+        #print self.cleaned_data['archivo']
+        #if archivo._size > MAX_UPLOAD_SIZE:
+        #    print "if"
+        #    raise forms.ValidationError('Archivo mayor a %s. Su archivo tiene %s' % (defaultfilters.filesizeformat(MAX_UPLOAD_SIZE), defaultfilters.filesizeformat(archivo._size)))
 
 
 class AgregarNotaForm(forms.ModelForm):

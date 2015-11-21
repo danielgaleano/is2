@@ -122,6 +122,38 @@
     <script src="{% static 'js/tipos_tareas.js' %}"></script>
     <script src="{% static 'js/tables.js' %}"></script>
     <script src="{% static 'js/burndown.js' %}"></script>
+  <script type="text/javascript">
+function readableFileSize(size) {
+    var units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    var i = 0;
+    while(size >= 1024) {
+        size /= 1024;
+        ++i;
+    }
+    return size.toFixed(1) + ' ' + units[i];
+}
+$('#id_archivo').on('change',function(){
+  if($(this).get(0).files.length > 0){ // only if a file is selected
+    var fileSize = $(this).get(0).files[0].size;
+    console.log(fileSize);
+    var html = ""
+    if(fileSize > 2621440){
+        html += '<div class="alert alert-danger" role="alert">'+
+  			    '<i class="fa fa-fw fa-warning"></i>'+
+  			    '<span class="sr-only">Error:</span>'+
+ 			    'El archivo debe ser menor a 2.5 MB. Su archivo tiene '+ readableFileSize(fileSize)  +
+		        '.</div>';
+        var $el = $('#id_archivo');
+        $el.wrap('<form>').closest('form').get(0).reset();
+        $el.unwrap();
+    }
+    else{
+
+    }
+    $('#filesize_alert').html(html);
+  }
+});
+</script>
 
 
   </body>

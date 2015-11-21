@@ -28,7 +28,7 @@ class UserStory(models.Model):
         ('Descartado', 'Descartado'),
     )
     nombre = models.CharField(max_length=15)
-    descripcion = models.CharField(max_length=40)
+    descripcion = models.CharField(max_length=140)
     valor_negocio = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], default=0)
     prioridad = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], default=0)
     valor_tecnico = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)], default=0)

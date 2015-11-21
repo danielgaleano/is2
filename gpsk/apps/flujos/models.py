@@ -83,5 +83,5 @@ class Flujo(models.Model):
         return reverse('flujos', kwargs={'pk': self.pk})
 
     class Meta:
-        default_permissions = ('crear', 'modificar', 'eliminar', 'listar')
+        default_permissions = ('crear', 'modificar', 'eliminar', 'listar', 'asignar')
 
