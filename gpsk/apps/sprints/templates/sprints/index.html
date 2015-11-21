@@ -47,6 +47,9 @@
 			<th>Duracion</th>
 			<th>Estado</th>
 
+            <th>Inicio</th>
+            <th>Fin</th>
+
 			<th>Modificar</th>
             <th></th>
             <th></th>
@@ -82,7 +85,13 @@
 					<td>{{sprint.duracion}} días</td>
 
                     <td>{{sprint.estado}}</td>
-
+                    {% if sprint.fecha_inicio == sprint.fecha_fin %}
+                    <td></td>
+                    <td></td>
+                    {% else %}
+                    <td>{{sprint.fecha_inicio|date:"d/m/Y"}}</td>
+                    <td>{{sprint.fecha_fin|date:"d/m/Y"}}</td>
+                    {% endif %}
 
 
 

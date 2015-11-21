@@ -355,3 +355,20 @@ class VerHistorialUserStory(generic.ListView):
         self.user_story = get_object_or_404(UserStory, pk=self.kwargs['pk_user_story'])
         context['user_story'] = self.user_story
         return context
+
+
+class VerUserStory(generic.ListView):
+
+    template_name = 'user_stories/ver.html'
+
+    def get_queryset(self):
+        user_story = get_object_or_404(UserStory, pk=self.kwargs['pk_user_story'])
+        return user_story
+
+    def get_context_data(self, **kwargs):
+        context = super(VerUserStory, self).get_context_data(**kwargs)
+        self.proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
+        context['proyecto'] = self.proyecto
+        self.user_story = get_object_or_404(UserStory, pk=self.kwargs['pk_user_story'])
+        context['user_story'] = self.user_story
+        return context

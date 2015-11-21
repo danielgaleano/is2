@@ -7,7 +7,7 @@
 	    <div class="row">
 	        <div class="col-lg-12">
 	            <h1 class="page-header">
-	                <i class="fa fa-fw fa-table"></i>Reportes <small>{{proyecto}}</small>
+	                <i class="fa fa-fw fa-newspaper-o"></i>Reportes <small>{{proyecto}}</small>
 	            </h1>
 	        </div>
 	    </div>
@@ -41,12 +41,12 @@
         <tr>
             <td>Cantidad de trabajos por usuario pendiente, en curso, finalizados</td>
             <td>
-                <a type="button" class="btn btn-warning" href="#" >
+                <a type="button" class="btn btn-warning" href="{% url 'proyectos:reporte_trabajo_usuario' proyecto.id %}" target="_blank" >
                     <i class="fa fa-fw fa-file-pdf-o"></i>
                 </a>
             </td>
             <td>
-                <a type="button" class="btn btn-info" href="#" >
+                <a type="button" class="btn btn-info" href="{% url 'proyectos:reporte_trabajo_usuario_download' proyecto.id %}" >
                     <i class="fa fa-fw fa-download"></i>
                 </a>
             </td>
@@ -54,12 +54,12 @@
         <tr>
             <td>Lista clasificada por orden de prioridad de todas las actividades  para completar un proyecto.</td>
             <td>
-                <a type="button" class="btn btn-warning" href="#" >
+                <a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_reporte_actividades' proyecto.id %}" target="_blank" >
                     <i class="fa fa-fw fa-file-pdf-o"></i>
                 </a>
             </td>
             <td>
-                <a type="button" class="btn btn-info" href="#" >
+                <a type="button" class="btn btn-info" href="{% url 'proyectos:proyecto_reporte_actividades_download' proyecto.id %}" >
                     <i class="fa fa-fw fa-download"></i>
                 </a>
             </td>
@@ -67,12 +67,12 @@
         <tr>
             <td>Lista de Tiempo estimado por  proyecto y la ejecución del mismo (graficado, sprint por proyecto)</td>
             <td>
-                <a type="button" class="btn btn-warning" href="#" >
+                <a type="button" class="btn btn-warning" href="{% url 'proyectos:reporte_grafico_sprints' proyecto.id %}" target="_blank" >
                     <i class="fa fa-fw fa-file-pdf-o"></i>
                 </a>
             </td>
             <td>
-                <a type="button" class="btn btn-info" href="#" >
+                <a type="button" class="btn btn-info" href="{% url 'proyectos:reporte_grafico_sprints_download' proyecto.id %}" >
                     <i class="fa fa-fw fa-download"></i>
                 </a>
             </td>
@@ -80,12 +80,12 @@
         <tr>
             <td>El Backlog del Producto, lista ordenada de HU, en el orden que esperamos deban terminarse</td>
             <td>
-                <a type="button" class="btn btn-warning" href="#" >
+                <a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_reporte_product_backlog' proyecto.id %}" target="_blank" >
                     <i class="fa fa-fw fa-file-pdf-o"></i>
                 </a>
             </td>
             <td>
-                <a type="button" class="btn btn-info" href="#" >
+                <a type="button" class="btn btn-info" href="{% url 'proyectos:proyecto_reporte_product_backlog_download' proyecto.id %}" >
                     <i class="fa fa-fw fa-download"></i>
                 </a>
             </td>
@@ -93,12 +93,12 @@
         <tr>
             <td>El Backlog del Sprint, lista de los elementos del Backlog del Producto, elegidos para ser desarrollador en el Sprint actual</td>
             <td>
-                <a type="button" class="btn btn-warning" href="#" >
+                <a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_reporte_sprint_backlog' proyecto.id %}" target="_blank" >
                     <i class="fa fa-fw fa-file-pdf-o"></i>
                 </a>
             </td>
             <td>
-                <a type="button" class="btn btn-info" href="#" >
+                <a type="button" class="btn btn-info" href="{% url 'proyectos:proyecto_reporte_sprint_backlog_download' proyecto.id %}" >
                     <i class="fa fa-fw fa-download"></i>
                 </a>
             </td>

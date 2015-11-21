@@ -26,13 +26,18 @@
 		<tr>
 			<th>Gestionar</th>
 			<th>Código</th>
-			<th>Nombre corto</th>
-			<th>Nombre largo</th>
+			<th>Nombre</th>
+
 			<th>Scrum Master</th>
 			<th>Estado</th>
             <th>Cliente</th>
+
+            <th>Inicio</th>
+            <th>Fin</th>
+
 			<th>Editar</th>
 			<th>Cancelar</th>
+            <th></th>
             <th></th>
             <th></th>
 			
@@ -63,7 +68,7 @@
 					<td>{{proyecto.codigo}}</td>
 					<td>{{proyecto.nombre_corto}}</td>
 					
-					<td>{{proyecto.nombre_largo}}</td>
+
 
 					<td>{{proyecto.scrum_master}}</td>
 
@@ -79,6 +84,12 @@
 
 						{{proyecto.cliente}}
 
+					</td>
+                    <td>
+						{{proyecto.fecha_inicio|date:"d/m/Y"}}
+					</td>
+                    <td>
+						{{proyecto.fecha_fin|date:"d/m/Y"}}
 					</td>
 					
 					{% if user == proyecto.scrum_master %}
@@ -125,7 +136,11 @@
                     {% else %}
                         <td></td>
                     {% endif %}
-					
+					<td>
+                        <a type="button" class="btn btn-default" href="{% url 'proyectos:ver' proyecto.id %}">
+                        <i class="fa fa-lg fa-eye"></i>
+                        </a>
+                    </td>
 				</tr>
 			{% else %}
 				<tr>
@@ -135,25 +150,33 @@
 					<td>{{proyecto.codigo}}</td>
 					<td>{{proyecto.nombre_corto}}</td>
 					
-					<td>{{proyecto.nombre_largo}}</td>
+
 
 					<td>{{proyecto.scrum_master}}</td>
 
 					<td>
 						Cancelado
 					</td>			
-
+                    <td>
                         {{proyecto.cliente}}
+					</td>
+
+					<td>
+						{{proyecto.fecha_inicio|date:"d/m/Y"}}
+					</td>
+                    <td>
+						{{proyecto.fecha_fin|date:"d/m/Y"}}
+					</td>
+
 					<td>
 						
 					</td>
 
-					
-
-					<td>
-						
-					</td>
-					
+                    <td>
+                        <a type="button" class="btn btn-default" href="{% url 'proyectos:ver' proyecto.id %}">
+                        <i class="fa fa-lg fa-eye"></i>
+                        </a>
+                    </td>
 					
 				</tr>
 			{% endif %}

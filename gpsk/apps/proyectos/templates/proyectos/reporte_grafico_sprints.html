@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Reporte de tiempo</title>
+        <style type="text/css">
+            @page {
+                size: {{ pagesize }};
+                margin: 1cm;
+                @frame footer {
+                    -pdf-frame-content: footerContent;
+                    bottom: 0cm;
+                    margin-left: 9cm;
+                    margin-right: 9cm;
+                    height: 1cm;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    {% load staticfiles %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/raphael-min.js' %}"></script>
+    <script src="{% static 'js/morris.min.js' %}"></script>
+    <h1>Sprints</h1>
+        <div>
+            <script type="text/javascript">
+                console.log("desde el log");
+            </script>
+            {% for calculado_json in lista_calculado_json %}
+                {{calculado_json}}
+                <div id="myfirstchart" style="height: 300px;"></div>
+                <script type="text/javascript">
+                    var sprint = "{{sprint}}";
+                    var calculado = "{{calculado_json}}";
+                    var decoded = JSON.parse(calculado.replace(/&quot;/g,'"'));
+                    console.log(decoded);
+                    new Morris.Line({
+                      // ID of the element in which to draw the chart.
+                      element: 'myfirstchart',
+                      // Chart data records -- each entry in this array corresponds to a point on
+                      // the chart.
+                      data: decoded,
+                      // The name of the data record attribute that contains x-values.
+                      xkey: 'year',
+                      // A list of names of data record attributes that contain y-values.
+                      ykeys: ['value2', 'value'],
+                      // Labels for the ykeys -- will be displayed when you hover over the
+                      // chart.
+                      labels: ['Restante Estimado', 'Restante a Realizar'],
+                      parseTime: false,
+                      hideHover: true,
+                      //events: ["{{sprint.duracion}}"]
+                      xLabels: "day",
+                      xLabelFormat: function(day) {
+                          //console.log(day.src.year);
+                          return 'Dia ' + day.src.year;
+                          },
+                      lineColors: ['red', 'green'],
+                      postUnits: ' horas',
+                      pointSize: '6'
+                      //ymin: 'auto[0]'
+
+                    });
+                </script>
+            {% endfor %}
+        </div>
+        <div id="footerContent">
+            {%block page_foot%}
+                Page <pdf:pagenumber>
+            {%endblock%}
+        </div>
+
+
+    </body>
+</html>

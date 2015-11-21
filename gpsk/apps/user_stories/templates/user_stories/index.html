@@ -36,22 +36,22 @@
 
 
 
-
-	<table class="table table-responsive">
+	<table class="table table-responsive" id="product_backlog">
 	<thead>
 		<tr>
 			<th>Historial</th>
             <th>Nombre</th>
 
-			<th>Valor Negocio</th>
+
 			<th>Prioridad</th>
-			<th>Valor Tecnico</th>
+
 			<th>Estimacion</th>
-            <th>Usuario</th>
+            <th>Desarrollador</th>
             <th>Estado</th>
             <th>Flujo</th>
             <th>Sprint</th>
             <th>Editar</th>
+            <th>Ver</th>
 
 
 		</tr>
@@ -89,11 +89,11 @@
 
 
 
-					<td>{{userstory.valor_negocio}}</td>
+
 
                     <td>{{userstory.prioridad}}</td>
 
-                    <td>{{userstory.valor_tecnico}}</td>
+
 
                     <td>{{userstory.estimacion}} horas</td>
 
@@ -140,6 +140,11 @@
                         {% else %}
 
                         {% endif %}
+                    <td>
+                        <a type="button" class="btn btn-default" href="{% url 'user_stories:ver' proyecto.id userstory.id %}">
+                        <i class="fa fa-lg fa-eye"></i>
+                        </a>
+                    </td>
 
 				</tr>
 			{% else %}
@@ -157,15 +162,15 @@
 
 
 
-					<td>{{userstory.valor_negocio}}</td>
+
 
                     <td>{{userstory.prioridad}}</td>
 
-                    <td>{{userstory.valor_tecnico}}</td>
+
 
                     <td>{{userstory.estimacion}} horas</td>
 
-                    <td>{{userstory.usuario}}</td>
+                    <td>{{userstory.usuario|default_if_none:"-"}}</td>
 
 
 					<td>
@@ -174,15 +179,18 @@
 
 					</td>
 
-                    <td>{{userstory.flujo}}</td>
-
-                    <td>{{userstory.sprint}}</td>
+                    <td>{{userstory.flujo|default_if_none:"-"}}</td>
+                    <td>{{userstory.sprint|default_if_none:"-"}}</td>
 
 					<td>
 
 					</td>
 
-
+                    <td>
+                        <a type="button" class="btn btn-default" href="{% url 'user_stories:ver' proyecto.id userstory.id %}">
+                        <i class="fa fa-lg fa-eye"></i>
+                        </a>
+                    </td>
 
 
 

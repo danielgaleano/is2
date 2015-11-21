@@ -41,7 +41,7 @@
             </div>
         {% endif %}
         <div class="col-xs-8">
-            <table class="table table-striped">
+            <table class="table table-striped" id="user_story_notas">
                 <thead>
                     <tr>
                         <th>Nota</th>
@@ -61,6 +61,7 @@
                         {{nota.usuario}}
                     </td>
                     <td class="col-md-1">
+                        <!-- {{nota.fecha|date:"YmdHis"}} -->
                         {{nota.fecha|date:"d/m/Y"}}
                     </td>
                 </tr>

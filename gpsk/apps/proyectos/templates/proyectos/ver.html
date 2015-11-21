@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a type="button" class="btn btn-info" href="{% url 'proyectos:index' %}" >
+	<i class="fa fa-fw fa-chevron-left"></i> Atrás
+</a>
+
+	<!-- Page Heading -->
+	    <div class="row">
+	        <div class="col-lg-12">
+	            <h1 class="page-header">
+	                 <i class="fa fa-fw fa-archive"></i> Proyecto <small>{{proyecto}}</small>
+	            </h1>
+	        </div>
+	    </div>
+	<!-- /.row -->
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Codigo</td>
+            <td>{{proyecto.codigo}}</td>
+        </tr>
+        <tr>
+            <td>Nombre corto</td>
+            <td>{{proyecto.nombre_corto}}</td>
+        </tr>
+        <tr>
+            <td>Nombre largo</td>
+            <td>{{proyecto.nombre_largo}}</td>
+        </tr>
+        <tr>
+            <td>Estado</td>
+            <td>{{proyecto.estado}}</td>
+        </tr>
+        <tr>
+            <td>Scrum Master</td>
+            <td>{{proyecto.scrum_master}}</td>
+        </tr>
+        <tr>
+            <td>Cliente</td>
+            <td>{{proyecto.cliente}}</td>
+        </tr>
+        <tr>
+            <td>Fecha de inicio</td>
+            <td>{{proyecto.fecha_inicio|date:"d/m/Y"}}</td>
+        </tr>
+        <tr>
+            <td>Fecha de finalizacion</td>
+            <td>{{proyecto.fecha_fin|date:"d/m/Y"}}</td>
+        </tr>
+
+
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}

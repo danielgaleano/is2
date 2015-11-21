@@ -41,7 +41,7 @@
             </tr>
         </table>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-5">
         <div class="col-lg-6">
             <a class="btn btn-success" href="{% url 'sprints:detalle_horas' proyecto.id sprint.id %}">
                 Detalle de horas
@@ -68,16 +68,14 @@
     <h3>
         Product Backlog Priorizado
     </h3>
-    <div class="table-responsive">
-            <table class="table">
+    <div class="table-responsive" >
+            <table class="table" id="product_backlog_priorizado">
             <thead>
                 <tr>
 
                     <th>Nombre</th>
                     <th>Estimacion</th>
                     <th>Prioridad</th>
-                    <th>Valor Técnico</th>
-                    <th>Valor de negocio</th>
                     <th></th>
 
 
@@ -97,16 +95,15 @@
 
                             <td>{{userstory.prioridad}}</td>
 
-                            <td>{{userstory.valor_tecnico}}</td>
 
-                            <td>{{userstory.valor_negocio}}</td>
                             {% if sprint.estado == 'No iniciado' %}
                             <td>
-                                <a type="button" class="btn btn-warning" href="{% url 'sprints:asignar_sprint' proyecto.id sprint.id userstory.id %}">
+                                <a type="button" class="btn btn-warning btn-sm" href="{% url 'sprints:asignar_sprint' proyecto.id sprint.id userstory.id %}">
                                 Asignar
                                 </a>
                             </td>
                             {% else %}
+                            <td></td>
                             {% endif %}
                         </tr>
                         {% else %}
@@ -118,16 +115,15 @@
 
                             <td>{{userstory.prioridad}}</td>
 
-                            <td>{{userstory.valor_tecnico}}</td>
 
-                            <td>{{userstory.valor_negocio}}</td>
                             {% if sprint.estado == 'No iniciado' %}
                             <td>
-                                <a type="button" class="btn btn-warning" href="{% url 'sprints:asignar_sprint' proyecto.id sprint.id userstory.id %}">
+                                <a type="button" class="btn btn-warning btn-sm" href="{% url 'sprints:asignar_sprint' proyecto.id sprint.id userstory.id %}">
                                 Asignar
                                 </a>
                             </td>
                             {% else %}
+                            <td></td>
                             {% endif %}
                         </tr>
                         {% endif %}
@@ -143,8 +139,8 @@
     <h3>
         Sprint Backlog
     </h3>
-    <div class="table-responsive">
-        <table class="table table-striped">
+
+        <table class="table table-striped" id="sprint_backlog_priorizado">
             <thead>
                 <tr>
 
@@ -176,14 +172,14 @@
 
                             {% if "Finalizado" != sprint.estado|stringformat:"s" %}
                             <td>
-                                <a type="button" class="btn btn-primary" href="{% url 'sprints:gestionar_update' proyecto.id sprint.id userstory.id %}">
+                                <a type="button" class="btn btn-primary btn-sm" href="{% url 'sprints:gestionar_update' proyecto.id sprint.id userstory.id %}">
                                 <i class="fa fa-lg fa-edit"></i>
                                 </a>
                             </td>
 
 
                             <td>
-                                <a type="button" class="btn btn-danger" href="{% url 'sprints:gestionar_delete' proyecto.id sprint.id userstory.id %}">
+                                <a type="button" class="btn btn-danger btn-sm" href="{% url 'sprints:gestionar_delete' proyecto.id sprint.id userstory.id %}">
                                 <i class="fa fa-lg fa-minus"></i>
                                 </a>
                             </td>
@@ -199,7 +195,7 @@
 
             </tbody>
         </table>
-    </div>
+
 </div>
 
 {% endblock %}

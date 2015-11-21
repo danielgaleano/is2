@@ -24,12 +24,14 @@
 
 
 
-	<table class="table table-striped">
+	<table class="table table-striped" id="sprint_backlog">
 	<thead>
 		<tr>
 
             <th>Nombre</th>
 			<th>Usuario</th>
+            <th>Estimacion</th>
+            <th>Horas Acumuladas</th>
             <th>Estado</th>
             <th>Flujo</th>
             <th>Actividad</th>
@@ -43,14 +45,26 @@
 		{% for userstory in  userstory_list %}
 
 
-
+                {% if userstory.estado == 'Activo' %}
+				    <tr class="info">
+                {% elif userstory.estado == 'Aprobado' %}
+                    <tr class="success">
+                {% elif userstory.estado == 'Pendiente' %}
+                    <tr class="warning">
+                {% elif userstory.estado == 'Descartado' %}
+                    <tr class="danger">
+                {% else %}
 				<tr>
-
+                {% endif %}
                     <td>{{userstory.nombre}}</td>
 
 
 
 					<td>{{userstory.usuario}}</td>
+
+                    <td>{{userstory.estimacion}} horas</td>
+
+                    <td>{{userstory.horas_acumuladas}}</td>
 
                     <td>{{userstory.estado}}</td>
 
