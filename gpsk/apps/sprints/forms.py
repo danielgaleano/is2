@@ -10,6 +10,7 @@ from apps.flujos.models import Flujo
 
 
 
+
 # 1 MB - 1048576
 # 2.5MB - 2621440
 # 5MB - 5242880
@@ -213,8 +214,9 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
             Proyecto.objects.get(pk=proyecto.pk).equipo.all().filter(pk__in=pk_rol),
             required=True)
         self.fields['estado'] = forms.ChoiceField(choices=ESTADO_USER_STORY, widget=forms.HiddenInput(), required=False)
+
         #flitrar solo los flujos del proyecto
-        self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
+        self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.filter(proyecto=proyecto).order_by('pk'), required=True)
         #flitrar solo los sprints del proyecto
         self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=proyecto).order_by('pk'),
                                                        required=False, widget=forms.HiddenInput())
@@ -269,14 +271,18 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
 
 
         actividades = user_story.flujo.actividades.all()
+        print "Actividades asignar %s" % actividades
+        for a in actividades:
+            print "act: %s - %s" % (a.pk, a)
         estados = actividades[0].estados.all()
         existe = True
         try:
             detalle = UserStoryDetalle.objects.get(user_story=user_story)
-            if detalle.userstory.flujo == user_story.flujo:
+            if detalle.user_story.flujo == user_story.flujo:
                 pass
             # si se cambia de flujo a un user_story pendiente
             else:
+
                 detalle.actividad = actividades[0]
                 detalle.estado = estados[0]
                 detalle.save()
@@ -286,6 +292,7 @@ class SprintAsignarUserStoryForm(forms.ModelForm):
         if existe:
             pass
         else:
+            print "act_else: %s - %s" % (actividades[0].pk, actividades[0])
             detalle = UserStoryDetalle(user_story=user_story, actividad=actividades[0], estado=estados[0])
             detalle.save()
 
@@ -378,7 +385,7 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
 
         self.fields['estado'] = forms.ChoiceField(choices=ESTADO_USER_STORY, widget=forms.HiddenInput(), required=False)
         #flitrar solo los flujos del proyecto
-        self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.all(), required=True)
+        self.fields['flujo'] = forms.ModelChoiceField(Flujo.objects.filter(proyecto=proyecto).order_by('pk'), required=True)
         #flitrar solo los sprints del proyecto
         self.fields['sprint'] = forms.ModelChoiceField(Sprint.objects.filter(proyecto=proyecto).order_by('pk'),
                                                        required=False, widget=forms.HiddenInput())
@@ -413,7 +420,7 @@ class SprintUpdateUserStoryForm(forms.ModelForm):
         if user_story.flujo != self.cleaned_data['flujo']:
             user_story.flujo = self.cleaned_data['flujo']
             historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
-                                                  valor=self.cleaned_data['flujo'], usuario=self.user)
+                                              valor=self.cleaned_data['flujo'], usuario=self.user)
             historial_us.save()
 
         user_story.sprint = self.cleaned_data['sprint']
@@ -437,7 +444,7 @@ class RegistrarTareaForm(forms.ModelForm):
 
         user_story = UserStory.objects.get(pk=user_story_string.pk)
         sprint = Sprint.objects.get(pk=sprint_string.pk)
-        proyecto = Sprint.objects.get(pk=proyecto_string.pk)
+        proyecto = Proyecto.objects.get(pk=proyecto_string.pk)
 
         pk_rol = []
         for rol in rol_developer:
@@ -611,7 +618,7 @@ class AgregarNotaFormNoAprobar(forms.ModelForm):
 
         user_story = UserStory.objects.get(pk=user_story_string.pk)
         sprint = Sprint.objects.get(pk=sprint_string.pk)
-        proyecto = Sprint.objects.get(pk=proyecto_string.pk)
+        proyecto = Proyecto.objects.get(pk=proyecto_string.pk)
 
         #pk_rol = []
         #for rol in rol_developer:
