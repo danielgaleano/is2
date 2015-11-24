@@ -25,7 +25,7 @@
 	{% endif %}
 
 {% load index %}
-{% if permisos|tiene_permiso:'crear_sprint' %}
+{% if permisos|tiene_permiso:'crear_sprint' and "Finalizado" != proyecto.estado|stringformat:"s" and proyecto.cancelado != True %}
 
 	<a type="button" class="btn btn-success pull-right" href="{% url 'sprints:create' proyecto.id %}" >
 	<i class="fa fa-lg fa-tasks"></i>
@@ -85,7 +85,7 @@
 					<td>{{sprint.duracion}} días</td>
 
                     <td>{{sprint.estado}}</td>
-                    {% if sprint.fecha_inicio == sprint.fecha_fin %}
+                    {% if "No iniciado" == sprint.estado|stringformat:"s" %}
                     <td></td>
                     <td></td>
                     {% else %}
@@ -95,7 +95,7 @@
 
 
 
-                        {% if permisos|tiene_permiso:'modificar_sprint' and "No iniciado" == sprint.estado|stringformat:"s" %}
+                        {% if permisos|tiene_permiso:'modificar_sprint' and "No iniciado" == sprint.estado|stringformat:"s" and "Finalizado" != proyecto.estado|stringformat:"s" and proyecto.cancelado != True %}
                             <td>
                                 <a type="button" class="btn btn-primary" href="{% url 'sprints:update' proyecto.id sprint.id %}">
                                 <i class="fa fa-lg fa-edit"></i>
@@ -105,7 +105,7 @@
                             <td></td>
                         {% endif %}
 
-                        {% if permisos|tiene_permiso:'iniciar_sprint' and "No iniciado" == sprint.estado|stringformat:"s" and hay_activo == False %}
+                        {% if permisos|tiene_permiso:'iniciar_sprint' and "No iniciado" == sprint.estado|stringformat:"s" and hay_activo == False and "Finalizado" != proyecto.estado|stringformat:"s" and proyecto.cancelado != True %}
                             <td>
                                 <a type="button" class="btn btn-success" href="{% url 'sprints:iniciar' proyecto.id sprint.id %}">
                                 <i class="fa fa-lg fa-play"></i> Iniciar Sprint
@@ -115,7 +115,7 @@
                             <td></td>
                         {% endif %}
 
-                        {% if permisos|tiene_permiso:'finalizar_sprint' and "Activo" == sprint.estado|stringformat:"s" %}
+                        {% if permisos|tiene_permiso:'finalizar_sprint' and "Activo" == sprint.estado|stringformat:"s" and "Finalizado" != proyecto.estado|stringformat:"s" and proyecto.cancelado != True %}
                             <td>
                                 <a type="button" class="btn btn-danger" href="{% url 'sprints:finalizar' proyecto.id sprint.id %}">
                                 <i class="fa fa-lg fa-stop"></i> Finalizar Sprint

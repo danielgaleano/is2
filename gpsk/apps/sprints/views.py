@@ -45,12 +45,12 @@ class IndexView(generic.ListView):
         todos_permisos = []
         self.todos_permisos = permisos.all()
         print "permisos del rol de proyecto"
-        print "permisos todos %s" % todos_permisos
+        print "permisos todos %s" % self.todos_permisos
         print permisos.all()
         for permiso in permisos.all():
             print "- %s" % permiso
 
-        el_permiso = Permission.objects.get(codename='crear_userstory')
+        el_permiso = Permission.objects.get(codename='crear_sprint')
         print "El permiso %s" % el_permiso
         tiene = False
 
@@ -655,6 +655,10 @@ def desasignar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
             historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="flujo",
                                                   valor='Ninguno', usuario=usuario)
             historial_us.save()
+            historial_us = HistorialUserStory(user_story=user_story, operacion='modificado', campo="estado",
+                                              valor='No asignado', usuario=usuario)
+
+            historial_us.save()
 
 
             #detalle = UserStoryDetalle.objects.get(user_story=user_story)
@@ -679,6 +683,17 @@ def iniciar_sprint(request, pk_proyecto, pk_sprint):
     proyecto = get_object_or_404(Proyecto, pk=pk_proyecto)
     sprint_list = Sprint.objects.filter(proyecto=proyecto).order_by('pk')
 
+    #self.proyecto = get_object_or_404(Proyecto, pk=self.kwargs['pk_proyecto'])
+    queryset = RolProyecto_Proyecto.objects.filter(proyecto=pk_proyecto)
+    roles_de_proyecto = get_list_or_404(queryset, user=request.user)
+
+    print "roles de proyecto %s" % roles_de_proyecto
+
+    permisos_lista = roles_de_proyecto[0].rol_proyecto.group.permissions
+    todos_permisos = []
+    todos_permisos = permisos_lista.all()
+    permisos = todos_permisos
+
     hay_activo = False
     for sprint in sprint_list:
         if sprint.estado == 'Activo':
@@ -702,10 +717,24 @@ def iniciar_sprint(request, pk_proyecto, pk_sprint):
         sprint.estado = 'Activo'
         sprint.fecha_inicio = datetime.date.today()
         cant_dias_habiles = 0
-        for i in range(0, sprint.duracion+1):
-            cant_dias_habiles = habiles(sprint.fecha_inicio, (sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i)))
+        #for i in range(0, sprint.duracion):
+        #    print "i %s" % i
+        #    cant_dias_habiles = habiles(sprint.fecha_inicio, (sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i)))
+        #    print "cant_dias_habiles %s" % cant_dias_habiles
+        #    print "sprint_duracion %s" % sprint.duracion
+        #    if cant_dias_habiles == sprint.duracion:
+        #        sprint.fecha_fin = sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i)
+        #        print "fecha_fin %s" % sprint.fecha_fin
+        #        break
+
+        for i in range(0, sprint.duracion+2):
+            print "i %s" % i
+            cant_dias_habiles = habiles(sprint.fecha_inicio, (sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i-1)))
+            print "cant_dias_habiles %s" % cant_dias_habiles
+            print "sprint_duracion %s" % sprint.duracion
             if cant_dias_habiles == sprint.duracion:
-                sprint.fecha_fin = sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i)
+                sprint.fecha_fin = sprint.fecha_inicio + datetime.timedelta(days=sprint.duracion+i-1)
+                print "fecha_fin %s" % sprint.fecha_fin
                 break
 
         sprint.save()
@@ -763,6 +792,9 @@ def sprint_kanban(request, pk_proyecto, pk_sprint):
 
     #flujos_sprint = Flujo.objects.filter(pk__in=flujos_sprint_t).order_by('pk')
     print flujos_sprint
+    flujos_sprint.sort(key=lambda x: x.nombre, reverse=False)
+    print flujos_sprint
+    print user_stories
 
     return render(request, template, locals())
 
@@ -1632,22 +1664,29 @@ def burndown_chart(request, pk_proyecto, pk_sprint):
         print "calculado2 = %s" % calculado2
         #calculado = horas_totales_estimacion
         #entro = False
-        for tarea in lista_tareas_us_sprint:
 
-            print "tareafecha %s, sprint_inicio %s" % (tarea.fecha, sprint.fecha_inicio)
-            if tarea.fecha.date() == sprint.fecha_inicio+datetime.timedelta(days=day):
-                #entro = True
-                print "if"
-                print "estado %s" % tarea.user_story.estado
-                if calculado >= 0:
-                    calculado = calculado - tarea.horas_de_trabajo
+        if sprint.fecha_inicio+datetime.timedelta(days=day) <= datetime.date.today():
+            for tarea in lista_tareas_us_sprint:
 
-                    #aqui se podria agregar que si la resta es menor a cero
-                    #asignarle cero para que la linea de trabajo realizado no sea negativa
-                    #se deberia ver tambien si se termina antes de la fecha de finalizacion esperada
-                    #la linea de trabajo realizado deberia teminar alli
+                print "tareafecha %s, sprint_inicio %s" % (tarea.fecha, sprint.fecha_inicio)
+                if tarea.fecha.date() == sprint.fecha_inicio+datetime.timedelta(days=day):
+                    #entro = True
+                    print "if"
+                    print "estado %s" % tarea.user_story.estado
+                    if calculado - tarea.horas_de_trabajo >= 0:
+                        calculado = calculado - tarea.horas_de_trabajo
+
+                    else:
+                        calculado = 0
+
+                        #aqui se podria agregar que si la resta es menor a cero
+                        #asignarle cero para que la linea de trabajo realizado no sea negativa
+                        #se deberia ver tambien si se termina antes de la fecha de finalizacion esperada
+                        #la linea de trabajo realizado deberia teminar alli
 
                     print "calculado = %s" % calculado
+        else:
+            calculado = None
 
         #if entro:
         dia_semana = (sprint.fecha_inicio+datetime.timedelta(days=day)).weekday()

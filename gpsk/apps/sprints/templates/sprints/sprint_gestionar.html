@@ -96,7 +96,7 @@
                             <td>{{userstory.prioridad}}</td>
 
 
-                            {% if sprint.estado == 'No iniciado' %}
+                            {% if sprint.estado == 'No iniciado' and "Finalizado" != proyecto.estado|stringformat:"s" and proyecto.cancelado != True %}
                             <td>
                                 <a type="button" class="btn btn-warning btn-sm" href="{% url 'sprints:asignar_sprint' proyecto.id sprint.id userstory.id %}">
                                 Asignar
@@ -170,7 +170,7 @@
 
                             <td>{{userstory.flujo}}</td>
 
-                            {% if "Finalizado" != sprint.estado|stringformat:"s" %}
+                            {% if "No iniciado" == sprint.estado|stringformat:"s" %}
                             <td>
                                 <a type="button" class="btn btn-primary btn-sm" href="{% url 'sprints:gestionar_update' proyecto.id sprint.id userstory.id %}">
                                 <i class="fa fa-lg fa-edit"></i>

@@ -18,7 +18,7 @@
 
 
 {% load index %}
-{% if permisos|tiene_permiso:'asignar_flujo' %}
+{% if permisos|tiene_permiso:'asignar_flujo' and proyecto.cancelado == False and "Finalizado" != proyecto.estado|stringformat:"s"%}
 
 	<a type="button" class="btn btn-success pull-right" href="{% url 'flujos:asignar' proyecto.id %}" >
 	<i class="fa fa-lg fa-exchange"></i>

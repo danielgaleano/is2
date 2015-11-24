@@ -25,7 +25,7 @@
 	<thead>
 		<tr>
 			<th>Gestionar</th>
-			<th>Código</th>
+
 			<th>Nombre</th>
 
 			<th>Scrum Master</th>
@@ -65,7 +65,7 @@
                     <td></td>
                     {%endif%}
 
-					<td>{{proyecto.codigo}}</td>
+
 					<td>{{proyecto.nombre_corto}}</td>
 					
 
@@ -143,11 +143,11 @@
                     </td>
 				</tr>
 			{% else %}
-				<tr>
+				<tr class="danger">
 					<td><a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_index' proyecto.id %}">
 						<i class="fa fa-lg fa-archive"></i>
 						</a></td>
-					<td>{{proyecto.codigo}}</td>
+
 					<td>{{proyecto.nombre_corto}}</td>
 					
 
@@ -170,6 +170,15 @@
 
 					<td>
 						
+					</td>
+                    <td>
+
+					</td>
+                    <td>
+
+					</td>
+                    <td>
+
 					</td>
 
                     <td>

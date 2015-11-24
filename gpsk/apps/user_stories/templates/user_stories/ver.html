@@ -40,15 +40,15 @@
         </tr>
         <tr>
             <td>Desarrollador</td>
-            <td>{{user_story.usuario}}</td>
+            <td>{{user_story.usuario|default_if_none:"-"}}</td>
         </tr>
         <tr>
             <td>Flujo</td>
-            <td>{{user_story.flujo}}</td>
+            <td>{{user_story.flujo|default_if_none:"-"}}</td>
         </tr>
         <tr>
             <td>Sprint</td>
-            <td>{{user_story.sprint}}</td>
+            <td>{{user_story.sprint|default_if_none:"-"}}</td>
         </tr>
         <tr>
             <td>Prioridad</td>

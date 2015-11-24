@@ -17,7 +17,7 @@
 	<!-- /.row -->
 
 {% load index %}
-{% if permisos|tiene_permiso:'crear_userstory' and user != proyecto.scrum_master %}
+{% if permisos|tiene_permiso:'crear_userstory' and user != proyecto.scrum_master and proyecto.cancelado == False and "Finalizado" != proyecto.estado|stringformat:"s"%}
 
 	<a type="button" class="btn btn-success pull-right" href="{% url 'user_stories:create' proyecto.id %}" >
 	<i class="fa fa-lg fa-file"></i>
@@ -25,7 +25,7 @@
 	</a>
 
 {% endif %}
-{% if permisos|tiene_permiso:'crear_userstory' and user == proyecto.scrum_master %}
+{% if permisos|tiene_permiso:'crear_userstory' and user == proyecto.scrum_master and proyecto.cancelado == False and "Finalizado" != proyecto.estado|stringformat:"s"%}
 
 	<a type="button" class="btn btn-success pull-right" href="{% url 'user_stories:create_sm' proyecto.id %}" >
 	<i class="fa fa-lg fa-file"></i>
@@ -109,14 +109,14 @@
                         {% if userstory.estado|stringformat:"s" == "Aprobado" %}
                             <td></td>
                         {% else %}
-                        {% if permisos|tiene_permiso:'redefinir_userstory' and user != proyecto.scrum_master %}
+                        {% if permisos|tiene_permiso:'redefinir_userstory' and user != proyecto.scrum_master and proyecto.cancelado == False and "Finalizado" != proyecto.estado|stringformat:"s" %}
 
                             <td>
                                 <a type="button" class="btn btn-primary" href="{% url 'user_stories:update' proyecto.id userstory.id %}">
                                 <i class="fa fa-lg fa-edit"></i>
                                 </a>
                             </td>
-                        {% elif  permisos|tiene_permiso:'definir_valor_tecnico_y_estimacion_userstory' and user == proyecto.scrum_master %}
+                        {% elif  permisos|tiene_permiso:'definir_valor_tecnico_y_estimacion_userstory' and user == proyecto.scrum_master and proyecto.cancelado == False and "Finalizado" != proyecto.estado|stringformat:"s"%}
                             <td>
                                 <a type="button" class="btn btn-primary" href="{% url 'user_stories:update_sm' proyecto.id userstory.id %}">
                                 <i class="fa fa-lg fa-edit"></i>

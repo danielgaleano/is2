@@ -669,22 +669,29 @@ def reporte_grafico_reportlab(request, pk):
             print "calculado2 = %s" % calculado2
             #calculado = horas_totales_estimacion
             #entro = False
-            for tarea in lista_tareas_us_sprint:
 
-                print "tareafecha %s, sprint_inicio %s" % (tarea.fecha, sprint.fecha_inicio)
-                if tarea.fecha.date() == sprint.fecha_inicio+datetime2.timedelta(days=day):
-                    #entro = True
-                    print "if"
-                    print "estado %s" % tarea.user_story.estado
-                    if calculado >= 0:
-                        calculado = calculado - tarea.horas_de_trabajo
+            if sprint.fecha_inicio+datetime2.timedelta(days=day) <= datetime2.date.today():
+                for tarea in lista_tareas_us_sprint:
 
-                        #aqui se podria agregar que si la resta es menor a cero
-                        #asignarle cero para que la linea de trabajo realizado no sea negativa
-                        #se deberia ver tambien si se termina antes de la fecha de finalizacion esperada
-                        #la linea de trabajo realizado deberia teminar alli
+                    print "tareafecha %s, sprint_inicio %s" % (tarea.fecha, sprint.fecha_inicio)
+                    if tarea.fecha.date() == sprint.fecha_inicio+datetime2.timedelta(days=day):
+                        #entro = True
+                        print "if"
+                        print "estado %s" % tarea.user_story.estado
+                        if calculado - tarea.horas_de_trabajo >= 0:
+                            calculado = calculado - tarea.horas_de_trabajo
+
+                        else:
+                            calculado = 0
+
+                            #aqui se podria agregar que si la resta es menor a cero
+                            #asignarle cero para que la linea de trabajo realizado no sea negativa
+                            #se deberia ver tambien si se termina antes de la fecha de finalizacion esperada
+                            #la linea de trabajo realizado deberia teminar alli
 
                         print "calculado = %s" % calculado
+            else:
+                calculado = None
 
             #if entro:
             dia_semana = (sprint.fecha_inicio+datetime2.timedelta(days=day)).weekday()
@@ -839,22 +846,29 @@ def reporte_grafico_reportlab_download(request, pk):
             print "calculado2 = %s" % calculado2
             #calculado = horas_totales_estimacion
             #entro = False
-            for tarea in lista_tareas_us_sprint:
 
-                print "tareafecha %s, sprint_inicio %s" % (tarea.fecha, sprint.fecha_inicio)
-                if tarea.fecha.date() == sprint.fecha_inicio+datetime2.timedelta(days=day):
-                    #entro = True
-                    print "if"
-                    print "estado %s" % tarea.user_story.estado
-                    if calculado >= 0:
-                        calculado = calculado - tarea.horas_de_trabajo
+            if sprint.fecha_inicio+datetime.timedelta(days=day) <= datetime.date.today():
+                for tarea in lista_tareas_us_sprint:
 
-                        #aqui se podria agregar que si la resta es menor a cero
-                        #asignarle cero para que la linea de trabajo realizado no sea negativa
-                        #se deberia ver tambien si se termina antes de la fecha de finalizacion esperada
-                        #la linea de trabajo realizado deberia teminar alli
+                    print "tareafecha %s, sprint_inicio %s" % (tarea.fecha, sprint.fecha_inicio)
+                    if tarea.fecha.date() == sprint.fecha_inicio+datetime2.timedelta(days=day):
+                        #entro = True
+                        print "if"
+                        print "estado %s" % tarea.user_story.estado
+                        if calculado - tarea.horas_de_trabajo >= 0:
+                            calculado = calculado - tarea.horas_de_trabajo
+
+                        else:
+                            calculado = 0
+
+                            #aqui se podria agregar que si la resta es menor a cero
+                            #asignarle cero para que la linea de trabajo realizado no sea negativa
+                            #se deberia ver tambien si se termina antes de la fecha de finalizacion esperada
+                            #la linea de trabajo realizado deberia teminar alli
 
                         print "calculado = %s" % calculado
+            else:
+                calculado = None
 
             #if entro:
             dia_semana = (sprint.fecha_inicio+datetime2.timedelta(days=day)).weekday()
