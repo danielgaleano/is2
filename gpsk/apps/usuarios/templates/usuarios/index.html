@@ -46,7 +46,7 @@
 	<tbody>
 
 		{% for usuario in  user_list %}
-			{% if usuario.is_active %}
+			{% if usuario.is_active and usuario.is_staff == False %}
 				<tr>
 					<td>{{usuario}}</td>
 					<td>{{usuario.first_name}}</td>
@@ -139,7 +139,7 @@
 	<tbody>
 
 		{% for usuario in  user_list %}
-			{% if not usuario.is_active %}
+			{% if not usuario.is_active and usuario.is_staff == False %}
 				<tr>
 					<td>{{usuario}}</td>
 					<td>{{usuario.first_name}}</td>

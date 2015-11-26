@@ -42,6 +42,7 @@ ul {
     padding: 5px;
     border: 1px solid #D3D3D3;
     background: #EFF5F5;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.05);
 }
 .invisible-li {
     visibility: hidden;
@@ -102,12 +103,21 @@ th {
 
 #sprint-activo:hover {
     cursor: pointer;
-    background-color: #5cb85c;
+    background-color: #5BC0DE;
 }
 #sprint-finalizado:hover {
     cursor: pointer;
-    background-color: #d9534f;
+    background-color: #5CB85C;
 }
+#sprint-activo {
+    cursor: pointer;
+    background-color: #5BC0DE;
+}
+#sprint-finalizado {
+    cursor: pointer;
+    background-color: #5CB85C;
+}
+
 #td-burn {
     padding: 0;
 }
@@ -132,3 +142,6 @@ th {
     //width: 900px;
 }
 .dataTables_filter { : center }
+.obligatorio {
+    color: #a94442;
+}

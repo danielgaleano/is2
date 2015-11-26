@@ -19,7 +19,7 @@
     {% csrf_token %}
 	<p>
 	 	{{form.name.errors}}
-        <label for="name">Nombre</label>
+        <label for="name">Nombre *</label>
 
         {{form.name}}
 
@@ -27,11 +27,12 @@
 
     <p>
     	{{ form.permissions.errors }}
-    	<label for="permisssions">Permisos</label>
+    	<label for="permisssions">Permisos *</label>
     	<ul><li><input type="checkbox" id="selectall">Seleccionar todo</li></ul>
     	{{ form.permissions }}
 
     </p>
+    <p class="obligatorio">* Campos obligatorios</p>
     <input type="submit" value="Crear" class="btn btn-success"/>
 </form>
 {% endblock %}

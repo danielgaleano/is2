@@ -17,7 +17,7 @@
 <form action=" {{ proyectos.get_absolute_url }} " method="post">
 	{% csrf_token %}
     {{ form.as_p }}
-    <p>* Todos los campos son obligatorios</p>
+    <p class="obligatorio">* Todos los campos son obligatorios</p>
     <input type="submit" value="Modificar" class="btn btn-primary"/>
 </form>
 {% endblock %}

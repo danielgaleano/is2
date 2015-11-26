@@ -24,11 +24,12 @@
 
     <p>
     	{{ form.permissions.errors }}
-    	<label for="permisssions">Permisos</label>
+    	<label for="permisssions">Permisos *</label>
     	<ul><li><input type="checkbox" id="selectall">Seleccionar todo</li></ul>
     	{{ form.permissions }}
     
     </p>
+    <p class="obligatorio">* Campos obligatorios</p>
     <input type="submit" value="Guardar" class="btn btn-warning"/>
 </form>
 

@@ -39,7 +39,7 @@
 
 	{% endif %}
 
-    <label for="nombre">Nombre</label>
+    <label for="nombre">Nombre *</label>
     <input type="text" id="nombre" value="{{nombre_plantilla}}"/>
 
     	<div class="row">
@@ -88,7 +88,7 @@
 
 
 
-
+    <p class="obligatorio">* Campo obligatorio</p>
     <input type="submit" value="Modificar" class="btn btn-success"/>
 </form>
 {% endblock %}

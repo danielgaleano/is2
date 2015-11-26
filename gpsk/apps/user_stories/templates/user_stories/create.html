@@ -19,7 +19,7 @@
 <form action=" {{ user_stories.get_absolute_url }} " method="post" id="form_user_stories">
 	{% csrf_token %}
 	{{ form.as_p }}
-
+    <p class="obligatorio">* Todos los campos son obligatorios</p>
     <input type="submit" value="Crear" class="btn btn-success" id="submit-user_story"/>
 </form>
     </div>

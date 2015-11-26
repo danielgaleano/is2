@@ -53,7 +53,7 @@
 
                             {% if sprint.estado|stringformat:"s" == "Activo" %}
                             <tr>
-                                <td id="sprint-activo" data-href="{% url 'sprints:kanban' proyecto.id sprint.id %}" class="success">
+                                <td id="sprint-activo" data-href="{% url 'sprints:kanban' proyecto.id sprint.id %}" class="info celeste">
                                 {{ sprint }}
                                 </td>
                                 <td class="success" id="td-burn">
@@ -64,7 +64,7 @@
                             </tr>
                             {% elif sprint.estado|stringformat:"s" == "Finalizado" %}
                             <tr>
-                                <td id="sprint-finalizado" data-href="{% url 'sprints:kanban' proyecto.id sprint.id %}" class="danger">
+                                <td id="sprint-finalizado" data-href="{% url 'sprints:kanban' proyecto.id sprint.id %}" class="success verde">
                                 {{ sprint }}
                                 </td>
                                 <td class="success" id="td-burn">

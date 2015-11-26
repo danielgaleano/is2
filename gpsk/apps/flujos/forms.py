@@ -3,6 +3,7 @@ from django.forms import ModelMultipleChoiceField
 
 from models import Flujo, Actividad, Estado, PlantillaFlujo, ActividadFlujo
 from apps.proyectos.models import Proyecto
+from apps.user_stories.models import UserStory
 
 
 class MyModelMultipleChoiceField(ModelMultipleChoiceField):
@@ -128,7 +129,7 @@ class AsignarFlujoProyectoForm(forms.ModelForm):
 
         #self.fields['usuario'] = forms.ModelChoiceField(User.objects.exclude(Q(is_staff=True) | Q(id__in=miembros_actuales)), required=True)
         self.fields['flujos'] = forms.ModelMultipleChoiceField(PlantillaFlujo.objects.all().order_by('id'),
-                                                               widget=forms.CheckboxSelectMultiple, required=True)
+                                                               widget=forms.CheckboxSelectMultiple, required=False)
 
         dic = {}
         for arr in flujos_actuales:
@@ -146,15 +147,12 @@ class AsignarFlujoProyectoForm(forms.ModelForm):
         model = Proyecto
         fields = ['codigo']
 
-    def save(self, commit=True):
-        if not commit:
-            raise NotImplementedError("Can't create Flujo without database save")
-
-        proyecto = super(AsignarFlujoProyectoForm, self).save(commit=True)
-
+    def clean_flujos(self):
+        proyecto = Proyecto.objects.get(pk=self.instance.pk)
         lista_completa = PlantillaFlujo.objects.all()
         seleccionados = self.cleaned_data['flujos']
-        print "self %s" % self.cleaned_data['flujos']
+
+        print "self clean %s" % self.cleaned_data['flujos']
 
         lc_nombres = []
         for i in lista_completa:
@@ -167,6 +165,59 @@ class AsignarFlujoProyectoForm(forms.ModelForm):
         la_nombres = []
         for i in Flujo.objects.filter(proyecto=proyecto):
             la_nombres.append(i.nombre)
+
+        print "lc %s" % lc_nombres
+        print "ls %s" % ls_nombres
+        print "la %s" % la_nombres
+
+        user_stories = []
+        en_uso = []
+        for a in la_nombres:
+            user_stories = []
+            print "result %s" % UserStory.objects.filter(flujo__nombre=a).filter(proyecto=proyecto).exclude(estado='Descartado')
+            user_stories.append(UserStory.objects.filter(flujo__nombre=a).filter(proyecto=proyecto).exclude(estado='Descartado'))
+            if len(UserStory.objects.filter(flujo__nombre=a).filter(proyecto=proyecto).exclude(estado='Descartado')) != 0:
+                en_uso.append(Flujo.objects.get(nombre=a, proyecto=proyecto))
+
+        print "user_stories %s" % user_stories
+        print "en_uso %s" % en_uso
+
+        for c in lc_nombres:
+            if c in la_nombres and c not in ls_nombres:
+                flujo_pro = Flujo.objects.get(nombre=c, proyecto=proyecto)
+                # flujo_pro.proyecto = None
+                # flujo_pro.save()
+                if flujo_pro in en_uso:
+                    #flujo_pro.delete()
+                    raise forms.ValidationError("El flujo que intenta desasignar esta en uso.")
+
+        return seleccionados
+
+    def save(self, commit=True):
+        if not commit:
+            raise NotImplementedError("Can't create Flujo without database save")
+
+        proyecto = super(AsignarFlujoProyectoForm, self).save(commit=True)
+
+        lista_completa = PlantillaFlujo.objects.all()
+        seleccionados = self.cleaned_data['flujos']
+        print "self save %s" % self.cleaned_data['flujos']
+
+        lc_nombres = []
+        for i in lista_completa:
+            lc_nombres.append(i.nombre)
+
+        ls_nombres = []
+        for i in seleccionados:
+            ls_nombres.append(i.nombre)
+
+        la_nombres = []
+        for i in Flujo.objects.filter(proyecto=proyecto):
+            la_nombres.append(i.nombre)
+
+        print "lc %s" % lc_nombres
+        print "ls %s" % ls_nombres
+        print "la %s" % la_nombres
 
         for s in ls_nombres:
             if s not in la_nombres:
@@ -194,12 +245,25 @@ class AsignarFlujoProyectoForm(forms.ModelForm):
                 nuevo_flujo.save()
                 print "Creado nuevo flujo"
 
+        user_stories = []
+        en_uso = []
+        for a in la_nombres:
+            user_stories = []
+            print "result %s" % UserStory.objects.filter(flujo__nombre=a).filter(proyecto=proyecto).exclude(estado='Descartado')
+            user_stories.append(UserStory.objects.filter(flujo__nombre=a).filter(proyecto=proyecto).exclude(estado='Descartado'))
+            if len(UserStory.objects.filter(flujo__nombre=a).filter(proyecto=proyecto).exclude(estado='Descartado')) != 0:
+                en_uso.append(Flujo.objects.get(nombre=a, proyecto=proyecto))
+
+        print "user_stories %s" % user_stories
+        print "en_uso %s" % en_uso
+
         for c in lc_nombres:
             if c in la_nombres and c not in ls_nombres:
                 flujo_pro = Flujo.objects.get(nombre=c, proyecto=proyecto)
                 # flujo_pro.proyecto = None
                 # flujo_pro.save()
-                flujo_pro.delete()
+                if flujo_pro not in en_uso:
+                    flujo_pro.delete()
 
         #
 
