@@ -1,0 +1,3614 @@
+[
+{
+    "fields": {
+        "model": "logentry",
+        "name": "log entry",
+        "app_label": "admin"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 1
+},
+{
+    "fields": {
+        "model": "permission",
+        "name": "permission",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 2
+},
+{
+    "fields": {
+        "model": "group",
+        "name": "group",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 3
+},
+{
+    "fields": {
+        "model": "user",
+        "name": "user",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 4
+},
+{
+    "fields": {
+        "model": "contenttype",
+        "name": "content type",
+        "app_label": "contenttypes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 5
+},
+{
+    "fields": {
+        "model": "session",
+        "name": "session",
+        "app_label": "sessions"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 6
+},
+{
+    "fields": {
+        "model": "usuario",
+        "name": "usuario",
+        "app_label": "usuarios"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 7
+},
+{
+    "fields": {
+        "model": "cliente",
+        "name": "cliente",
+        "app_label": "clientes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 8
+},
+{
+    "fields": {
+        "model": "proyecto",
+        "name": "proyecto",
+        "app_label": "proyectos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 9
+},
+{
+    "fields": {
+        "model": "rolproyecto",
+        "name": "Rol de Proyecto",
+        "app_label": "roles_proyecto"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 10
+},
+{
+    "fields": {
+        "model": "rolproyecto_proyecto",
+        "name": "rol proyecto_ proyecto",
+        "app_label": "roles_proyecto"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 11
+},
+{
+    "fields": {
+        "model": "estado",
+        "name": "estado",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 12
+},
+{
+    "fields": {
+        "model": "actividad",
+        "name": "actividad",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 13
+},
+{
+    "fields": {
+        "model": "actividadflujo",
+        "name": "actividad flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 14
+},
+{
+    "fields": {
+        "model": "actividadflujoplantilla",
+        "name": "actividad flujo plantilla",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 15
+},
+{
+    "fields": {
+        "model": "plantillaflujo",
+        "name": "plantilla flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 16
+},
+{
+    "fields": {
+        "model": "flujo",
+        "name": "flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 17
+},
+{
+    "fields": {
+        "model": "userstory",
+        "name": "user story",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 18
+},
+{
+    "fields": {
+        "model": "historialuserstory",
+        "name": "historial user story",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 19
+},
+{
+    "fields": {
+        "model": "userstorydetalle",
+        "name": "user story detalle",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 20
+},
+{
+    "fields": {
+        "model": "tarea",
+        "name": "tarea",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 21
+},
+{
+    "fields": {
+        "model": "archivo",
+        "name": "archivo",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 22
+},
+{
+    "fields": {
+        "model": "nota",
+        "name": "nota",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 23
+},
+{
+    "fields": {
+        "model": "adjuntofilemodel",
+        "name": "adjunto file model",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 24
+},
+{
+    "fields": {
+        "model": "adjunto",
+        "name": "adjunto",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 25
+},
+{
+    "fields": {
+        "model": "sprint",
+        "name": "sprint",
+        "app_label": "sprints"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 26
+},
+{
+    "fields": {
+        "expire_date": "2015-12-10T16:06:10.533",
+        "session_data": "Y2FmMTQ4NTFiMzVlOTQ1MTU4Y2MzMWY4ZmJlZmQ3MDRiNzE3YWY0Zjp7Il9hdXRoX3VzZXJfaGFzaCI6IjliN2Y4ZTU1ZmE1ZWNmNzYwMTBjMzRhMWMwZjlmN2VmYmNlZDc5ODYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjR9"
+    },
+    "model": "sessions.session",
+    "pk": "ycgjvr0lmudk8k2coa3a0qn0ehro6us1"
+},
+{
+    "fields": {
+        "descripcion": "analisis bromatologicos",
+        "nombre": "Laboratorio BNAA",
+        "telefono": "0981-915309",
+        "correoElectronico": "nutricionanimal@vet.una.py",
+        "direccion": "Mcal. Estigarribia-Campus UNA"
+    },
+    "model": "clientes.cliente",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 14
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 15
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 16
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 17
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 18
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 19
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 20
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 21
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 22
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 23
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 24
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 25
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 26
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 27
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 28
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 29
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 30
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 31
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 32
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 33
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 34
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 35
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 36
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 37
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 38
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 39
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 40
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 41
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 42
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 43
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 44
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 45
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 46
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 47
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 48
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 49
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 50
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 51
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 52
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 53
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 54
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 55
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 56
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 57
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 58
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 59
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 60
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 61
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 62
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 63
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 64
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 65
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 66
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 67
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 68
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 69
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 70
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 71
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 72
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 73
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 74
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 75
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 76
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 77
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 78
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 79
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 80
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 81
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 82
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 83
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 84
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 85
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 86
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 87
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 88
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 89
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 90
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 91
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 92
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 93
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 94
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 95
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 96
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 97
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 98
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 99
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 100
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 101
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 102
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 103
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 104
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 105
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 106
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 107
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 108
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 109
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 110
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 111
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 112
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 113
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 114
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 115
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 116
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 117
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 118
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 119
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 120
+},
+{
+    "fields": {
+        "nombre": "revisionFormul",
+        "estados": [
+            82,
+            83,
+            84
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "documentacion",
+        "estados": [
+            85,
+            86,
+            87
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "estructuraLogic",
+        "estados": [
+            88,
+            89,
+            90
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "documentoDCU",
+        "estados": [
+            91,
+            92,
+            93
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "M1-cargaForm",
+        "estados": [
+            94,
+            95,
+            96
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "M1-pagoAdmin",
+        "estados": [
+            97,
+            98,
+            99
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "M2-activTecnica",
+        "estados": [
+            100,
+            101,
+            102
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "M2-cargaResult",
+        "estados": [
+            103,
+            104,
+            105
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "M3-configuracio",
+        "estados": [
+            106,
+            107,
+            108
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "M3-produccion",
+        "estados": [
+            109,
+            110,
+            111
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "M3-pruebasBeta",
+        "estados": [
+            112,
+            113,
+            114
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "M4-capacitacion",
+        "estados": [
+            115,
+            116,
+            117
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "M4-CorrecV1",
+        "estados": [
+            118,
+            119,
+            120
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "revisionFormul",
+        "estados": [
+            1,
+            3,
+            5
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "revisionFormul",
+        "estados": [
+            2,
+            4,
+            6
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "documentacion",
+        "estados": [
+            7,
+            8,
+            9
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "estructuraLogic",
+        "estados": [
+            10,
+            11,
+            12
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "documentoDCU",
+        "estados": [
+            13,
+            14,
+            15
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "M1-cargaForm",
+        "estados": [
+            16,
+            17,
+            18
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "M2-activTecnica",
+        "estados": [
+            19,
+            20,
+            21
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "M1-pagoAdmin",
+        "estados": [
+            22,
+            23,
+            24
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "M2-cargaResult",
+        "estados": [
+            25,
+            26,
+            27
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "M3-configuracio",
+        "estados": [
+            28,
+            29,
+            30
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "M3-produccion",
+        "estados": [
+            31,
+            32,
+            33
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "M3-pruebasBeta",
+        "estados": [
+            34,
+            35,
+            36
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "M4-CorrecV1",
+        "estados": [
+            37,
+            38,
+            39
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "M4-capacitacion",
+        "estados": [
+            73,
+            74,
+            75
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 14
+},
+{
+    "fields": {
+        "nombre": "revisionFormul",
+        "estados": [
+            40,
+            41,
+            42
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "documentacion",
+        "estados": [
+            43,
+            44,
+            45
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "estructuraLogic",
+        "estados": [
+            46,
+            47,
+            48
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "documentoDCU",
+        "estados": [
+            49,
+            50,
+            51
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "M1-cargaForm",
+        "estados": [
+            52,
+            53,
+            54
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "M1-pagoAdmin",
+        "estados": [
+            55,
+            56,
+            57
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "M2-activTecnica",
+        "estados": [
+            58,
+            59,
+            60
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "M2-cargaResult",
+        "estados": [
+            61,
+            62,
+            63
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "M3-configuracio",
+        "estados": [
+            64,
+            65,
+            66
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "M3-produccion",
+        "estados": [
+            67,
+            68,
+            69
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "M3-pruebasBeta",
+        "estados": [
+            70,
+            71,
+            72
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "M4-capacitacion",
+        "estados": [
+            76,
+            77,
+            78
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "M4-CorrecV1",
+        "estados": [
+            79,
+            80,
+            81
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "M4-capacitacion",
+        "actividades": []
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Analisis",
+        "actividades": [
+            1,
+            2
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Dise\u00f1o",
+        "actividades": [
+            3,
+            4
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "mplementacionM1",
+        "actividades": [
+            5,
+            6
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "implement-M2",
+        "actividades": [
+            7,
+            8
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "implement-M3",
+        "actividades": [
+            9,
+            10,
+            11
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "capacitacion-M4",
+        "actividades": [
+            12,
+            13
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Analisis",
+        "actividades": [
+            1,
+            2
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Dise\u00f1o",
+        "actividades": [
+            3,
+            4
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "mplementacionM1",
+        "actividades": [
+            5,
+            6
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "implement-M2",
+        "actividades": [
+            7,
+            8
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "implement-M3",
+        "actividades": [
+            9,
+            10,
+            11
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "capacitacion-M4",
+        "actividades": [
+            12,
+            13
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 6
+},
+{
+    "fields": {
+        "actividad": 1,
+        "user_story": 1,
+        "estado": 82
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 1
+},
+{
+    "fields": {
+        "actividad": 3,
+        "user_story": 2,
+        "estado": 88
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 2
+},
+{
+    "fields": {
+        "actividad": 5,
+        "user_story": 3,
+        "estado": 94
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 3
+},
+{
+    "fields": {
+        "actividad": 7,
+        "user_story": 4,
+        "estado": 100
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 4
+},
+{
+    "fields": {
+        "actividad": 7,
+        "user_story": 5,
+        "estado": 100
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 5
+},
+{
+    "fields": {
+        "actividad": 9,
+        "user_story": 6,
+        "estado": 106
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 6
+},
+{
+    "fields": {
+        "actividad": 12,
+        "user_story": 7,
+        "estado": 116
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 7
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-25",
+        "duracion": 30,
+        "fecha_inicio": "2015-11-25",
+        "proyecto": 1,
+        "nombre": "Modulo1",
+        "estado": "No iniciado"
+    },
+    "model": "sprints.sprint",
+    "pk": 1
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-25",
+        "duracion": 30,
+        "fecha_inicio": "2015-11-25",
+        "proyecto": 1,
+        "nombre": "Modulo2",
+        "estado": "No iniciado"
+    },
+    "model": "sprints.sprint",
+    "pk": 2
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-25",
+        "duracion": 10,
+        "fecha_inicio": "2015-11-25",
+        "proyecto": 1,
+        "nombre": "modulo1-2",
+        "estado": "No iniciado"
+    },
+    "model": "sprints.sprint",
+    "pk": 3
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-25",
+        "duracion": 10,
+        "fecha_inicio": "2015-11-25",
+        "proyecto": 1,
+        "nombre": "Analisis",
+        "estado": "No iniciado"
+    },
+    "model": "sprints.sprint",
+    "pk": 4
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-25",
+        "duracion": 13,
+        "fecha_inicio": "2015-11-25",
+        "proyecto": 1,
+        "nombre": "Dise\u00f1o",
+        "estado": "No iniciado"
+    },
+    "model": "sprints.sprint",
+    "pk": 5
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-25",
+        "duracion": 10,
+        "fecha_inicio": "2015-11-25",
+        "proyecto": 1,
+        "nombre": "ProduccionM3",
+        "estado": "No iniciado"
+    },
+    "model": "sprints.sprint",
+    "pk": 6
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-26",
+        "duracion": 10,
+        "fecha_inicio": "2015-11-26",
+        "proyecto": 1,
+        "nombre": "capacitacionM4",
+        "estado": "Finalizado"
+    },
+    "model": "sprints.sprint",
+    "pk": 7
+},
+{
+    "fields": {
+        "codename": "add_logentry",
+        "name": "Can add log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 1
+},
+{
+    "fields": {
+        "codename": "change_logentry",
+        "name": "Can change log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 2
+},
+{
+    "fields": {
+        "codename": "delete_logentry",
+        "name": "Can delete log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 3
+},
+{
+    "fields": {
+        "codename": "add_permission",
+        "name": "Can add permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 4
+},
+{
+    "fields": {
+        "codename": "change_permission",
+        "name": "Can change permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 5
+},
+{
+    "fields": {
+        "codename": "delete_permission",
+        "name": "Can delete permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 6
+},
+{
+    "fields": {
+        "codename": "add_group",
+        "name": "Can add group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 7
+},
+{
+    "fields": {
+        "codename": "change_group",
+        "name": "Can change group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 8
+},
+{
+    "fields": {
+        "codename": "delete_group",
+        "name": "Can delete group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 9
+},
+{
+    "fields": {
+        "codename": "add_user",
+        "name": "Can add user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 10
+},
+{
+    "fields": {
+        "codename": "change_user",
+        "name": "Can change user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 11
+},
+{
+    "fields": {
+        "codename": "delete_user",
+        "name": "Can delete user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 12
+},
+{
+    "fields": {
+        "codename": "add_contenttype",
+        "name": "Can add content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 13
+},
+{
+    "fields": {
+        "codename": "change_contenttype",
+        "name": "Can change content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 14
+},
+{
+    "fields": {
+        "codename": "delete_contenttype",
+        "name": "Can delete content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 15
+},
+{
+    "fields": {
+        "codename": "add_session",
+        "name": "Can add session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 16
+},
+{
+    "fields": {
+        "codename": "change_session",
+        "name": "Can change session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 17
+},
+{
+    "fields": {
+        "codename": "delete_session",
+        "name": "Can delete session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 18
+},
+{
+    "fields": {
+        "codename": "crear_usuario",
+        "name": "Can crear usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 19
+},
+{
+    "fields": {
+        "codename": "modificar_usuario",
+        "name": "Can modificar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 20
+},
+{
+    "fields": {
+        "codename": "activar_usuario",
+        "name": "Can activar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 21
+},
+{
+    "fields": {
+        "codename": "inactivar_usuario",
+        "name": "Can inactivar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 22
+},
+{
+    "fields": {
+        "codename": "listar_usuario",
+        "name": "Can listar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 23
+},
+{
+    "fields": {
+        "codename": "crear_cliente",
+        "name": "Can crear cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 24
+},
+{
+    "fields": {
+        "codename": "modificar_cliente",
+        "name": "Can modificar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 25
+},
+{
+    "fields": {
+        "codename": "eliminar_cliente",
+        "name": "Can eliminar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 26
+},
+{
+    "fields": {
+        "codename": "listar_cliente",
+        "name": "Can listar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 27
+},
+{
+    "fields": {
+        "codename": "crear_proyecto",
+        "name": "Can crear proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 28
+},
+{
+    "fields": {
+        "codename": "modificar_proyecto",
+        "name": "Can modificar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 29
+},
+{
+    "fields": {
+        "codename": "eliminar_proyecto",
+        "name": "Can eliminar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 30
+},
+{
+    "fields": {
+        "codename": "listar_proyecto",
+        "name": "Can listar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 31
+},
+{
+    "fields": {
+        "codename": "asignar_rol_proyecto_proyecto",
+        "name": "Can asignar_rol_proyecto proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 32
+},
+{
+    "fields": {
+        "codename": "crear_rolproyecto",
+        "name": "Can crear Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 33
+},
+{
+    "fields": {
+        "codename": "modificar_rolproyecto",
+        "name": "Can modificar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 34
+},
+{
+    "fields": {
+        "codename": "eliminar_rolproyecto",
+        "name": "Can eliminar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 35
+},
+{
+    "fields": {
+        "codename": "listar_rolproyecto",
+        "name": "Can listar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 36
+},
+{
+    "fields": {
+        "codename": "crear_plantillaflujo",
+        "name": "Can crear plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 37
+},
+{
+    "fields": {
+        "codename": "modificar_plantillaflujo",
+        "name": "Can modificar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 38
+},
+{
+    "fields": {
+        "codename": "eliminar_plantillaflujo",
+        "name": "Can eliminar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 39
+},
+{
+    "fields": {
+        "codename": "listar_plantillaflujo",
+        "name": "Can listar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 40
+},
+{
+    "fields": {
+        "codename": "crear_flujo",
+        "name": "Can crear flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 41
+},
+{
+    "fields": {
+        "codename": "modificar_flujo",
+        "name": "Can modificar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 42
+},
+{
+    "fields": {
+        "codename": "eliminar_flujo",
+        "name": "Can eliminar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 43
+},
+{
+    "fields": {
+        "codename": "listar_flujo",
+        "name": "Can listar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 44
+},
+{
+    "fields": {
+        "codename": "asignar_flujo",
+        "name": "Can asignar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 45
+},
+{
+    "fields": {
+        "codename": "crear_userstory",
+        "name": "Can crear user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 46
+},
+{
+    "fields": {
+        "codename": "redefinir_userstory",
+        "name": "Can redefinir user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 47
+},
+{
+    "fields": {
+        "codename": "definir_valor_tecnico_y_estimacion_userstory",
+        "name": "Can definir_valor_tecnico_y_estimacion user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 48
+},
+{
+    "fields": {
+        "codename": "asignar_flujo_userstory",
+        "name": "Can asignar_flujo user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 49
+},
+{
+    "fields": {
+        "codename": "asignar_sprint_userstory",
+        "name": "Can asignar_sprint user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 50
+},
+{
+    "fields": {
+        "codename": "asignar_usuario_userstory",
+        "name": "Can asignar_usuario user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 51
+},
+{
+    "fields": {
+        "codename": "listar_userstory",
+        "name": "Can listar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 52
+},
+{
+    "fields": {
+        "codename": "consultar_historial_userstory",
+        "name": "Can consultar_historial user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 53
+},
+{
+    "fields": {
+        "codename": "aprobar_userstory",
+        "name": "Can aprobar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 54
+},
+{
+    "fields": {
+        "codename": "descartar_userstory",
+        "name": "Can descartar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 55
+},
+{
+    "fields": {
+        "codename": "cambiar_estado_userstory",
+        "name": "Can cambiar_estado user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 56
+},
+{
+    "fields": {
+        "codename": "revertir_cambio_estado_userstory",
+        "name": "Can revertir_cambio_estado user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 57
+},
+{
+    "fields": {
+        "codename": "definir_horas_userstory",
+        "name": "Can definir_horas user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 58
+},
+{
+    "fields": {
+        "codename": "agregar_nota_userstory",
+        "name": "Can agregar_nota user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 59
+},
+{
+    "fields": {
+        "codename": "agregar_archivo_userstory",
+        "name": "Can agregar_archivo user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 60
+},
+{
+    "fields": {
+        "codename": "add_historialuserstory",
+        "name": "Can add historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 61
+},
+{
+    "fields": {
+        "codename": "change_historialuserstory",
+        "name": "Can change historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 62
+},
+{
+    "fields": {
+        "codename": "delete_historialuserstory",
+        "name": "Can delete historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 63
+},
+{
+    "fields": {
+        "codename": "crear_sprint",
+        "name": "Can crear sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 64
+},
+{
+    "fields": {
+        "codename": "modificar_sprint",
+        "name": "Can modificar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 65
+},
+{
+    "fields": {
+        "codename": "listar_sprint",
+        "name": "Can listar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 66
+},
+{
+    "fields": {
+        "codename": "iniciar_sprint",
+        "name": "Can iniciar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 67
+},
+{
+    "fields": {
+        "codename": "finalizar_sprint",
+        "name": "Can finalizar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 68
+},
+{
+    "fields": {
+        "name": "Total",
+        "permissions": [
+            7,
+            8,
+            9,
+            24,
+            26,
+            27,
+            25,
+            37,
+            39,
+            40,
+            38,
+            32,
+            28,
+            30,
+            31,
+            29,
+            33,
+            35,
+            36,
+            34,
+            21,
+            19,
+            22,
+            23,
+            20
+        ]
+    },
+    "model": "auth.group",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Scrum Master",
+        "permissions": [
+            45,
+            44,
+            32,
+            28,
+            30,
+            31,
+            29,
+            64,
+            68,
+            67,
+            66,
+            65,
+            60,
+            59,
+            54,
+            49,
+            50,
+            51,
+            56,
+            53,
+            46,
+            58,
+            48,
+            55,
+            52,
+            47,
+            57
+        ]
+    },
+    "model": "auth.group",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "Developer",
+        "permissions": [
+            44,
+            31,
+            66,
+            60,
+            59,
+            56,
+            52,
+            47,
+            57
+        ]
+    },
+    "model": "auth.group",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "Parcial",
+        "permissions": [
+            24,
+            26,
+            27,
+            25,
+            37,
+            39,
+            40,
+            38,
+            31,
+            19,
+            23,
+            20
+        ]
+    },
+    "model": "auth.group",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2015-11-26T16:05:15.003",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$GzjJsvz94WQS$P5Ohxvb7PLv1lLULZr/3FnlAFO2b8tcvHj00ZQg8b2g=",
+        "email": "admin@admin.com",
+        "date_joined": "2015-11-25T16:27:13.373"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "username": "lidia",
+        "first_name": "Lidia",
+        "last_name": "Mongelos",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-26T15:16:43.423",
+        "groups": [
+            1,
+            3
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$mW9a3QmoMR9y$av0F9mqVrTOVCw1/P4aJ5fF629TL3B0HJDhv3I1H9a0=",
+        "email": "lnmongelos@gmail.com",
+        "date_joined": "2015-11-25T16:29:09.028"
+    },
+    "model": "auth.user",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "liz",
+        "first_name": "Liz Noelia",
+        "last_name": "Barrio Berdoy",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-25T18:51:08.082",
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$fK0oi4PV7lHr$tmeG+cIpkmCOdcb5XyEBRxOghXAoCk3xRgMuRqs0Uh0=",
+        "email": "liz@gmail.com",
+        "date_joined": "2015-11-25T16:30:41.352"
+    },
+    "model": "auth.user",
+    "pk": 3
+},
+{
+    "fields": {
+        "username": "magui",
+        "first_name": "Magui",
+        "last_name": "Borja",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-26T16:06:10.522",
+        "groups": [
+            1,
+            2
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$Ks6a4yVdTkMW$X9aXt1ra54T3CCr4mETFJ+YRpc/jPu9ynpGNgXdEtm8=",
+        "email": "magui@gmail.com",
+        "date_joined": "2015-11-25T16:31:47.012"
+    },
+    "model": "auth.user",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "dani",
+        "first_name": "Daniel",
+        "last_name": "Galeano",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-25T16:33:08.833",
+        "groups": [
+            3,
+            4
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$aK6bNPPEXUuo$98TenCm3LHGr5GNwfOJSqoRVrmYW2WWpcV7rabLZZd4=",
+        "email": "dani@gmail.com",
+        "date_joined": "2015-11-25T16:33:08.833"
+    },
+    "model": "auth.user",
+    "pk": 5
+},
+{
+    "fields": {
+        "username": "hans",
+        "first_name": "Hans",
+        "last_name": "Krause",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-25T16:34:17.743",
+        "groups": [
+            4
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$4zU8ZvrVkRZ5$LCNQdBoJhN58LdFSa99x3GO2QfB8FQZuvzIPnlD8Mds=",
+        "email": "hans@gmail.com",
+        "date_joined": "2015-11-25T16:34:17.743"
+    },
+    "model": "auth.user",
+    "pk": 6
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            2
+        ],
+        "telefono": "524-303",
+        "user": 2,
+        "direccion": "Andres Barbero"
+    },
+    "model": "usuarios.usuario",
+    "pk": 1
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            2
+        ],
+        "telefono": "0981-111-111",
+        "user": 3,
+        "direccion": "Leopardi 96"
+    },
+    "model": "usuarios.usuario",
+    "pk": 2
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            1
+        ],
+        "telefono": "0982-222-222",
+        "user": 4,
+        "direccion": "Villa Industrial - Capiata"
+    },
+    "model": "usuarios.usuario",
+    "pk": 3
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            2
+        ],
+        "telefono": "0981-333-333",
+        "user": 5,
+        "direccion": "Ingavi"
+    },
+    "model": "usuarios.usuario",
+    "pk": 4
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0981-444-444",
+        "user": 6,
+        "direccion": "Delicias Japonesas"
+    },
+    "model": "usuarios.usuario",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre_corto": "PBNAA",
+        "scrum_master": 4,
+        "fecha_fin": "2016-04-29",
+        "cliente": 1,
+        "fecha_inicio": "2015-11-25",
+        "equipo": [
+            5,
+            3,
+            2,
+            4
+        ],
+        "cancelado": false,
+        "codigo": "p",
+        "estado": "Activo",
+        "nombre_largo": "Proyecto Nutricion Animal"
+    },
+    "model": "proyectos.proyecto",
+    "pk": 1
+},
+{
+    "fields": {
+        "group": 2,
+        "es_rol_proyecto": true
+    },
+    "model": "roles_proyecto.rolproyecto",
+    "pk": 1
+},
+{
+    "fields": {
+        "group": 3,
+        "es_rol_proyecto": true
+    },
+    "model": "roles_proyecto.rolproyecto",
+    "pk": 2
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 0,
+        "user": 2,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 2
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 0,
+        "user": 3,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 3
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 0,
+        "user": 5,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 4
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 0,
+        "user": 4,
+        "rol_proyecto": 1
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 7
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 4,
+        "usuario": 2,
+        "proyecto": 1,
+        "descripcion": "analisis del proyecto",
+        "nombre": "analisisUS",
+        "estimacion": 80,
+        "flujo": 1,
+        "estado": "Activo",
+        "prioridad": 7,
+        "valor_negocio": 0,
+        "valor_tecnico": 5
+    },
+    "model": "user_stories.userstory",
+    "pk": 1
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 5,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "dise\u00f1o estructura logica",
+        "nombre": "dise\u00f1o-US",
+        "estimacion": 104,
+        "flujo": 2,
+        "estado": "Activo",
+        "prioridad": 6,
+        "valor_negocio": 0,
+        "valor_tecnico": 5
+    },
+    "model": "user_stories.userstory",
+    "pk": 2
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 1,
+        "usuario": 2,
+        "proyecto": 1,
+        "descripcion": "desarrollo de formularios",
+        "nombre": "modulo1-US",
+        "estimacion": 240,
+        "flujo": 3,
+        "estado": "Activo",
+        "prioridad": 5,
+        "valor_negocio": 0,
+        "valor_tecnico": 6
+    },
+    "model": "user_stories.userstory",
+    "pk": 3
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 2,
+        "usuario": 3,
+        "proyecto": 1,
+        "descripcion": "desarrollo modulo2",
+        "nombre": "modulo2-US",
+        "estimacion": 240,
+        "flujo": 4,
+        "estado": "Activo",
+        "prioridad": 5,
+        "valor_negocio": 0,
+        "valor_tecnico": 7
+    },
+    "model": "user_stories.userstory",
+    "pk": 4
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 3,
+        "usuario": 3,
+        "proyecto": 1,
+        "descripcion": "pruebas modulos",
+        "nombre": "modulo12-US",
+        "estimacion": 80,
+        "flujo": 4,
+        "estado": "Activo",
+        "prioridad": 3,
+        "valor_negocio": 0,
+        "valor_tecnico": 6
+    },
+    "model": "user_stories.userstory",
+    "pk": 5
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 6,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "puesta a produccion",
+        "nombre": "produccion",
+        "estimacion": 10,
+        "flujo": 5,
+        "estado": "Activo",
+        "prioridad": 2,
+        "valor_negocio": 0,
+        "valor_tecnico": 7
+    },
+    "model": "user_stories.userstory",
+    "pk": 6
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 7,
+        "usuario": 2,
+        "proyecto": 1,
+        "descripcion": "correcciones, capacitacion",
+        "nombre": "capaCorrec-US",
+        "estimacion": 80,
+        "flujo": 6,
+        "estado": "Pendiente",
+        "prioridad": 1,
+        "valor_negocio": 0,
+        "valor_tecnico": 4
+    },
+    "model": "user_stories.userstory",
+    "pk": 7
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "",
+        "fecha": "2015-11-25T17:23:23.895",
+        "usuario": 4,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 1
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "",
+        "fecha": "2015-11-25T17:24:34.390",
+        "usuario": 4,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 2
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "",
+        "fecha": "2015-11-25T17:25:43.830",
+        "usuario": 4,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 3
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "",
+        "fecha": "2015-11-25T17:26:46.872",
+        "usuario": 4,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 4
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "",
+        "fecha": "2015-11-25T17:27:54.657",
+        "usuario": 4,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 5
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "",
+        "fecha": "2015-11-25T17:28:56.787",
+        "usuario": 4,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 6
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "",
+        "fecha": "2015-11-25T17:29:49.995",
+        "usuario": 4,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 7
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "desarrollador",
+        "fecha": "2015-11-25T18:53:31.959",
+        "usuario": 4,
+        "valor": "lidia",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 8
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "flujo",
+        "fecha": "2015-11-25T18:53:31.975",
+        "usuario": 4,
+        "valor": "Analisis",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 9
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "sprint",
+        "fecha": "2015-11-25T18:53:31.987",
+        "usuario": 4,
+        "valor": "Analisis",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 10
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "estado",
+        "fecha": "2015-11-25T18:53:31.997",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 11
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "desarrollador",
+        "fecha": "2015-11-25T18:53:32.126",
+        "usuario": 4,
+        "valor": "lidia",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 12
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "flujo",
+        "fecha": "2015-11-25T18:53:32.143",
+        "usuario": 4,
+        "valor": "Analisis",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 13
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "sprint",
+        "fecha": "2015-11-25T18:53:32.154",
+        "usuario": 4,
+        "valor": "Analisis",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 14
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "estado",
+        "fecha": "2015-11-25T18:53:32.187",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 15
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "desarrollador",
+        "fecha": "2015-11-25T18:53:46.893",
+        "usuario": 4,
+        "valor": "lidia",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 16
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "flujo",
+        "fecha": "2015-11-25T18:53:46.908",
+        "usuario": 4,
+        "valor": "Analisis",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 17
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "sprint",
+        "fecha": "2015-11-25T18:53:46.920",
+        "usuario": 4,
+        "valor": "Analisis",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 18
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "estado",
+        "fecha": "2015-11-25T18:53:46.930",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 19
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "desarrollador",
+        "fecha": "2015-11-26T00:33:55.700",
+        "usuario": 4,
+        "valor": "dani",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 20
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "flujo",
+        "fecha": "2015-11-26T00:33:55.719",
+        "usuario": 4,
+        "valor": "Dise\u00f1o",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 21
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "sprint",
+        "fecha": "2015-11-26T00:33:55.730",
+        "usuario": 4,
+        "valor": "Dise\u00f1o",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 22
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "estado",
+        "fecha": "2015-11-26T00:33:55.741",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 23
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "desarrollador",
+        "fecha": "2015-11-26T00:34:28.007",
+        "usuario": 4,
+        "valor": "lidia",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 24
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "flujo",
+        "fecha": "2015-11-26T00:34:28.016",
+        "usuario": 4,
+        "valor": "mplementacionM1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 25
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "sprint",
+        "fecha": "2015-11-26T00:34:28.028",
+        "usuario": 4,
+        "valor": "Modulo1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 26
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "estado",
+        "fecha": "2015-11-26T00:34:28.039",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 27
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "desarrollador",
+        "fecha": "2015-11-26T00:35:00.465",
+        "usuario": 4,
+        "valor": "liz",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 28
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "flujo",
+        "fecha": "2015-11-26T00:35:00.483",
+        "usuario": 4,
+        "valor": "implement-M2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 29
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "sprint",
+        "fecha": "2015-11-26T00:35:00.494",
+        "usuario": 4,
+        "valor": "Modulo2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 30
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "estado",
+        "fecha": "2015-11-26T00:35:00.505",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 31
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "desarrollador",
+        "fecha": "2015-11-26T00:35:26.063",
+        "usuario": 4,
+        "valor": "liz",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 32
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "flujo",
+        "fecha": "2015-11-26T00:35:26.071",
+        "usuario": 4,
+        "valor": "implement-M2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 33
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "sprint",
+        "fecha": "2015-11-26T00:35:26.083",
+        "usuario": 4,
+        "valor": "modulo1-2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 34
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "estado",
+        "fecha": "2015-11-26T00:35:26.094",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 35
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "desarrollador",
+        "fecha": "2015-11-26T00:36:12.028",
+        "usuario": 4,
+        "valor": "dani",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 36
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "flujo",
+        "fecha": "2015-11-26T00:36:12.047",
+        "usuario": 4,
+        "valor": "implement-M3",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 37
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "sprint",
+        "fecha": "2015-11-26T00:36:12.058",
+        "usuario": 4,
+        "valor": "ProduccionM3",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 38
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "estado",
+        "fecha": "2015-11-26T00:36:12.069",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 39
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "desarrollador",
+        "fecha": "2015-11-26T00:36:36.915",
+        "usuario": 4,
+        "valor": "lidia",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 40
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "flujo",
+        "fecha": "2015-11-26T00:36:37.002",
+        "usuario": 4,
+        "valor": "capacitacion-M4",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 41
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "sprint",
+        "fecha": "2015-11-26T00:36:37.057",
+        "usuario": 4,
+        "valor": "capacitacionM4",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 42
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "estado",
+        "fecha": "2015-11-26T00:36:37.067",
+        "usuario": 4,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 43
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "",
+        "fecha": "2015-11-26T00:37:04.588",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 44
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "estado",
+        "fecha": "2015-11-26T15:26:20.660",
+        "usuario": 4,
+        "valor": "Pendiente",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 45
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "",
+        "fecha": "2015-11-26T15:26:25.338",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 46
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 12,
+        "fecha": "2015-11-26T00:37:04.582",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 7,
+        "estado": 115,
+        "flujo": 6
+    },
+    "model": "user_stories.tarea",
+    "pk": 1
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 12,
+        "fecha": "2015-11-26T15:16:53.209",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 7,
+        "estado": 116,
+        "flujo": 6
+    },
+    "model": "user_stories.tarea",
+    "pk": 2
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 12,
+        "fecha": "2015-11-26T15:26:25.318",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 7,
+        "estado": 116,
+        "flujo": 6
+    },
+    "model": "user_stories.tarea",
+    "pk": 3
+}
+]
