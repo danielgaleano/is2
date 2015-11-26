@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, Group
 from django.core.urlresolvers import reverse
 
 from models import UserStory, HistorialUserStory
-from views import IndexView, VerHistorialUserStory
+from views import IndexView, VerHistorialUserStory, VerUserStory
 from apps.proyectos.models import Proyecto
 from apps.roles_proyecto.models import RolProyecto_Proyecto, RolProyecto
 
@@ -238,3 +238,44 @@ class UserStoriesTest(TestCase):
         self.assertEqual(len(response.context_data['object_list']), 10)
 
         print 'Test de VerHistorialUserStory realizado exitosamente'
+
+    def test_view_VerUserStory(self):
+        """
+        Funcion que realiza el test sobre la vista VerUserStory que despliega
+        la informacion detallada del user story
+        """
+        # se loguea el usuario testuser
+        user = self.client.login(username='testuser', password='test')
+        self.assertTrue(user)
+        user2 = User.objects.create_user(username='user_prueba', email='test@test22.com', password='prueba')
+
+        proyecto = Proyecto.objects.create(codigo='codi', nombre_corto='test',
+                                           nombre_largo='test', cancelado=False, scrum_master=user2)
+        proyecto.save()
+
+        lista = Proyecto.objects.all()
+        #print lista
+
+        #crear rolProyecto y rolProyecto_Proyecto
+        group = Group.objects.create(name='grupo')
+        group.save()
+        rolProyecto = RolProyecto(group=group, es_rol_proyecto=True)
+        rolProyecto.save()
+        rolProyecto_Proyecto = RolProyecto_Proyecto.objects.create(user=self.user, rol_proyecto=rolProyecto,
+                                                                   proyecto=proyecto)
+        rolProyecto_Proyecto.save()
+
+
+        user_story = UserStory.objects.create(nombre='us', descripcion='desc',
+                                              valor_negocio=5, proyecto=proyecto)
+        user_story.save()
+
+        # verificamos que la vista devuelva el template adecuado
+        request = self.factory.get(reverse('user_stories:ver', args=[proyecto.pk, user_story.pk]))
+        request.user = self.user
+
+        response = VerUserStory.as_view()(request, pk_proyecto=proyecto.pk, pk_user_story=user_story.pk)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.template_name[0], 'user_stories/ver.html')
+
+        print 'Test de VerUserStory realizado exitosamente'

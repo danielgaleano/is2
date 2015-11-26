@@ -39,25 +39,26 @@ class IndexView(generic.ListView):
         queryset = RolProyecto_Proyecto.objects.filter(proyecto=self.kwargs['pk_proyecto'])
         self.roles_de_proyecto = get_list_or_404(queryset, user=self.request.user)
 
-        print "roles de proyecto %s" % self.roles_de_proyecto
+        #print "roles de proyecto %s" % self.roles_de_proyecto
 
         permisos = self.roles_de_proyecto[0].rol_proyecto.group.permissions
         todos_permisos = []
         self.todos_permisos = permisos.all()
-        print "permisos del rol de proyecto"
-        print "permisos todos %s" % self.todos_permisos
-        print permisos.all()
+        #print "permisos del rol de proyecto"
+        #print "permisos todos %s" % self.todos_permisos
+        #print permisos.all()
         for permiso in permisos.all():
-            print "- %s" % permiso
+            pass
+            #print "- %s" % permiso
 
         el_permiso = Permission.objects.get(codename='crear_sprint')
-        print "El permiso %s" % el_permiso
+        #print "El permiso %s" % el_permiso
         tiene = False
 
         if el_permiso in permisos.all():
             tiene = True
 
-        print tiene
+        #print tiene
 
         return Sprint.objects.filter(proyecto=self.proyecto).order_by('pk')
 
@@ -215,25 +216,26 @@ class SprintBacklogIndexView(generic.ListView):
         queryset = RolProyecto_Proyecto.objects.filter(proyecto=self.kwargs['pk_proyecto'])
         self.roles_de_proyecto = get_list_or_404(queryset, user=self.request.user)
 
-        print "roles de proyecto %s" % self.roles_de_proyecto
+        #print "roles de proyecto %s" % self.roles_de_proyecto
 
         permisos = self.roles_de_proyecto[0].rol_proyecto.group.permissions
         todos_permisos = []
         self.todos_permisos = permisos.all()
-        print "permisos del rol de proyecto"
-        print "permisos todos %s" % todos_permisos
-        print permisos.all()
+        #print "permisos del rol de proyecto"
+        #print "permisos todos %s" % todos_permisos
+        #print permisos.all()
         for permiso in permisos.all():
-            print "- %s" % permiso
+            pass
+            #print "- %s" % permiso
 
         el_permiso = Permission.objects.get(codename='crear_userstory')
-        print "El permiso %s" % el_permiso
+        #print "El permiso %s" % el_permiso
         tiene = False
 
         if el_permiso in permisos.all():
             tiene = True
 
-        print tiene
+        #print tiene
 
         return UserStory.objects.filter(sprint=self.sprint).exclude(estado='Descartado').order_by('nombre')
 
