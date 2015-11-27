@@ -1,0 +1,7572 @@
+[
+{
+    "fields": {
+        "model": "logentry",
+        "name": "log entry",
+        "app_label": "admin"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 1
+},
+{
+    "fields": {
+        "model": "permission",
+        "name": "permission",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 2
+},
+{
+    "fields": {
+        "model": "group",
+        "name": "group",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 3
+},
+{
+    "fields": {
+        "model": "user",
+        "name": "user",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 4
+},
+{
+    "fields": {
+        "model": "contenttype",
+        "name": "content type",
+        "app_label": "contenttypes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 5
+},
+{
+    "fields": {
+        "model": "session",
+        "name": "session",
+        "app_label": "sessions"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 6
+},
+{
+    "fields": {
+        "model": "usuario",
+        "name": "usuario",
+        "app_label": "usuarios"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 7
+},
+{
+    "fields": {
+        "model": "cliente",
+        "name": "cliente",
+        "app_label": "clientes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 8
+},
+{
+    "fields": {
+        "model": "proyecto",
+        "name": "proyecto",
+        "app_label": "proyectos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 9
+},
+{
+    "fields": {
+        "model": "rolproyecto",
+        "name": "Rol de Proyecto",
+        "app_label": "roles_proyecto"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 10
+},
+{
+    "fields": {
+        "model": "rolproyecto_proyecto",
+        "name": "rol proyecto_ proyecto",
+        "app_label": "roles_proyecto"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 11
+},
+{
+    "fields": {
+        "model": "estado",
+        "name": "estado",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 12
+},
+{
+    "fields": {
+        "model": "actividad",
+        "name": "actividad",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 13
+},
+{
+    "fields": {
+        "model": "actividadflujo",
+        "name": "actividad flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 14
+},
+{
+    "fields": {
+        "model": "actividadflujoplantilla",
+        "name": "actividad flujo plantilla",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 15
+},
+{
+    "fields": {
+        "model": "plantillaflujo",
+        "name": "plantilla flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 16
+},
+{
+    "fields": {
+        "model": "flujo",
+        "name": "flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 17
+},
+{
+    "fields": {
+        "model": "userstory",
+        "name": "user story",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 18
+},
+{
+    "fields": {
+        "model": "historialuserstory",
+        "name": "historial user story",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 19
+},
+{
+    "fields": {
+        "model": "userstorydetalle",
+        "name": "user story detalle",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 20
+},
+{
+    "fields": {
+        "model": "tarea",
+        "name": "tarea",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 21
+},
+{
+    "fields": {
+        "model": "archivo",
+        "name": "archivo",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 22
+},
+{
+    "fields": {
+        "model": "nota",
+        "name": "nota",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 23
+},
+{
+    "fields": {
+        "model": "adjuntofilemodel",
+        "name": "adjunto file model",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 24
+},
+{
+    "fields": {
+        "model": "adjunto",
+        "name": "adjunto",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 25
+},
+{
+    "fields": {
+        "model": "sprint",
+        "name": "sprint",
+        "app_label": "sprints"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 26
+},
+{
+    "fields": {
+        "expire_date": "2015-12-10T18:28:25.544",
+        "session_data": "MjVmYTNkYzJmYWIxMjUxMThkMGI3MDJkZTJhMGY5ZjU0ZTk2NjcyNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjkzMzZhODg5MDI2ZDFmNWE4NDQ2MTIwNzgyODdhMzgwNjJlNzM2ZmMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjh9"
+    },
+    "model": "sessions.session",
+    "pk": "013imizt83wmzgegrqr3xt5pjux56738"
+},
+{
+    "fields": {
+        "expire_date": "2015-12-10T18:11:09.454",
+        "session_data": "YzA3MGMxODU4YWU5ZDNjYzU0ZjNiNDRiZTlkNWI5ODBmNjdmNWRiNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjEzMDE0ODdmMTJkMjczNzQ4ZGY0ZTQ4MzhlYzNlM2JlMWZmYjY4MmUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjV9"
+    },
+    "model": "sessions.session",
+    "pk": "gktgn7xqvxvfq6ajya2uvmwepu7ssvyi"
+},
+{
+    "fields": {
+        "expire_date": "2015-12-03T23:01:22.171",
+        "session_data": "YjNjNjgwYzg2ZWFjZWY4NzAxYjE0ZmZlNzQyZTk2ZDRmZTc2ZWNkMTp7fQ=="
+    },
+    "model": "sessions.session",
+    "pk": "ioxse0ccz5n3mk51pzh6tsji5uo2gk0d"
+},
+{
+    "fields": {
+        "expire_date": "2015-11-12T19:32:54.234",
+        "session_data": "YzhkZWNiZmU3NjNlNTY4YTc3ZjVmMmI1YjU4ZmJlZDA4OTE4ZTVjNjp7Il9hdXRoX3VzZXJfaGFzaCI6ImYzNjJhMjJkM2FkNzU2MjY4MGVhZmRkMDdmN2VkN2JlZDIyZTQ0NTIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "knaa77e9cgqh2vt2v85j6m0buekpyiw4"
+},
+{
+    "fields": {
+        "expire_date": "2015-12-11T16:23:10.720",
+        "session_data": "NjY3OWNiMDA5MjMwZTc0NmRhNmZjYjZkYjU5YjNhYTUzNWZhZTg2ZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjFkODRiYmU5ZWNlZDA0ZmUwNDEzMjY2Yjk2MzIxNDk3MzlmNDFmMjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjJ9"
+    },
+    "model": "sessions.session",
+    "pk": "mefte93iee6uzyy1ltu2spp1t0ics600"
+},
+{
+    "fields": {
+        "descripcion": "Empresa estatal de telefonia",
+        "nombre": "COPACO",
+        "telefono": "021111111",
+        "correoElectronico": "copaco@copaco.com.py",
+        "direccion": "Alberdi, 531"
+    },
+    "model": "clientes.cliente",
+    "pk": 1
+},
+{
+    "fields": {
+        "descripcion": "Centro cultural",
+        "nombre": "ICPA GZ",
+        "telefono": "021209060",
+        "correoElectronico": "direccion@icpa-gz.org.py",
+        "direccion": "Juan de Salazar, 310"
+    },
+    "model": "clientes.cliente",
+    "pk": 2
+},
+{
+    "fields": {
+        "descripcion": "Empresa de transporte y encomiendas",
+        "nombre": "RYSA",
+        "telefono": "021557201/10",
+        "correoElectronico": "correo@rysa.com.py",
+        "direccion": "Rca. Argentina, esq. Paso de Patria"
+    },
+    "model": "clientes.cliente",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 14
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 15
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 16
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 17
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 18
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 19
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 20
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 21
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 22
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 23
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 24
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 25
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 26
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 27
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 28
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 29
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 30
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 31
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 32
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 33
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 34
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 35
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 36
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 37
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 38
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 39
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 40
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 41
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 42
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 43
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 44
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 45
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 46
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 47
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 48
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 49
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 50
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 51
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 52
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 53
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 54
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 55
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 56
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 57
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 58
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 59
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 60
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 61
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 62
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 63
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 64
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 65
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 66
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 67
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 68
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 69
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 70
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 71
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 72
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 73
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 74
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 75
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 76
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 77
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 78
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 79
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 80
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 81
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 82
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 83
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 84
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 85
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 86
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 87
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 88
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 89
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 90
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 91
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 92
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 93
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 94
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 95
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 96
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 97
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 98
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 99
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 100
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 101
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 102
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 103
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 104
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 105
+},
+{
+    "fields": {
+        "nombre": "Actividad 1",
+        "estados": [
+            49,
+            50,
+            51
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            52,
+            53,
+            54
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            55,
+            56,
+            57
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            58,
+            59,
+            60
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            61,
+            62,
+            63
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Actividad 4",
+        "estados": [
+            64,
+            65,
+            66
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "Actividad 5",
+        "estados": [
+            67,
+            68,
+            69
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Actividad 6",
+        "estados": [
+            70,
+            71,
+            72
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Actividad 7",
+        "estados": [
+            73,
+            74,
+            75
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "Actividad 1",
+        "estados": [
+            1,
+            2,
+            3
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            4,
+            5,
+            6
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            7,
+            8,
+            9
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Actividad 4",
+        "estados": [
+            10,
+            11,
+            12
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Actividad 5",
+        "estados": [
+            13,
+            14,
+            15
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Actividad 6",
+        "estados": [
+            16,
+            17,
+            18
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "Actividad 7",
+        "estados": [
+            19,
+            20,
+            21
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Actividad 8",
+        "estados": [
+            76,
+            77,
+            78
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Actividad 9",
+        "estados": [
+            79,
+            80,
+            81
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "Actividad 10",
+        "estados": [
+            82,
+            83,
+            84
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "Actividad 11",
+        "estados": [
+            85,
+            86,
+            87
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "Actividad 12",
+        "estados": [
+            88,
+            89,
+            90
+        ],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "Actividad 1",
+        "estados": [
+            22,
+            23,
+            24
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            25,
+            26,
+            27
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            28,
+            29,
+            30
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            31,
+            32,
+            33
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            34,
+            35,
+            36
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Actividad 4",
+        "estados": [
+            37,
+            38,
+            39
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "Actividad 5",
+        "estados": [
+            40,
+            41,
+            42
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Actividad 6",
+        "estados": [
+            43,
+            44,
+            45
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Actividad 7",
+        "estados": [
+            46,
+            47,
+            48
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "Actividad 9",
+        "estados": [
+            91,
+            92,
+            93
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "Actividad 10",
+        "estados": [
+            94,
+            95,
+            96
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "Actividad 10",
+        "estados": [
+            97,
+            98,
+            99
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "Actividad 11",
+        "estados": [
+            100,
+            101,
+            102
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "Actividad 12",
+        "estados": [
+            103,
+            104,
+            105
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 14
+},
+{
+    "fields": {
+        "nombre": "Flujo 1",
+        "actividades": [
+            1,
+            2,
+            3
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Flujo 2",
+        "actividades": [
+            4,
+            5,
+            6
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Flujo 3",
+        "actividades": [
+            7,
+            8,
+            9
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Flujo 4",
+        "actividades": [
+            10,
+            11
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Flujo 5",
+        "actividades": [
+            12,
+            13,
+            14
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Flujo 1",
+        "actividades": [
+            1,
+            2,
+            3
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Flujo 2",
+        "actividades": [
+            4,
+            5,
+            6
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Flujo 3",
+        "actividades": [
+            7,
+            8,
+            9
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 3
+},
+{
+    "fields": {
+        "actividad": 3,
+        "user_story": 1,
+        "estado": 57
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 1
+},
+{
+    "fields": {
+        "actividad": 3,
+        "user_story": 2,
+        "estado": 57
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 2
+},
+{
+    "fields": {
+        "actividad": 3,
+        "user_story": 3,
+        "estado": 57
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 3
+},
+{
+    "fields": {
+        "actividad": 3,
+        "user_story": 4,
+        "estado": 57
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 4
+},
+{
+    "fields": {
+        "actividad": 6,
+        "user_story": 5,
+        "estado": 66
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 5
+},
+{
+    "fields": {
+        "actividad": 6,
+        "user_story": 6,
+        "estado": 66
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 6
+},
+{
+    "fields": {
+        "actividad": 6,
+        "user_story": 7,
+        "estado": 66
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 7
+},
+{
+    "fields": {
+        "actividad": 9,
+        "user_story": 8,
+        "estado": 75
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 8
+},
+{
+    "fields": {
+        "actividad": 9,
+        "user_story": 9,
+        "estado": 75
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 9
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0byBlcyB1biBhcmNoaXZvIGFkanVudG8K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 1
+},
+{
+    "fields": {
+        "mimetype": "application/x-shellscript",
+        "bytes": "aWYgWyAteiAiJDEiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgdXN1YXJpbyIKICAgIGV4aXQgMQplbHNlIAp1c3VhcmlvPSIkMSIKZmkKaWYgWyAteiAiJDIiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgYmFzZSBkZSBkYXRvcyIKICAgIGV4aXQgMQplbHNlIApCZEQ9IiQyIgpmaQppZiBbIC16ICIkMyIgXQogIHRoZW4KICAgIGVjaG8gIk5vIGhheSBjb250cmFzZcOxYSIKICAgIGV4aXQgMQplbHNlIApjb250cmE9IiQzIgpmaQoKI3BzcWwKI2Ryb3BkYgojY3JlYXRldXNlcgojY3JlYXRlZGIK",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando.sh"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 2
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0byBlcyB1biBhcmNoaXZvIGFkanVudG8K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(LJ2PtcY)"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 3
+},
+{
+    "fields": {
+        "mimetype": "application/x-shellscript",
+        "bytes": "aWYgWyAteiAiJDEiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgdXN1YXJpbyIKICAgIGV4aXQgMQplbHNlIAp1c3VhcmlvPSIkMSIKZmkKaWYgWyAteiAiJDIiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgYmFzZSBkZSBkYXRvcyIKICAgIGV4aXQgMQplbHNlIApCZEQ9IiQyIgpmaQppZiBbIC16ICIkMyIgXQogIHRoZW4KICAgIGVjaG8gIk5vIGhheSBjb250cmFzZcOxYSIKICAgIGV4aXQgMQplbHNlIApjb250cmE9IiQzIgpmaQoKI3BzcWwKI2Ryb3BkYgojY3JlYXRldXNlcgojY3JlYXRlZGIK",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando_(Lcn3p9V).sh"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 4
+},
+{
+    "fields": {
+        "mimetype": "application/x-shellscript",
+        "bytes": "IyEgL2Jpbi9iYXNoCiNVbmEgdmV6IGVuIGxhIHRlcm1pbmFsLCBjdWFuZG8gdmF5YXMgYSB1c2FyIGVsIHNjcmlwdCwgZXNjcmliw61zIGVsIHVzdWFyaW8gcHJpbWVybyB5IGVsIG5vbWJyZSBkZSBsYSBiYXNlIGRlIGRhdG9zIGRlc3B1w6lzCmlmIFsgLXogIiQxIiBdCQkJI1NlIGNvbXBydWViYSBxdWUgc2UgaGF5YSBpbmdyZXNhZG8gZWwgbm9tYnJlIGRlbCB1c3VhcmlvLCBjYXNvIGNvbnRyYXJpbywgZWwgc2NyaXB0IHRlcm1pbmEKICB0aGVuCiAgICBlY2hvICJObyBoYXkgdXN1YXJpbyIKICAgIGV4aXQgMQplbHNlIAp1c3VhcmlvPSIkMSIKZmkKaWYgWyAteiAiJDIiIF0JCQkjU2UgY29tcHJ1ZWJhIHF1ZSBzZSBoYXlhIGluZ3Jlc2FkbyBlbCBub21icmUgZGUgbGEgYmFzZSBkZSBkYXRvcywgY2FzbyBjb250cmFyaW8sIGVsIHNjcmlwdCB0ZXJtaW5hCiAgdGhlbgogICAgZWNobyAiTm8gaGF5IGJhc2UgZGUgZGF0b3MiCiAgICBleGl0IDEKZWxzZSAKQmREPSIkMiIKZmkKI0ZhbHRhIGVkaXRhciBhw7puIGxhIHBhcnRlIGVuIGxhIHF1ZSBzZSBldml0YSByZWluZ3Jlc2FyIGxhIGNvbnRyYXNlw7FhIG3Dumx0aXBsZXMgdmVjZXMsIHBlcm8gZnVlcmEgZGUgZXNvLCBlbCBzY3JpcHQgcHVlZGUgc2VyIHVzYWRvIAojKGVzIHVuYSBlZGljacOzbiBkZWwgb3JpZ2luYWwpCmVjaG8gIioqKioqKioqKioqQ29waWFuZG8gZWwgY29udGVuaWRvIGRlIGxhIGJhc2UgZGUgZGF0b3MgZGUgZGVzYXJyb2xsbyoqKioqKioqKioqIgplY2hvICIqKioqKioqKioqKkluZ3Jlc2UgZWwgcGFzc3dvcmQgZGVsIHVzdWFyaW8gdXNlci1kZXYqKioqKioqKioqKiIKcGdfZHVtcCAtRnAgIC1jIGdwc2stZGV2IC1mIC9ob21lLyRVU0VSL2R1bXBzL2Rlc2Fycm9sbG9fcHJvZHVjY2lvbi5zcWwgLVUgdXNlci1kZXYgLU8gLWggbG9jYWxob3N0CgplY2hvICIqKioqKioqKioqKioqRWxpbWluYW5kbyBsYSBiYXNlIGRlIGRhdG9zIGRlIHByb2R1Y2Npb24qKioqKioqKioqKioqKiIKc3UgcG9zdGdyZXMgLWMgImRyb3BkYiBncHNrLXByb2QgLVUgcG9zdGdyZXMiCmVjaG8gIioqKioqKioqKioqKioqKioqQ3JlYW5kbyBVc3VhcmlvICR1c3VhcmlvKioqKioqKioqKioqKioqKioiCnN1IHBvc3RncmVzIC1jICJjcmVhdGV1c2VyIC13IC1kIC1hICR1c3VhcmlvIC1VIHBvc3RncmVzIgplY2hvICIqKioqKioqKioqKioqKioqKkNyZWFuZG8gQmFzZSBkZSBkYXRvcyAkQmREKioqKioqKioqKioqKioqKioiCnN1IHBvc3RncmVzIC1jICJjcmVhdGVkYiAkQmREIC1PICR1c3VhcmlvIC1VIHBvc3RncmVzIC13IgpzdSBwb3N0Z3JlcyAtYyAicHNxbCAtZCAkQmREIC1hIC1mIHBhc3NfcHJvZC5zcWwgLVUgcG9zdGdyZXMgLXciCmVjaG8gIioqKioqKioqKioqKioqKioqUG9ibGFuZG8gbGEgYmFzZSBkZSBkYXRvcyBkZSBwcm9kdWNjaW9uKioqKioqKioqKioqKioqKioiCnN1IHBvc3RncmVzIC1jICJwc3FsIC1xICRCZEQgPCAvaG9tZS8kVVNFUi9kdW1wcy9kZXNhcnJvbGxvX3Byb2R1Y2Npb24uc3FsIgo=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/poblacion.sh"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 5
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0ZSBlcyBvdHJvIGRvY3VtZW50bwo=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_2"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 6
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0byBlcyB1biBhcmNoaXZvIGFkanVudG8K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(oiXGnpk)"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 7
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0ZSBlcyBvdHJvIGRvY3VtZW50bwo=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_2_(X2WnsU9)"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 8
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0byBlcyB1biBhcmNoaXZvIGFkanVudG8K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(hp5M54u)"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 9
+},
+{
+    "fields": {
+        "mimetype": "application/x-shellscript",
+        "bytes": "aWYgWyAteiAiJDEiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgdXN1YXJpbyIKICAgIGV4aXQgMQplbHNlIAp1c3VhcmlvPSIkMSIKZmkKaWYgWyAteiAiJDIiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgYmFzZSBkZSBkYXRvcyIKICAgIGV4aXQgMQplbHNlIApCZEQ9IiQyIgpmaQppZiBbIC16ICIkMyIgXQogIHRoZW4KICAgIGVjaG8gIk5vIGhheSBjb250cmFzZcOxYSIKICAgIGV4aXQgMQplbHNlIApjb250cmE9IiQzIgpmaQoKI3BzcWwKI2Ryb3BkYgojY3JlYXRldXNlcgojY3JlYXRlZGIK",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando_(Ldlb4j4).sh"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 10
+},
+{
+    "fields": {
+        "user_story": 4,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 1
+},
+{
+    "fields": {
+        "user_story": 7,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando.sh"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 2
+},
+{
+    "fields": {
+        "user_story": 8,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(LJ2PtcY)"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 3
+},
+{
+    "fields": {
+        "user_story": 8,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando_(Lcn3p9V).sh"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 4
+},
+{
+    "fields": {
+        "user_story": 3,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/poblacion.sh"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 5
+},
+{
+    "fields": {
+        "user_story": 1,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_2"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 6
+},
+{
+    "fields": {
+        "user_story": 2,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(oiXGnpk)"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 7
+},
+{
+    "fields": {
+        "user_story": 5,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_2_(X2WnsU9)"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 8
+},
+{
+    "fields": {
+        "user_story": 9,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(hp5M54u)"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 9
+},
+{
+    "fields": {
+        "user_story": 9,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando_(Ldlb4j4).sh"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 10
+},
+{
+    "fields": {
+        "fecha_fin": "2015-10-26",
+        "duracion": 12,
+        "fecha_inicio": "2015-10-12",
+        "proyecto": 1,
+        "nombre": "Sprint 1",
+        "estado": "Finalizado"
+    },
+    "model": "sprints.sprint",
+    "pk": 1
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-21",
+        "duracion": 12,
+        "fecha_inicio": "2015-11-21",
+        "proyecto": 1,
+        "nombre": "Sprint 2",
+        "estado": "No iniciado"
+    },
+    "model": "sprints.sprint",
+    "pk": 2
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-21",
+        "duracion": 12,
+        "fecha_inicio": "2015-11-21",
+        "proyecto": 1,
+        "nombre": "Sprint 3",
+        "estado": "No iniciado"
+    },
+    "model": "sprints.sprint",
+    "pk": 3
+},
+{
+    "fields": {
+        "codename": "add_logentry",
+        "name": "Can add log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 1
+},
+{
+    "fields": {
+        "codename": "change_logentry",
+        "name": "Can change log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 2
+},
+{
+    "fields": {
+        "codename": "delete_logentry",
+        "name": "Can delete log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 3
+},
+{
+    "fields": {
+        "codename": "add_permission",
+        "name": "Can add permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 4
+},
+{
+    "fields": {
+        "codename": "change_permission",
+        "name": "Can change permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 5
+},
+{
+    "fields": {
+        "codename": "delete_permission",
+        "name": "Can delete permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 6
+},
+{
+    "fields": {
+        "codename": "add_group",
+        "name": "Can add group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 7
+},
+{
+    "fields": {
+        "codename": "change_group",
+        "name": "Can change group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 8
+},
+{
+    "fields": {
+        "codename": "delete_group",
+        "name": "Can delete group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 9
+},
+{
+    "fields": {
+        "codename": "add_user",
+        "name": "Can add user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 10
+},
+{
+    "fields": {
+        "codename": "change_user",
+        "name": "Can change user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 11
+},
+{
+    "fields": {
+        "codename": "delete_user",
+        "name": "Can delete user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 12
+},
+{
+    "fields": {
+        "codename": "add_contenttype",
+        "name": "Can add content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 13
+},
+{
+    "fields": {
+        "codename": "change_contenttype",
+        "name": "Can change content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 14
+},
+{
+    "fields": {
+        "codename": "delete_contenttype",
+        "name": "Can delete content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 15
+},
+{
+    "fields": {
+        "codename": "add_session",
+        "name": "Can add session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 16
+},
+{
+    "fields": {
+        "codename": "change_session",
+        "name": "Can change session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 17
+},
+{
+    "fields": {
+        "codename": "delete_session",
+        "name": "Can delete session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 18
+},
+{
+    "fields": {
+        "codename": "crear_usuario",
+        "name": "Can crear usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 19
+},
+{
+    "fields": {
+        "codename": "modificar_usuario",
+        "name": "Can modificar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 20
+},
+{
+    "fields": {
+        "codename": "activar_usuario",
+        "name": "Can activar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 21
+},
+{
+    "fields": {
+        "codename": "inactivar_usuario",
+        "name": "Can inactivar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 22
+},
+{
+    "fields": {
+        "codename": "listar_usuario",
+        "name": "Can listar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 23
+},
+{
+    "fields": {
+        "codename": "crear_cliente",
+        "name": "Can crear cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 24
+},
+{
+    "fields": {
+        "codename": "modificar_cliente",
+        "name": "Can modificar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 25
+},
+{
+    "fields": {
+        "codename": "eliminar_cliente",
+        "name": "Can eliminar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 26
+},
+{
+    "fields": {
+        "codename": "listar_cliente",
+        "name": "Can listar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 27
+},
+{
+    "fields": {
+        "codename": "crear_proyecto",
+        "name": "Can crear proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 28
+},
+{
+    "fields": {
+        "codename": "modificar_proyecto",
+        "name": "Can modificar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 29
+},
+{
+    "fields": {
+        "codename": "eliminar_proyecto",
+        "name": "Can eliminar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 30
+},
+{
+    "fields": {
+        "codename": "listar_proyecto",
+        "name": "Can listar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 31
+},
+{
+    "fields": {
+        "codename": "asignar_rol_proyecto_proyecto",
+        "name": "Can asignar_rol_proyecto proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 32
+},
+{
+    "fields": {
+        "codename": "crear_rolproyecto",
+        "name": "Can crear Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 33
+},
+{
+    "fields": {
+        "codename": "modificar_rolproyecto",
+        "name": "Can modificar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 34
+},
+{
+    "fields": {
+        "codename": "eliminar_rolproyecto",
+        "name": "Can eliminar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 35
+},
+{
+    "fields": {
+        "codename": "listar_rolproyecto",
+        "name": "Can listar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 36
+},
+{
+    "fields": {
+        "codename": "crear_plantillaflujo",
+        "name": "Can crear plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 37
+},
+{
+    "fields": {
+        "codename": "modificar_plantillaflujo",
+        "name": "Can modificar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 38
+},
+{
+    "fields": {
+        "codename": "eliminar_plantillaflujo",
+        "name": "Can eliminar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 39
+},
+{
+    "fields": {
+        "codename": "listar_plantillaflujo",
+        "name": "Can listar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 40
+},
+{
+    "fields": {
+        "codename": "crear_flujo",
+        "name": "Can crear flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 41
+},
+{
+    "fields": {
+        "codename": "modificar_flujo",
+        "name": "Can modificar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 42
+},
+{
+    "fields": {
+        "codename": "eliminar_flujo",
+        "name": "Can eliminar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 43
+},
+{
+    "fields": {
+        "codename": "listar_flujo",
+        "name": "Can listar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 44
+},
+{
+    "fields": {
+        "codename": "crear_userstory",
+        "name": "Can crear user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 45
+},
+{
+    "fields": {
+        "codename": "redefinir_userstory",
+        "name": "Can redefinir user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 46
+},
+{
+    "fields": {
+        "codename": "definir_valor_tecnico_y_estimacion_userstory",
+        "name": "Can definir_valor_tecnico_y_estimacion user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 47
+},
+{
+    "fields": {
+        "codename": "asignar_flujo_userstory",
+        "name": "Can asignar_flujo user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 48
+},
+{
+    "fields": {
+        "codename": "asignar_sprint_userstory",
+        "name": "Can asignar_sprint user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 49
+},
+{
+    "fields": {
+        "codename": "asignar_usuario_userstory",
+        "name": "Can asignar_usuario user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 50
+},
+{
+    "fields": {
+        "codename": "listar_userstory",
+        "name": "Can listar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 51
+},
+{
+    "fields": {
+        "codename": "consultar_historial_userstory",
+        "name": "Can consultar_historial user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 52
+},
+{
+    "fields": {
+        "codename": "aprobar_userstory",
+        "name": "Can aprobar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 53
+},
+{
+    "fields": {
+        "codename": "descartar_userstory",
+        "name": "Can descartar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 54
+},
+{
+    "fields": {
+        "codename": "cambiar_estado_userstory",
+        "name": "Can cambiar_estado user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 55
+},
+{
+    "fields": {
+        "codename": "revertir_cambio_estado_userstory",
+        "name": "Can revertir_cambio_estado user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 56
+},
+{
+    "fields": {
+        "codename": "definir_horas_userstory",
+        "name": "Can definir_horas user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 57
+},
+{
+    "fields": {
+        "codename": "agregar_nota_userstory",
+        "name": "Can agregar_nota user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 58
+},
+{
+    "fields": {
+        "codename": "agregar_archivo_userstory",
+        "name": "Can agregar_archivo user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 59
+},
+{
+    "fields": {
+        "codename": "add_historialuserstory",
+        "name": "Can add historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 60
+},
+{
+    "fields": {
+        "codename": "change_historialuserstory",
+        "name": "Can change historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 61
+},
+{
+    "fields": {
+        "codename": "delete_historialuserstory",
+        "name": "Can delete historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 62
+},
+{
+    "fields": {
+        "codename": "crear_sprint",
+        "name": "Can crear sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 63
+},
+{
+    "fields": {
+        "codename": "modificar_sprint",
+        "name": "Can modificar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 64
+},
+{
+    "fields": {
+        "codename": "listar_sprint",
+        "name": "Can listar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 65
+},
+{
+    "fields": {
+        "codename": "iniciar_sprint",
+        "name": "Can iniciar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 66
+},
+{
+    "fields": {
+        "codename": "finalizar_sprint",
+        "name": "Can finalizar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 67
+},
+{
+    "fields": {
+        "codename": "asignar_flujo",
+        "name": "Can asignar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 68
+},
+{
+    "fields": {
+        "name": "Administrador",
+        "permissions": [
+            7,
+            8,
+            9,
+            24,
+            26,
+            27,
+            25,
+            37,
+            39,
+            40,
+            38,
+            32,
+            28,
+            30,
+            31,
+            29,
+            33,
+            35,
+            36,
+            34,
+            21,
+            19,
+            22,
+            23,
+            20
+        ]
+    },
+    "model": "auth.group",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Scrum Master",
+        "permissions": [
+            41,
+            43,
+            44,
+            42,
+            32,
+            28,
+            30,
+            31,
+            29,
+            63,
+            67,
+            66,
+            65,
+            64,
+            59,
+            58,
+            53,
+            48,
+            49,
+            50,
+            55,
+            52,
+            57,
+            47,
+            51,
+            56
+        ]
+    },
+    "model": "auth.group",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "Developer",
+        "permissions": [
+            44,
+            31,
+            65,
+            59,
+            58,
+            52,
+            57,
+            47,
+            51,
+            56
+        ]
+    },
+    "model": "auth.group",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "Product Owner",
+        "permissions": [
+            44,
+            52,
+            45,
+            54,
+            51,
+            46
+        ]
+    },
+    "model": "auth.group",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "administrador",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2015-11-26T11:09:29.941",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$jcIzrXkWpTaP$J/PL+rMsZzOD9tOMnXtGG7sotK5HHQAeNFPK6ghBtF4=",
+        "email": "krausevon88@gmail.com",
+        "date_joined": "2015-10-29T19:32:27.843"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "username": "CCar",
+        "first_name": "Carlos",
+        "last_name": "Carter",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-27T16:23:10.717",
+        "groups": [
+            2
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$w5F38BojAh1L$jqfKvqxD3Di9HiEMnjJtaY2PWsFy/TZNBeLHCO38S6Y=",
+        "email": "ccar2015@gmail.com",
+        "date_joined": "2015-10-29T20:29:32.048"
+    },
+    "model": "auth.user",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "ECar",
+        "first_name": "Esteban",
+        "last_name": "Caramano",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-10-29T20:34:36.059",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$3PEjclIKMsGb$v+jWoBEV09EzgSwWpeLBM1Ovquk7ZwcA1e8EMbLESoU=",
+        "email": "ecar2015@gmail.com",
+        "date_joined": "2015-10-29T20:34:36.059"
+    },
+    "model": "auth.user",
+    "pk": 3
+},
+{
+    "fields": {
+        "username": "RFil",
+        "first_name": "Rodrigo",
+        "last_name": "Filartiga",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-10-29T20:35:48.157",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$6t2TbWdBk4YD$SJ94avnFyYKpt4bBoSRTkdLZBa68llzyJLaDSz7OCCg=",
+        "email": "rfil2015@gmail.com",
+        "date_joined": "2015-10-29T20:35:48.157"
+    },
+    "model": "auth.user",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "CEst",
+        "first_name": "Camilo",
+        "last_name": "Esteche",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-26T18:11:09.448",
+        "groups": [
+            3
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$zLjDt9QFFNGf$njkBrYDgYDbuJC47gV5MgcBOzFTgGpv0O9uAwSLAsi0=",
+        "email": "cest2015@gmail.com",
+        "date_joined": "2015-10-29T20:38:16.463"
+    },
+    "model": "auth.user",
+    "pk": 5
+},
+{
+    "fields": {
+        "username": "EGon",
+        "first_name": "Emilia",
+        "last_name": "Gonzalez",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-10-29T20:39:41.372",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$tADQyMHKOHFd$6nDhMdMXQ8YxE6NMxw/Kz70cGZby2X/PDe9gCieE0JM=",
+        "email": "egon2015@gmail.com",
+        "date_joined": "2015-10-29T20:39:41.372"
+    },
+    "model": "auth.user",
+    "pk": 6
+},
+{
+    "fields": {
+        "username": "PCar",
+        "first_name": "Pablo",
+        "last_name": "Carvallo",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-10-29T20:42:39.501",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$jEL6BHDtT1sp$L0q8rm06e5XFO0wHFu4rCcGa3m8+rpTZULtiV+5yg4w=",
+        "email": "pcar2015@gmail.com",
+        "date_joined": "2015-10-29T20:42:39.501"
+    },
+    "model": "auth.user",
+    "pk": 7
+},
+{
+    "fields": {
+        "username": "PSol",
+        "first_name": "Paula",
+        "last_name": "Solalinde",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-26T18:28:25.539",
+        "groups": [
+            3
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$kXHmSWlyVIUM$k8RuFodLaY53SZvi4kgI/pWknak1k6+17I/N/CzhSnk=",
+        "email": "psol2015@gmail.com",
+        "date_joined": "2015-10-29T20:44:30.355"
+    },
+    "model": "auth.user",
+    "pk": 8
+},
+{
+    "fields": {
+        "username": "GSer",
+        "first_name": "Gabriel",
+        "last_name": "Servin",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-27T16:19:06.042",
+        "groups": [
+            2,
+            4
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$FYHsx6BVaqnQ$tY+yfxZPHnJMBSlb54gCFxa2hGlpyuH9F/bUnsLeEMY=",
+        "email": "gser2015@gmail.com",
+        "date_joined": "2015-10-29T20:47:54.583"
+    },
+    "model": "auth.user",
+    "pk": 9
+},
+{
+    "fields": {
+        "username": "RIba",
+        "first_name": "Raisa",
+        "last_name": "Ibarra",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-10-29T21:19:22.237",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$86Dbx0lIAVf4$7xjYOob9I6xZrh0Sh8XvQXezAWJX/4VGP+n21OpFwdk=",
+        "email": "riba2015@gmail.com",
+        "date_joined": "2015-10-29T21:19:22.237"
+    },
+    "model": "auth.user",
+    "pk": 10
+},
+{
+    "fields": {
+        "username": "PQui",
+        "first_name": "Pedro",
+        "last_name": "Quintana",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-10-29T21:20:39.967",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$ZPnKtAgWJjyv$RZDI6fmpU5umBkojWY+cmS76u7/MXc3/dMdtnoX5GbA=",
+        "email": "pqui2015@gmail.com",
+        "date_joined": "2015-10-29T21:20:39.967"
+    },
+    "model": "auth.user",
+    "pk": 11
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            1
+        ],
+        "telefono": "0981450016",
+        "user": 2,
+        "direccion": "Paso de patria, 2954"
+    },
+    "model": "usuarios.usuario",
+    "pk": 1
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0983188947",
+        "user": 3,
+        "direccion": "Cruz del defensor, 2849"
+    },
+    "model": "usuarios.usuario",
+    "pk": 2
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0991456589",
+        "user": 4,
+        "direccion": "Amambay, 754"
+    },
+    "model": "usuarios.usuario",
+    "pk": 3
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            2
+        ],
+        "telefono": "0991981041",
+        "user": 5,
+        "direccion": "San Jose, 892"
+    },
+    "model": "usuarios.usuario",
+    "pk": 4
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0974149612",
+        "user": 6,
+        "direccion": "Beato Roque Gonzalez, 1568"
+    },
+    "model": "usuarios.usuario",
+    "pk": 5
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0961255429",
+        "user": 7,
+        "direccion": "Presbitero Fidel Maiz, 1569"
+    },
+    "model": "usuarios.usuario",
+    "pk": 6
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            2
+        ],
+        "telefono": "0982938328",
+        "user": 8,
+        "direccion": "Pacheco, 1045"
+    },
+    "model": "usuarios.usuario",
+    "pk": 7
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            1,
+            3
+        ],
+        "telefono": "0991281284",
+        "user": 9,
+        "direccion": "Mayor Torales, 582"
+    },
+    "model": "usuarios.usuario",
+    "pk": 8
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0991256783",
+        "user": 10,
+        "direccion": "Rca. Dominica, 1093"
+    },
+    "model": "usuarios.usuario",
+    "pk": 9
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0981294878",
+        "user": 11,
+        "direccion": "Antequera, 789"
+    },
+    "model": "usuarios.usuario",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre_corto": "Proyecto 1",
+        "scrum_master": 2,
+        "fecha_fin": "2015-11-30",
+        "cliente": 1,
+        "fecha_inicio": "2015-10-12",
+        "equipo": [
+            5,
+            8,
+            9,
+            2
+        ],
+        "cancelado": false,
+        "codigo": "p",
+        "estado": "Activo",
+        "nombre_largo": "P1"
+    },
+    "model": "proyectos.proyecto",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre_corto": "P2",
+        "scrum_master": 9,
+        "fecha_fin": "2016-02-19",
+        "cliente": 3,
+        "fecha_inicio": "2015-11-09",
+        "equipo": [
+            9
+        ],
+        "cancelado": false,
+        "codigo": "p-1",
+        "estado": "No iniciado",
+        "nombre_largo": "Proyecto 2"
+    },
+    "model": "proyectos.proyecto",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre_corto": "P3",
+        "scrum_master": 2,
+        "fecha_fin": "2016-03-03",
+        "cliente": 2,
+        "fecha_inicio": "2015-12-14",
+        "equipo": [
+            2
+        ],
+        "cancelado": false,
+        "codigo": "p-2",
+        "estado": "No iniciado",
+        "nombre_largo": "Proyecto 3"
+    },
+    "model": "proyectos.proyecto",
+    "pk": 3
+},
+{
+    "fields": {
+        "group": 2,
+        "es_rol_proyecto": true
+    },
+    "model": "roles_proyecto.rolproyecto",
+    "pk": 1
+},
+{
+    "fields": {
+        "group": 3,
+        "es_rol_proyecto": true
+    },
+    "model": "roles_proyecto.rolproyecto",
+    "pk": 2
+},
+{
+    "fields": {
+        "group": 4,
+        "es_rol_proyecto": true
+    },
+    "model": "roles_proyecto.rolproyecto",
+    "pk": 3
+},
+{
+    "fields": {
+        "proyecto": 2,
+        "horas_developer": 0,
+        "user": 9,
+        "rol_proyecto": 1
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 2
+},
+{
+    "fields": {
+        "proyecto": 3,
+        "horas_developer": 0,
+        "user": 2,
+        "rol_proyecto": 1
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 3
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 8,
+        "user": 8,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 5
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 8,
+        "user": 5,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 6
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 0,
+        "user": 9,
+        "rol_proyecto": 3
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 7
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 0,
+        "user": 2,
+        "rol_proyecto": 1
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 10
+},
+{
+    "fields": {
+        "horas_acumuladas": 8,
+        "sprint": 1,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "Es el primer user story",
+        "nombre": "US 01",
+        "estimacion": 8,
+        "flujo": 1,
+        "estado": "Aprobado",
+        "prioridad": 5,
+        "valor_negocio": 3,
+        "valor_tecnico": 4
+    },
+    "model": "user_stories.userstory",
+    "pk": 1
+},
+{
+    "fields": {
+        "horas_acumuladas": 8,
+        "sprint": 1,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "Otro user story",
+        "nombre": "US 02",
+        "estimacion": 8,
+        "flujo": 1,
+        "estado": "Aprobado",
+        "prioridad": 10,
+        "valor_negocio": 4,
+        "valor_tecnico": 5
+    },
+    "model": "user_stories.userstory",
+    "pk": 2
+},
+{
+    "fields": {
+        "horas_acumuladas": 19,
+        "sprint": 1,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "Es el tercer user story",
+        "nombre": "US 03",
+        "estimacion": 16,
+        "flujo": 1,
+        "estado": "Aprobado",
+        "prioridad": 9,
+        "valor_negocio": 4,
+        "valor_tecnico": 4
+    },
+    "model": "user_stories.userstory",
+    "pk": 3
+},
+{
+    "fields": {
+        "horas_acumuladas": 8,
+        "sprint": 1,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "User story numero 4",
+        "nombre": "US 04",
+        "estimacion": 8,
+        "flujo": 1,
+        "estado": "Aprobado",
+        "prioridad": 2,
+        "valor_negocio": 3,
+        "valor_tecnico": 9
+    },
+    "model": "user_stories.userstory",
+    "pk": 4
+},
+{
+    "fields": {
+        "horas_acumuladas": 12,
+        "sprint": 1,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "El quinto user story es este",
+        "nombre": "US 05",
+        "estimacion": 12,
+        "flujo": 2,
+        "estado": "Aprobado",
+        "prioridad": 7,
+        "valor_negocio": 5,
+        "valor_tecnico": 6
+    },
+    "model": "user_stories.userstory",
+    "pk": 5
+},
+{
+    "fields": {
+        "horas_acumuladas": 12,
+        "sprint": 1,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "Un nuevo user story, es el numero 6",
+        "nombre": "US 06",
+        "estimacion": 12,
+        "flujo": 2,
+        "estado": "Aprobado",
+        "prioridad": 5,
+        "valor_negocio": 6,
+        "valor_tecnico": 8
+    },
+    "model": "user_stories.userstory",
+    "pk": 6
+},
+{
+    "fields": {
+        "horas_acumuladas": 16,
+        "sprint": 1,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "Es un user story mas, el septimo",
+        "nombre": "US 07",
+        "estimacion": 12,
+        "flujo": 2,
+        "estado": "Aprobado",
+        "prioridad": 1,
+        "valor_negocio": 6,
+        "valor_tecnico": 6
+    },
+    "model": "user_stories.userstory",
+    "pk": 7
+},
+{
+    "fields": {
+        "horas_acumuladas": 10,
+        "sprint": 1,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "Un nuevo user story",
+        "nombre": "US 08",
+        "estimacion": 10,
+        "flujo": 3,
+        "estado": "Aprobado",
+        "prioridad": 10,
+        "valor_negocio": 5,
+        "valor_tecnico": 7
+    },
+    "model": "user_stories.userstory",
+    "pk": 8
+},
+{
+    "fields": {
+        "horas_acumuladas": 10,
+        "sprint": 1,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "Otro user story",
+        "nombre": "US 09",
+        "estimacion": 10,
+        "flujo": 3,
+        "estado": "Aprobado",
+        "prioridad": 10,
+        "valor_negocio": 3,
+        "valor_tecnico": 4
+    },
+    "model": "user_stories.userstory",
+    "pk": 9
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": null,
+        "usuario": null,
+        "proyecto": 1,
+        "descripcion": "El decimo user story",
+        "nombre": "US 10",
+        "estimacion": 0,
+        "flujo": null,
+        "estado": "No asignado",
+        "prioridad": 0,
+        "valor_negocio": 6,
+        "valor_tecnico": 0
+    },
+    "model": "user_stories.userstory",
+    "pk": 10
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": null,
+        "usuario": null,
+        "proyecto": 1,
+        "descripcion": "Este es otro user story mas",
+        "nombre": "US 11",
+        "estimacion": 0,
+        "flujo": null,
+        "estado": "No asignado",
+        "prioridad": 0,
+        "valor_negocio": 5,
+        "valor_tecnico": 0
+    },
+    "model": "user_stories.userstory",
+    "pk": 11
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": null,
+        "usuario": null,
+        "proyecto": 1,
+        "descripcion": "Este es el user story no. 12",
+        "nombre": "US 12",
+        "estimacion": 0,
+        "flujo": null,
+        "estado": "No asignado",
+        "prioridad": 0,
+        "valor_negocio": 6,
+        "valor_tecnico": 0
+    },
+    "model": "user_stories.userstory",
+    "pk": 12
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": null,
+        "usuario": null,
+        "proyecto": 1,
+        "descripcion": "Otro user story, es el n\u00famero 13",
+        "nombre": "US 13",
+        "estimacion": 0,
+        "flujo": null,
+        "estado": "No asignado",
+        "prioridad": 0,
+        "valor_negocio": 5,
+        "valor_tecnico": 0
+    },
+    "model": "user_stories.userstory",
+    "pk": 13
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": null,
+        "usuario": null,
+        "proyecto": 1,
+        "descripcion": "El user story n\u00famero 14 es este",
+        "nombre": "US 14",
+        "estimacion": 0,
+        "flujo": null,
+        "estado": "No asignado",
+        "prioridad": 0,
+        "valor_negocio": 9,
+        "valor_tecnico": 0
+    },
+    "model": "user_stories.userstory",
+    "pk": 14
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": null,
+        "usuario": null,
+        "proyecto": 1,
+        "descripcion": "Otro user story m\u00e1s, este es el n\u00famero 15",
+        "nombre": "US 15",
+        "estimacion": 0,
+        "flujo": null,
+        "estado": "No asignado",
+        "prioridad": 0,
+        "valor_negocio": 3,
+        "valor_tecnico": 0
+    },
+    "model": "user_stories.userstory",
+    "pk": 15
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": null,
+        "usuario": null,
+        "proyecto": 1,
+        "descripcion": "El \u00faltimo user story de este proyecto",
+        "nombre": "US 16",
+        "estimacion": 0,
+        "flujo": null,
+        "estado": "No asignado",
+        "prioridad": 0,
+        "valor_negocio": 7,
+        "valor_tecnico": 0
+    },
+    "model": "user_stories.userstory",
+    "pk": 16
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "",
+        "fecha": "2015-11-20T21:01:06.889",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 1
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "",
+        "fecha": "2015-11-20T21:01:26.218",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 2
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "",
+        "fecha": "2015-11-20T21:01:48.852",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 3
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "",
+        "fecha": "2015-11-20T21:02:16.361",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 4
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "",
+        "fecha": "2015-11-20T21:02:34.890",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 5
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "",
+        "fecha": "2015-11-20T21:03:11.594",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 6
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "",
+        "fecha": "2015-11-20T21:04:33.599",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 7
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "",
+        "fecha": "2015-11-21T21:49:39.318",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 8
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "",
+        "fecha": "2015-11-21T21:50:05.588",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 9
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:51:59.075",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 10
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:51:59.078",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 11
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:51:59.080",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 12
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:51:59.081",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 13
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:52:19.895",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 14
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:52:19.899",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 15
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:52:19.901",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 16
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:52:19.903",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 17
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:52:33.714",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 18
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:52:33.717",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 19
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:52:33.720",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 20
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:52:33.723",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 21
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:52:58.769",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 22
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:52:58.771",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 23
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:52:58.777",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 24
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:52:58.788",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 25
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:53:19.357",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 26
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:53:19.360",
+        "usuario": 2,
+        "valor": "Flujo 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 27
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:53:19.363",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 28
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:53:19.366",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 29
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:53:28.421",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 30
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:53:28.424",
+        "usuario": 2,
+        "valor": "Flujo 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 31
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:53:28.426",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 32
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:53:28.428",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 33
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:54:10.473",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 34
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:54:10.476",
+        "usuario": 2,
+        "valor": "Flujo 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 35
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:54:10.478",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 36
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:54:10.480",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 37
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:54:18.108",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 38
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:54:18.111",
+        "usuario": 2,
+        "valor": "Flujo 3",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 39
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:54:18.113",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 40
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:54:18.115",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 41
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "desarrollador",
+        "fecha": "2015-11-21T21:54:26.754",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 42
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "flujo",
+        "fecha": "2015-11-21T21:54:26.756",
+        "usuario": 2,
+        "valor": "Flujo 3",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 43
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "sprint",
+        "fecha": "2015-11-21T21:54:26.758",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 44
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "estado",
+        "fecha": "2015-11-21T21:54:26.760",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 45
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.527",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 46
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.540",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 47
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.553",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 48
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.573",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 49
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.593",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 50
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.613",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 51
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.630",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 52
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.649",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 53
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "",
+        "fecha": "2015-11-21T21:54:38.665",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 54
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "prioridad",
+        "fecha": "2015-11-21T22:05:48.236",
+        "usuario": 2,
+        "valor": "5",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 55
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-21T22:05:48.239",
+        "usuario": 2,
+        "valor": "4",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 56
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "estimacion",
+        "fecha": "2015-11-21T22:05:48.242",
+        "usuario": 2,
+        "valor": "6",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 57
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "prioridad",
+        "fecha": "2015-11-21T22:06:41.930",
+        "usuario": 2,
+        "valor": "10",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 58
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-21T22:06:41.932",
+        "usuario": 2,
+        "valor": "5",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 59
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "estimacion",
+        "fecha": "2015-11-21T22:06:41.935",
+        "usuario": 2,
+        "valor": "6",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 60
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "prioridad",
+        "fecha": "2015-11-21T22:53:44.645",
+        "usuario": 2,
+        "valor": "9",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 61
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-21T22:53:44.650",
+        "usuario": 2,
+        "valor": "4",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 62
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "estimacion",
+        "fecha": "2015-11-21T22:53:44.653",
+        "usuario": 2,
+        "valor": "5",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 63
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "prioridad",
+        "fecha": "2015-11-21T22:58:42.975",
+        "usuario": 2,
+        "valor": "2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 64
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-21T22:58:42.983",
+        "usuario": 2,
+        "valor": "9",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 65
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "estimacion",
+        "fecha": "2015-11-21T22:58:42.985",
+        "usuario": 2,
+        "valor": "7",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 66
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "prioridad",
+        "fecha": "2015-11-25T18:08:52.648",
+        "usuario": 2,
+        "valor": "7",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 67
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-25T18:08:52.660",
+        "usuario": 2,
+        "valor": "6",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 68
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:08:52.662",
+        "usuario": 2,
+        "valor": "12",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 69
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "prioridad",
+        "fecha": "2015-11-25T18:09:55.925",
+        "usuario": 2,
+        "valor": "5",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 70
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-25T18:09:55.929",
+        "usuario": 2,
+        "valor": "8",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 71
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:09:55.932",
+        "usuario": 2,
+        "valor": "12",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 72
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:10:29.316",
+        "usuario": 2,
+        "valor": "8",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 73
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:11:12.241",
+        "usuario": 2,
+        "valor": "8",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 74
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "prioridad",
+        "fecha": "2015-11-25T18:14:17.304",
+        "usuario": 2,
+        "valor": "1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 75
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-25T18:14:17.315",
+        "usuario": 2,
+        "valor": "6",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 76
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:14:17.329",
+        "usuario": 2,
+        "valor": "3",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 77
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:16:09.943",
+        "usuario": 2,
+        "valor": "8",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 78
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "prioridad",
+        "fecha": "2015-11-25T18:18:14.976",
+        "usuario": 2,
+        "valor": "10",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 79
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-25T18:18:14.980",
+        "usuario": 2,
+        "valor": "7",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 80
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:18:14.982",
+        "usuario": 2,
+        "valor": "10",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 81
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "prioridad",
+        "fecha": "2015-11-25T18:18:28.674",
+        "usuario": 2,
+        "valor": "10",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 82
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "valor tecnico",
+        "fecha": "2015-11-25T18:18:28.677",
+        "usuario": 2,
+        "valor": "4",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 83
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:18:28.680",
+        "usuario": 2,
+        "valor": "7",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 84
+},
+{
+    "fields": {
+        "user_story": 10,
+        "campo": "",
+        "fecha": "2015-11-25T18:20:50.323",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 85
+},
+{
+    "fields": {
+        "user_story": 11,
+        "campo": "",
+        "fecha": "2015-11-25T18:21:45.255",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 86
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:23:51.624",
+        "usuario": 2,
+        "valor": "8",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 87
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:24:03.264",
+        "usuario": 2,
+        "valor": "9",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 88
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:25:04.910",
+        "usuario": 2,
+        "valor": "16",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 89
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:26:12.384",
+        "usuario": 2,
+        "valor": "12",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 90
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:26:24.493",
+        "usuario": 2,
+        "valor": "11",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 91
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T18:27:04.507",
+        "usuario": 2,
+        "valor": "10",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 92
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "",
+        "fecha": "2015-11-25T18:32:55.773",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 93
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "",
+        "fecha": "2015-11-26T03:40:46.658",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 94
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "",
+        "fecha": "2015-11-26T03:42:20.233",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 95
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "",
+        "fecha": "2015-11-26T03:48:25.350",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 96
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "",
+        "fecha": "2015-11-26T08:23:28.981",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 97
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "",
+        "fecha": "2015-11-26T08:30:18.932",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 98
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "",
+        "fecha": "2015-11-26T08:30:23.105",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 99
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "",
+        "fecha": "2015-11-26T08:57:41.049",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 100
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "",
+        "fecha": "2015-11-26T09:15:43.948",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 101
+},
+{
+    "fields": {
+        "user_story": 3,
+        "campo": "",
+        "fecha": "2015-11-26T10:29:54.365",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 102
+},
+{
+    "fields": {
+        "user_story": 4,
+        "campo": "",
+        "fecha": "2015-11-26T10:30:09.454",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 103
+},
+{
+    "fields": {
+        "user_story": 1,
+        "campo": "",
+        "fecha": "2015-11-26T10:30:32.531",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 104
+},
+{
+    "fields": {
+        "user_story": 2,
+        "campo": "",
+        "fecha": "2015-11-26T10:31:10.945",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 105
+},
+{
+    "fields": {
+        "user_story": 5,
+        "campo": "",
+        "fecha": "2015-11-26T10:32:25.863",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 106
+},
+{
+    "fields": {
+        "user_story": 6,
+        "campo": "",
+        "fecha": "2015-11-26T10:33:14.883",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 107
+},
+{
+    "fields": {
+        "user_story": 8,
+        "campo": "",
+        "fecha": "2015-11-26T10:33:52.932",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 108
+},
+{
+    "fields": {
+        "user_story": 9,
+        "campo": "",
+        "fecha": "2015-11-26T10:34:06.973",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 109
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "",
+        "fecha": "2015-11-26T10:52:04.201",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 110
+},
+{
+    "fields": {
+        "user_story": 7,
+        "campo": "",
+        "fecha": "2015-11-26T10:52:28.231",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 111
+},
+{
+    "fields": {
+        "user_story": 12,
+        "campo": "",
+        "fecha": "2015-11-27T16:19:46.194",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 112
+},
+{
+    "fields": {
+        "user_story": 13,
+        "campo": "",
+        "fecha": "2015-11-27T16:20:24.989",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 113
+},
+{
+    "fields": {
+        "user_story": 14,
+        "campo": "",
+        "fecha": "2015-11-27T16:21:13.142",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 114
+},
+{
+    "fields": {
+        "user_story": 15,
+        "campo": "",
+        "fecha": "2015-11-27T16:22:11.414",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 115
+},
+{
+    "fields": {
+        "user_story": 16,
+        "campo": "",
+        "fecha": "2015-11-27T16:22:41.376",
+        "usuario": 9,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 116
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-12T08:54:38.518",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 1
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-12T08:54:38.537",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 2
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-12T08:54:38.550",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 3
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 1,
+        "fecha": "2015-10-12T08:54:38.569",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 4
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 4,
+        "fecha": "2015-10-12T08:54:38.589",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 58,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 5
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-12T08:54:38.609",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 58,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 6
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-12T08:54:38.627",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 58,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 7
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 7,
+        "fecha": "2015-10-12T08:54:38.647",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 67,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 8
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 7,
+        "fecha": "2015-10-12T08:54:38.662",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 1,
+        "estado": 67,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 9
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 1,
+        "fecha": "2015-10-12T16:54:57.896",
+        "horas_de_trabajo": 8,
+        "descripcion": "He realizado la primera tarea",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 10
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 1,
+        "fecha": "2015-10-12T15:30:47.736",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 11
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 1,
+        "fecha": "2015-10-13T15:32:30.937",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 50,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 12
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 1,
+        "fecha": "2015-10-13T15:32:36.059",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 51,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 13
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 2,
+        "fecha": "2015-10-13T15:32:39.970",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 1 -> Actividad 2",
+        "sprint": 1,
+        "estado": 52,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 14
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 2,
+        "fecha": "2015-10-13T15:32:42.701",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 53,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 15
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 2,
+        "fecha": "2015-10-13T15:32:45.636",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 54,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 16
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 3,
+        "fecha": "2015-10-13T15:32:48.162",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 1,
+        "estado": 55,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 17
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 3,
+        "fecha": "2015-10-13T15:32:50.715",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 56,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 18
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 3,
+        "fecha": "2015-10-13T15:32:53.260",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 19
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 3,
+        "fecha": "2015-10-13T15:32:55.770",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 20
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-14T08:05:51.275",
+        "horas_de_trabajo": 3,
+        "descripcion": "He realizado la tarea 1 sobre el user story nro. 6",
+        "sprint": 1,
+        "estado": 58,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 21
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-14T12:30:49.880",
+        "horas_de_trabajo": 3,
+        "descripcion": "Se realiza tarea 2 sobre user story numero 6",
+        "sprint": 1,
+        "estado": 58,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 22
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-15T08:02:42.786",
+        "horas_de_trabajo": 4,
+        "descripcion": "Se realiza tarea 1 sobre user story 7",
+        "sprint": 1,
+        "estado": 58,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 23
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-15T11:31:26.320",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 58,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 24
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-14T11:05:53.937",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 59,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 25
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-14T12:30:42.114",
+        "horas_de_trabajo": 3,
+        "descripcion": "Se realiza una segunda tarea",
+        "sprint": 1,
+        "estado": 59,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 26
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-15T12:09:29.335",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 59,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 27
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-15T12:45:57.868",
+        "horas_de_trabajo": 2,
+        "descripcion": "Se ha realizado otra tarea",
+        "sprint": 1,
+        "estado": 59,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 28
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-14T15:05:06.918",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 60,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 29
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-15T14:34:47.817",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 60,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 30
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-16T13:35:33.083",
+        "horas_de_trabajo": 1,
+        "descripcion": "Se hizo una nueva tarea sobre este user story",
+        "sprint": 1,
+        "estado": 60,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 31
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 4,
+        "fecha": "2015-10-16T08:05:52.569",
+        "horas_de_trabajo": 5,
+        "descripcion": "Otra tarea",
+        "sprint": 1,
+        "estado": 60,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 32
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 5,
+        "fecha": "2015-10-16T14:35:57.656",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 1,
+        "estado": 61,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 33
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 5,
+        "fecha": "2015-10-16T12:55:02.600",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 1,
+        "estado": 61,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 34
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 5,
+        "fecha": "2015-10-16T14:38:09.747",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 62,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 35
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 5,
+        "fecha": "2015-10-16T14:38:22.999",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 62,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 36
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 5,
+        "fecha": "2015-10-16T14:39:16.008",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 63,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 37
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-16T14:39:20.453",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 3 -> Actividad 4",
+        "sprint": 1,
+        "estado": 64,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 38
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 5,
+        "fecha": "2015-10-16T14:39:24.651",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 63,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 39
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 5,
+        "fecha": "2015-10-16T14:40:02.090",
+        "horas_de_trabajo": 1,
+        "descripcion": "Se ha realizado una \u00faltima tarea",
+        "sprint": 1,
+        "estado": 63,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 40
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-16T15:40:06.341",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 3 -> Actividad 4",
+        "sprint": 1,
+        "estado": 64,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 41
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-16T15:40:40.112",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 65,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 42
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-16T15:40:43.421",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 43
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-16T15:40:46.654",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 44
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-16T15:41:46.625",
+        "horas_de_trabajo": 1,
+        "descripcion": "Se ha realizado una tarea m\u00e1s",
+        "sprint": 1,
+        "estado": 64,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 45
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-19T08:00:46.880",
+        "horas_de_trabajo": 1,
+        "descripcion": "Se ha realizado una tarea m\u00e1s",
+        "sprint": 1,
+        "estado": 64,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 46
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-16T16:50:50.189",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 65,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 47
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-19T09:20:17.080",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 48
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-19T09:20:20.229",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 49
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 7,
+        "fecha": "2015-10-20T08:10:23.253",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 67,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 50
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 7,
+        "fecha": "2015-10-20T08:10:55.392",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 68,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 51
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 7,
+        "fecha": "2015-10-20T08:10:59.840",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 69,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 52
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 8,
+        "fecha": "2015-10-20T08:11:03.063",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 5 -> Actividad 6",
+        "sprint": 1,
+        "estado": 70,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 53
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 8,
+        "fecha": "2015-10-20T08:11:32.223",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 70,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 54
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 8,
+        "fecha": "2015-10-20T08:12:11.964",
+        "horas_de_trabajo": 4,
+        "descripcion": "Se ha realizado la primera tarea",
+        "sprint": 1,
+        "estado": 70,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 55
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 8,
+        "fecha": "2015-10-20T12:04:19.812",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 71,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 56
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 8,
+        "fecha": "2015-10-20T12:45:37.288",
+        "horas_de_trabajo": 2,
+        "descripcion": "Una nueva tarea ha sido realizada",
+        "sprint": 1,
+        "estado": 71,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 57
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 8,
+        "fecha": "2015-10-20T14:40:41.593",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 72,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 58
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 9,
+        "fecha": "2015-10-20T14:46:10.831",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 6 -> Actividad 7",
+        "sprint": 1,
+        "estado": 73,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 59
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 9,
+        "fecha": "2015-10-20T14:46:54.377",
+        "horas_de_trabajo": 1,
+        "descripcion": "Otra tarea es realizada sobre este user story",
+        "sprint": 1,
+        "estado": 73,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 60
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 9,
+        "fecha": "2015-10-20T15:38:58.208",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 74,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 61
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 9,
+        "fecha": "2015-10-21T08:12:27.548",
+        "horas_de_trabajo": 2,
+        "descripcion": "Dentro de esta actividad se ha realizado una segunda tarea",
+        "sprint": 1,
+        "estado": 74,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 62
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 9,
+        "fecha": "2015-10-21T10:12:31.684",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 75,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 63
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 9,
+        "fecha": "2015-10-21T10:48:07.403",
+        "horas_de_trabajo": 1,
+        "descripcion": "La \u00faltima tarea ha sido realizada",
+        "sprint": 1,
+        "estado": 75,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 64
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 9,
+        "fecha": "2015-10-21T11:47:25.346",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 75,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 65
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-13T14:52:35.788",
+        "horas_de_trabajo": 2,
+        "descripcion": "Se procede ha realizar la primera tarea sobre este user story",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 66
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-13T16:53:41.371",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 50,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 67
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-13T13:00:12.007",
+        "horas_de_trabajo": 2,
+        "descripcion": "Es la primera tarea del user story 1",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 68
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-13T14:50:17.630",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 50,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 69
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-13T08:54:59.730",
+        "horas_de_trabajo": 4,
+        "descripcion": "Se han comenzado las tareas para este user story",
+        "sprint": 1,
+        "estado": 49,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 70
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-13T12:40:11.032",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 50,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 71
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-14T08:30:24.021",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 51,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 72
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-14T08:30:55.549",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 51,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 73
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-14T08:30:06.738",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 51,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 74
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-14T08:31:44.408",
+        "horas_de_trabajo": 3,
+        "descripcion": "Una nueva tarea ha sido realizada",
+        "sprint": 1,
+        "estado": 51,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 75
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 1,
+        "fecha": "2015-10-14T12:30:16.943",
+        "horas_de_trabajo": 5,
+        "descripcion": "Una nueva tarea se ha puesto en marcha con este user story",
+        "sprint": 1,
+        "estado": 51,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 76
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-14T17:20:22.166",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 1 -> Actividad 2",
+        "sprint": 1,
+        "estado": 52,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 77
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-14T17:20:28.830",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 1 -> Actividad 2",
+        "sprint": 1,
+        "estado": 52,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 78
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-14T11:45:31.548",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 1 -> Actividad 2",
+        "sprint": 1,
+        "estado": 52,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 79
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T08:10:23.235",
+        "horas_de_trabajo": 2,
+        "descripcion": "Se realiza la segunda tarea sobre este user story",
+        "sprint": 1,
+        "estado": 52,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 80
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T10:00:31.384",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 53,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 81
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T10:05:46.858",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 53,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 82
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T13:15:02.755",
+        "horas_de_trabajo": 4,
+        "descripcion": "Otra tarea es registrada",
+        "sprint": 1,
+        "estado": 52,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 83
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T17:12:06.345",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 53,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 84
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T13:20:22.426",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 53,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 85
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T11:00:22.201",
+        "horas_de_trabajo": 1,
+        "descripcion": "Otra tarea que registra este user story",
+        "sprint": 1,
+        "estado": 53,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 86
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T12:03:39.409",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 54,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 87
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-15T13:14:55.411",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 54,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 88
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-16T08:15:57.182",
+        "horas_de_trabajo": 3,
+        "descripcion": "Se ha completado una nueva tarea",
+        "sprint": 1,
+        "estado": 53,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 89
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 2,
+        "fecha": "2015-10-16T11:16:00.263",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 54,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 90
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T11:18:17.141",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 1,
+        "estado": 55,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 91
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T11:18:20.784",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 1,
+        "estado": 55,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 92
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T11:18:23.644",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 1,
+        "estado": 55,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 93
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T11:20:35.142",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 55,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 94
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T11:20:52.450",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 55,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 95
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T12:30:59.120",
+        "horas_de_trabajo": 2,
+        "descripcion": "Este user story cuenta con otra tarea",
+        "sprint": 1,
+        "estado": 55,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 96
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T14:25:47.897",
+        "horas_de_trabajo": 1,
+        "descripcion": "Una tarea m\u00e1s para este user story",
+        "sprint": 1,
+        "estado": 55,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 97
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T15:23:23.580",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 56,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 98
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T15:23:26.385",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 99
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T15:23:28.977",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 100
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T14:25:00.759",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 56,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 101
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T15:25:03.680",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 56,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 102
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T15:25:50.903",
+        "horas_de_trabajo": 1,
+        "descripcion": "Se realiza la \u00faltima tarea sobre este user story",
+        "sprint": 1,
+        "estado": 56,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 103
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T16:27:30.393",
+        "horas_de_trabajo": 1,
+        "descripcion": "Otra tarea m\u00e1s para este user story",
+        "sprint": 1,
+        "estado": 56,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 104
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T16:26:33.801",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 105
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T17:26:42.570",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 106
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-19T08:00:10.277",
+        "horas_de_trabajo": 1,
+        "descripcion": "Se realiza la \u00faltima tarea sobre este user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 107
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-16T16:27:28.928",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 108
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 3,
+        "fecha": "2015-10-19T09:00:23.100",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 109
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 4,
+        "fecha": "2015-10-19T09:01:17.036",
+        "horas_de_trabajo": 3,
+        "descripcion": "Se inician las tareas sobre el user story 5",
+        "sprint": 1,
+        "estado": 58,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 110
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 4,
+        "fecha": "2015-10-19T12:12:40.721",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 59,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 111
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 4,
+        "fecha": "2015-10-19T13:02:00.243",
+        "horas_de_trabajo": 1,
+        "descripcion": "Una tarea m\u00e1s dentro de esta actividad",
+        "sprint": 1,
+        "estado": 59,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 112
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 4,
+        "fecha": "2015-10-19T14:08:05.691",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 60,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 113
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 5,
+        "fecha": "2015-10-19T14:08:08.980",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 1,
+        "estado": 61,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 114
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 5,
+        "fecha": "2015-10-19T14:08:19.500",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 61,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 115
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 5,
+        "fecha": "2015-10-19T14:15:47.500",
+        "horas_de_trabajo": 2,
+        "descripcion": "Este user story registra otra tarea",
+        "sprint": 1,
+        "estado": 61,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 116
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 5,
+        "fecha": "2015-10-19T16:39:56.065",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 62,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 117
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 5,
+        "fecha": "2015-10-20T08:15:15.291",
+        "horas_de_trabajo": 3,
+        "descripcion": "La \u00faltima tarea dentro de esta actividad",
+        "sprint": 1,
+        "estado": 62,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 118
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 5,
+        "fecha": "2015-10-20T11:30:50.000",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 63,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 119
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 6,
+        "fecha": "2015-10-20T11:47:35.835",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 3 -> Actividad 4",
+        "sprint": 1,
+        "estado": 64,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 120
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 6,
+        "fecha": "2015-10-20T12:37:26.772",
+        "horas_de_trabajo": 1,
+        "descripcion": "La primera tarea dentro de la \u00faltima actividad del segundo flujo del primer sprint del proyecto para este user story",
+        "sprint": 1,
+        "estado": 64,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 121
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 6,
+        "fecha": "2015-10-20T13:49:37.359",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 65,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 122
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 6,
+        "fecha": "2015-10-20T13:52:01.621",
+        "horas_de_trabajo": 1,
+        "descripcion": "Otra tarea para este user story",
+        "sprint": 1,
+        "estado": 65,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 123
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 6,
+        "fecha": "2015-10-20T14:45:12.457",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 124
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 6,
+        "fecha": "2015-10-20T14:45:36.870",
+        "horas_de_trabajo": 1,
+        "descripcion": "Esta es la \u00faltima tarea para este user story",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 125
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 6,
+        "fecha": "2015-10-20T15:57:41.045",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 126
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 7,
+        "fecha": "2015-10-20T15:58:08.255",
+        "horas_de_trabajo": 3,
+        "descripcion": "La primera tarea para este user story",
+        "sprint": 1,
+        "estado": 67,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 127
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 7,
+        "fecha": "2015-10-20T18:39:12.803",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 68,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 128
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 7,
+        "fecha": "2015-10-21T08:00:23.965",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 68,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 129
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 7,
+        "fecha": "2015-10-21T09:11:09.545",
+        "horas_de_trabajo": 1,
+        "descripcion": "La segunda tarea para este user story",
+        "sprint": 1,
+        "estado": 68,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 130
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 7,
+        "fecha": "2015-10-21T10:00:15.471",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 69,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 131
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 8,
+        "fecha": "2015-10-21T10:12:15.577",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 5 -> Actividad 6",
+        "sprint": 1,
+        "estado": 70,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 132
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 8,
+        "fecha": "2015-10-21T10:12:40.954",
+        "horas_de_trabajo": 2,
+        "descripcion": "Otra tarea dentro de este user story",
+        "sprint": 1,
+        "estado": 70,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 133
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 8,
+        "fecha": "2015-10-21T12:12:45.363",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 71,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 134
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 8,
+        "fecha": "2015-10-21T12:50:55.100",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 72,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 135
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 9,
+        "fecha": "2015-10-21T12:51:34.942",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 6 -> Actividad 7",
+        "sprint": 1,
+        "estado": 73,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 136
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 9,
+        "fecha": "2015-10-21T12:51:58.689",
+        "horas_de_trabajo": 4,
+        "descripcion": "La \u00faltima tarea para este user story",
+        "sprint": 1,
+        "estado": 73,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 137
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 9,
+        "fecha": "2015-10-21T16:52:04.251",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 74,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 138
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 9,
+        "fecha": "2015-10-21T16:52:28.491",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 75,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 139
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 9,
+        "fecha": "2015-10-21T15:15:37.460",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 1,
+        "estado": 75,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 140
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 9,
+        "fecha": "2015-10-21T16:52:43.945",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 75,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 141
+},
+{
+    "fields": {
+        "user_story": 3,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 3,
+        "fecha": "2015-10-22T09:29:54.354",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 142
+},
+{
+    "fields": {
+        "user_story": 4,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 3,
+        "fecha": "2015-10-22T11:30:09.451",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 143
+},
+{
+    "fields": {
+        "user_story": 1,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 3,
+        "fecha": "2015-10-22T12:15:32.528",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 144
+},
+{
+    "fields": {
+        "user_story": 2,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 3,
+        "fecha": "2015-10-22T13:31:10.942",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 57,
+        "flujo": 1
+    },
+    "model": "user_stories.tarea",
+    "pk": 145
+},
+{
+    "fields": {
+        "user_story": 5,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 6,
+        "fecha": "2015-10-22T13:32:25.859",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 146
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 6,
+        "fecha": "2015-10-22T15:38:35.874",
+        "horas_de_trabajo": 0,
+        "descripcion": "Revertir: - Estado: Done -> To do",
+        "sprint": 1,
+        "estado": 64,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 147
+},
+{
+    "fields": {
+        "user_story": 6,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 6,
+        "fecha": "2015-10-22T16:33:14.875",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 148
+},
+{
+    "fields": {
+        "user_story": 8,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 9,
+        "fecha": "2015-10-26T08:33:52.920",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 75,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 149
+},
+{
+    "fields": {
+        "user_story": 9,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 9,
+        "fecha": "2015-10-26T09:14:06.966",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 75,
+        "flujo": 3
+    },
+    "model": "user_stories.tarea",
+    "pk": 150
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-23T08:00:13.894",
+        "horas_de_trabajo": 2,
+        "descripcion": "Se realizan las revisiones para este user story ",
+        "sprint": 1,
+        "estado": 64,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 151
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-23T10:15:44.605",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 1,
+        "estado": 65,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 152
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-23T10:25:18.464",
+        "horas_de_trabajo": 2,
+        "descripcion": "Se ha procedido con m\u00e1s revisiones, las \u00faltimas",
+        "sprint": 1,
+        "estado": 65,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 153
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-23T12:35:21.612",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 154
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 6,
+        "fecha": "2015-10-23T12:36:04.196",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 155
+},
+{
+    "fields": {
+        "user_story": 7,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 6,
+        "fecha": "2015-10-26T08:52:28.226",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 1,
+        "estado": 66,
+        "flujo": 2
+    },
+    "model": "user_stories.tarea",
+    "pk": 156
+},
+{
+    "fields": {
+        "user_story": 4,
+        "fecha": "2015-11-25T17:07:41.887",
+        "texto": "Nota 1",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 1
+},
+{
+    "fields": {
+        "user_story": 4,
+        "fecha": "2015-11-25T18:30:36.450",
+        "texto": "Esta es una nota sobre el user story numero 4",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 2
+},
+{
+    "fields": {
+        "user_story": 6,
+        "fecha": "2015-11-25T18:34:11.851",
+        "texto": "No hay notas que agregar",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 3
+},
+{
+    "fields": {
+        "user_story": 6,
+        "fecha": "2015-11-26T03:30:03.513",
+        "texto": "Se agrega una nota",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 4
+},
+{
+    "fields": {
+        "user_story": 6,
+        "fecha": "2015-11-26T03:30:03.759",
+        "texto": "Se agrega una nota",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 5
+},
+{
+    "fields": {
+        "user_story": 7,
+        "fecha": "2015-11-26T03:31:07.730",
+        "texto": "Se a\u00f1ade una nota a este user story",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 6
+},
+{
+    "fields": {
+        "user_story": 6,
+        "fecha": "2015-11-26T03:37:00.509",
+        "texto": "Este user story no presenta presenta particularidad alguna",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 7
+},
+{
+    "fields": {
+        "user_story": 7,
+        "fecha": "2015-11-26T03:38:06.213",
+        "texto": "Se esta analizando este user story",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 8
+},
+{
+    "fields": {
+        "user_story": 7,
+        "fecha": "2015-11-26T03:39:11.985",
+        "texto": "Se decidi\u00f3 que este user story no corresponde a esta actividad",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 9
+},
+{
+    "fields": {
+        "user_story": 7,
+        "fecha": "2015-11-26T03:40:36.700",
+        "texto": "Este user story se ha finalizado",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 10
+},
+{
+    "fields": {
+        "user_story": 6,
+        "fecha": "2015-11-26T03:42:12.872",
+        "texto": "Se ha finalizado este user story",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 11
+},
+{
+    "fields": {
+        "user_story": 8,
+        "fecha": "2015-11-26T03:43:51.000",
+        "texto": "Este user story no corresponde a esta actividad",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 12
+},
+{
+    "fields": {
+        "user_story": 8,
+        "fecha": "2015-11-26T03:46:05.960",
+        "texto": "Se pasa a la pr\u00f3xima actividad",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 13
+},
+{
+    "fields": {
+        "user_story": 8,
+        "fecha": "2015-11-26T03:48:21.008",
+        "texto": "Se ha finalizado este user story",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 14
+},
+{
+    "fields": {
+        "user_story": 1,
+        "fecha": "2015-11-26T08:17:05.184",
+        "texto": "Se ha terminado la actividad 2 con este user story",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 15
+},
+{
+    "fields": {
+        "user_story": 3,
+        "fecha": "2015-11-26T08:17:37.508",
+        "texto": "Este user story ha concluido la actividad 2",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 16
+},
+{
+    "fields": {
+        "user_story": 1,
+        "fecha": "2015-11-26T08:18:03.272",
+        "texto": "Se ha terminado la actividad 2",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 17
+},
+{
+    "fields": {
+        "user_story": 5,
+        "fecha": "2015-11-26T08:33:36.106",
+        "texto": "Se ha iniciado a procesar este user story",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 18
+},
+{
+    "fields": {
+        "user_story": 5,
+        "fecha": "2015-11-26T08:37:43.453",
+        "texto": "Se ha a\u00f1adido un archivo",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 19
+},
+{
+    "fields": {
+        "user_story": 5,
+        "fecha": "2015-11-26T08:46:17.569",
+        "texto": "Se ha concluido esta actividad",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 20
+},
+{
+    "fields": {
+        "user_story": 5,
+        "fecha": "2015-11-26T08:58:14.752",
+        "texto": "Se ha finalizado este user story",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 21
+},
+{
+    "fields": {
+        "user_story": 9,
+        "fecha": "2015-11-26T09:04:58.827",
+        "texto": "Se procede a trabajar con este user story",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 22
+},
+{
+    "fields": {
+        "user_story": 9,
+        "fecha": "2015-11-26T09:14:30.898",
+        "texto": "La actividad 6 a concluido con este user story",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 23
+},
+{
+    "fields": {
+        "user_story": 3,
+        "fecha": "2015-11-26T10:29:54.369",
+        "texto": "El user story se ha realizado exitosamente",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 24
+},
+{
+    "fields": {
+        "user_story": 4,
+        "fecha": "2015-11-26T10:30:09.457",
+        "texto": "Nada que agregar",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 25
+},
+{
+    "fields": {
+        "user_story": 1,
+        "fecha": "2015-11-26T10:30:32.533",
+        "texto": "Otro user story satisfactoriamente concluido",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 26
+},
+{
+    "fields": {
+        "user_story": 2,
+        "fecha": "2015-11-26T10:31:10.948",
+        "texto": "El cliente aprob\u00f3 este user story",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 27
+},
+{
+    "fields": {
+        "user_story": 5,
+        "fecha": "2015-11-26T10:32:25.870",
+        "texto": "Es correcto",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 28
+},
+{
+    "fields": {
+        "user_story": 6,
+        "fecha": "2015-11-26T10:33:14.886",
+        "texto": "Se ha realizado correctamente",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 29
+},
+{
+    "fields": {
+        "user_story": 8,
+        "fecha": "2015-11-26T10:33:52.934",
+        "texto": "Se realiz\u00f3 correctamente\r\n",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 30
+},
+{
+    "fields": {
+        "user_story": 9,
+        "fecha": "2015-11-26T10:34:06.976",
+        "texto": "Es correcto",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 31
+},
+{
+    "fields": {
+        "user_story": 7,
+        "fecha": "2015-11-26T10:39:54.380",
+        "texto": "Deben revisarse las \u00faltimas tareas",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 32
+},
+{
+    "fields": {
+        "user_story": 7,
+        "fecha": "2015-11-26T10:52:00.306",
+        "texto": "Se ha concluido la revisi\u00f3n, se espera la aprobaci\u00f3n",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 33
+},
+{
+    "fields": {
+        "user_story": 7,
+        "fecha": "2015-11-26T10:52:28.234",
+        "texto": "Se ha aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 34
+}
+]

@@ -856,8 +856,9 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.usuario = request.user
                 tarea.save()
 
+                print "%s-%s-%s-%s-%s-%s-%s-%s" % (proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
                 #se envia la notificacion a traves de celery
-                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+                cambio_estado.delay(proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             elif us_original_est == estados[1] and actividades.reverse()[0] != act:
                 detalle.estado = estados[2]
@@ -874,8 +875,9 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.usuario = request.user
                 tarea.save()
 
+                print "%s-%s-%s-%s-%s-%s-%s-%s" % (proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
                 #se envia la notificacion a traves de celery
-                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+                cambio_estado.delay(proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             elif us_original_est == estados[2] and actividades.reverse()[0] != act:
                 #detalle.estado = estados[2]
@@ -896,8 +898,9 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
 
                 detalle.estado = est[0]
 
+                print "%s-%s-%s-%s-%s-%s-%s-%s" % (proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
                 #se envia la notificacion a traves de celery
-                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+                cambio_estado.delay(proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             elif us_original_est == estados[1] and actividades.reverse()[0] == act:
                 detalle.estado = estados[2]
@@ -914,8 +917,9 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 tarea.usuario = request.user
                 tarea.save()
 
+                print "%s-%s-%s-%s-%s-%s-%s-%s" % (proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
                 #se envia la notificacion a traves de celery
-                cambio_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+                cambio_estado.delay(proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             elif us_original_est == estados[2] and actividades.reverse()[0] == act:
 
@@ -937,7 +941,7 @@ def cambiar_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                 historial_us.save()
 
                 #se envia la notificacion a traves de celery
-                fin_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+                fin_user_story.delay(proyecto.id, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
     detalle.save()
     user_story.save()
@@ -1006,7 +1010,7 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     detalle.estado = est[0]
 
                     #se envia la notificacion a traves de celery
-                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
                 if user_story.estado == 'Activo' and us_original_est == estados[0]:
                     detalle.actividad = actividades[index-1]
@@ -1027,7 +1031,7 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     detalle.estado = est[0]
 
                     #se envia la notificacion a traves de celery
-                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
                 if user_story.estado == 'Finalizado':
                     detalle.actividad = actividades[index]
@@ -1049,7 +1053,7 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     user_story.estado = 'Activo'
 
                     #se envia la notificacion a traves de celery
-                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
     detalle.save()
     user_story.save()
@@ -1119,7 +1123,7 @@ def aprobar_user_story(request, pk_proyecto, pk_sprint, pk_user_story):
             historial_us.save()
 
             #se envia la notificacion a traves de celery
-            aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+            aprobacion_user_story.delay(proyecto.pk, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
             print "en view nota"
 
@@ -1165,7 +1169,7 @@ class AprobarUserStory(UpdateView):
         print "uri_us= %s en success" % uri_us
 
         #se envia la notificacion a traves de celery
-        aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.nombre, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+        aprobacion_user_story.delay(proyecto.nombre_corto, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
         return reverse('sprints:kanban', args=[proyecto.pk, sprint.pk])
 

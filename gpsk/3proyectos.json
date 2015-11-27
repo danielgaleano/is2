@@ -1,0 +1,7487 @@
+[
+{
+    "fields": {
+        "model": "logentry",
+        "name": "log entry",
+        "app_label": "admin"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 1
+},
+{
+    "fields": {
+        "model": "permission",
+        "name": "permission",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 2
+},
+{
+    "fields": {
+        "model": "group",
+        "name": "group",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 3
+},
+{
+    "fields": {
+        "model": "user",
+        "name": "user",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 4
+},
+{
+    "fields": {
+        "model": "contenttype",
+        "name": "content type",
+        "app_label": "contenttypes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 5
+},
+{
+    "fields": {
+        "model": "session",
+        "name": "session",
+        "app_label": "sessions"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 6
+},
+{
+    "fields": {
+        "model": "usuario",
+        "name": "usuario",
+        "app_label": "usuarios"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 7
+},
+{
+    "fields": {
+        "model": "cliente",
+        "name": "cliente",
+        "app_label": "clientes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 8
+},
+{
+    "fields": {
+        "model": "proyecto",
+        "name": "proyecto",
+        "app_label": "proyectos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 9
+},
+{
+    "fields": {
+        "model": "rolproyecto",
+        "name": "Rol de Proyecto",
+        "app_label": "roles_proyecto"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 10
+},
+{
+    "fields": {
+        "model": "rolproyecto_proyecto",
+        "name": "rol proyecto_ proyecto",
+        "app_label": "roles_proyecto"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 11
+},
+{
+    "fields": {
+        "model": "estado",
+        "name": "estado",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 12
+},
+{
+    "fields": {
+        "model": "actividad",
+        "name": "actividad",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 13
+},
+{
+    "fields": {
+        "model": "actividadflujo",
+        "name": "actividad flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 14
+},
+{
+    "fields": {
+        "model": "actividadflujoplantilla",
+        "name": "actividad flujo plantilla",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 15
+},
+{
+    "fields": {
+        "model": "plantillaflujo",
+        "name": "plantilla flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 16
+},
+{
+    "fields": {
+        "model": "flujo",
+        "name": "flujo",
+        "app_label": "flujos"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 17
+},
+{
+    "fields": {
+        "model": "userstory",
+        "name": "user story",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 18
+},
+{
+    "fields": {
+        "model": "historialuserstory",
+        "name": "historial user story",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 19
+},
+{
+    "fields": {
+        "model": "userstorydetalle",
+        "name": "user story detalle",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 20
+},
+{
+    "fields": {
+        "model": "tarea",
+        "name": "tarea",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 21
+},
+{
+    "fields": {
+        "model": "archivo",
+        "name": "archivo",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 22
+},
+{
+    "fields": {
+        "model": "nota",
+        "name": "nota",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 23
+},
+{
+    "fields": {
+        "model": "adjuntofilemodel",
+        "name": "adjunto file model",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 24
+},
+{
+    "fields": {
+        "model": "adjunto",
+        "name": "adjunto",
+        "app_label": "user_stories"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 25
+},
+{
+    "fields": {
+        "model": "sprint",
+        "name": "sprint",
+        "app_label": "sprints"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 26
+},
+{
+    "fields": {
+        "expire_date": "2015-12-10T18:28:25.544",
+        "session_data": "MjVmYTNkYzJmYWIxMjUxMThkMGI3MDJkZTJhMGY5ZjU0ZTk2NjcyNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjkzMzZhODg5MDI2ZDFmNWE4NDQ2MTIwNzgyODdhMzgwNjJlNzM2ZmMiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjh9"
+    },
+    "model": "sessions.session",
+    "pk": "013imizt83wmzgegrqr3xt5pjux56738"
+},
+{
+    "fields": {
+        "expire_date": "2015-12-11T12:59:13.870",
+        "session_data": "MDVkYzk5ZmZmZDExZmVhMTEwZWFjYjQ3NmVmMDk4ZWUzMDU0NmUzODp7Il9hdXRoX3VzZXJfaGFzaCI6IjMyNGFiMDUzYWZiYTg3MmJiMDRjYzg2ZjNjNTU3OWQ3MWIzNmQzZjUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjExfQ=="
+    },
+    "model": "sessions.session",
+    "pk": "e05w6hgv1977ch0cjchfn0a88v0fa0ig"
+},
+{
+    "fields": {
+        "expire_date": "2015-12-10T18:11:09.454",
+        "session_data": "YzA3MGMxODU4YWU5ZDNjYzU0ZjNiNDRiZTlkNWI5ODBmNjdmNWRiNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjEzMDE0ODdmMTJkMjczNzQ4ZGY0ZTQ4MzhlYzNlM2JlMWZmYjY4MmUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjV9"
+    },
+    "model": "sessions.session",
+    "pk": "gktgn7xqvxvfq6ajya2uvmwepu7ssvyi"
+},
+{
+    "fields": {
+        "expire_date": "2015-12-03T23:01:22.171",
+        "session_data": "YjNjNjgwYzg2ZWFjZWY4NzAxYjE0ZmZlNzQyZTk2ZDRmZTc2ZWNkMTp7fQ=="
+    },
+    "model": "sessions.session",
+    "pk": "ioxse0ccz5n3mk51pzh6tsji5uo2gk0d"
+},
+{
+    "fields": {
+        "expire_date": "2015-11-12T19:32:54.234",
+        "session_data": "YzhkZWNiZmU3NjNlNTY4YTc3ZjVmMmI1YjU4ZmJlZDA4OTE4ZTVjNjp7Il9hdXRoX3VzZXJfaGFzaCI6ImYzNjJhMjJkM2FkNzU2MjY4MGVhZmRkMDdmN2VkN2JlZDIyZTQ0NTIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "knaa77e9cgqh2vt2v85j6m0buekpyiw4"
+},
+{
+    "fields": {
+        "expire_date": "2015-12-11T16:23:10.720",
+        "session_data": "NjY3OWNiMDA5MjMwZTc0NmRhNmZjYjZkYjU5YjNhYTUzNWZhZTg2ZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjFkODRiYmU5ZWNlZDA0ZmUwNDEzMjY2Yjk2MzIxNDk3MzlmNDFmMjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjJ9"
+    },
+    "model": "sessions.session",
+    "pk": "mefte93iee6uzyy1ltu2spp1t0ics600"
+},
+{
+    "fields": {
+        "expire_date": "2015-12-11T13:09:25.292",
+        "session_data": "NjY3OWNiMDA5MjMwZTc0NmRhNmZjYjZkYjU5YjNhYTUzNWZhZTg2ZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjFkODRiYmU5ZWNlZDA0ZmUwNDEzMjY2Yjk2MzIxNDk3MzlmNDFmMjEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjJ9"
+    },
+    "model": "sessions.session",
+    "pk": "zr2cdcvf9d7ev666px8jqt4vu5cye3u8"
+},
+{
+    "fields": {
+        "descripcion": "Empresa estatal de telefonia",
+        "nombre": "COPACO",
+        "telefono": "021111111",
+        "correoElectronico": "copaco@copaco.com.py",
+        "direccion": "Alberdi, 531"
+    },
+    "model": "clientes.cliente",
+    "pk": 1
+},
+{
+    "fields": {
+        "descripcion": "Centro cultural",
+        "nombre": "ICPA GZ",
+        "telefono": "021209060",
+        "correoElectronico": "direccion@icpa-gz.org.py",
+        "direccion": "Juan de Salazar, 310"
+    },
+    "model": "clientes.cliente",
+    "pk": 2
+},
+{
+    "fields": {
+        "descripcion": "Empresa de transporte y encomiendas",
+        "nombre": "RYSA",
+        "telefono": "021557201/10",
+        "correoElectronico": "correo@rysa.com.py",
+        "direccion": "Rca. Argentina, esq. Paso de Patria"
+    },
+    "model": "clientes.cliente",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 14
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 15
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 16
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 17
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 18
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 19
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 20
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 21
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 22
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 23
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 24
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 25
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 26
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 27
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 28
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 29
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 30
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 31
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 32
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 33
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 34
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 35
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 36
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 37
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 38
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 39
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 40
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 41
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 42
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 43
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 44
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 45
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 46
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 47
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 48
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 49
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 50
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 51
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 52
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 53
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 54
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 55
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 56
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 57
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 58
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 59
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 60
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 61
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 62
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 63
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 64
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 65
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 66
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 67
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 68
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 69
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 70
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 71
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 72
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 73
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 74
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 75
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 76
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 77
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 78
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 79
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 80
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 81
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 82
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 83
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 84
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 85
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 86
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 87
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 88
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 89
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 90
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 91
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 92
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 93
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 94
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 95
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 96
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 97
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 98
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 99
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 100
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 101
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 102
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 103
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 104
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 105
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 106
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 107
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 108
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 109
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 110
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 111
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 112
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 113
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 114
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 115
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 116
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 117
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 118
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 119
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 120
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 121
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 122
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 123
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 124
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 125
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 126
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 127
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 128
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 129
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 130
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 131
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 132
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 133
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 134
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 135
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 136
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 137
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 138
+},
+{
+    "fields": {
+        "nombre": "To do"
+    },
+    "model": "flujos.estado",
+    "pk": 139
+},
+{
+    "fields": {
+        "nombre": "Doing"
+    },
+    "model": "flujos.estado",
+    "pk": 140
+},
+{
+    "fields": {
+        "nombre": "Done"
+    },
+    "model": "flujos.estado",
+    "pk": 141
+},
+{
+    "fields": {
+        "nombre": "Actividad 1",
+        "estados": [],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Actividad 4",
+        "estados": [],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "Actividad 5",
+        "estados": [],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Actividad 6",
+        "estados": [],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Actividad 7",
+        "estados": [],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "Actividad 1",
+        "estados": [
+            106,
+            107,
+            108
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            109,
+            110,
+            111
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            112,
+            113,
+            114
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            115,
+            116,
+            117
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            118,
+            119,
+            120
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 14
+},
+{
+    "fields": {
+        "nombre": "Actividad 4",
+        "estados": [
+            121,
+            122,
+            123
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 15
+},
+{
+    "fields": {
+        "nombre": "Actividad 1",
+        "estados": [
+            124,
+            125,
+            126
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 16
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            127,
+            128,
+            129
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 17
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            130,
+            131,
+            132
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 18
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [
+            133,
+            134,
+            135
+        ],
+        "orden": 1
+    },
+    "model": "flujos.actividad",
+    "pk": 19
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [
+            136,
+            137,
+            138
+        ],
+        "orden": 2
+    },
+    "model": "flujos.actividad",
+    "pk": 20
+},
+{
+    "fields": {
+        "nombre": "Actividad 4",
+        "estados": [
+            139,
+            140,
+            141
+        ],
+        "orden": 3
+    },
+    "model": "flujos.actividad",
+    "pk": 21
+},
+{
+    "fields": {
+        "nombre": "Actividad 1",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Actividad 4",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Actividad 5",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Actividad 6",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "Actividad 7",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Actividad 8",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Actividad 9",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "Actividad 10",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "Actividad 11",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "Actividad 12",
+        "estados": [],
+        "orden": 0
+    },
+    "model": "flujos.actividadflujo",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "Actividad 1",
+        "estados": [],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Actividad 2",
+        "estados": [],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Actividad 3",
+        "estados": [],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Actividad 4",
+        "estados": [],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "Actividad 5",
+        "estados": [],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 7
+},
+{
+    "fields": {
+        "nombre": "Actividad 6",
+        "estados": [],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 8
+},
+{
+    "fields": {
+        "nombre": "Actividad 7",
+        "estados": [],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 9
+},
+{
+    "fields": {
+        "nombre": "Actividad 9",
+        "estados": [],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre": "Actividad 10",
+        "estados": [],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 11
+},
+{
+    "fields": {
+        "nombre": "Actividad 10",
+        "estados": [],
+        "orden": 1
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 12
+},
+{
+    "fields": {
+        "nombre": "Actividad 11",
+        "estados": [],
+        "orden": 2
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 13
+},
+{
+    "fields": {
+        "nombre": "Actividad 12",
+        "estados": [],
+        "orden": 3
+    },
+    "model": "flujos.actividadflujoplantilla",
+    "pk": 14
+},
+{
+    "fields": {
+        "nombre": "Flujo 1",
+        "actividades": [
+            1,
+            2,
+            3
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre": "Flujo 2",
+        "actividades": [
+            4,
+            5,
+            6
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre": "Flujo 3",
+        "actividades": [
+            7,
+            8,
+            9
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre": "Flujo 4",
+        "actividades": [
+            10,
+            11
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Flujo 5",
+        "actividades": [
+            12,
+            13,
+            14
+        ]
+    },
+    "model": "flujos.plantillaflujo",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Flujo 1",
+        "actividades": [
+            10,
+            11,
+            12
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 4
+},
+{
+    "fields": {
+        "nombre": "Flujo 2",
+        "actividades": [
+            13,
+            14,
+            15
+        ],
+        "proyecto": 1
+    },
+    "model": "flujos.flujo",
+    "pk": 5
+},
+{
+    "fields": {
+        "nombre": "Flujo 1",
+        "actividades": [
+            16,
+            17,
+            18
+        ],
+        "proyecto": 4
+    },
+    "model": "flujos.flujo",
+    "pk": 6
+},
+{
+    "fields": {
+        "nombre": "Flujo 2",
+        "actividades": [
+            19,
+            20,
+            21
+        ],
+        "proyecto": 4
+    },
+    "model": "flujos.flujo",
+    "pk": 7
+},
+{
+    "fields": {
+        "actividad": 12,
+        "user_story": 17,
+        "estado": 114
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 10
+},
+{
+    "fields": {
+        "actividad": 15,
+        "user_story": 18,
+        "estado": 123
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 11
+},
+{
+    "fields": {
+        "actividad": 12,
+        "user_story": 19,
+        "estado": 114
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 12
+},
+{
+    "fields": {
+        "actividad": 15,
+        "user_story": 20,
+        "estado": 123
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 13
+},
+{
+    "fields": {
+        "actividad": 12,
+        "user_story": 21,
+        "estado": 114
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 14
+},
+{
+    "fields": {
+        "actividad": 15,
+        "user_story": 22,
+        "estado": 123
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 15
+},
+{
+    "fields": {
+        "actividad": 12,
+        "user_story": 23,
+        "estado": 114
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 16
+},
+{
+    "fields": {
+        "actividad": 15,
+        "user_story": 24,
+        "estado": 123
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 17
+},
+{
+    "fields": {
+        "actividad": 16,
+        "user_story": 25,
+        "estado": 124
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 18
+},
+{
+    "fields": {
+        "actividad": 16,
+        "user_story": 26,
+        "estado": 124
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 19
+},
+{
+    "fields": {
+        "actividad": 16,
+        "user_story": 27,
+        "estado": 124
+    },
+    "model": "user_stories.userstorydetalle",
+    "pk": 20
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0byBlcyB1biBhcmNoaXZvIGFkanVudG8K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 1
+},
+{
+    "fields": {
+        "mimetype": "application/x-shellscript",
+        "bytes": "aWYgWyAteiAiJDEiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgdXN1YXJpbyIKICAgIGV4aXQgMQplbHNlIAp1c3VhcmlvPSIkMSIKZmkKaWYgWyAteiAiJDIiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgYmFzZSBkZSBkYXRvcyIKICAgIGV4aXQgMQplbHNlIApCZEQ9IiQyIgpmaQppZiBbIC16ICIkMyIgXQogIHRoZW4KICAgIGVjaG8gIk5vIGhheSBjb250cmFzZcOxYSIKICAgIGV4aXQgMQplbHNlIApjb250cmE9IiQzIgpmaQoKI3BzcWwKI2Ryb3BkYgojY3JlYXRldXNlcgojY3JlYXRlZGIK",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando.sh"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 2
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0byBlcyB1biBhcmNoaXZvIGFkanVudG8K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(LJ2PtcY)"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 3
+},
+{
+    "fields": {
+        "mimetype": "application/x-shellscript",
+        "bytes": "aWYgWyAteiAiJDEiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgdXN1YXJpbyIKICAgIGV4aXQgMQplbHNlIAp1c3VhcmlvPSIkMSIKZmkKaWYgWyAteiAiJDIiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgYmFzZSBkZSBkYXRvcyIKICAgIGV4aXQgMQplbHNlIApCZEQ9IiQyIgpmaQppZiBbIC16ICIkMyIgXQogIHRoZW4KICAgIGVjaG8gIk5vIGhheSBjb250cmFzZcOxYSIKICAgIGV4aXQgMQplbHNlIApjb250cmE9IiQzIgpmaQoKI3BzcWwKI2Ryb3BkYgojY3JlYXRldXNlcgojY3JlYXRlZGIK",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando_(Lcn3p9V).sh"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 4
+},
+{
+    "fields": {
+        "mimetype": "application/x-shellscript",
+        "bytes": "IyEgL2Jpbi9iYXNoCiNVbmEgdmV6IGVuIGxhIHRlcm1pbmFsLCBjdWFuZG8gdmF5YXMgYSB1c2FyIGVsIHNjcmlwdCwgZXNjcmliw61zIGVsIHVzdWFyaW8gcHJpbWVybyB5IGVsIG5vbWJyZSBkZSBsYSBiYXNlIGRlIGRhdG9zIGRlc3B1w6lzCmlmIFsgLXogIiQxIiBdCQkJI1NlIGNvbXBydWViYSBxdWUgc2UgaGF5YSBpbmdyZXNhZG8gZWwgbm9tYnJlIGRlbCB1c3VhcmlvLCBjYXNvIGNvbnRyYXJpbywgZWwgc2NyaXB0IHRlcm1pbmEKICB0aGVuCiAgICBlY2hvICJObyBoYXkgdXN1YXJpbyIKICAgIGV4aXQgMQplbHNlIAp1c3VhcmlvPSIkMSIKZmkKaWYgWyAteiAiJDIiIF0JCQkjU2UgY29tcHJ1ZWJhIHF1ZSBzZSBoYXlhIGluZ3Jlc2FkbyBlbCBub21icmUgZGUgbGEgYmFzZSBkZSBkYXRvcywgY2FzbyBjb250cmFyaW8sIGVsIHNjcmlwdCB0ZXJtaW5hCiAgdGhlbgogICAgZWNobyAiTm8gaGF5IGJhc2UgZGUgZGF0b3MiCiAgICBleGl0IDEKZWxzZSAKQmREPSIkMiIKZmkKI0ZhbHRhIGVkaXRhciBhw7puIGxhIHBhcnRlIGVuIGxhIHF1ZSBzZSBldml0YSByZWluZ3Jlc2FyIGxhIGNvbnRyYXNlw7FhIG3Dumx0aXBsZXMgdmVjZXMsIHBlcm8gZnVlcmEgZGUgZXNvLCBlbCBzY3JpcHQgcHVlZGUgc2VyIHVzYWRvIAojKGVzIHVuYSBlZGljacOzbiBkZWwgb3JpZ2luYWwpCmVjaG8gIioqKioqKioqKioqQ29waWFuZG8gZWwgY29udGVuaWRvIGRlIGxhIGJhc2UgZGUgZGF0b3MgZGUgZGVzYXJyb2xsbyoqKioqKioqKioqIgplY2hvICIqKioqKioqKioqKkluZ3Jlc2UgZWwgcGFzc3dvcmQgZGVsIHVzdWFyaW8gdXNlci1kZXYqKioqKioqKioqKiIKcGdfZHVtcCAtRnAgIC1jIGdwc2stZGV2IC1mIC9ob21lLyRVU0VSL2R1bXBzL2Rlc2Fycm9sbG9fcHJvZHVjY2lvbi5zcWwgLVUgdXNlci1kZXYgLU8gLWggbG9jYWxob3N0CgplY2hvICIqKioqKioqKioqKioqRWxpbWluYW5kbyBsYSBiYXNlIGRlIGRhdG9zIGRlIHByb2R1Y2Npb24qKioqKioqKioqKioqKiIKc3UgcG9zdGdyZXMgLWMgImRyb3BkYiBncHNrLXByb2QgLVUgcG9zdGdyZXMiCmVjaG8gIioqKioqKioqKioqKioqKioqQ3JlYW5kbyBVc3VhcmlvICR1c3VhcmlvKioqKioqKioqKioqKioqKioiCnN1IHBvc3RncmVzIC1jICJjcmVhdGV1c2VyIC13IC1kIC1hICR1c3VhcmlvIC1VIHBvc3RncmVzIgplY2hvICIqKioqKioqKioqKioqKioqKkNyZWFuZG8gQmFzZSBkZSBkYXRvcyAkQmREKioqKioqKioqKioqKioqKioiCnN1IHBvc3RncmVzIC1jICJjcmVhdGVkYiAkQmREIC1PICR1c3VhcmlvIC1VIHBvc3RncmVzIC13IgpzdSBwb3N0Z3JlcyAtYyAicHNxbCAtZCAkQmREIC1hIC1mIHBhc3NfcHJvZC5zcWwgLVUgcG9zdGdyZXMgLXciCmVjaG8gIioqKioqKioqKioqKioqKioqUG9ibGFuZG8gbGEgYmFzZSBkZSBkYXRvcyBkZSBwcm9kdWNjaW9uKioqKioqKioqKioqKioqKioiCnN1IHBvc3RncmVzIC1jICJwc3FsIC1xICRCZEQgPCAvaG9tZS8kVVNFUi9kdW1wcy9kZXNhcnJvbGxvX3Byb2R1Y2Npb24uc3FsIgo=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/poblacion.sh"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 5
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0ZSBlcyBvdHJvIGRvY3VtZW50bwo=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_2"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 6
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0byBlcyB1biBhcmNoaXZvIGFkanVudG8K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(oiXGnpk)"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 7
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0ZSBlcyBvdHJvIGRvY3VtZW50bwo=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_2_(X2WnsU9)"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 8
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "RXN0byBlcyB1biBhcmNoaXZvIGFkanVudG8K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Archivo_1_(hp5M54u)"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 9
+},
+{
+    "fields": {
+        "mimetype": "application/x-shellscript",
+        "bytes": "aWYgWyAteiAiJDEiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgdXN1YXJpbyIKICAgIGV4aXQgMQplbHNlIAp1c3VhcmlvPSIkMSIKZmkKaWYgWyAteiAiJDIiIF0KICB0aGVuCiAgICBlY2hvICJObyBoYXkgYmFzZSBkZSBkYXRvcyIKICAgIGV4aXQgMQplbHNlIApCZEQ9IiQyIgpmaQppZiBbIC16ICIkMyIgXQogIHRoZW4KICAgIGVjaG8gIk5vIGhheSBjb250cmFzZcOxYSIKICAgIGV4aXQgMQplbHNlIApjb250cmE9IiQzIgpmaQoKI3BzcWwKI2Ryb3BkYgojY3JlYXRldXNlcgojY3JlYXRlZGIK",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/probando_(Ldlb4j4).sh"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 10
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "ZnJvbSBkamFuZ28udGVzdCBpbXBvcnQgVGVzdENhc2UKZnJvbSBkamFuZ28udGVzdC5jbGllbnQgaW1wb3J0IFJlcXVlc3RGYWN0b3J5Cgpmcm9tIGRqYW5nby5jb250cmliLmF1dGgubW9kZWxzIGltcG9ydCBVc2VyCmZyb20gbW9kZWxzIGltcG9ydCBDbGllbnRlCmZyb20gdmlld3MgaW1wb3J0IGxpc3RhckNsaWVudGVzCgpjbGFzcyBDbGllbnRlc1Rlc3QoVGVzdENhc2UpOgogICAgIiIiCiAgICBDbGFzZSBxdWUgcmVhbGl6YSBlbCBUZXN0IGRlbCBtb2R1bG8gZGUgYWRtaW5pc3RyYWNpb24gZGUgY2xpZW50ZXMKICAgICIiIgogICAgZGVmIHNldFVwKHNlbGYpOgogICAgICAgICIiIgogICAgICAgIEZ1bmNpb24gcXVlIGluaWNpYWxpemEgZWwgUmVxdWVzdEZhY3RvcnkgeSB1biBjbGllbnRlIGRlIHBydWViYSBwYXJhCiAgICAgICAgcmVhbGl6YXIgbG9zIHRlc3QKICAgICAgICAiIiIKICAgICAgICAjIFNlIGNyZWEgZWwgUmVxdWVzdCBmYWN0b3J5IHBhcnMgc2ltdWxhciBwZXRpY2lvbmVzCiAgICAgICAgc2VsZi5mYWN0b3J5ID0gUmVxdWVzdEZhY3RvcnkoKQogICAgICAgICMgU2UgY3JlYSBlbCBVc2VyIHF1ZSByZWFsaXphIGxhcyBwZXRpY2lvbmVzCiAgICAgICAgc2VsZi51c2VyID0gVXNlci5vYmplY3RzLmNyZWF0ZV91c2VyKG5vbWJyZT0ndGVzdGNsaWVudGUnLCBlbWFpbD0ndGVzdEB0ZXN0LmNvbScsIHBhc3N3b3JkPSd0ZXN0JykKCiAgICBkZWYgdGVzdF92aWV3X0NsaWVudGVJbmRleFZpZXcoc2VsZik6CiAgICAgICAgIiIiCiAgICAgICAgRnVuY2lvbiBxdWUgcmVhbGl6YSBlbCB0ZXN0IHNvYnJlIGxhIHZpc3RhIGxpc3RhckNsaWVudGVzIHF1ZSBnZW5lcmEKICAgICAgICBsaXN0YSBkZSB1c3VhcmlvcwogICAgICAgICIiIgogICAgICAgICMgc2UgbG9ndWVhIGVsIHVzdWFyaW8gdGVzdHVzZXIKICAgICAgICB1c2VyID0gc2VsZi51c2VyLmxvZ2luKHVzZXJuYW1lPSd0ZXN0Y2xpZW50ZScsIHBhc3N3b3JkPSd0ZXN0JykKICAgICAgICBzZWxmLmFzc2VydFRydWUodXNlcikKICAgICAgICAjIHNlIGNyZWFuIDEwIENsaWVudGVzIHBhcmEgY29udHJvbGFyIHF1ZSBzZSByZXRvcm5lIGxhIGxpc3RhIGNvbXBsZXRhIGRlIHVzdWFyaW9zLCBxdWUgc2VyYW4gMTEgZW4gdG90YWwKICAgICAgICBmb3IgaSBpbiByYW5nZSgxMCk6CiAgICAgICAgICAgIGNsaWVudGUgPSBDbGllbnRlKG5vbWJyZSA9ICdjbGllbnRlJXMnICUgaSwgZGVzY3JpcGNpw7NuID0gJ1Rlc3QlJyAlCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGksIGVtYWlsPSd0ZXN0JXNAdGVzdC5jb20nICUgaSwgdGVsZWZvbm8gPSAnMDk4MjY5Njk2JScgJSBpLCBkaXJlY2Npb24gPSAnY2FsbGUlJyAlIGkgKQogICAgICAgICAgICAjVXN1YXJpby5vYmplY3RzLmNyZWF0ZSh1c2VyPXVzZXIsIHRlbGVmb25vPSd0ZWwlcycgJSBpLCBkaXJlY2Npb249ImRpciVzIiAlIGkpCgogICAgICAgICMgdmVyaWZpY2Ftb3MgcXVlIGxhIHZpc3RhIGRldnVlbHZhIGVsIHRlbXBsYXRlIGFkZWN1YWRvCiAgICAgICAgcmVxdWVzdCA9IHNlbGYuZmFjdG9yeS5nZXQoJy9jbGllbnRlcy8nKQogICAgICAgIHZpZXcgPSBsaXN0YXJDbGllbnRlcy5hc192aWV3KCkKICAgICAgICByZXNwb25zZSA9IHZpZXcocmVxdWVzdCkKICAgICAgICBzZWxmLmFzc2VydEVxdWFsKHJlc3BvbnNlLnN0YXR1c19jb2RlLCAyMDApCiAgICAgICAgc2VsZi5hc3NlcnRFcXVhbChyZXNwb25zZS50ZW1wbGF0ZV9uYW1lWzBdLCAnY2xpZW50ZXMvaW5kZXguaHRtbCcpCiAgICAgICAgIyB2ZXJpZmljYW1vcyBsb3MgdXN1YXJpb3MgcmV0b3JuYWRvcwogICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwobGVuKHJlc3BvbnNlLmNvbnRleHRfZGF0YVsnb2JqZWN0X2xpc3QnXSksIDEwKQoKICAgICAgICBwcmludCAnVGVzdCBkZSBsaXN0YXJDbGllbnRlcyByZWFsaXphZG8gZXhpdG9zYW1lbnRlJwo=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Test_cliente"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 11
+},
+{
+    "fields": {
+        "mimetype": "application/octet-stream",
+        "bytes": "SW5zdGFsYXIgUHl0aG9uIFNldHVwIHRvb2xzCnN1ZG8gYXB0LWdldCBpbnN0YWxsIHB5dGhvbi1zZXR1cHRvb2xzCgpJbnN0YWxhciBwaXAKc3VkbyBlYXN5X2luc3RhbGwgcGlwCgpJbnN0YWxhciB2aXJ0dWFsZW52aXJvbWVudApwaXAgaW5zdGFsbCB2aXJ0dWFsZW52CgpJbnN0YWxhY2lvbiBwb3N0Z3JlcwpJbnN0YWxhciBwcmltZXJvCnN1ZG8gYXB0LWdldCBpbnN0YWxsIGxpYnBxLWRldiBweXRob24tZGV2CgpQb3N0Z3JlcwpzdWRvIGFwdC1nZXQgaW5zdGFsbCBwb3N0Z3Jlc3FsIHBvc3RncmVzcWwtY29udHJpYgoKSW5zdGFsYXIgUGdBZG1pbklJSQoKc3VkbyBzaCAtYyAnZWNobyAiZGViIGh0dHA6Ly9hcHQucG9zdGdyZXNxbC5vcmcvcHViL3JlcG9zL2FwdC8gJChsc2JfcmVsZWFzZSAtY3MpLXBnZGcgbWFpbiIgPiAvZXRjL2FwdC9zb3VyY2VzLmxpc3QuZC9wZ2RnLmxpc3QnCgpzdWRvIGFwdC1nZXQgaW5zdGFsbCB3Z2V0IGNhLWNlcnRpZmljYXRlcwp3Z2V0IC0tcXVpZXQgLU8gLSBodHRwczovL3d3dy5wb3N0Z3Jlc3FsLm9yZy9tZWRpYS9rZXlzL0FDQ0M0Q0Y4LmFzYyB8IHN1ZG8gYXB0LWtleSBhZGQgLQpzdWRvIGFwdC1nZXQgdXBkYXRlCnN1ZG8gYXB0LWdldCB1cGdyYWRlCnN1ZG8gYXB0LWdldCBpbnN0YWxsIHBvc3RncmVzcWwtOS40IHBnYWRtaW4zCgoKJCBzdWRvIHN1IC0gcG9zdGdyZXMKcG9zdGdyZXNAZGphbmdvOn4kIGNyZWF0ZXVzZXIgLS1pbnRlcmFjdGl2ZSAtUApFbnRlciBuYW1lIG9mIHJvbGUgdG8gYWRkOiBub21icmVfZGVfdXN1YXJpb19wb3N0Z3JlcwpFbnRlciBwYXNzd29yZCBmb3IgbmV3IHJvbGU6IApFbnRlciBpdCBhZ2FpbjogClNoYWxsIHRoZSBuZXcgcm9sZSBiZSBhIHN1cGVydXNlcj8gKHkvbikgbgpTaGFsbCB0aGUgbmV3IHJvbGUgYmUgYWxsb3dlZCB0byBjcmVhdGUgZGF0YWJhc2VzPyAoeS9uKSBuClNoYWxsIHRoZSBuZXcgcm9sZSBiZSBhbGxvd2VkIHRvIGNyZWF0ZSBtb3JlIG5ldyByb2xlcz8gKHkvbikgbgpwb3N0Z3Jlc0BkamFuZ286fiQKCnBvc3RncmVzQGRqYW5nbzp+JCBjcmVhdGVkYiAtLW93bmVyIG5vbWJyZV9kZV91c3VhcmlvX3Bvc3RncmVzIG5vbWJyZV9kZV9iYXNlX2RlX2RhdG9zCnBvc3RncmVzQGRqYW5nbzp+JCBsb2dvdXQKJAoKCkNyZWFyIHkgYWN0aXZhciBlbCBlbnRvcm5vIHZpcnR1YWwKdmlydHVhbGVudiBlbnYKc291cmNlIGVudi9iaW4vYWN0aXZhdGUKCkluc3RhbGFyIERqYW5nbyBjb24gZWwgZW50b3JubyB2aXJ0dWFsIGFjdGl2YWRvCnBpcCBpbnN0YWxsIGRqYW5nbwoKQ3JlYXIgcHJveWVjdG8KZGphbmdvLWFkbWluLnB5IHN0YXJ0cHJvamVjdCBOb21icmVEZWxQcm95ZWN0bwoKSW5zdGFsbCBwc3ljb3BnMiBkYXRhYmFzZSBhZGFwdGVyOgpwaXAgaW5zdGFsbCBwc3ljb3BnMgoKREFUQUJBU0VTID0gewogICAgJ2RlZmF1bHQnOiB7CiAgICAgICAgJ0VOR0lORSc6ICdkamFuZ28uZGIuYmFja2VuZHMucG9zdGdyZXNxbF9wc3ljb3BnMicsCiAgICAgICAgJ05BTUUnOiAnaGVsbG8nLAogICAgICAgICdVU0VSJzogJ2hlbGxvX2RqYW5nbycsCiAgICAgICAgJ1BBU1NXT1JEJzogJzFBazVSVFF0N210dzBPUkVzZlBoSll6WElhazQxZ25ybTVOV1lFb3NDZUlkdUpjazEwYXdJem95czF3dmJMOCcsCiAgICAgICAgJ0hPU1QnOiAnbG9jYWxob3N0JywKICAgICAgICAnUE9SVCc6ICcnLCAgICAgICAgICAgICAgICAgICAgICAjIFNldCB0byBlbXB0eSBzdHJpbmcgZm9yIGRlZmF1bHQuCiAgICB9Cn0KRWplY3V0YXIgc3luY2RiCnB5dGhvbiBtYW5hZ2UucHkgc3luY2RiCgpJbmljaWFyIHJlcG9zaXRvcmlvCkNyZWFyIHVuIGFyY2hpdm8gLmdpdGlnbm9yZQoKZ2l0IGluaXQKCkFncmVnYXIgYXJjaGl2b3MKZ2l0IGFkZCAuICJFbCBwdW50byBhZ3JlZ2FyIHRvZG9zIGxvcyBhcmNoaXZvcyB5IGNhcnBldGFzIGRlbCBkaXJlY3RvcmlvIgoKZ2l0IGFkZCBhcmNoaXZvLnB5ICJBZ3JlZ2EgZWwgYXJjaGl2byBlc3BlY2lmaWNhZG8iCgoKCgoKSW5zdGFsYXIgZ2l0CnN1ZG8gYXB0LWdldCBpbnN0YWxsIGdpdAoKQ29uZmlndXJhcgpnaXQgY29uZmlnIC0tZ2xvYmFsIHVzZXIubmFtZSAiVHUgbm9tYnJlIgpnaXQgY29uZmlnIC0tZ2xvYmFsIHVzZXIuZW1haWwgZW1haWxAZXhhbXBsZS5jb20KCgpJbnN0YWxhciBTdWJsaW1lIFRleHQgMwpEZXNjYXJnYXIgZGUgbGEgcGFnaW5hIGVsIGFyY2hpdm8gc3VibGltZS10ZXh0X2J1aWxkLTMwNjVfYW1kNjQuZGViCmluc3RhbGFyCnN1ZG8gZHBrZyAtaSBzdWJsaW1lLXRleHRfYnVpbGQtMzA2NV9hbWQ2NC5kZWIK",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Pasos_Django_Postgres_Apache"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 12
+},
+{
+    "fields": {
+        "mimetype": "text/plain",
+        "bytes": "U2ViYXN0aWFuLA0KDQpCdWVuIGTtYS4gQSBsbyBxdWUgc2UgcmVmaWVyZSBsYSBnde1hIGVzOiBhbCB0cmFiYWpvIHF1ZSBzZSByZWFsaXphIHBhcmEgY2FkYSBoaXN0b3JpYSBkZSB1c3VhcmlvLCANCmVzcGVjaWZpY2FuZG8gdW5hIGRlc2NyaXBjafNuIHkgbGEgZHVyYWNp824gcmVhbCBkZWwgdHJhYmFqbyBlbiBob3Jhcy4gDQpBbGd1bm9zIGVxdWlwb3MgeWEgbGUgbGxhbWFuICJIaXN0b3JpYWwgZGUgdGFyZWFzIi4NCg0KRXN0ZSByZWdpc3RybyBhZGVt4XMgZGViZSBndWFyZGFyIGVsIHNwcmludCwgZWwgZmx1am8sIGxhIGFjdGl2aWRhZCB5IGVsIGVzdGFkbyBkb25kZSBzZSBlbmN1ZW50cmEgDQpsYSBIaXN0b3JpYSBkZSBVc3VhcmlvIGFsIG1vbWVudG8gZGUgcmVnaXN0cmFyIGVsIHRyYWJham8uDQoNClNhbHVkb3Ms",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Aclaracion_historial_de_tareas.txt"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 13
+},
+{
+    "fields": {
+        "mimetype": "text/plain",
+        "bytes": "R3VhcmRhciBsYSBiYXNlIGRlIGRhdG9zIGEgdW4gYXJjaGl2bwoxLSBhY3RpdmFyIGVsIGVudG9ybm8gdmlydHVhbAoyLSBlbnRyYXIgYSBsYSBjYXJwZXJ0YSBncHNrIGRlbnRybyBkZSBpczIKMy0gZWplY3V0YXIgZWwgY29tYW5kbwpweXRob24gbWFuYWdlLnB5IGR1bXBkYXRhID4gZGJfYmFja3VwLmpzb24gLS1pbmRlbnQ9NCAtLWZvcm1hdD1qc29uIC0tc2V0dGluZ3M9Z3Bzay5zZXR0aW5ncy5sb2NhbAogeSBhaGkgdGUgY3JlYSBlbCBhcmNoaXZvIGRiX2JhY2t1cC5qc29uIGNvbiBsb3MgZGF0b3MgZGUgbGEgYmFzZSBkZSBkYXRvcyBncHNrLWRldi4KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KUGFyYSBjYXJnYXIgZWwgYXJjaGl2byBhIHVuYSBiYXNlIGRlIGRhdG9zCjEtIGFjdGl2YXIgZWwgZW50b3JubyB2aXJ0dWFsCjItIGVudHJhciBhIGxhIGNhcnBlcnRhIGdwc2sgZGVudHJvIGRlIGlzMgozLSBlamVjdXRhciBlbCBjb21hbmRvCnB5dGhvbiBtYW5hZ2UucHkgbG9hZGRhdGEgZGJfYmFja3VwLmpzb24gLS1zZXR0aW5ncz1ncHNrLnNldHRpbmdzLmxvY2FsCiB5IGFoaSB0ZSBjYXJnYSBsb3MgZGF0b3MgZGVsIGFyY2hpdm8gZGJfYmFja3VwLmpzb24gZW4gbGEgYmFzZSBkZSBkYXRvcyBncHNrLWRldi4K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/base_de_datos_a_archivo_json.txt"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 14
+},
+{
+    "fields": {
+        "mimetype": "text/plain",
+        "bytes": "R3VhcmRhciBsYSBiYXNlIGRlIGRhdG9zIGEgdW4gYXJjaGl2bwoxLSBhY3RpdmFyIGVsIGVudG9ybm8gdmlydHVhbAoyLSBlbnRyYXIgYSBsYSBjYXJwZXJ0YSBncHNrIGRlbnRybyBkZSBpczIKMy0gZWplY3V0YXIgZWwgY29tYW5kbwpweXRob24gbWFuYWdlLnB5IGR1bXBkYXRhID4gZGJfYmFja3VwLmpzb24gLS1pbmRlbnQ9NCAtLWZvcm1hdD1qc29uIC0tc2V0dGluZ3M9Z3Bzay5zZXR0aW5ncy5sb2NhbAogeSBhaGkgdGUgY3JlYSBlbCBhcmNoaXZvIGRiX2JhY2t1cC5qc29uIGNvbiBsb3MgZGF0b3MgZGUgbGEgYmFzZSBkZSBkYXRvcyBncHNrLWRldi4KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KUGFyYSBjYXJnYXIgZWwgYXJjaGl2byBhIHVuYSBiYXNlIGRlIGRhdG9zCjEtIGFjdGl2YXIgZWwgZW50b3JubyB2aXJ0dWFsCjItIGVudHJhciBhIGxhIGNhcnBlcnRhIGdwc2sgZGVudHJvIGRlIGlzMgozLSBlamVjdXRhciBlbCBjb21hbmRvCnB5dGhvbiBtYW5hZ2UucHkgbG9hZGRhdGEgZGJfYmFja3VwLmpzb24gLS1zZXR0aW5ncz1ncHNrLnNldHRpbmdzLmxvY2FsCiB5IGFoaSB0ZSBjYXJnYSBsb3MgZGF0b3MgZGVsIGFyY2hpdm8gZGJfYmFja3VwLmpzb24gZW4gbGEgYmFzZSBkZSBkYXRvcyBncHNrLWRldi4K",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/base_de_datos_a_archivo_json_(PBA3jAr).txt"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 15
+},
+{
+    "fields": {
+        "mimetype": "text/plain",
+        "bytes": "SVNJSTI6IEluZm9ybWUgZWplY3V0aXZvIC0gSXRlcmFjafNuIDcJDQoNCkVzdGltYWRvcy9hcyBlc3R1ZGlhbnRlczoNCg0KRWwgaW5mb3JtZSBlamVjdXRpdm8gYSBlbnRyZWdhciBlbiBsYSBJdGVyYWNpb24gNyBkZWJlIHRlbmVyIGVuIHJlc3VtZW4gbGFzDQpjYXJhY3Rlcu1zdGljYXMgZGVsIHByb3llY3RvIHkgZWwgcHJvY2VzbyBkZSBzb2Z0d2FyZSB1dGlsaXphZG8geSBkZWJlDQplc3RhciByZWRhY3RhZG8gZW4gbGVuZ3VhamUgZm9ybWFsLiBEZWJlcuEgY29udGFyIGNvbiBsYSBzaWd1aWVudGUNCmVzdHJ1Y3R1cmEgYmFzZToNCg0KLSBJbnRyb2R1Y2Np824NCg0KLSBFbCBlcXVpcG8gZGUgdHJhYmFqbywgZGVzY3JpcGNp824gZGUgcGVyZmlsZXMNCg0KLSBEZXNjcmlwY2nzbiBkZWwgcHJvY2VzbyB1dGlsaXphZG8gZW4gZWwgcHJveWVjdG8NCg0KLSBPcG9ydHVuaWRhZGVzIGRlIG1lam9yYSBlbiBlbCBkZXNlbXBl8W8gZGVsIGVxdWlwbw0KDQotIExlY2Npb25lcyBhcHJlbmRpZGFzIGRlbCBwcm9jZXNvDQoNCi0gQ29uY2x1c2lvbmVzDQoNCkRlYmUgZW50cmVnYXJzZSBkZSBtYW5lcmEgaW1wcmVzYSwgZmlybWFkbyBwb3IgbG9zIG1pZW1icm9zIGRlbCBlcXVpcG8geSBlbg0KdW5hIGNhcnBldGEgY29uIHVuIG3heGltbyBkZSA2IChzZWlzKSBw4WdpbmFzLg0KDQpTYWx1ZG9zLA==",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Informe_ejecutivo.txt"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 16
+},
+{
+    "fields": {
+        "mimetype": "text/plain",
+        "bytes": "ZW4gI2lzMiAyMDE1IHZlcmVtb3MgZWwgU1dCT0ssIGNvbm9jZXIgU0NSVU0sIEthbmJhbiBwYXJhIHNvZnR3YXJlIA0KeSBQeXRob24rRGphbmdvK1B5Q2hhcm0rUG9zdGdyZVNRTCtBcGFjaGUyK0xpbnV4DQoNClBhcmEgZWwgU1dFQk9LIFYzIGxhIHJlZmVyZW5jaWEgZXMgaHR0cDovL3d3dy5jb21wdXRlci5vcmcvd2ViL3N3ZWJvay92MyAgI2lzMiAyMDE1DQoNClBhcmEgI2lzMiAyMDE1IGVzIGltcG9ydGFudGUgY29ub2NlciBsYSByZWZlcmVuY2lhIGRlIFNDUlVNIGh0dHA6Ly93d3cuc2NydW1ndWlkZXMub3JnLyAgDQp5IG1hbmVqYXIgbG9zIGNvbmNlcHRvcy4gU2VyYW4gYXBsaWNhZG9zIGVuIGVsIHByb3llY3RvDQoNCkFkZW3hcyBlbiAjaXMyIDIwMTUgdXRpbGl6YXJlbW9zIGVuIGVsIHByb3llY3RvIGxvcyBjb25jZXB0b3MgZGUgS2FuYmFuIHBhcmEgc29mdHdhcmUgDQpodHRwOi8va2FuYmFuYmxvZy5jb20vICBodHRwOi8vZXMud2lraXBlZGlhLm9yZy93aWtpL0thbmJhbl8lMjhkZXNhcnJvbGxvJTI5DQoNCiNpczIgMjAxNSB1dGlsaXphcmVtb3MgUHlDaGFybSBFZHVjYXRpb25hbCBFZGl0aW9uIA0KaHR0cHM6Ly93d3cuamV0YnJhaW5zLmNvbS9weWNoYXJtLWVkdWNhdGlvbmFsLy4gTGEgdmVyc2nzbiBzZSBsaWJlcvMgDQp5IG5vIHByZWNpc2EgYWN0aXZhY2nzbi4=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Nuevo_documento_de_texto.txt"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 17
+},
+{
+    "fields": {
+        "mimetype": "text/plain",
+        "bytes": "YnJqempqd2xzYnp2dXl2Zgo=",
+        "filename": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/django-gmail-password-gpsk.system.txt"
+    },
+    "model": "user_stories.adjuntofilemodel",
+    "pk": 19
+},
+{
+    "fields": {
+        "user_story": 19,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Test_cliente"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 11
+},
+{
+    "fields": {
+        "user_story": 20,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Pasos_Django_Postgres_Apache"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 12
+},
+{
+    "fields": {
+        "user_story": 17,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Aclaracion_historial_de_tareas.txt"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 13
+},
+{
+    "fields": {
+        "user_story": 18,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/base_de_datos_a_archivo_json.txt"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 14
+},
+{
+    "fields": {
+        "user_story": 21,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/base_de_datos_a_archivo_json_(PBA3jAr).txt"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 15
+},
+{
+    "fields": {
+        "user_story": 22,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Informe_ejecutivo.txt"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 16
+},
+{
+    "fields": {
+        "user_story": 23,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/Nuevo_documento_de_texto.txt"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 17
+},
+{
+    "fields": {
+        "user_story": 24,
+        "archivo": "user_stories.AdjuntoFileModel/bytes/filename/mimetype/django-gmail-password-gpsk.system.txt"
+    },
+    "model": "user_stories.adjunto",
+    "pk": 18
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-20",
+        "duracion": 5,
+        "fecha_inicio": "2015-11-16",
+        "proyecto": 1,
+        "nombre": "Sprint 1",
+        "estado": "Finalizado"
+    },
+    "model": "sprints.sprint",
+    "pk": 4
+},
+{
+    "fields": {
+        "fecha_fin": "2015-11-27",
+        "duracion": 5,
+        "fecha_inicio": "2015-11-23",
+        "proyecto": 1,
+        "nombre": "Sprint 2",
+        "estado": "Activo"
+    },
+    "model": "sprints.sprint",
+    "pk": 5
+},
+{
+    "fields": {
+        "fecha_fin": "2015-12-03",
+        "duracion": 7,
+        "fecha_inicio": "2015-11-25",
+        "proyecto": 4,
+        "nombre": "Sprint 1 - I",
+        "estado": "Activo"
+    },
+    "model": "sprints.sprint",
+    "pk": 6
+},
+{
+    "fields": {
+        "codename": "add_logentry",
+        "name": "Can add log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 1
+},
+{
+    "fields": {
+        "codename": "change_logentry",
+        "name": "Can change log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 2
+},
+{
+    "fields": {
+        "codename": "delete_logentry",
+        "name": "Can delete log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 3
+},
+{
+    "fields": {
+        "codename": "add_permission",
+        "name": "Can add permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 4
+},
+{
+    "fields": {
+        "codename": "change_permission",
+        "name": "Can change permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 5
+},
+{
+    "fields": {
+        "codename": "delete_permission",
+        "name": "Can delete permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 6
+},
+{
+    "fields": {
+        "codename": "add_group",
+        "name": "Can add group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 7
+},
+{
+    "fields": {
+        "codename": "change_group",
+        "name": "Can change group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 8
+},
+{
+    "fields": {
+        "codename": "delete_group",
+        "name": "Can delete group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 9
+},
+{
+    "fields": {
+        "codename": "add_user",
+        "name": "Can add user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 10
+},
+{
+    "fields": {
+        "codename": "change_user",
+        "name": "Can change user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 11
+},
+{
+    "fields": {
+        "codename": "delete_user",
+        "name": "Can delete user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 12
+},
+{
+    "fields": {
+        "codename": "add_contenttype",
+        "name": "Can add content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 13
+},
+{
+    "fields": {
+        "codename": "change_contenttype",
+        "name": "Can change content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 14
+},
+{
+    "fields": {
+        "codename": "delete_contenttype",
+        "name": "Can delete content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 15
+},
+{
+    "fields": {
+        "codename": "add_session",
+        "name": "Can add session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 16
+},
+{
+    "fields": {
+        "codename": "change_session",
+        "name": "Can change session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 17
+},
+{
+    "fields": {
+        "codename": "delete_session",
+        "name": "Can delete session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 18
+},
+{
+    "fields": {
+        "codename": "crear_usuario",
+        "name": "Can crear usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 19
+},
+{
+    "fields": {
+        "codename": "modificar_usuario",
+        "name": "Can modificar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 20
+},
+{
+    "fields": {
+        "codename": "activar_usuario",
+        "name": "Can activar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 21
+},
+{
+    "fields": {
+        "codename": "inactivar_usuario",
+        "name": "Can inactivar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 22
+},
+{
+    "fields": {
+        "codename": "listar_usuario",
+        "name": "Can listar usuario",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 23
+},
+{
+    "fields": {
+        "codename": "crear_cliente",
+        "name": "Can crear cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 24
+},
+{
+    "fields": {
+        "codename": "modificar_cliente",
+        "name": "Can modificar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 25
+},
+{
+    "fields": {
+        "codename": "eliminar_cliente",
+        "name": "Can eliminar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 26
+},
+{
+    "fields": {
+        "codename": "listar_cliente",
+        "name": "Can listar cliente",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 27
+},
+{
+    "fields": {
+        "codename": "crear_proyecto",
+        "name": "Can crear proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 28
+},
+{
+    "fields": {
+        "codename": "modificar_proyecto",
+        "name": "Can modificar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 29
+},
+{
+    "fields": {
+        "codename": "eliminar_proyecto",
+        "name": "Can eliminar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 30
+},
+{
+    "fields": {
+        "codename": "listar_proyecto",
+        "name": "Can listar proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 31
+},
+{
+    "fields": {
+        "codename": "asignar_rol_proyecto_proyecto",
+        "name": "Can asignar_rol_proyecto proyecto",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 32
+},
+{
+    "fields": {
+        "codename": "crear_rolproyecto",
+        "name": "Can crear Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 33
+},
+{
+    "fields": {
+        "codename": "modificar_rolproyecto",
+        "name": "Can modificar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 34
+},
+{
+    "fields": {
+        "codename": "eliminar_rolproyecto",
+        "name": "Can eliminar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 35
+},
+{
+    "fields": {
+        "codename": "listar_rolproyecto",
+        "name": "Can listar Rol de Proyecto",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 36
+},
+{
+    "fields": {
+        "codename": "crear_plantillaflujo",
+        "name": "Can crear plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 37
+},
+{
+    "fields": {
+        "codename": "modificar_plantillaflujo",
+        "name": "Can modificar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 38
+},
+{
+    "fields": {
+        "codename": "eliminar_plantillaflujo",
+        "name": "Can eliminar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 39
+},
+{
+    "fields": {
+        "codename": "listar_plantillaflujo",
+        "name": "Can listar plantilla flujo",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 40
+},
+{
+    "fields": {
+        "codename": "crear_flujo",
+        "name": "Can crear flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 41
+},
+{
+    "fields": {
+        "codename": "modificar_flujo",
+        "name": "Can modificar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 42
+},
+{
+    "fields": {
+        "codename": "eliminar_flujo",
+        "name": "Can eliminar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 43
+},
+{
+    "fields": {
+        "codename": "listar_flujo",
+        "name": "Can listar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 44
+},
+{
+    "fields": {
+        "codename": "asignar_flujo",
+        "name": "Can asignar flujo",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 45
+},
+{
+    "fields": {
+        "codename": "crear_userstory",
+        "name": "Can crear user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 46
+},
+{
+    "fields": {
+        "codename": "redefinir_userstory",
+        "name": "Can redefinir user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 47
+},
+{
+    "fields": {
+        "codename": "definir_valor_tecnico_y_estimacion_userstory",
+        "name": "Can definir_valor_tecnico_y_estimacion user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 48
+},
+{
+    "fields": {
+        "codename": "asignar_flujo_userstory",
+        "name": "Can asignar_flujo user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 49
+},
+{
+    "fields": {
+        "codename": "asignar_sprint_userstory",
+        "name": "Can asignar_sprint user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 50
+},
+{
+    "fields": {
+        "codename": "asignar_usuario_userstory",
+        "name": "Can asignar_usuario user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 51
+},
+{
+    "fields": {
+        "codename": "listar_userstory",
+        "name": "Can listar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 52
+},
+{
+    "fields": {
+        "codename": "consultar_historial_userstory",
+        "name": "Can consultar_historial user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 53
+},
+{
+    "fields": {
+        "codename": "aprobar_userstory",
+        "name": "Can aprobar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 54
+},
+{
+    "fields": {
+        "codename": "descartar_userstory",
+        "name": "Can descartar user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 55
+},
+{
+    "fields": {
+        "codename": "cambiar_estado_userstory",
+        "name": "Can cambiar_estado user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 56
+},
+{
+    "fields": {
+        "codename": "revertir_cambio_estado_userstory",
+        "name": "Can revertir_cambio_estado user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 57
+},
+{
+    "fields": {
+        "codename": "definir_horas_userstory",
+        "name": "Can definir_horas user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 58
+},
+{
+    "fields": {
+        "codename": "agregar_nota_userstory",
+        "name": "Can agregar_nota user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 59
+},
+{
+    "fields": {
+        "codename": "agregar_archivo_userstory",
+        "name": "Can agregar_archivo user story",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 60
+},
+{
+    "fields": {
+        "codename": "add_historialuserstory",
+        "name": "Can add historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 61
+},
+{
+    "fields": {
+        "codename": "change_historialuserstory",
+        "name": "Can change historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 62
+},
+{
+    "fields": {
+        "codename": "delete_historialuserstory",
+        "name": "Can delete historial user story",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 63
+},
+{
+    "fields": {
+        "codename": "crear_sprint",
+        "name": "Can crear sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 64
+},
+{
+    "fields": {
+        "codename": "modificar_sprint",
+        "name": "Can modificar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 65
+},
+{
+    "fields": {
+        "codename": "listar_sprint",
+        "name": "Can listar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 66
+},
+{
+    "fields": {
+        "codename": "iniciar_sprint",
+        "name": "Can iniciar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 67
+},
+{
+    "fields": {
+        "codename": "finalizar_sprint",
+        "name": "Can finalizar sprint",
+        "content_type": 26
+    },
+    "model": "auth.permission",
+    "pk": 68
+},
+{
+    "fields": {
+        "name": "Administrador",
+        "permissions": [
+            7,
+            8,
+            9,
+            24,
+            26,
+            27,
+            25,
+            37,
+            39,
+            40,
+            38,
+            33,
+            35,
+            36,
+            34,
+            21,
+            19,
+            22,
+            23,
+            20
+        ]
+    },
+    "model": "auth.group",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Scrum Master",
+        "permissions": [
+            45,
+            44,
+            32,
+            28,
+            30,
+            31,
+            29,
+            64,
+            68,
+            67,
+            66,
+            65,
+            60,
+            59,
+            54,
+            49,
+            50,
+            51,
+            56,
+            53,
+            46,
+            58,
+            48,
+            55,
+            52,
+            47,
+            57
+        ]
+    },
+    "model": "auth.group",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "Developer",
+        "permissions": [
+            44,
+            31,
+            66,
+            59,
+            53,
+            58,
+            52
+        ]
+    },
+    "model": "auth.group",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "Product Owner",
+        "permissions": [
+            44,
+            31,
+            66,
+            53,
+            46,
+            52,
+            47
+        ]
+    },
+    "model": "auth.group",
+    "pk": 4
+},
+{
+    "fields": {
+        "name": "Adm de proyectos",
+        "permissions": [
+            24,
+            26,
+            27,
+            25,
+            37,
+            39,
+            40,
+            38,
+            32,
+            28,
+            30,
+            31,
+            29
+        ]
+    },
+    "model": "auth.group",
+    "pk": 5
+},
+{
+    "fields": {
+        "username": "administrador",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2015-11-27T13:03:03.407",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$jcIzrXkWpTaP$J/PL+rMsZzOD9tOMnXtGG7sotK5HHQAeNFPK6ghBtF4=",
+        "email": "krausevon88@gmail.com",
+        "date_joined": "2015-10-29T19:32:27.843"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "username": "CCar",
+        "first_name": "Carlos",
+        "last_name": "Carter",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-27T13:09:25.224",
+        "groups": [
+            5
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$w5F38BojAh1L$jqfKvqxD3Di9HiEMnjJtaY2PWsFy/TZNBeLHCO38S6Y=",
+        "email": "ccar2015@gmail.com",
+        "date_joined": "2015-10-29T20:29:32.048"
+    },
+    "model": "auth.user",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "ECar",
+        "first_name": "Esteban",
+        "last_name": "Caramano",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-27T13:08:38.835",
+        "groups": [
+            1
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$3PEjclIKMsGb$v+jWoBEV09EzgSwWpeLBM1Ovquk7ZwcA1e8EMbLESoU=",
+        "email": "ecar2015@gmail.com",
+        "date_joined": "2015-10-29T20:34:36.059"
+    },
+    "model": "auth.user",
+    "pk": 3
+},
+{
+    "fields": {
+        "username": "RFil",
+        "first_name": "Rodrigo",
+        "last_name": "Filartiga",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-10-29T20:35:48.157",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$6t2TbWdBk4YD$SJ94avnFyYKpt4bBoSRTkdLZBa68llzyJLaDSz7OCCg=",
+        "email": "rfil2015@gmail.com",
+        "date_joined": "2015-10-29T20:35:48.157"
+    },
+    "model": "auth.user",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "CEst",
+        "first_name": "Camilo",
+        "last_name": "Esteche",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-27T03:05:32.852",
+        "groups": [
+            3
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$zLjDt9QFFNGf$njkBrYDgYDbuJC47gV5MgcBOzFTgGpv0O9uAwSLAsi0=",
+        "email": "cest2015@gmail.com",
+        "date_joined": "2015-10-29T20:38:16.463"
+    },
+    "model": "auth.user",
+    "pk": 5
+},
+{
+    "fields": {
+        "username": "EGon",
+        "first_name": "Emilia",
+        "last_name": "Gonzalez",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-27T13:04:32.997",
+        "groups": [
+            1
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$tADQyMHKOHFd$6nDhMdMXQ8YxE6NMxw/Kz70cGZby2X/PDe9gCieE0JM=",
+        "email": "egon2015@gmail.com",
+        "date_joined": "2015-10-29T20:39:41.372"
+    },
+    "model": "auth.user",
+    "pk": 6
+},
+{
+    "fields": {
+        "username": "PCar",
+        "first_name": "Pablo",
+        "last_name": "Carvallo",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-27T12:58:48.447",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$jEL6BHDtT1sp$L0q8rm06e5XFO0wHFu4rCcGa3m8+rpTZULtiV+5yg4w=",
+        "email": "pcar2015@gmail.com",
+        "date_joined": "2015-10-29T20:42:39.501"
+    },
+    "model": "auth.user",
+    "pk": 7
+},
+{
+    "fields": {
+        "username": "PSol",
+        "first_name": "Paula",
+        "last_name": "Solalinde",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-25T10:47:23.711",
+        "groups": [
+            3
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$kXHmSWlyVIUM$k8RuFodLaY53SZvi4kgI/pWknak1k6+17I/N/CzhSnk=",
+        "email": "psol2015@gmail.com",
+        "date_joined": "2015-10-29T20:44:30.355"
+    },
+    "model": "auth.user",
+    "pk": 8
+},
+{
+    "fields": {
+        "username": "GSer",
+        "first_name": "Gabriel",
+        "last_name": "Servin",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-25T10:40:25.793",
+        "groups": [
+            2,
+            4
+        ],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$FYHsx6BVaqnQ$tY+yfxZPHnJMBSlb54gCFxa2hGlpyuH9F/bUnsLeEMY=",
+        "email": "gser2015@gmail.com",
+        "date_joined": "2015-10-29T20:47:54.583"
+    },
+    "model": "auth.user",
+    "pk": 9
+},
+{
+    "fields": {
+        "username": "RIba",
+        "first_name": "Raisa",
+        "last_name": "Ibarra",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-10-29T21:19:22.237",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$86Dbx0lIAVf4$7xjYOob9I6xZrh0Sh8XvQXezAWJX/4VGP+n21OpFwdk=",
+        "email": "riba2015@gmail.com",
+        "date_joined": "2015-10-29T21:19:22.237"
+    },
+    "model": "auth.user",
+    "pk": 10
+},
+{
+    "fields": {
+        "username": "PQui",
+        "first_name": "Pedro",
+        "last_name": "Quintana",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-11-27T12:59:13.859",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$ZPnKtAgWJjyv$RZDI6fmpU5umBkojWY+cmS76u7/MXc3/dMdtnoX5GbA=",
+        "email": "pqui2015@gmail.com",
+        "date_joined": "2015-10-29T21:20:39.967"
+    },
+    "model": "auth.user",
+    "pk": 11
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            1
+        ],
+        "telefono": "0981450016",
+        "user": 2,
+        "direccion": "Paso de patria, 2954"
+    },
+    "model": "usuarios.usuario",
+    "pk": 1
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0983188947",
+        "user": 3,
+        "direccion": "Cruz del defensor, 2849"
+    },
+    "model": "usuarios.usuario",
+    "pk": 2
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0991456589",
+        "user": 4,
+        "direccion": "Amambay, 754"
+    },
+    "model": "usuarios.usuario",
+    "pk": 3
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            2
+        ],
+        "telefono": "0991981041",
+        "user": 5,
+        "direccion": "San Jose, 892"
+    },
+    "model": "usuarios.usuario",
+    "pk": 4
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0974149612",
+        "user": 6,
+        "direccion": "Beato Roque Gonzalez, 1568"
+    },
+    "model": "usuarios.usuario",
+    "pk": 5
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0961255429",
+        "user": 7,
+        "direccion": "Presbitero Fidel Maiz, 1569"
+    },
+    "model": "usuarios.usuario",
+    "pk": 6
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            2
+        ],
+        "telefono": "0982938328",
+        "user": 8,
+        "direccion": "Pacheco, 1045"
+    },
+    "model": "usuarios.usuario",
+    "pk": 7
+},
+{
+    "fields": {
+        "rolesproyecto": [
+            1,
+            3
+        ],
+        "telefono": "0991281284",
+        "user": 9,
+        "direccion": "Mayor Torales, 582"
+    },
+    "model": "usuarios.usuario",
+    "pk": 8
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0991256783",
+        "user": 10,
+        "direccion": "Rca. Dominica, 1093"
+    },
+    "model": "usuarios.usuario",
+    "pk": 9
+},
+{
+    "fields": {
+        "rolesproyecto": [],
+        "telefono": "0981294878",
+        "user": 11,
+        "direccion": "Antequera, 789"
+    },
+    "model": "usuarios.usuario",
+    "pk": 10
+},
+{
+    "fields": {
+        "nombre_corto": "Proyecto 1",
+        "scrum_master": 2,
+        "fecha_fin": "2015-11-27",
+        "cliente": 1,
+        "fecha_inicio": "2015-11-16",
+        "equipo": [
+            2,
+            5,
+            9,
+            8
+        ],
+        "cancelado": false,
+        "codigo": "p",
+        "estado": "Activo",
+        "nombre_largo": "P1"
+    },
+    "model": "proyectos.proyecto",
+    "pk": 1
+},
+{
+    "fields": {
+        "nombre_corto": "P2",
+        "scrum_master": 9,
+        "fecha_fin": "2016-02-19",
+        "cliente": 3,
+        "fecha_inicio": "2015-11-09",
+        "equipo": [
+            9
+        ],
+        "cancelado": false,
+        "codigo": "p-1",
+        "estado": "No iniciado",
+        "nombre_largo": "Proyecto 2"
+    },
+    "model": "proyectos.proyecto",
+    "pk": 2
+},
+{
+    "fields": {
+        "nombre_corto": "P3",
+        "scrum_master": 2,
+        "fecha_fin": "2016-03-03",
+        "cliente": 2,
+        "fecha_inicio": "2015-11-27",
+        "equipo": [
+            2
+        ],
+        "cancelado": false,
+        "codigo": "p-2",
+        "estado": "No iniciado",
+        "nombre_largo": "Proyecto 3"
+    },
+    "model": "proyectos.proyecto",
+    "pk": 3
+},
+{
+    "fields": {
+        "nombre_corto": "Proyecto I",
+        "scrum_master": 2,
+        "fecha_fin": "2015-12-03",
+        "cliente": 3,
+        "fecha_inicio": "2015-11-25",
+        "equipo": [
+            2,
+            5,
+            9,
+            8
+        ],
+        "cancelado": false,
+        "codigo": "p-3",
+        "estado": "Activo",
+        "nombre_largo": "Proyecto I - iniciado"
+    },
+    "model": "proyectos.proyecto",
+    "pk": 4
+},
+{
+    "fields": {
+        "group": 2,
+        "es_rol_proyecto": true
+    },
+    "model": "roles_proyecto.rolproyecto",
+    "pk": 1
+},
+{
+    "fields": {
+        "group": 3,
+        "es_rol_proyecto": true
+    },
+    "model": "roles_proyecto.rolproyecto",
+    "pk": 2
+},
+{
+    "fields": {
+        "group": 4,
+        "es_rol_proyecto": true
+    },
+    "model": "roles_proyecto.rolproyecto",
+    "pk": 3
+},
+{
+    "fields": {
+        "proyecto": 2,
+        "horas_developer": 0,
+        "user": 9,
+        "rol_proyecto": 1
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 2
+},
+{
+    "fields": {
+        "proyecto": 3,
+        "horas_developer": 0,
+        "user": 2,
+        "rol_proyecto": 1
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 3
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 8,
+        "user": 8,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 5
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 8,
+        "user": 5,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 6
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 0,
+        "user": 9,
+        "rol_proyecto": 3
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 7
+},
+{
+    "fields": {
+        "proyecto": 1,
+        "horas_developer": 0,
+        "user": 2,
+        "rol_proyecto": 1
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 11
+},
+{
+    "fields": {
+        "proyecto": 4,
+        "horas_developer": 0,
+        "user": 2,
+        "rol_proyecto": 1
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 12
+},
+{
+    "fields": {
+        "proyecto": 4,
+        "horas_developer": 4,
+        "user": 8,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 13
+},
+{
+    "fields": {
+        "proyecto": 4,
+        "horas_developer": 4,
+        "user": 5,
+        "rol_proyecto": 2
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 14
+},
+{
+    "fields": {
+        "proyecto": 4,
+        "horas_developer": 0,
+        "user": 9,
+        "rol_proyecto": 3
+    },
+    "model": "roles_proyecto.rolproyecto_proyecto",
+    "pk": 15
+},
+{
+    "fields": {
+        "horas_acumuladas": 20,
+        "sprint": 4,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "US1",
+        "nombre": "us1",
+        "estimacion": 20,
+        "flujo": 4,
+        "estado": "Aprobado",
+        "prioridad": 2,
+        "valor_negocio": 3,
+        "valor_tecnico": 5
+    },
+    "model": "user_stories.userstory",
+    "pk": 17
+},
+{
+    "fields": {
+        "horas_acumuladas": 20,
+        "sprint": 4,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "US2",
+        "nombre": "us2",
+        "estimacion": 20,
+        "flujo": 5,
+        "estado": "Aprobado",
+        "prioridad": 3,
+        "valor_negocio": 5,
+        "valor_tecnico": 3
+    },
+    "model": "user_stories.userstory",
+    "pk": 18
+},
+{
+    "fields": {
+        "horas_acumuladas": 25,
+        "sprint": 4,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "US3",
+        "nombre": "us3",
+        "estimacion": 25,
+        "flujo": 4,
+        "estado": "Aprobado",
+        "prioridad": 9,
+        "valor_negocio": 8,
+        "valor_tecnico": 6
+    },
+    "model": "user_stories.userstory",
+    "pk": 19
+},
+{
+    "fields": {
+        "horas_acumuladas": 15,
+        "sprint": 4,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "us4",
+        "nombre": "us4",
+        "estimacion": 15,
+        "flujo": 5,
+        "estado": "Aprobado",
+        "prioridad": 6,
+        "valor_negocio": 3,
+        "valor_tecnico": 7
+    },
+    "model": "user_stories.userstory",
+    "pk": 20
+},
+{
+    "fields": {
+        "horas_acumuladas": 20,
+        "sprint": 5,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "User Story 5",
+        "nombre": "us5",
+        "estimacion": 20,
+        "flujo": 4,
+        "estado": "Aprobado",
+        "prioridad": 3,
+        "valor_negocio": 7,
+        "valor_tecnico": 4
+    },
+    "model": "user_stories.userstory",
+    "pk": 21
+},
+{
+    "fields": {
+        "horas_acumuladas": 20,
+        "sprint": 5,
+        "usuario": 8,
+        "proyecto": 1,
+        "descripcion": "User Story",
+        "nombre": "us6",
+        "estimacion": 20,
+        "flujo": 5,
+        "estado": "Aprobado",
+        "prioridad": 3,
+        "valor_negocio": 9,
+        "valor_tecnico": 3
+    },
+    "model": "user_stories.userstory",
+    "pk": 22
+},
+{
+    "fields": {
+        "horas_acumuladas": 20,
+        "sprint": 5,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "User Story 7",
+        "nombre": "us7",
+        "estimacion": 20,
+        "flujo": 4,
+        "estado": "Aprobado",
+        "prioridad": 8,
+        "valor_negocio": 2,
+        "valor_tecnico": 6
+    },
+    "model": "user_stories.userstory",
+    "pk": 23
+},
+{
+    "fields": {
+        "horas_acumuladas": 20,
+        "sprint": 5,
+        "usuario": 5,
+        "proyecto": 1,
+        "descripcion": "User Story 8",
+        "nombre": "us8",
+        "estimacion": 20,
+        "flujo": 5,
+        "estado": "Aprobado",
+        "prioridad": 6,
+        "valor_negocio": 1,
+        "valor_tecnico": 6
+    },
+    "model": "user_stories.userstory",
+    "pk": 24
+},
+{
+    "fields": {
+        "horas_acumuladas": 8,
+        "sprint": 6,
+        "usuario": 8,
+        "proyecto": 4,
+        "descripcion": "User Story 1 - I",
+        "nombre": "us1 - I",
+        "estimacion": 14,
+        "flujo": 6,
+        "estado": "Activo",
+        "prioridad": 3,
+        "valor_negocio": 2,
+        "valor_tecnico": 3
+    },
+    "model": "user_stories.userstory",
+    "pk": 25
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 6,
+        "usuario": 8,
+        "proyecto": 4,
+        "descripcion": "User Story 2 - I",
+        "nombre": "us2 - I",
+        "estimacion": 14,
+        "flujo": 6,
+        "estado": "Activo",
+        "prioridad": 3,
+        "valor_negocio": 4,
+        "valor_tecnico": 3
+    },
+    "model": "user_stories.userstory",
+    "pk": 26
+},
+{
+    "fields": {
+        "horas_acumuladas": 0,
+        "sprint": 6,
+        "usuario": 5,
+        "proyecto": 4,
+        "descripcion": "User Story 3 - I",
+        "nombre": "us3 - I",
+        "estimacion": 28,
+        "flujo": 6,
+        "estado": "Activo",
+        "prioridad": 3,
+        "valor_negocio": 4,
+        "valor_tecnico": 6
+    },
+    "model": "user_stories.userstory",
+    "pk": 27
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "",
+        "fecha": "2015-11-27T19:06:12.530",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 117
+},
+{
+    "fields": {
+        "user_story": 18,
+        "campo": "",
+        "fecha": "2015-11-27T19:06:31.349",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 118
+},
+{
+    "fields": {
+        "user_story": 19,
+        "campo": "",
+        "fecha": "2015-11-27T19:06:55.297",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 119
+},
+{
+    "fields": {
+        "user_story": 20,
+        "campo": "",
+        "fecha": "2015-11-27T19:07:13.783",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 120
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "desarrollador",
+        "fecha": "2015-11-27T19:08:08.189",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 121
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "flujo",
+        "fecha": "2015-11-27T19:08:08.199",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 122
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "sprint",
+        "fecha": "2015-11-27T19:08:08.210",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 123
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "estado",
+        "fecha": "2015-11-27T19:08:08.221",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 124
+},
+{
+    "fields": {
+        "user_story": 18,
+        "campo": "desarrollador",
+        "fecha": "2015-11-27T19:08:15.222",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 125
+},
+{
+    "fields": {
+        "user_story": 18,
+        "campo": "flujo",
+        "fecha": "2015-11-27T19:08:15.232",
+        "usuario": 2,
+        "valor": "Flujo 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 126
+},
+{
+    "fields": {
+        "user_story": 18,
+        "campo": "sprint",
+        "fecha": "2015-11-27T19:08:15.243",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 127
+},
+{
+    "fields": {
+        "user_story": 18,
+        "campo": "estado",
+        "fecha": "2015-11-27T19:08:15.254",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 128
+},
+{
+    "fields": {
+        "user_story": 19,
+        "campo": "desarrollador",
+        "fecha": "2015-11-27T19:08:27.101",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 129
+},
+{
+    "fields": {
+        "user_story": 19,
+        "campo": "flujo",
+        "fecha": "2015-11-27T19:08:27.110",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 130
+},
+{
+    "fields": {
+        "user_story": 19,
+        "campo": "sprint",
+        "fecha": "2015-11-27T19:08:27.121",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 131
+},
+{
+    "fields": {
+        "user_story": 19,
+        "campo": "estado",
+        "fecha": "2015-11-27T19:08:27.133",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 132
+},
+{
+    "fields": {
+        "user_story": 20,
+        "campo": "desarrollador",
+        "fecha": "2015-11-27T19:08:34.145",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 133
+},
+{
+    "fields": {
+        "user_story": 20,
+        "campo": "flujo",
+        "fecha": "2015-11-27T19:08:34.212",
+        "usuario": 2,
+        "valor": "Flujo 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 134
+},
+{
+    "fields": {
+        "user_story": 20,
+        "campo": "sprint",
+        "fecha": "2015-11-27T19:08:34.232",
+        "usuario": 2,
+        "valor": "Sprint 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 135
+},
+{
+    "fields": {
+        "user_story": 20,
+        "campo": "estado",
+        "fecha": "2015-11-27T19:08:34.305",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 136
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "",
+        "fecha": "2015-11-27T19:16:58.553",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 137
+},
+{
+    "fields": {
+        "user_story": 18,
+        "campo": "",
+        "fecha": "2015-11-27T19:16:58.587",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 138
+},
+{
+    "fields": {
+        "user_story": 19,
+        "campo": "",
+        "fecha": "2015-11-27T19:16:58.620",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 139
+},
+{
+    "fields": {
+        "user_story": 20,
+        "campo": "",
+        "fecha": "2015-11-27T19:16:58.653",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 140
+},
+{
+    "fields": {
+        "user_story": 19,
+        "campo": "",
+        "fecha": "2015-11-27T19:26:23.064",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 141
+},
+{
+    "fields": {
+        "user_story": 20,
+        "campo": "",
+        "fecha": "2015-11-27T19:29:18.389",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 142
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "",
+        "fecha": "2015-11-27T19:34:53.952",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 143
+},
+{
+    "fields": {
+        "user_story": 18,
+        "campo": "",
+        "fecha": "2015-11-27T19:34:58.040",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 144
+},
+{
+    "fields": {
+        "user_story": 19,
+        "campo": "",
+        "fecha": "2015-11-27T20:25:06.426",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 145
+},
+{
+    "fields": {
+        "user_story": 20,
+        "campo": "",
+        "fecha": "2015-11-27T20:25:33.705",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 146
+},
+{
+    "fields": {
+        "user_story": 18,
+        "campo": "",
+        "fecha": "2015-11-27T20:25:40.249",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 147
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "",
+        "fecha": "2015-11-27T20:27:53.385",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 148
+},
+{
+    "fields": {
+        "user_story": 17,
+        "campo": "",
+        "fecha": "2015-11-27T20:28:14.263",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 149
+},
+{
+    "fields": {
+        "user_story": 21,
+        "campo": "",
+        "fecha": "2015-11-23T21:51:02.121",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 150
+},
+{
+    "fields": {
+        "user_story": 22,
+        "campo": "",
+        "fecha": "2015-11-23T21:51:20.500",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 151
+},
+{
+    "fields": {
+        "user_story": 23,
+        "campo": "",
+        "fecha": "2015-11-23T21:51:38.280",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 152
+},
+{
+    "fields": {
+        "user_story": 24,
+        "campo": "",
+        "fecha": "2015-11-23T21:52:21.790",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 153
+},
+{
+    "fields": {
+        "user_story": 21,
+        "campo": "desarrollador",
+        "fecha": "2015-11-23T21:54:12.361",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 154
+},
+{
+    "fields": {
+        "user_story": 21,
+        "campo": "flujo",
+        "fecha": "2015-11-23T21:54:12.369",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 155
+},
+{
+    "fields": {
+        "user_story": 21,
+        "campo": "sprint",
+        "fecha": "2015-11-23T21:54:12.380",
+        "usuario": 2,
+        "valor": "Sprint 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 156
+},
+{
+    "fields": {
+        "user_story": 21,
+        "campo": "estado",
+        "fecha": "2015-11-23T21:54:12.391",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 157
+},
+{
+    "fields": {
+        "user_story": 22,
+        "campo": "desarrollador",
+        "fecha": "2015-11-23T21:54:20.071",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 158
+},
+{
+    "fields": {
+        "user_story": 22,
+        "campo": "flujo",
+        "fecha": "2015-11-23T21:54:20.080",
+        "usuario": 2,
+        "valor": "Flujo 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 159
+},
+{
+    "fields": {
+        "user_story": 22,
+        "campo": "sprint",
+        "fecha": "2015-11-23T21:54:20.092",
+        "usuario": 2,
+        "valor": "Sprint 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 160
+},
+{
+    "fields": {
+        "user_story": 22,
+        "campo": "estado",
+        "fecha": "2015-11-23T21:54:20.103",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 161
+},
+{
+    "fields": {
+        "user_story": 23,
+        "campo": "desarrollador",
+        "fecha": "2015-11-23T21:54:28.884",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 162
+},
+{
+    "fields": {
+        "user_story": 23,
+        "campo": "flujo",
+        "fecha": "2015-11-23T21:54:28.892",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 163
+},
+{
+    "fields": {
+        "user_story": 23,
+        "campo": "sprint",
+        "fecha": "2015-11-23T21:54:28.903",
+        "usuario": 2,
+        "valor": "Sprint 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 164
+},
+{
+    "fields": {
+        "user_story": 23,
+        "campo": "estado",
+        "fecha": "2015-11-23T21:54:28.914",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 165
+},
+{
+    "fields": {
+        "user_story": 24,
+        "campo": "desarrollador",
+        "fecha": "2015-11-23T21:54:38.126",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 166
+},
+{
+    "fields": {
+        "user_story": 24,
+        "campo": "flujo",
+        "fecha": "2015-11-23T21:54:38.136",
+        "usuario": 2,
+        "valor": "Flujo 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 167
+},
+{
+    "fields": {
+        "user_story": 24,
+        "campo": "sprint",
+        "fecha": "2015-11-23T21:54:38.147",
+        "usuario": 2,
+        "valor": "Sprint 2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 168
+},
+{
+    "fields": {
+        "user_story": 24,
+        "campo": "estado",
+        "fecha": "2015-11-23T21:54:38.158",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 169
+},
+{
+    "fields": {
+        "user_story": 21,
+        "campo": "",
+        "fecha": "2015-11-23T21:54:46.504",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 170
+},
+{
+    "fields": {
+        "user_story": 22,
+        "campo": "",
+        "fecha": "2015-11-23T21:54:46.537",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 171
+},
+{
+    "fields": {
+        "user_story": 23,
+        "campo": "",
+        "fecha": "2015-11-23T21:54:46.570",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 172
+},
+{
+    "fields": {
+        "user_story": 24,
+        "campo": "",
+        "fecha": "2015-11-23T21:54:46.605",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 173
+},
+{
+    "fields": {
+        "user_story": 21,
+        "campo": "",
+        "fecha": "2015-11-27T03:04:14.217",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 174
+},
+{
+    "fields": {
+        "user_story": 22,
+        "campo": "",
+        "fecha": "2015-11-27T03:04:16.251",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 175
+},
+{
+    "fields": {
+        "user_story": 21,
+        "campo": "",
+        "fecha": "2015-11-27T03:05:03.385",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 176
+},
+{
+    "fields": {
+        "user_story": 22,
+        "campo": "",
+        "fecha": "2015-11-27T03:05:09.463",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 177
+},
+{
+    "fields": {
+        "user_story": 23,
+        "campo": "",
+        "fecha": "2015-11-27T09:08:40.766",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 178
+},
+{
+    "fields": {
+        "user_story": 24,
+        "campo": "",
+        "fecha": "2015-11-27T09:08:42.867",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "finalizado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 179
+},
+{
+    "fields": {
+        "user_story": 23,
+        "campo": "",
+        "fecha": "2015-11-27T09:10:15.101",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 180
+},
+{
+    "fields": {
+        "user_story": 24,
+        "campo": "",
+        "fecha": "2015-11-27T09:10:22.912",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "aprobado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 181
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "",
+        "fecha": "2015-11-25T10:33:20.220",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 182
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "",
+        "fecha": "2015-11-25T10:34:06.331",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 183
+},
+{
+    "fields": {
+        "user_story": 27,
+        "campo": "",
+        "fecha": "2015-11-25T10:34:35.109",
+        "usuario": 2,
+        "valor": "",
+        "operacion": "creado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 184
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "nombre",
+        "fecha": "2015-11-25T10:34:50.246",
+        "usuario": 2,
+        "valor": "us1 - I",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 185
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "valor de negocio",
+        "fecha": "2015-11-25T10:40:34.184",
+        "usuario": 9,
+        "valor": "2",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 186
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "valor de negocio",
+        "fecha": "2015-11-25T10:40:39.018",
+        "usuario": 9,
+        "valor": "4",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 187
+},
+{
+    "fields": {
+        "user_story": 27,
+        "campo": "valor de negocio",
+        "fecha": "2015-11-25T10:40:43.597",
+        "usuario": 9,
+        "valor": "4",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 188
+},
+{
+    "fields": {
+        "user_story": 27,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T10:44:16.854",
+        "usuario": 2,
+        "valor": "28",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 189
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T10:44:23.366",
+        "usuario": 2,
+        "valor": "12",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 190
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T10:44:30.699",
+        "usuario": 2,
+        "valor": "14",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 191
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "estimacion",
+        "fecha": "2015-11-25T10:44:37.089",
+        "usuario": 2,
+        "valor": "14",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 192
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "desarrollador",
+        "fecha": "2015-11-25T10:45:13.878",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 193
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "flujo",
+        "fecha": "2015-11-25T10:45:13.887",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 194
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "sprint",
+        "fecha": "2015-11-25T10:45:13.898",
+        "usuario": 2,
+        "valor": "Sprint 1 - I",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 195
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "estado",
+        "fecha": "2015-11-25T10:45:13.909",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 196
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "desarrollador",
+        "fecha": "2015-11-25T10:45:20.121",
+        "usuario": 2,
+        "valor": "PSol",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 197
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "flujo",
+        "fecha": "2015-11-25T10:45:20.131",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 198
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "sprint",
+        "fecha": "2015-11-25T10:45:20.142",
+        "usuario": 2,
+        "valor": "Sprint 1 - I",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 199
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "estado",
+        "fecha": "2015-11-25T10:45:20.153",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 200
+},
+{
+    "fields": {
+        "user_story": 27,
+        "campo": "desarrollador",
+        "fecha": "2015-11-25T10:45:27.499",
+        "usuario": 2,
+        "valor": "CEst",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 201
+},
+{
+    "fields": {
+        "user_story": 27,
+        "campo": "flujo",
+        "fecha": "2015-11-25T10:45:27.509",
+        "usuario": 2,
+        "valor": "Flujo 1",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 202
+},
+{
+    "fields": {
+        "user_story": 27,
+        "campo": "sprint",
+        "fecha": "2015-11-25T10:45:27.520",
+        "usuario": 2,
+        "valor": "Sprint 1 - I",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 203
+},
+{
+    "fields": {
+        "user_story": 27,
+        "campo": "estado",
+        "fecha": "2015-11-25T10:45:27.531",
+        "usuario": 2,
+        "valor": "Activo",
+        "operacion": "modificado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 204
+},
+{
+    "fields": {
+        "user_story": 25,
+        "campo": "",
+        "fecha": "2015-11-25T10:45:47.865",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 205
+},
+{
+    "fields": {
+        "user_story": 26,
+        "campo": "",
+        "fecha": "2015-11-25T10:45:47.898",
+        "usuario": 8,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 206
+},
+{
+    "fields": {
+        "user_story": 27,
+        "campo": "",
+        "fecha": "2015-11-25T10:45:47.931",
+        "usuario": 5,
+        "valor": "",
+        "operacion": "iniciado"
+    },
+    "model": "user_stories.historialuserstory",
+    "pk": 207
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-16T19:16:58.546",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 4,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 157
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-16T19:16:58.577",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 4,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 158
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-16T19:16:58.607",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 4,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 159
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-16T19:16:58.640",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 4,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 160
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:21:45.392",
+        "horas_de_trabajo": 6,
+        "descripcion": "He realizado la primera tarea",
+        "sprint": 4,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 161
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:22:07.987",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 4,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 162
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:23:12.277",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 107,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 163
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:24:20.061",
+        "horas_de_trabajo": 6,
+        "descripcion": "2da tarea",
+        "sprint": 4,
+        "estado": 107,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 164
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:24:50.073",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 108,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 165
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-18T19:24:52.129",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 1 -> Actividad 2",
+        "sprint": 4,
+        "estado": 109,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 166
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-18T19:25:13.292",
+        "horas_de_trabajo": 3,
+        "descripcion": "3ra tarea",
+        "sprint": 4,
+        "estado": 109,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 167
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-19T19:25:22.568",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 110,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 168
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-19T19:25:25.132",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 111,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 169
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-19T19:25:40.074",
+        "horas_de_trabajo": 5,
+        "descripcion": "4ta tarea",
+        "sprint": 4,
+        "estado": 111,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 170
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-19T19:25:49.969",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 4,
+        "estado": 112,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 171
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-19T19:26:03.188",
+        "horas_de_trabajo": 3,
+        "descripcion": "5ta tarea",
+        "sprint": 4,
+        "estado": 112,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 172
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:26:04.792",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 173
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:26:14.684",
+        "horas_de_trabajo": 2,
+        "descripcion": "6ta tarea",
+        "sprint": 4,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 174
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:26:16.591",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 175
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:26:23.044",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 4,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 176
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-17T19:27:19.434",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 4,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 177
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-17T19:27:41.095",
+        "horas_de_trabajo": 3,
+        "descripcion": "Tarea 1",
+        "sprint": 4,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 178
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-18T19:27:43.652",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 116,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 179
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-18T19:27:52.512",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 117,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 180
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-18T19:27:54.965",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 4,
+        "estado": 118,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 181
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-18T19:28:07.800",
+        "horas_de_trabajo": 2,
+        "descripcion": "Tarea 2",
+        "sprint": 4,
+        "estado": 118,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 182
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-19T19:28:09.796",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 119,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 183
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-19T19:28:12.002",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 120,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 184
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-19T19:28:24.280",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 3",
+        "sprint": 4,
+        "estado": 120,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 185
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:28:35.925",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 3 -> Actividad 4",
+        "sprint": 4,
+        "estado": 121,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 186
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:29:03.812",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 122,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 187
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:29:13.545",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 4",
+        "sprint": 4,
+        "estado": 122,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 188
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:29:15.902",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 189
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:29:18.369",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 4,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 190
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:31:22.280",
+        "horas_de_trabajo": 4,
+        "descripcion": "Tarea 1",
+        "sprint": 4,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 191
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-17T19:31:39.777",
+        "horas_de_trabajo": 4,
+        "descripcion": "Tarea 1",
+        "sprint": 4,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 192
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:31:58.401",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 4,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 193
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-17T19:32:12.159",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 4,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 194
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:32:15.824",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 107,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 195
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-17T19:32:17.087",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 108,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 196
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-17T19:32:18.803",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 1 -> Actividad 2",
+        "sprint": 4,
+        "estado": 109,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 197
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-18T19:32:29.603",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 2",
+        "sprint": 4,
+        "estado": 109,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 198
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-18T19:32:38.137",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 116,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 199
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-18T19:32:40.320",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 117,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 200
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-18T19:32:44.329",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 4,
+        "estado": 118,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 201
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-18T19:33:00.480",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 2",
+        "sprint": 4,
+        "estado": 118,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 202
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-19T19:33:35.334",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 110,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 203
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-19T19:33:37.633",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 111,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 204
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-19T19:33:52.942",
+        "horas_de_trabajo": 7,
+        "descripcion": "Tarea 3",
+        "sprint": 4,
+        "estado": 111,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 205
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-19T19:33:59.739",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 119,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 206
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-19T19:34:02.540",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 120,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 207
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-19T19:34:11.340",
+        "horas_de_trabajo": 7,
+        "descripcion": "Tarea 3",
+        "sprint": 4,
+        "estado": 120,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 208
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-19T19:34:16.773",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 4,
+        "estado": 112,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 209
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:34:18.331",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 210
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:34:25.895",
+        "horas_de_trabajo": 4,
+        "descripcion": "Tarea 4",
+        "sprint": 4,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 211
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:34:27.971",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 3 -> Actividad 4",
+        "sprint": 4,
+        "estado": 121,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 212
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:34:30.264",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 122,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 213
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:34:39.585",
+        "horas_de_trabajo": 4,
+        "descripcion": "Tarea 4",
+        "sprint": 4,
+        "estado": 122,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 214
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:34:52.563",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 215
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:34:53.901",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 4,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 216
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:34:55.940",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 217
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-20T19:34:58.005",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 4,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 218
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 12,
+        "fecha": "2015-11-20T19:53:37.162",
+        "horas_de_trabajo": 0,
+        "descripcion": "Revertir: - Estado: Done -> To do",
+        "sprint": 4,
+        "estado": 112,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 219
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 11,
+        "fecha": "2015-11-20T20:04:37.020",
+        "horas_de_trabajo": 0,
+        "descripcion": "Revertir: - Actividad: Actividad 3 -> Actividad 2",
+        "sprint": 4,
+        "estado": 109,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 220
+},
+{
+    "fields": {
+        "user_story": 19,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 12,
+        "fecha": "2015-11-20T20:25:06.131",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 4,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 221
+},
+{
+    "fields": {
+        "user_story": 20,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 15,
+        "fecha": "2015-11-20T20:25:33.691",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 4,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 222
+},
+{
+    "fields": {
+        "user_story": 18,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 15,
+        "fecha": "2015-11-20T20:25:40.234",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 4,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 223
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-20T20:27:46.591",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 110,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 224
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-20T20:27:47.918",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 111,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 225
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-20T20:27:49.420",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 4,
+        "estado": 112,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 226
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-20T20:27:50.633",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 4,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 227
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-20T20:27:52.007",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 4,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 228
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-20T20:27:53.365",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 4,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 229
+},
+{
+    "fields": {
+        "user_story": 17,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 12,
+        "fecha": "2015-11-20T20:28:14.253",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 4,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 230
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-23T21:54:46.487",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 5,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 231
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-23T21:54:46.529",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 5,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 232
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-23T21:54:46.561",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 5,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 233
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-23T21:54:46.597",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 5,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 234
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-23T21:57:20.799",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 107,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 235
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-23T21:57:26.898",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 116,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 236
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-23T21:57:40.804",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 5,
+        "estado": 107,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 237
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-23T21:57:50.686",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 5,
+        "estado": 116,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 238
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-24T22:58:15.669",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 1",
+        "sprint": 5,
+        "estado": 107,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 239
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-24T22:58:29.540",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 1",
+        "sprint": 5,
+        "estado": 116,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 240
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 10,
+        "fecha": "2015-11-24T22:58:41.707",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 108,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 241
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 13,
+        "fecha": "2015-11-24T22:58:43.902",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 117,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 242
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-24T22:59:09.093",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 1 -> Actividad 2",
+        "sprint": 5,
+        "estado": 109,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 243
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-24T22:59:11.115",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 5,
+        "estado": 118,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 244
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-25T23:59:05.612",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 110,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 245
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-25T23:59:08.608",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 119,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 246
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-25T23:59:18.452",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 2",
+        "sprint": 5,
+        "estado": 110,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 247
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-25T23:59:32.999",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 2",
+        "sprint": 5,
+        "estado": 119,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 248
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-26T00:59:12.258",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 3",
+        "sprint": 5,
+        "estado": 110,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 249
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-26T00:59:22.289",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 3",
+        "sprint": 5,
+        "estado": 119,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 250
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 11,
+        "fecha": "2015-11-26T02:00:25.620",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 111,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 251
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 14,
+        "fecha": "2015-11-26T02:00:27.719",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 120,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 252
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-26T02:00:31.305",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 5,
+        "estado": 112,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 253
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-26T02:00:33.502",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 3 -> Actividad 4",
+        "sprint": 5,
+        "estado": 121,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 254
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-26T02:00:43.847",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 122,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 255
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-26T02:00:45.511",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 256
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-27T03:00:22.034",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 4",
+        "sprint": 5,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 257
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-27T03:00:30.237",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 4",
+        "sprint": 5,
+        "estado": 122,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 258
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-27T03:03:43.525",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 259
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-27T03:03:45.911",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 260
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 12,
+        "fecha": "2015-11-27T03:04:14.198",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 5,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 261
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 15,
+        "fecha": "2015-11-27T03:04:16.230",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 5,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 262
+},
+{
+    "fields": {
+        "user_story": 21,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 12,
+        "fecha": "2015-11-27T03:05:03.375",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 5,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 263
+},
+{
+    "fields": {
+        "user_story": 22,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 15,
+        "fecha": "2015-11-27T03:05:09.451",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 5,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 264
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-23T05:05:18.545",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 5,
+        "estado": 106,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 265
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-23T05:05:49.000",
+        "horas_de_trabajo": 0,
+        "descripcion": "Adjuntar archivo",
+        "sprint": 5,
+        "estado": 115,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 266
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-23T05:06:14.885",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 107,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 267
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-23T05:06:17.021",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 116,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 268
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-24T06:06:14.784",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 1",
+        "sprint": 5,
+        "estado": 107,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 269
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-24T06:06:25.693",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 1",
+        "sprint": 5,
+        "estado": 116,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 270
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 10,
+        "fecha": "2015-11-24T06:06:28.379",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 108,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 271
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 13,
+        "fecha": "2015-11-24T06:06:30.357",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 117,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 272
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-24T06:06:33.234",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 1 -> Actividad 2",
+        "sprint": 5,
+        "estado": 109,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 273
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-24T06:06:35.149",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 5,
+        "estado": 118,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 274
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-25T07:06:12.543",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 2",
+        "sprint": 5,
+        "estado": 109,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 275
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-25T07:06:23.565",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 2",
+        "sprint": 5,
+        "estado": 118,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 276
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-25T07:06:27.258",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 110,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 277
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-25T07:06:29.293",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 119,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 278
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-26T08:07:03.211",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 111,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 279
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-26T08:07:05.684",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 120,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 280
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 11,
+        "fecha": "2015-11-26T08:07:44.091",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 3",
+        "sprint": 5,
+        "estado": 111,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 281
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 14,
+        "fecha": "2015-11-26T08:07:51.991",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 3",
+        "sprint": 5,
+        "estado": 120,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 282
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-26T08:08:02.049",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 2 -> Actividad 3",
+        "sprint": 5,
+        "estado": 112,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 283
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-26T08:08:04.092",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de actividad: Actividad 3 -> Actividad 4",
+        "sprint": 5,
+        "estado": 121,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 284
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-27T09:08:05.224",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 285
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-27T09:08:07.268",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: To do -> Doing",
+        "sprint": 5,
+        "estado": 122,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 286
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-27T09:08:16.177",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 4",
+        "sprint": 5,
+        "estado": 113,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 287
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Registro de Tarea",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-27T09:08:24.812",
+        "horas_de_trabajo": 5,
+        "descripcion": "Tarea 4",
+        "sprint": 5,
+        "estado": 122,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 288
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-27T09:08:34.882",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 289
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-27T09:08:37.425",
+        "horas_de_trabajo": 0,
+        "descripcion": "Cambio de estado: Doing -> Done",
+        "sprint": 5,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 290
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 12,
+        "fecha": "2015-11-27T09:08:40.744",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 5,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 291
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 15,
+        "fecha": "2015-11-27T09:08:42.844",
+        "horas_de_trabajo": 0,
+        "descripcion": "Finalizar user story",
+        "sprint": 5,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 292
+},
+{
+    "fields": {
+        "user_story": 23,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 12,
+        "fecha": "2015-11-27T09:10:15.091",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 5,
+        "estado": 114,
+        "flujo": 4
+    },
+    "model": "user_stories.tarea",
+    "pk": 293
+},
+{
+    "fields": {
+        "user_story": 24,
+        "tipo": "Cambio de Estado",
+        "usuario": 2,
+        "actividad": 15,
+        "fecha": "2015-11-27T09:10:22.902",
+        "horas_de_trabajo": 0,
+        "descripcion": "Aprobar user story",
+        "sprint": 5,
+        "estado": 123,
+        "flujo": 5
+    },
+    "model": "user_stories.tarea",
+    "pk": 294
+},
+{
+    "fields": {
+        "user_story": 25,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 16,
+        "fecha": "2015-11-25T10:45:47.856",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 6,
+        "estado": 124,
+        "flujo": 6
+    },
+    "model": "user_stories.tarea",
+    "pk": 295
+},
+{
+    "fields": {
+        "user_story": 26,
+        "tipo": "Cambio de Estado",
+        "usuario": 8,
+        "actividad": 16,
+        "fecha": "2015-11-25T10:45:47.888",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 6,
+        "estado": 124,
+        "flujo": 6
+    },
+    "model": "user_stories.tarea",
+    "pk": 296
+},
+{
+    "fields": {
+        "user_story": 27,
+        "tipo": "Cambio de Estado",
+        "usuario": 5,
+        "actividad": 16,
+        "fecha": "2015-11-25T10:45:47.923",
+        "horas_de_trabajo": 0,
+        "descripcion": "Inicio en el kanban",
+        "sprint": 6,
+        "estado": 124,
+        "flujo": 6
+    },
+    "model": "user_stories.tarea",
+    "pk": 297
+},
+{
+    "fields": {
+        "user_story": 25,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 16,
+        "fecha": "2015-11-25T10:47:46.654",
+        "horas_de_trabajo": 4,
+        "descripcion": "Tarea 1",
+        "sprint": 6,
+        "estado": 124,
+        "flujo": 6
+    },
+    "model": "user_stories.tarea",
+    "pk": 298
+},
+{
+    "fields": {
+        "user_story": 25,
+        "tipo": "Registro de Tarea",
+        "usuario": 8,
+        "actividad": 16,
+        "fecha": "2015-11-26T11:48:12.709",
+        "horas_de_trabajo": 4,
+        "descripcion": "Tarea 1",
+        "sprint": 6,
+        "estado": 124,
+        "flujo": 6
+    },
+    "model": "user_stories.tarea",
+    "pk": 299
+},
+{
+    "fields": {
+        "user_story": 19,
+        "fecha": "2015-11-27T19:22:35.371",
+        "texto": "Nota 1",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 35
+},
+{
+    "fields": {
+        "user_story": 19,
+        "fecha": "2015-11-27T19:24:30.539",
+        "texto": "Nota 2",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 36
+},
+{
+    "fields": {
+        "user_story": 20,
+        "fecha": "2015-11-27T19:27:50.521",
+        "texto": "Nota 1",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 37
+},
+{
+    "fields": {
+        "user_story": 20,
+        "fecha": "2015-11-27T19:28:45.644",
+        "texto": "Nota 2",
+        "usuario": 5
+    },
+    "model": "user_stories.nota",
+    "pk": 38
+},
+{
+    "fields": {
+        "user_story": 17,
+        "fecha": "2015-11-27T19:33:08.749",
+        "texto": "Nota 1",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 39
+},
+{
+    "fields": {
+        "user_story": 18,
+        "fecha": "2015-11-27T19:33:19.183",
+        "texto": "Nota 1",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 40
+},
+{
+    "fields": {
+        "user_story": 19,
+        "fecha": "2015-11-27T20:25:06.437",
+        "texto": "Aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 41
+},
+{
+    "fields": {
+        "user_story": 20,
+        "fecha": "2015-11-27T20:25:33.715",
+        "texto": "Aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 42
+},
+{
+    "fields": {
+        "user_story": 18,
+        "fecha": "2015-11-27T20:25:40.260",
+        "texto": "Aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 43
+},
+{
+    "fields": {
+        "user_story": 17,
+        "fecha": "2015-11-27T20:28:14.274",
+        "texto": "Aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 44
+},
+{
+    "fields": {
+        "user_story": 21,
+        "fecha": "2015-11-23T21:56:43.472",
+        "texto": "Nota 1",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 45
+},
+{
+    "fields": {
+        "user_story": 22,
+        "fecha": "2015-11-23T21:56:49.894",
+        "texto": "Nota 1",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 46
+},
+{
+    "fields": {
+        "user_story": 21,
+        "fecha": "2015-11-24T22:58:58.685",
+        "texto": "Nota 2",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 47
+},
+{
+    "fields": {
+        "user_story": 22,
+        "fecha": "2015-11-24T22:59:06.674",
+        "texto": "Nota 2",
+        "usuario": 8
+    },
+    "model": "user_stories.nota",
+    "pk": 48
+},
+{
+    "fields": {
+        "user_story": 21,
+        "fecha": "2015-11-27T03:05:03.396",
+        "texto": "Aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 49
+},
+{
+    "fields": {
+        "user_story": 22,
+        "fecha": "2015-11-27T03:05:09.474",
+        "texto": "Aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 50
+},
+{
+    "fields": {
+        "user_story": 23,
+        "fecha": "2015-11-27T09:10:15.112",
+        "texto": "Aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 51
+},
+{
+    "fields": {
+        "user_story": 24,
+        "fecha": "2015-11-27T09:10:22.923",
+        "texto": "Aprobado",
+        "usuario": 2
+    },
+    "model": "user_stories.nota",
+    "pk": 52
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-27T19:04:22.755",
+        "object_repr": "P3",
+        "object_id": "3",
+        "change_message": "Modificado/a estado.",
+        "user": 1,
+        "content_type": 9
+    },
+    "model": "admin.logentry",
+    "pk": 1
+},
+{
+    "fields": {
+        "action_flag": 3,
+        "action_time": "2015-11-27T19:04:58.061",
+        "object_repr": "Sprint 3",
+        "object_id": "3",
+        "change_message": "",
+        "user": 1,
+        "content_type": 26
+    },
+    "model": "admin.logentry",
+    "pk": 2
+},
+{
+    "fields": {
+        "action_flag": 3,
+        "action_time": "2015-11-27T19:04:58.084",
+        "object_repr": "Sprint 2",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 26
+    },
+    "model": "admin.logentry",
+    "pk": 3
+},
+{
+    "fields": {
+        "action_flag": 3,
+        "action_time": "2015-11-27T19:04:58.095",
+        "object_repr": "Sprint 1",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 26
+    },
+    "model": "admin.logentry",
+    "pk": 4
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-27T19:18:27.353",
+        "object_repr": "Sprint 1",
+        "object_id": "4",
+        "change_message": "Modificado/a fecha_inicio y fecha_fin.",
+        "user": 1,
+        "content_type": 26
+    },
+    "model": "admin.logentry",
+    "pk": 5
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-27T20:39:46.649",
+        "object_repr": "Sprint 1",
+        "object_id": "4",
+        "change_message": "Modificado/a fecha_fin.",
+        "user": 1,
+        "content_type": 26
+    },
+    "model": "admin.logentry",
+    "pk": 6
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-27T20:46:48.486",
+        "object_repr": "Sprint 1",
+        "object_id": "4",
+        "change_message": "Modificado/a fecha_fin.",
+        "user": 1,
+        "content_type": 26
+    },
+    "model": "admin.logentry",
+    "pk": 7
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-23T21:50:16.980",
+        "object_repr": "Sprint 2",
+        "object_id": "5",
+        "change_message": "Modificado/a fecha_inicio.",
+        "user": 1,
+        "content_type": 26
+    },
+    "model": "admin.logentry",
+    "pk": 8
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:31:27.651",
+        "object_repr": "Sprint 1 - I",
+        "object_id": "6",
+        "change_message": "No ha cambiado ning\u00fan campo.",
+        "user": 1,
+        "content_type": 26
+    },
+    "model": "admin.logentry",
+    "pk": 9
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:38:23.484",
+        "object_repr": "us1",
+        "object_id": "17",
+        "change_message": "Modificado/a valor_negocio.",
+        "user": 1,
+        "content_type": 18
+    },
+    "model": "admin.logentry",
+    "pk": 10
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:38:31.724",
+        "object_repr": "us2",
+        "object_id": "18",
+        "change_message": "Modificado/a valor_negocio.",
+        "user": 1,
+        "content_type": 18
+    },
+    "model": "admin.logentry",
+    "pk": 11
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:38:39.944",
+        "object_repr": "us3",
+        "object_id": "19",
+        "change_message": "Modificado/a valor_negocio.",
+        "user": 1,
+        "content_type": 18
+    },
+    "model": "admin.logentry",
+    "pk": 12
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:38:47.018",
+        "object_repr": "us5",
+        "object_id": "21",
+        "change_message": "Modificado/a valor_negocio.",
+        "user": 1,
+        "content_type": 18
+    },
+    "model": "admin.logentry",
+    "pk": 13
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:38:56.956",
+        "object_repr": "us4",
+        "object_id": "20",
+        "change_message": "Modificado/a valor_negocio.",
+        "user": 1,
+        "content_type": 18
+    },
+    "model": "admin.logentry",
+    "pk": 14
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:39:04.824",
+        "object_repr": "us6",
+        "object_id": "22",
+        "change_message": "Modificado/a valor_negocio.",
+        "user": 1,
+        "content_type": 18
+    },
+    "model": "admin.logentry",
+    "pk": 15
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:39:11.741",
+        "object_repr": "us7",
+        "object_id": "23",
+        "change_message": "Modificado/a valor_negocio.",
+        "user": 1,
+        "content_type": 18
+    },
+    "model": "admin.logentry",
+    "pk": 16
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2015-11-25T10:39:18.251",
+        "object_repr": "us8",
+        "object_id": "24",
+        "change_message": "Modificado/a valor_negocio.",
+        "user": 1,
+        "content_type": 18
+    },
+    "model": "admin.logentry",
+    "pk": 17
+}
+]

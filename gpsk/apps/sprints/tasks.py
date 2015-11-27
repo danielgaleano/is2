@@ -3,6 +3,7 @@ import datetime
 
 from celery import shared_task
 from django.core.mail import send_mail
+from django.contrib.auth.models import User
 
 from apps.proyectos.models import Proyecto
 from apps.user_stories.models import UserStory
@@ -32,7 +33,7 @@ def cambio_estado(proyecto, sprint, user_story, flujo, actividad, estado, usuari
     @rtype: String
     @return: Imprime los datos del email de notificacion
     """
-    proy = Proyecto.objects.get(nombre_corto=proyecto)
+    proy = Proyecto.objects.get(id=proyecto)
     scrum_master = proy.scrum_master
     email_scrum = scrum_master.email
     #email_scrum_master = str(email_scrum)
@@ -46,7 +47,7 @@ def cambio_estado(proyecto, sprint, user_story, flujo, actividad, estado, usuari
            '<li>Developer: <strong>%s</strong></li>' \
            '</ul>' \
            'Enlace: %s' \
-           '<br/>' % (user_story, proyecto, sprint, flujo, actividad, estado, usuario, uri)
+           '<br/>' % (user_story, proy.nombre_corto, sprint, flujo, actividad, estado, usuario, uri)
     send_mail('Notificacion cambio de estado en user story: %s - %s' % (user_story,
                                                                         datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')),
               'Cambio de estado:',
@@ -81,7 +82,7 @@ def fin_user_story(proyecto, sprint, user_story, flujo, actividad, estado, usuar
     @rtype: String
     @return: Imprime los datos del email de notificacion
     """
-    proy = Proyecto.objects.get(nombre_corto=proyecto)
+    proy = Proyecto.objects.get(id=proyecto)
     scrum_master = proy.scrum_master
     email_scrum = scrum_master.email
     #email_scrum_master = str(email_scrum)
@@ -95,7 +96,7 @@ def fin_user_story(proyecto, sprint, user_story, flujo, actividad, estado, usuar
            '<li>Developer: <strong>%s</strong></li>' \
            '</ul>' \
            'Enlace: %s' \
-           '<br/>' % (user_story, proyecto, sprint, flujo, actividad, estado, usuario, uri)
+           '<br/>' % (user_story, proy.nombre_corto, sprint, flujo, actividad, estado, usuario, uri)
     send_mail('Notificacion finalizacion de user story: %s - %s' % (user_story,
                                                                     datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')),
               'Finalizacion de user story:',
@@ -129,9 +130,10 @@ def reversion_estado(proyecto, sprint, user_story, flujo, actividad, estado, usu
     @rtype: String
     @return: Imprime los datos del email de notificacion
     """
-    us = UserStory.objects.get(nombre=user_story)
-    developer = us.usuario
-    email_dev = developer.email
+    us = UserStory.objects.get(id=user_story)
+    usuario_task = User.objects.get(username=usuario)
+    #developer = us.usuario
+    email_dev = usuario_task.email
     #scrum_master = proy.scrum_master
     #email_scrum = scrum_master.email
     #email_scrum_master = str(email_scrum)
@@ -145,14 +147,14 @@ def reversion_estado(proyecto, sprint, user_story, flujo, actividad, estado, usu
            '<li>Developer: <strong>%s</strong></li>' \
            '</ul>' \
            'Enlace: %s' \
-           '<br/>' % (user_story, proyecto, sprint, flujo, actividad, estado, usuario, uri)
+           '<br/>' % (us.nombre, proyecto, sprint, flujo, actividad, estado, usuario, uri)
     send_mail('Notificacion revertir estado de user story: %s - %s' % (user_story,
                                                                        datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')),
               'Revertir estado de user story:',
               'gpsk.system@gmail.com', [email_dev], fail_silently=False, html_message=html)
 
     return 'Revertir estado: Proyecto %s - Sprint %s -- User story %s - ' \
-           'Flujo %s.' % (proyecto, sprint, user_story, flujo)
+           'Flujo %s. email %s' % (proyecto, sprint, user_story, flujo, email_dev)
 
 
 @shared_task
@@ -179,9 +181,10 @@ def aprobacion_user_story(proyecto, sprint, user_story, flujo, actividad, estado
     @rtype: String
     @return: Imprime los datos del email de notificacion
     """
-    us = UserStory.objects.get(nombre=user_story)
-    developer = us.usuario
-    email_dev = developer.email
+    us = UserStory.objects.get(id=user_story)
+    usuario_task = User.objects.get(username=usuario)
+    #developer = us.usuario
+    email_dev = usuario_task.email
     #scrum_master = proy.scrum_master
     #email_scrum = scrum_master.email
     #email_scrum_master = str(email_scrum)
@@ -195,7 +198,7 @@ def aprobacion_user_story(proyecto, sprint, user_story, flujo, actividad, estado
            '<li>Developer: <strong>%s</strong></li>' \
            '</ul>' \
            'Enlace: %s' \
-           '<br/>' % (user_story, proyecto, sprint, flujo, actividad, estado, usuario, uri)
+           '<br/>' % (us.nombre, proyecto, sprint, flujo, actividad, estado, usuario, uri)
     send_mail('Notificacion aprobacion de user story: %s - %s' % (user_story,
                                                                   datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')),
               'Aprobacion de user story:',

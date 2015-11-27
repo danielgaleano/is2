@@ -11,6 +11,7 @@ from apps.flujos.models import Flujo
 
 
 
+
 # 1 MB - 1048576
 # 2.5MB - 2621440
 # 5MB - 5242880
@@ -535,7 +536,7 @@ class AgregarNotaForm(forms.ModelForm):
 
         user_story = UserStory.objects.get(pk=user_story_string.pk)
         sprint = Sprint.objects.get(pk=sprint_string.pk)
-        proyecto = Sprint.objects.get(pk=proyecto_string.pk)
+        proyecto = Proyecto.objects.get(pk=proyecto_string.pk)
 
         #pk_rol = []
         #for rol in rol_developer:

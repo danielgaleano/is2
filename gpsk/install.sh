@@ -1,4 +1,6 @@
 #!/bin/bash
+
+ruta="/home/daniel/dev/is2-env/is2/"
 # Posicionandonos en el directorio raíz
 cd ../
 echo "----Recolectando archivos del sistema----"
@@ -6,7 +8,10 @@ echo "----Recolectando archivos del sistema----"
 
 # Borrar los archivos anteriores
 echo -e "\nBorrando archivos antiguos"
-sudo rm -r /var/www/is2/
+if [ -d /var/www/is2/ ]; then
+  sudo rm -r /var/www/is2/
+fi
+
 
 if [ "$?" -ne 0 ]
 then
@@ -18,7 +23,7 @@ echo -e "Archivos borrados\n"
 
 # Copiar los archivos al directorio servido por apache2
 echo "Copiando archivos"
-sudo cp -r /home/$USER/PycharmProjects/env/proyecto/is2/ /var/www/
+sudo cp -r "$ruta" /var/www/
 if [ "$?" -ne 0 ]
 then
     echo -e "ERROR: No se pudo copiar el directorio a /var/www/"
@@ -71,18 +76,21 @@ fi
 sudo echo -e "----Fix[sin DNS]: Agrega el nombre y direccion de la pagina a los hosts conocidos de la maquina.----"
 sudo sh -c "echo '127.0.0.1 gpsk.com' >> /etc/hosts"
 
-#source /home/$USER/PycharmProjects/env/bin/activate
-cd /var/www/is2/gpsk
-python manage.py collectstatic --settings=gpsk.settings.production
 
 #Otorgar permisos correspondientes versionII
-sudo chown -R www-data:www-data /var/www/*
-sudo chmod -R 777 /var/www/*
+sudo chown -R www-data:www-data /var/www/
+sudo chmod -R 777 /var/www/
 if [ "$?" -ne 0 ]
 then
     echo -e "ERROR: No se pudo cambiar permisos del directorio /var/www/is2"
     exit 1
 fi
+
+#source /home/$USER/PycharmProjects/env/bin/activate
+cd /var/www/is2/gpsk
+python manage.py collectstatic --settings=gpsk.settings.production
+
+
 
 echo "************** Este es un comentario ************"
 
@@ -97,12 +105,12 @@ echo "makemigrate hecho"
 python manage.py migrate --settings=gpsk.settings.production
 echo "migrate hecho"
 
-python manage.py loaddata --verbosity=2 bdcopia.json --settings=gpsk.settings.production
+python manage.py loaddata --verbosity=2 3proyectos_final.json --settings=gpsk.settings.production
 echo "Poblacion exitosa"
 
 sudo service apache2 restart
 
-firefox gpsk.com
+firefox gpsk.com &&
 
 clear
 echo "***********Configuracion exitosa**********************"
