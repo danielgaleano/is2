@@ -113,7 +113,7 @@ django.test.TestCase --+
         <tr>
           <td><span class="summary-sig"><a name="test_view_IndexView"></a><span class="summary-sig-name">test_view_IndexView</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Funcion que realiza el test sobre la vista UserIndexView que genera 
-      lista de usuarios</td>
+      lista de proyectos</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_IndexView">source&nbsp;code</a></span>
             
@@ -131,7 +131,7 @@ django.test.TestCase --+
         <tr>
           <td><span class="summary-sig"><a name="test_view_ProyectoCreate"></a><span class="summary-sig-name">test_view_ProyectoCreate</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Funcion que realiza el test sobre la vista ProyectoCreate que crea un
-      nuevo usuario</td>
+      nuevo proyecto</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_ProyectoCreate">source&nbsp;code</a></span>
             
@@ -149,7 +149,7 @@ django.test.TestCase --+
         <tr>
           <td><span class="summary-sig"><a name="test_view_ProyectoUpdate"></a><span class="summary-sig-name">test_view_ProyectoUpdate</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Funcion que realiza el test sobre la vista ProyectoUpdate que 
-      modifica un usuario existente</td>
+      modifica un proyecto existente</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_ProyectoUpdate">source&nbsp;code</a></span>
             
@@ -166,10 +166,249 @@ django.test.TestCase --+
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a name="test_view_cancelar_proyecto"></a><span class="summary-sig-name">test_view_cancelar_proyecto</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Funcion que realiza el test sobre la vista proyecto que cambia el 
-      estado de un proyecto a cancelado</td>
+      Funcion que realiza el test sobre la vista cancelar_proyecto que 
+      cambia el estado de un proyecto a cancelado</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_cancelar_proyecto">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_proyecto_index"></a><span class="summary-sig-name">test_view_proyecto_index</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista proyecto_index que genera 
+      el index del proyecto seleccionado</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_proyecto_index">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_listar_equipo"></a><span class="summary-sig-name">test_view_listar_equipo</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista listar_equipo que genera 
+      lista de usuarios que se encuentran en el equipo del proyecto</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_listar_equipo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_AddMiembro"></a><span class="summary-sig-name">test_view_AddMiembro</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista AddMiembro que agrega un 
+      usuario al equipo del proyecto</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_AddMiembro">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_delete_miembro"></a><span class="summary-sig-name">test_view_delete_miembro</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista delete_miembro que elimina
+      un usuario del equipo del proyecto</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_delete_miembro">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_proyecto_reportes"></a><span class="summary-sig-name">test_view_proyecto_reportes</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista proyecto_reportes que 
+      genera el index de los reportes del proyecto seleccionado</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_proyecto_reportes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_proyecto_reporte_trabajos_equipo"></a><span class="summary-sig-name">test_view_proyecto_reporte_trabajos_equipo</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista 
+      proyecto_reporte_trabajos_equipo que genera el reporte de los 
+      trabajos realizados por cada equipo</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_proyecto_reporte_trabajos_equipo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_reporte_grafico_reportlab"></a><span class="summary-sig-name">test_view_reporte_grafico_reportlab</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista reporte_grafico_reportlab 
+      que genera el reporte de los burndown_chart de los sprints</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_reporte_grafico_reportlab">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_proyecto_reporte_trabajos_usuario"></a><span class="summary-sig-name">test_view_proyecto_reporte_trabajos_usuario</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista 
+      proyecto_reporte_trabajos_usuario que genera el reporte de los 
+      trabajos realizados por cada usuario</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_proyecto_reporte_trabajos_usuario">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_proyecto_reporte_actividades"></a><span class="summary-sig-name">test_view_proyecto_reporte_actividades</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista 
+      proyecto_reporte_actividades que genera el reporte de las actividades
+      a realizar en el proyecto</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_proyecto_reporte_actividades">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_proyecto_reporte_product_backlog"></a><span class="summary-sig-name">test_view_proyecto_reporte_product_backlog</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista 
+      proyecto_reporte_product_backlog que genera el reporte de los user 
+      stories del product backlog del proyecto</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_proyecto_reporte_product_backlog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_proyecto_reporte_sprint_backlog"></a><span class="summary-sig-name">test_view_proyecto_reporte_sprint_backlog</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista 
+      proyecto_reporte_sprint_backlog que genera el reporte de los user 
+      stories del sprint backlog del sprint actual</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_proyecto_reporte_sprint_backlog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_iniciar_proyecto"></a><span class="summary-sig-name">test_view_iniciar_proyecto</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista iniciar_proyecto que 
+      inicia el proyecto</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_iniciar_proyecto">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_view_finalizar_proyecto"></a><span class="summary-sig-name">test_view_finalizar_proyecto</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Funcion que realiza el test sobre la vista finalizar_proyecto que 
+      inicia el proyecto</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.proyectos.tests-pysrc.html#ProyectosTest.test_view_finalizar_proyecto">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -206,7 +445,7 @@ django.test.TestCase --+
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat May 16 00:04:36 2015
+    Generated by Epydoc 3.0.1 on Fri Dec 11 17:33:10 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

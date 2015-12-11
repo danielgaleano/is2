@@ -123,9 +123,25 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
+        <a href="apps.sprints.views.SprintAsignar-class.html" class="summary-name">SprintAsignar</a><br />
+      Clase que se utiliza para asignar los user stories al sprint
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
         <a href="apps.sprints.views.SprintGestionarUpdate-class.html" class="summary-name">SprintGestionarUpdate</a><br />
       Clase que se utiliza para modificar la asignacion de los user stories
       del sprint
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.views.AprobarUserStory-class.html" class="summary-name">AprobarUserStory</a><br />
+      Clase que permite aprobar el user story
     </td>
   </tr>
 <tr>
@@ -153,6 +169,14 @@
       utilizando Ajax para el filtrado
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.views.AgregarNota-class.html" class="summary-name">AgregarNota</a><br />
+      Clase que permite agregar notas al user story
+    </td>
+  </tr>
 </table>
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
@@ -171,6 +195,24 @@
     </table>
   </td>
 </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="sprint_gestionar"></a><span class="summary-sig-name">sprint_gestionar</span>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#sprint_gestionar">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">django.http.HttpResponseRedirect</span>
@@ -327,6 +369,85 @@
       en un flujo.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.sprints.views-pysrc.html#adjuntar_archivo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">django.http.HttpResponseRedirect</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#agregar_adjunto" class="summary-sig-name">agregar_adjunto</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>,
+        <span class="summary-sig-arg">pk_user_story</span>)</span><br />
+      Funcion que permite adjuntar un archivo a un user story seleccionado 
+      en un flujo.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#agregar_adjunto">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#burndown_chart" class="summary-sig-name">burndown_chart</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>)</span><br />
+      Funcion que genera el burndown chart que corresponde al sprint</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#burndown_chart">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#finalizar_sprint" class="summary-sig-name">finalizar_sprint</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>)</span><br />
+      Funcion que realiza la finalizacion del sprint</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#finalizar_sprint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">django.http.HttpResponseRedirect</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.sprints.views-module.html#descartar_user_story" class="summary-sig-name">descartar_user_story</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_proyecto</span>,
+        <span class="summary-sig-arg">pk_sprint</span>,
+        <span class="summary-sig-arg">pk_user_story</span>)</span><br />
+      Metodo que descarta un user story</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.sprints.views-pysrc.html#descartar_user_story">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -626,6 +747,142 @@
   </dl>
 </td></tr></table>
 </div>
+<a name="agregar_adjunto"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">agregar_adjunto</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>,
+        <span class="sig-arg">pk_user_story</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#agregar_adjunto">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que permite adjuntar un archivo a un user story seleccionado 
+  en un flujo.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (django.http.HttpRequest) - Contiene informacion sobre la peticion actual</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> (string) - id del proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> (string) - id del sprint</li>
+        <li><strong class="pname"><code>pk_user_story</code></strong> (string) - id del user story</li>
+    </ul></dd>
+    <dt>Returns: django.http.HttpResponseRedirect</dt>
+        <dd>Renderiza sprints/sprint_kanban.html para obtener el kanban 
+          actual</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="burndown_chart"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">burndown_chart</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#burndown_chart">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que genera el burndown chart que corresponde al sprint</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - objeto de Sprint</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> - clave primaria de sprint</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>template con texto renderizado</dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@login_required(login_url= '/login/')</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="finalizar_sprint"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">finalizar_sprint</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#finalizar_sprint">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Funcion que realiza la finalizacion del sprint</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - sprint</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria de proyecto</li>
+        <li><strong class="pname"><code>pk_sprint</code></strong> - clave primaria de sprint</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>redirige al index de Sprints</dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@login_required(login_url= '/login/')</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="descartar_user_story"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">descartar_user_story</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_proyecto</span>,
+        <span class="sig-arg">pk_sprint</span>,
+        <span class="sig-arg">pk_user_story</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.sprints.views-pysrc.html#descartar_user_story">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Metodo que descarta un user story</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> - @type</li>
+        <li><strong class="pname"><code>pk_proyecto</code></strong> - clave primaria del proyecto al cual corresponde el user story 
+          @type</li>
+        <li><strong class="pname"><code>pk_user_story</code></strong> - clave primaria del user story @type</li>
+    </ul></dd>
+    <dt>Returns: django.http.HttpResponseRedirect</dt>
+        <dd>Renderiza user_stories/delete.html para obtener el formulario o 
+          redirecciona a la vista index del sprint backlog de User Stories 
+          si el user story fue descartado.</dd>
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@login_required(login_url= '/login/')</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
 <br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
@@ -655,7 +912,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat May 16 00:04:36 2015
+    Generated by Epydoc 3.0.1 on Fri Dec 11 17:33:10 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

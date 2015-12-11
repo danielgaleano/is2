@@ -89,7 +89,8 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="apps.flujos.views.FlujoCreate-class.html" class="summary-name">FlujoCreate</a>
+        <a href="apps.flujos.views.FlujoCreate-class.html" class="summary-name">FlujoCreate</a><br />
+      Clase que despliega el formulario para la creacion de flujos.
     </td>
   </tr>
 <tr>
@@ -97,7 +98,8 @@
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="apps.flujos.views.PlantillaFlujoCreate-class.html" class="summary-name">PlantillaFlujoCreate</a><br />
-      Clase que despliega el formulario para la creacion de flujos.
+      Clase que despliega el formulario para la creacion de plantillas de 
+      flujos.
     </td>
   </tr>
 <tr>
@@ -146,7 +148,24 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="apps.flujos.views-module.html#crear_plantilla_flujo" class="summary-sig-name">crear_plantilla_flujo</a>(<span class="summary-sig-arg">request</span>)</span></td>
+          <td><span class="summary-sig"><a href="apps.flujos.views-module.html#prueba" class="summary-sig-name">prueba</a>(<span class="summary-sig-arg">request</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="apps.flujos.views-pysrc.html#prueba">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">django.http.HttpResponseRedirect</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="apps.flujos.views-module.html#crear_plantilla_flujo" class="summary-sig-name">crear_plantilla_flujo</a>(<span class="summary-sig-arg">request</span>)</span><br />
+      Funcion que crea una plantilla de flujo.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.flujos.views-pysrc.html#crear_plantilla_flujo">source&nbsp;code</a></span>
             
@@ -162,7 +181,8 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="apps.flujos.views-module.html#editar_plantilla_flujo" class="summary-sig-name">editar_plantilla_flujo</a>(<span class="summary-sig-arg">request</span>)</span></td>
+          <td><span class="summary-sig"><a href="apps.flujos.views-module.html#editar_plantilla_flujo" class="summary-sig-name">editar_plantilla_flujo</a>(<span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">pk_plantilla_flujo</span>)</span></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="apps.flujos.views-pysrc.html#editar_plantilla_flujo">source&nbsp;code</a></span>
             
@@ -191,6 +211,29 @@
   </td>
 </tr>
 </table>
+<a name="prueba"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">prueba</span>(<span class="sig-arg">request</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="apps.flujos.views-pysrc.html#prueba">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Decorators:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code>@csrf_exempt</code></li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="crear_plantilla_flujo"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -205,8 +248,16 @@
     </td>
   </tr></table>
   
-  
+  <p>Funcion que crea una plantilla de flujo.</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (django.http.HttpRequest) - Contiene informacion sobre la peticion actual</li>
+    </ul></dd>
+    <dt>Returns: django.http.HttpResponseRedirect</dt>
+        <dd>Renderiza flujos/create_ajax.html para obtener el formulario y 
+          redirecciona a la vista index de plantillas de flujo si fue 
+          creado con exito.</dd>
     <dt>Decorators:</dt>
     <dd><ul class="nomargin-top">
         <li><code>@csrf_exempt</code></li>
@@ -221,7 +272,8 @@
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">editar_plantilla_flujo</span>(<span class="sig-arg">request</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">editar_plantilla_flujo</span>(<span class="sig-arg">request</span>,
+        <span class="sig-arg">pk_plantilla_flujo</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="apps.flujos.views-pysrc.html#editar_plantilla_flujo">source&nbsp;code</a></span>&nbsp;
@@ -266,7 +318,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat May 16 00:04:36 2015
+    Generated by Epydoc 3.0.1 on Fri Dec 11 17:33:10 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

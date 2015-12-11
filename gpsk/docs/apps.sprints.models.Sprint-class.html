@@ -175,7 +175,7 @@ nalizado'),">'No iniciado', 'No iniciado', ('Activo', 'Acti<code class="variable
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="nombre"></a><span class="summary-name">nombre</span> = <code title="models.CharField(max_length= 15)">models.CharField(max_length= 15)</code>
+        <a name="nombre"></a><span class="summary-name">nombre</span> = <code title="models.CharField(max_length= 15, null= True)">models.CharField(max_length= 15, null= True)</code>
     </td>
   </tr>
 <tr>
@@ -183,7 +183,7 @@ nalizado'),">'No iniciado', 'No iniciado', ('Activo', 'Acti<code class="variable
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="apps.sprints.models.Sprint-class.html#duracion" class="summary-name">duracion</a> = <code title="models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat\
-or(30)], default= 0)">models.IntegerField(validators= [MinValueValidator(<code class="variable-ellipsis">...</code></code>
+or(30)], default= 0, null= True)">models.IntegerField(validators= [MinValueValidator(<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -191,7 +191,7 @@ or(30)], default= 0)">models.IntegerField(validators= [MinValueValidator(<code c
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="apps.sprints.models.Sprint-class.html#estado" class="summary-name">estado</a> = <code title="models.CharField(max_length= 15, choices= ESTADO_SPRINT, default= 'No \
-iniciado')">models.CharField(max_length= 15, choices= ESTADO_SPRI<code class="variable-ellipsis">...</code></code>
+iniciado', null= True)">models.CharField(max_length= 15, choices= ESTADO_SPRI<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -200,6 +200,20 @@ iniciado')">models.CharField(max_length= 15, choices= ESTADO_SPRI<code class="va
     </td><td class="summary">
         <a href="apps.sprints.models.Sprint-class.html#proyecto" class="summary-name">proyecto</a> = <code title="models.ForeignKey(Proyecto, null= True, related_name= 'proyecto_sprint\
 ')">models.ForeignKey(Proyecto, null= True, related_nam<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.models.Sprint-class.html#fecha_inicio" class="summary-name">fecha_inicio</a> = <code title="models.DateField(default= datetime.date.today(), null= True)">models.DateField(default= datetime.date.today()<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="apps.sprints.models.Sprint-class.html#fecha_fin" class="summary-name">fecha_fin</a> = <code title="models.DateField(default= datetime.date.today(), null= True)">models.DateField(default= datetime.date.today(), n<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 </table>
@@ -253,7 +267,7 @@ nalizado'),
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
 models.IntegerField(validators= [MinValueValidator(0), MaxValueValidat<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-or(30)], default= 0)
+or(30)], default= 0, null= True)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -272,7 +286,7 @@ or(30)], default= 0)
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
 models.CharField(max_length= 15, choices= ESTADO_SPRINT, default= 'No <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-iniciado')
+iniciado', null= True)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -292,6 +306,42 @@ iniciado')
       <dd><table><tr><td><pre class="variable">
 models.ForeignKey(Proyecto, null= True, related_name= 'proyecto_sprint<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 ')
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="fecha_inicio"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">fecha_inicio</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+models.DateField(default= datetime.date.today(), null= True)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="fecha_fin"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">fecha_fin</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+models.DateField(default= datetime.date.today(), null= True)
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -326,7 +376,7 @@ models.ForeignKey(Proyecto, null= True, related_name= 'proyecto_sprint<span clas
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat May 16 00:04:36 2015
+    Generated by Epydoc 3.0.1 on Fri Dec 11 17:33:10 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

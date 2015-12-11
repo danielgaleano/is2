@@ -115,7 +115,11 @@ apps.user_stories.views
 apps.usuarios.views
 gpsk.views" class="py-name" href="#" onclick="return doclink('link-5', 'views', 'link-1');">views</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Class apps.flujos.views.ActividadCreate=apps.flujos.views.ActividadCreate-class.html"><a title="apps.flujos.views.ActividadCreate" class="py-name" href="#" onclick="return doclink('link-6', 'ActividadCreate', 'link-6');">ActividadCreate</a></tt><tt class="py-op">.</tt><tt class="py-name">as_view</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
 <a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">                           <tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-string">'create_actividad'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
-<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">                       <tt class="py-name">url</tt><tt class="py-op">(</tt><tt class="py-string">r'^create/$'</tt><tt class="py-op">,</tt> <tt class="py-name">login_required</tt><tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="apps.clientes.views
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">                       <tt class="py-comment">#url(r'^create/$', login_required(views.FlujoCreate.as_view()), name='create'),</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">                       <tt class="py-name">url</tt><tt class="py-op">(</tt><tt class="py-string">r'^create/$'</tt><tt class="py-op">,</tt> <tt class="py-string">'flujos.views.crear_plantilla_flujo'</tt><tt class="py-op">,</tt> <tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-string">'create'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">                       <tt class="py-comment">#url(r'^create/$', 'flujos.views.prueba', name='create'),</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">                       <tt class="py-name">url</tt><tt class="py-op">(</tt><tt class="py-string">r'^update/(?P&lt;pk_plantilla_flujo&gt;\d+)/$'</tt><tt class="py-op">,</tt> <tt class="py-string">'flujos.views.editar_plantilla_flujo'</tt><tt class="py-op">,</tt> <tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-string">'update'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">                       <tt class="py-name">url</tt><tt class="py-op">(</tt><tt class="py-string">r'^proyecto/(?P&lt;pk_proyecto&gt;\d+)/$'</tt><tt class="py-op">,</tt> <tt class="py-name">login_required</tt><tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="apps.clientes.views
 apps.flujos.views
 apps.proyectos.views
 apps.roles.views
@@ -123,9 +127,9 @@ apps.roles_proyecto.views
 apps.sprints.views
 apps.user_stories.views
 apps.usuarios.views
-gpsk.views" class="py-name" href="#" onclick="return doclink('link-7', 'views', 'link-1');">views</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Class apps.flujos.views.FlujoCreate=apps.flujos.views.FlujoCreate-class.html"><a title="apps.flujos.views.FlujoCreate" class="py-name" href="#" onclick="return doclink('link-8', 'FlujoCreate', 'link-8');">FlujoCreate</a></tt><tt class="py-op">.</tt><tt class="py-name">as_view</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-string">'create'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
-<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">                       <tt class="py-comment">#url(r'^create/$', 'flujos.views.crear_plantilla_flujo', name='create'),</tt> </tt>
-<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">                       <tt class="py-name">url</tt><tt class="py-op">(</tt><tt class="py-string">r'^proyecto/(?P&lt;pk_proyecto&gt;\d+)/$'</tt><tt class="py-op">,</tt> <tt class="py-name">login_required</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="apps.clientes.views
+gpsk.views" class="py-name" href="#" onclick="return doclink('link-7', 'views', 'link-1');">views</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Class apps.flujos.views.FlujosProyectoIndex=apps.flujos.views.FlujosProyectoIndex-class.html"><a title="apps.flujos.views.FlujosProyectoIndex" class="py-name" href="#" onclick="return doclink('link-8', 'FlujosProyectoIndex', 'link-8');">FlujosProyectoIndex</a></tt><tt class="py-op">.</tt><tt class="py-name">as_view</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">                           <tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-string">'flujos_proyecto_index'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">                       <tt class="py-name">url</tt><tt class="py-op">(</tt><tt class="py-string">r'^proyecto/(?P&lt;pk_proyecto&gt;\d+)/asignar/$'</tt><tt class="py-op">,</tt> <tt class="py-name">login_required</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="apps.clientes.views
 apps.flujos.views
 apps.proyectos.views
 apps.roles.views
@@ -133,20 +137,10 @@ apps.roles_proyecto.views
 apps.sprints.views
 apps.user_stories.views
 apps.usuarios.views
-gpsk.views" class="py-name" href="#" onclick="return doclink('link-9', 'views', 'link-1');">views</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Class apps.flujos.views.FlujosProyectoIndex=apps.flujos.views.FlujosProyectoIndex-class.html"><a title="apps.flujos.views.FlujosProyectoIndex" class="py-name" href="#" onclick="return doclink('link-10', 'FlujosProyectoIndex', 'link-10');">FlujosProyectoIndex</a></tt><tt class="py-op">.</tt><tt class="py-name">as_view</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
-<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">                           <tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-string">'flujos_proyecto_index'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
-<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">                       <tt class="py-name">url</tt><tt class="py-op">(</tt><tt class="py-string">r'^proyecto/(?P&lt;pk_proyecto&gt;\d+)/asignar/$'</tt><tt class="py-op">,</tt> <tt class="py-name">login_required</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="apps.clientes.views
-apps.flujos.views
-apps.proyectos.views
-apps.roles.views
-apps.roles_proyecto.views
-apps.sprints.views
-apps.user_stories.views
-apps.usuarios.views
-gpsk.views" class="py-name" href="#" onclick="return doclink('link-11', 'views', 'link-1');">views</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Class apps.flujos.views.FlujoProyectoAsignar=apps.flujos.views.FlujoProyectoAsignar-class.html"><a title="apps.flujos.views.FlujoProyectoAsignar" class="py-name" href="#" onclick="return doclink('link-12', 'FlujoProyectoAsignar', 'link-12');">FlujoProyectoAsignar</a></tt><tt class="py-op">.</tt><tt class="py-name">as_view</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
-<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">                           <tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-string">'asignar'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
-<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">                       <tt class="py-op">)</tt> </tt>
-<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+gpsk.views" class="py-name" href="#" onclick="return doclink('link-9', 'views', 'link-1');">views</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Class apps.flujos.views.FlujoProyectoAsignar=apps.flujos.views.FlujoProyectoAsignar-class.html"><a title="apps.flujos.views.FlujoProyectoAsignar" class="py-name" href="#" onclick="return doclink('link-10', 'FlujoProyectoAsignar', 'link-10');">FlujoProyectoAsignar</a></tt><tt class="py-op">.</tt><tt class="py-name">as_view</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">                           <tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-string">'asignar'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">                       <tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -181,7 +175,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat May 16 00:04:38 2015
+    Generated by Epydoc 3.0.1 on Fri Dec 11 17:33:12 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

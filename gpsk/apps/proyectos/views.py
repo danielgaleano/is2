@@ -589,6 +589,12 @@ def proyecto_reporte_trabajos_equipo_download(request, pk):
 
 @login_required(login_url='/login/')
 def reporte_grafico_reportlab(request, pk):
+    """
+    Redirige a la vista del reporte de tiempo estimado y ejecutado del proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: template con texto renderizado
+    """
     proyecto = Proyecto.objects.get(pk=pk)
     pdf_name = "reporte_grafico_sprints_" + proyecto.nombre_corto + ".pdf"
 
@@ -767,6 +773,12 @@ def reporte_grafico_reportlab(request, pk):
 
 @login_required(login_url='/login/')
 def reporte_grafico_reportlab_download(request, pk):
+    """
+    Redirige a la vista de descarga del reporte de tiempo estimado y ejecutado del proyecto
+    @param request: Proyecto
+    @param pk_proyecto: clave primaria de proyecto
+    @return: template con texto renderizado
+    """
     proyecto = Proyecto.objects.get(pk=pk)
     pdf_name = "reporte_grafico_sprints_" + proyecto.nombre_corto + ".pdf"
 
@@ -847,7 +859,7 @@ def reporte_grafico_reportlab_download(request, pk):
             #calculado = horas_totales_estimacion
             #entro = False
 
-            if sprint.fecha_inicio+datetime.timedelta(days=day) <= datetime.date.today():
+            if sprint.fecha_inicio+datetime2.timedelta(days=day) <= datetime2.date.today():
                 for tarea in lista_tareas_us_sprint:
 
                     print "tareafecha %s, sprint_inicio %s" % (tarea.fecha, sprint.fecha_inicio)
@@ -1486,7 +1498,7 @@ def proyecto_reporte_sprint_backlog(request, pk):
     styles = getSampleStyleSheet()
     header = Paragraph(proyecto.nombre_largo, styles['Title'])
 
-    sprint = Sprint.objects.filter(estado='Activo')
+    sprint = Sprint.objects.filter(estado='Activo').filter(proyecto__pk=pk)
     sprint_title = Paragraph(sprint[0].nombre, styles['Title'])
 
     sub_header = Paragraph("Sprint backlog", styles['Title'])
@@ -1568,7 +1580,7 @@ def proyecto_reporte_sprint_backlog_download(request, pk):
     styles = getSampleStyleSheet()
     header = Paragraph(proyecto.nombre_largo, styles['Title'])
 
-    sprint = Sprint.objects.filter(estado='Activo')
+    sprint = Sprint.objects.filter(estado='Activo').filter(proyecto__pk=pk)
     sprint_title = Paragraph(sprint[0].nombre, styles['Title'])
 
     sub_header = Paragraph("Sprint backlog", styles['Title'])
@@ -1640,14 +1652,14 @@ def finalizar_proyecto(request, pk_proyecto):
     if request.method == 'POST':
 
         proyecto.estado = 'Finalizado'
-        print "fecha = %s" % datetime.date.today()
-        proyecto.fecha_fin = datetime.date.today()
+        print "fecha = %s" % datetime2.date.today()
+        proyecto.fecha_fin = datetime2.date.today()
 
         proyecto.save()
 
         for sprint in sprints:
             sprint.estado = 'Finalizado'
-            sprint.fecha_fin = datetime.date.today()
+            sprint.fecha_fin = datetime2.date.today()
 
             user_stories = UserStory.objects.filter(sprint=sprint, estado='Activo')
 
@@ -1661,7 +1673,7 @@ def finalizar_proyecto(request, pk_proyecto):
 
             sprint.save()
 
-        return HttpResponseRedirect(reverse('proyectos:index', args=[pk_proyecto]))
+        return HttpResponseRedirect(reverse('proyectos:index'))
     if sprints:
         mensaje = 'Existen sprints que no han finalizado.'
 

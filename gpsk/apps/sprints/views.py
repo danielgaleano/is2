@@ -985,12 +985,16 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
     uri_us = urlparse.urljoin(uri, '../../tareas/%s/' % us_id)
     print "uri_us= %s" % uri_us
 
+    print "us_original_act= %s" % us_original_act
+    print "us_original_est= %s" % us_original_est
+
     for index, act in enumerate(actividades):
         estados = act.estados.all()
         if us_original_act == act:
-
+            print "Revertir if 1"
+            print "actividades[0]= %s" % actividades[0]
             if actividades[0] != us_original_act:
-
+                print "Revertir if 2"
                 if user_story.estado == 'Activo' and us_original_est != estados[0]:
                     #detalle.actividad = actividades[index-1]
 
@@ -1009,6 +1013,7 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     tarea.save()
                     detalle.estado = est[0]
 
+                    print "Revertir1"
                     #se envia la notificacion a traves de celery
                     reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
@@ -1030,6 +1035,7 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     tarea.save()
                     detalle.estado = est[0]
 
+                    print "Revertir2"
                     #se envia la notificacion a traves de celery
                     reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
 
@@ -1052,8 +1058,33 @@ def revertir_estado(request, pk_proyecto, pk_sprint, pk_user_story):
                     detalle.estado = est[0]
                     user_story.estado = 'Activo'
 
+                    print "Revertir3"
                     #se envia la notificacion a traves de celery
                     reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+
+            else:
+                if user_story.estado == 'Activo' and us_original_est != estados[0]:
+                    #detalle.actividad = actividades[index-1]
+
+                    tarea = Tarea()
+                    tarea.user_story = user_story
+                    tarea.descripcion = "Revertir: - Estado: %s -> %s" % (us_original_est, estados[0])
+                    tarea.horas_de_trabajo = 0
+                    tarea.sprint = sprint
+                    tarea.flujo = user_story.flujo
+                    tarea.actividad = us_original_act
+                    est = actividades[index].estados.all()
+                    tarea.estado = est[0]
+                    tarea.tipo = 'Cambio de Estado'
+                    tarea.usuario = request.user
+                    #tarea.estado = detalle.estado
+                    tarea.save()
+                    detalle.estado = est[0]
+
+                    print "Revertir else"
+                    #se envia la notificacion a traves de celery
+                    reversion_estado.delay(proyecto.nombre_corto, sprint.nombre, user_story.id, user_story.flujo.nombre, detalle.actividad.nombre, detalle.estado.nombre, user_story.usuario.username, uri_us)
+
 
     detalle.save()
     user_story.save()

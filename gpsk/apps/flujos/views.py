@@ -28,6 +28,15 @@ class IndexView(generic.ListView):
 
 
 class FlujoCreate(CreateView):
+    """
+    Clase que despliega el formulario para la creacion de flujos.
+
+    @ivar form_class: Formulario que se utiliza para la creacion de flujos
+    @type form_class: django.forms
+
+    @ivar template_name: Nombre del template a utilizar en la vista
+    @type template_name: string
+    """
     form_class = FlujoCreateForm
     template_name = 'flujos/create.html'
 
@@ -40,9 +49,9 @@ class FlujoCreate(CreateView):
 
 class PlantillaFlujoCreate(CreateView):
     """
-    Clase que despliega el formulario para la creacion de flujos.
+    Clase que despliega el formulario para la creacion de plantillas de flujos.
 
-    @ivar form_class: Formulario que se utiliza para la creacion de flujos
+    @ivar form_class: Formulario que se utiliza para la creacion de plantillas de flujos
     @type form_class: django.forms
 
     @ivar template_name: Nombre del template a utilizar en la vista
@@ -52,9 +61,30 @@ class PlantillaFlujoCreate(CreateView):
     template_name = 'flujos/create.html'
 
     def form_valid(self, form):
+        """
+        Metodo que guarda el formulario una vez validado.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @type form: django.forms
+        @param form: Informacion sobre el formulario actual
+
+        @rtype: FormView
+        @return: Constructor que guarda los datos del formulario en la base de datos
+        """
         return super(PlantillaFlujoCreate, self).form_valid(form)
 
     def get_success_url(self):
+        """
+        Metodo que redirecciona al index de plantillas de flujo una vez que el formulario se haya guardado correctamente.
+
+        @type self: FormView
+        @param self: Informacion sobre la vista del formulario actual
+
+        @rtype: django.core.urlresolvers
+        @return: redireccion al index de la aplicacion flujos
+        """
         return reverse('flujos:index')
 
 @csrf_exempt
@@ -71,6 +101,16 @@ def prueba(request):
 
 @csrf_exempt
 def crear_plantilla_flujo(request):
+    """
+    Funcion que crea una plantilla de flujo.
+
+    @type request: django.http.HttpRequest
+    @param request: Contiene informacion sobre la peticion actual
+
+    @rtype: django.http.HttpResponseRedirect
+    @return: Renderiza flujos/create_ajax.html para obtener el formulario y
+            redirecciona a la vista index de plantillas de flujo si fue creado con exito.
+    """
     slide_list = ActividadFlujo.objects.all()
     active = []
     inactive = []

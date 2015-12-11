@@ -59,7 +59,7 @@
 </table>
 <h1 class="epydoc">Source Code for <a href="apps.sprints.admin-module.html">Module apps.sprints.admin</a></h1>
 <pre class="py-src">
-<a name="L1"></a><tt class="py-lineno">1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module apps.clientes.admin=apps.clientes.admin-module.html,Module apps.flujos.admin=apps.flujos.admin-module.html,Module apps.proyectos.admin=apps.proyectos.admin-module.html,Module apps.roles.admin=apps.roles.admin-module.html,Module apps.roles_proyecto.admin=apps.roles_proyecto.admin-module.html,Module apps.sprints.admin=apps.sprints.admin-module.html,Module apps.user_stories.admin=apps.user_stories.admin-module.html,Module apps.usuarios.admin=apps.usuarios.admin-module.html"><a title="apps.clientes.admin
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt><tt class="py-op">.</tt><tt class="py-name">contrib</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module apps.clientes.admin=apps.clientes.admin-module.html,Module apps.flujos.admin=apps.flujos.admin-module.html,Module apps.proyectos.admin=apps.proyectos.admin-module.html,Module apps.roles.admin=apps.roles.admin-module.html,Module apps.roles_proyecto.admin=apps.roles_proyecto.admin-module.html,Module apps.sprints.admin=apps.sprints.admin-module.html,Module apps.user_stories.admin=apps.user_stories.admin-module.html,Module apps.usuarios.admin=apps.usuarios.admin-module.html"><a title="apps.clientes.admin
 apps.flujos.admin
 apps.proyectos.admin
 apps.roles.admin
@@ -67,25 +67,105 @@ apps.roles_proyecto.admin
 apps.sprints.admin
 apps.user_stories.admin
 apps.usuarios.admin" class="py-name" href="#" onclick="return doclink('link-0', 'admin', 'link-0');">admin</a></tt> </tt>
-<a name="L2"></a><tt class="py-lineno">2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.sprints.models=apps.sprints.models-module.html,Module apps.user_stories.models=apps.user_stories.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">db_file_storage</tt><tt class="py-op">.</tt><tt class="py-name">form_widgets</tt> <tt class="py-keyword">import</tt> <tt class="py-name">DBAdminClearableFileInput</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">django</tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module apps.flujos.forms=apps.flujos.forms-module.html,Module apps.proyectos.forms=apps.proyectos.forms-module.html,Module apps.roles.forms=apps.roles.forms-module.html,Module apps.roles_proyecto.forms=apps.roles_proyecto.forms-module.html,Module apps.sprints.forms=apps.sprints.forms-module.html,Module apps.user_stories.forms=apps.user_stories.forms-module.html,Module apps.usuarios.forms=apps.usuarios.forms-module.html,Module gpsk.forms=gpsk.forms-module.html"><a title="apps.flujos.forms
+apps.proyectos.forms
+apps.roles.forms
+apps.roles_proyecto.forms
+apps.sprints.forms
+apps.user_stories.forms
+apps.usuarios.forms
+gpsk.forms" class="py-name" href="#" onclick="return doclink('link-1', 'forms', 'link-1');">forms</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module apps.clientes.models=apps.clientes.models-module.html,Module apps.flujos.models=apps.flujos.models-module.html,Module apps.proyectos.models=apps.proyectos.models-module.html,Module apps.roles.models=apps.roles.models-module.html,Module apps.roles_proyecto.models=apps.roles_proyecto.models-module.html,Module apps.sprints.models=apps.sprints.models-module.html,Module apps.user_stories.models=apps.user_stories.models-module.html,Module apps.usuarios.models=apps.usuarios.models-module.html"><a title="apps.clientes.models
 apps.flujos.models
 apps.proyectos.models
 apps.roles.models
 apps.roles_proyecto.models
 apps.sprints.models
 apps.user_stories.models
-apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-1', 'models', 'link-1');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class apps.sprints.models.Sprint=apps.sprints.models.Sprint-class.html"><a title="apps.sprints.models.Sprint" class="py-name" href="#" onclick="return doclink('link-2', 'Sprint', 'link-2');">Sprint</a></tt> </tt>
-<a name="L3"></a><tt class="py-lineno">3</tt>  <tt class="py-line"> </tt>
-<a name="L4"></a><tt class="py-lineno">4</tt>  <tt class="py-line"> </tt>
-<a name="L5"></a><tt class="py-lineno">5</tt>  <tt class="py-line"><tt id="link-3" class="py-name"><a title="apps.clientes.admin
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-2', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class apps.sprints.models.Sprint=apps.sprints.models.Sprint-class.html"><a title="apps.sprints.models.Sprint" class="py-name" href="#" onclick="return doclink('link-3', 'Sprint', 'link-3');">Sprint</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package apps=apps-module.html"><a title="apps" class="py-name" href="#" onclick="return doclink('link-4', 'apps', 'link-4');">apps</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Package apps.user_stories=apps.user_stories-module.html"><a title="apps.user_stories" class="py-name" href="#" onclick="return doclink('link-5', 'user_stories', 'link-5');">user_stories</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="apps.clientes.models
+apps.flujos.models
+apps.proyectos.models
+apps.roles.models
+apps.roles_proyecto.models
+apps.sprints.models
+apps.user_stories.models
+apps.usuarios.models" class="py-name" href="#" onclick="return doclink('link-6', 'models', 'link-2');">models</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Class apps.user_stories.models.Adjunto=apps.user_stories.models.Adjunto-class.html"><a title="apps.user_stories.models.Adjunto" class="py-name" href="#" onclick="return doclink('link-7', 'Adjunto', 'link-7');">Adjunto</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="AgregarAdjuntoForm"></a><div id="AgregarAdjuntoForm-def"><a name="L9"></a><tt class="py-lineno"> 9</tt> <a class="py-toggle" href="#" id="AgregarAdjuntoForm-toggle" onclick="return toggle('AgregarAdjuntoForm');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.sprints.admin.AgregarAdjuntoForm-class.html">AgregarAdjuntoForm</a><tt class="py-op">(</tt><tt class="py-base-class">forms</tt><tt class="py-op">.</tt><tt class="py-base-class">ModelForm</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AgregarAdjuntoForm-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="AgregarAdjuntoForm-expanded"><a name="AgregarAdjuntoForm.Meta"></a><div id="AgregarAdjuntoForm.Meta-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="AgregarAdjuntoForm.Meta-toggle" onclick="return toggle('AgregarAdjuntoForm.Meta');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.sprints.admin.AgregarAdjuntoForm.Meta-class.html">Meta</a><tt class="py-op">:</tt> </tt>
+</div><div id="AgregarAdjuntoForm.Meta-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AgregarAdjuntoForm.Meta-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Variable apps.clientes.views.actualizarCliente.model=apps.clientes.views.actualizarCliente-class.html#model,Variable apps.clientes.views.crearCliente.model=apps.clientes.views.crearCliente-class.html#model,Variable apps.clientes.views.listarClientes.model=apps.clientes.views.listarClientes-class.html#model,Variable apps.flujos.forms.ActividadCreateForm.Meta.model=apps.flujos.forms.ActividadCreateForm.Meta-class.html#model,Variable apps.flujos.forms.AsignarFlujoProyectoForm.Meta.model=apps.flujos.forms.AsignarFlujoProyectoForm.Meta-class.html#model,Variable apps.flujos.forms.FlujoCreateForm.Meta.model=apps.flujos.forms.FlujoCreateForm.Meta-class.html#model,Variable apps.flujos.forms.PlantillaFlujoCreateForm.Meta.model=apps.flujos.forms.PlantillaFlujoCreateForm.Meta-class.html#model,Variable apps.flujos.forms.PlantillaFlujoUpdateForm.Meta.model=apps.flujos.forms.PlantillaFlujoUpdateForm.Meta-class.html#model,Variable apps.proyectos.forms.AddMiembroForm.Meta.model=apps.proyectos.forms.AddMiembroForm.Meta-class.html#model,Variable apps.proyectos.forms.HorasDeveloperForm.Meta.model=apps.proyectos.forms.HorasDeveloperForm.Meta-class.html#model,Variable apps.proyectos.forms.ProyectoCreateForm.Meta.model=apps.proyectos.forms.ProyectoCreateForm.Meta-class.html#model,Variable apps.proyectos.forms.ProyectoUpdateForm.Meta.model=apps.proyectos.forms.ProyectoUpdateForm.Meta-class.html#model,Variable apps.proyectos.forms.RolMiembroForm.Meta.model=apps.proyectos.forms.RolMiembroForm.Meta-class.html#model,Variable apps.proyectos.views.ProyectoVer.model=apps.proyectos.views.ProyectoVer-class.html#model,Variable apps.roles.forms.RolAsignarPermisosForm.Meta.model=apps.roles.forms.RolAsignarPermisosForm.Meta-class.html#model,Variable apps.roles.forms.RolCreateForm.Meta.model=apps.roles.forms.RolCreateForm.Meta-class.html#model,Variable apps.roles.forms.RolUpdateForm.Meta.model=apps.roles.forms.RolUpdateForm.Meta-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.model=apps.roles_proyecto.forms.RolProyectoCreateForm.Meta-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.model=apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta-class.html#model,Variable apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.model=apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta-class.html#model,Variable apps.sprints.admin.AgregarAdjuntoForm.Meta.model=apps.sprints.admin.AgregarAdjuntoForm.Meta-class.html#model,Variable apps.sprints.forms.AgregarAdjuntoForm.Meta.model=apps.sprints.forms.AgregarAdjuntoForm.Meta-class.html#model,Variable apps.sprints.forms.AgregarNotaForm.Meta.model=apps.sprints.forms.AgregarNotaForm.Meta-class.html#model,Variable apps.sprints.forms.AgregarNotaFormNoAprobar.Meta.model=apps.sprints.forms.AgregarNotaFormNoAprobar.Meta-class.html#model,Variable apps.sprints.forms.RegistrarTareaForm.Meta.model=apps.sprints.forms.RegistrarTareaForm.Meta-class.html#model,Variable apps.sprints.forms.SprintAsignarUserStoryForm.Meta.model=apps.sprints.forms.SprintAsignarUserStoryForm.Meta-class.html#model,Variable apps.sprints.forms.SprintCreateForm.Meta.model=apps.sprints.forms.SprintCreateForm.Meta-class.html#model,Variable apps.sprints.forms.SprintUpdateForm.Meta.model=apps.sprints.forms.SprintUpdateForm.Meta-class.html#model,Variable apps.sprints.forms.SprintUpdateUserStoryForm.Meta.model=apps.sprints.forms.SprintUpdateUserStoryForm.Meta-class.html#model,Variable apps.user_stories.forms.UserStoryCreateForm.Meta.model=apps.user_stories.forms.UserStoryCreateForm.Meta-class.html#model,Variable apps.user_stories.forms.UserStoryCreateFormSM.Meta.model=apps.user_stories.forms.UserStoryCreateFormSM.Meta-class.html#model,Variable apps.user_stories.forms.UserStoryUpdateFormPO.Meta.model=apps.user_stories.forms.UserStoryUpdateFormPO.Meta-class.html#model,Variable apps.user_stories.forms.UserStoryUpdateFormSM.Meta.model=apps.user_stories.forms.UserStoryUpdateFormSM.Meta-class.html#model,Variable apps.usuarios.admin.UsuarioInline.model=apps.usuarios.admin.UsuarioInline-class.html#model,Variable apps.usuarios.forms.UserAsignarRolesForm.Meta.model=apps.usuarios.forms.UserAsignarRolesForm.Meta-class.html#model,Variable apps.usuarios.forms.UserCreateForm.Meta.model=apps.usuarios.forms.UserCreateForm.Meta-class.html#model,Variable apps.usuarios.forms.UserUpdateForm.Meta.model=apps.usuarios.forms.UserUpdateForm.Meta-class.html#model,Variable apps.usuarios.views.DetailViewRoles.model=apps.usuarios.views.DetailViewRoles-class.html#model,Variable gpsk.forms.UserProfileForm.Meta.model=gpsk.forms.UserProfileForm.Meta-class.html#model"><a title="apps.clientes.views.actualizarCliente.model
+apps.clientes.views.crearCliente.model
+apps.clientes.views.listarClientes.model
+apps.flujos.forms.ActividadCreateForm.Meta.model
+apps.flujos.forms.AsignarFlujoProyectoForm.Meta.model
+apps.flujos.forms.FlujoCreateForm.Meta.model
+apps.flujos.forms.PlantillaFlujoCreateForm.Meta.model
+apps.flujos.forms.PlantillaFlujoUpdateForm.Meta.model
+apps.proyectos.forms.AddMiembroForm.Meta.model
+apps.proyectos.forms.HorasDeveloperForm.Meta.model
+apps.proyectos.forms.ProyectoCreateForm.Meta.model
+apps.proyectos.forms.ProyectoUpdateForm.Meta.model
+apps.proyectos.forms.RolMiembroForm.Meta.model
+apps.proyectos.views.ProyectoVer.model
+apps.roles.forms.RolAsignarPermisosForm.Meta.model
+apps.roles.forms.RolCreateForm.Meta.model
+apps.roles.forms.RolUpdateForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoCreateForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoPermisosForm.Meta.model
+apps.roles_proyecto.forms.RolProyectoUpdateForm.Meta.model
+apps.sprints.admin.AgregarAdjuntoForm.Meta.model
+apps.sprints.forms.AgregarAdjuntoForm.Meta.model
+apps.sprints.forms.AgregarNotaForm.Meta.model
+apps.sprints.forms.AgregarNotaFormNoAprobar.Meta.model
+apps.sprints.forms.RegistrarTareaForm.Meta.model
+apps.sprints.forms.SprintAsignarUserStoryForm.Meta.model
+apps.sprints.forms.SprintCreateForm.Meta.model
+apps.sprints.forms.SprintUpdateForm.Meta.model
+apps.sprints.forms.SprintUpdateUserStoryForm.Meta.model
+apps.user_stories.forms.UserStoryCreateForm.Meta.model
+apps.user_stories.forms.UserStoryCreateFormSM.Meta.model
+apps.user_stories.forms.UserStoryUpdateFormPO.Meta.model
+apps.user_stories.forms.UserStoryUpdateFormSM.Meta.model
+apps.usuarios.admin.UsuarioInline.model
+apps.usuarios.forms.UserAsignarRolesForm.Meta.model
+apps.usuarios.forms.UserCreateForm.Meta.model
+apps.usuarios.forms.UserUpdateForm.Meta.model
+apps.usuarios.views.DetailViewRoles.model
+gpsk.forms.UserProfileForm.Meta.model" class="py-name" href="#" onclick="return doclink('link-8', 'model', 'link-8');">model</a></tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="apps.user_stories.models.Adjunto" class="py-name" href="#" onclick="return doclink('link-9', 'Adjunto', 'link-7');">Adjunto</a></tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt id="link-10" class="py-name" targets="Variable apps.sprints.admin.AgregarAdjuntoForm.Meta.exclude=apps.sprints.admin.AgregarAdjuntoForm.Meta-class.html#exclude,Variable apps.sprints.forms.AgregarAdjuntoForm.Meta.exclude=apps.sprints.forms.AgregarAdjuntoForm.Meta-class.html#exclude"><a title="apps.sprints.admin.AgregarAdjuntoForm.Meta.exclude
+apps.sprints.forms.AgregarAdjuntoForm.Meta.exclude" class="py-name" href="#" onclick="return doclink('link-10', 'exclude', 'link-10');">exclude</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">        <tt id="link-11" class="py-name" targets="Variable apps.sprints.admin.AgregarAdjuntoForm.Meta.widgets=apps.sprints.admin.AgregarAdjuntoForm.Meta-class.html#widgets,Variable apps.sprints.forms.AgregarAdjuntoForm.Meta.widgets=apps.sprints.forms.AgregarAdjuntoForm.Meta-class.html#widgets"><a title="apps.sprints.admin.AgregarAdjuntoForm.Meta.widgets
+apps.sprints.forms.AgregarAdjuntoForm.Meta.widgets" class="py-name" href="#" onclick="return doclink('link-11', 'widgets', 'link-11');">widgets</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">            <tt class="py-string">'archivo'</tt><tt class="py-op">:</tt> <tt class="py-name">DBAdminClearableFileInput</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-op">}</tt> </tt>
+</div></div><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="AdjuntoAdmin"></a><div id="AdjuntoAdmin-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="AdjuntoAdmin-toggle" onclick="return toggle('AdjuntoAdmin');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="apps.sprints.admin.AdjuntoAdmin-class.html">AdjuntoAdmin</a><tt class="py-op">(</tt><tt class="py-base-class">admin</tt><tt class="py-op">.</tt><tt class="py-base-class">ModelAdmin</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AdjuntoAdmin-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="AdjuntoAdmin-expanded"><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-name">form</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name" targets="Class apps.sprints.admin.AgregarAdjuntoForm=apps.sprints.admin.AgregarAdjuntoForm-class.html,Class apps.sprints.forms.AgregarAdjuntoForm=apps.sprints.forms.AgregarAdjuntoForm-class.html"><a title="apps.sprints.admin.AgregarAdjuntoForm
+apps.sprints.forms.AgregarAdjuntoForm" class="py-name" href="#" onclick="return doclink('link-12', 'AgregarAdjuntoForm', 'link-12');">AgregarAdjuntoForm</a></tt> </tt>
+</div><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt id="link-13" class="py-name"><a title="apps.clientes.admin
 apps.flujos.admin
 apps.proyectos.admin
 apps.roles.admin
 apps.roles_proyecto.admin
 apps.sprints.admin
 apps.user_stories.admin
-apps.usuarios.admin" class="py-name" href="#" onclick="return doclink('link-3', 'admin', 'link-0');">admin</a></tt><tt class="py-op">.</tt><tt class="py-name">site</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Variable apps.sprints.templatetags.index.register=apps.sprints.templatetags.index-module.html#register"><a title="apps.sprints.templatetags.index.register" class="py-name" href="#" onclick="return doclink('link-4', 'register', 'link-4');">register</a></tt><tt class="py-op">(</tt><tt id="link-5" class="py-name"><a title="apps.sprints.models.Sprint" class="py-name" href="#" onclick="return doclink('link-5', 'Sprint', 'link-2');">Sprint</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L6"></a><tt class="py-lineno">6</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+apps.usuarios.admin" class="py-name" href="#" onclick="return doclink('link-13', 'admin', 'link-0');">admin</a></tt><tt class="py-op">.</tt><tt class="py-name">site</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable apps.sprints.templatetags.index.register=apps.sprints.templatetags.index-module.html#register"><a title="apps.sprints.templatetags.index.register" class="py-name" href="#" onclick="return doclink('link-14', 'register', 'link-14');">register</a></tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="apps.sprints.models.Sprint" class="py-name" href="#" onclick="return doclink('link-15', 'Sprint', 'link-3');">Sprint</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt id="link-16" class="py-name"><a title="apps.clientes.admin
+apps.flujos.admin
+apps.proyectos.admin
+apps.roles.admin
+apps.roles_proyecto.admin
+apps.sprints.admin
+apps.user_stories.admin
+apps.usuarios.admin" class="py-name" href="#" onclick="return doclink('link-16', 'admin', 'link-0');">admin</a></tt><tt class="py-op">.</tt><tt class="py-name">site</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="apps.sprints.templatetags.index.register" class="py-name" href="#" onclick="return doclink('link-17', 'register', 'link-14');">register</a></tt><tt class="py-op">(</tt><tt id="link-18" class="py-name"><a title="apps.user_stories.models.Adjunto" class="py-name" href="#" onclick="return doclink('link-18', 'Adjunto', 'link-7');">Adjunto</a></tt><tt class="py-op">,</tt> <tt id="link-19" class="py-name" targets="Class apps.sprints.admin.AdjuntoAdmin=apps.sprints.admin.AdjuntoAdmin-class.html"><a title="apps.sprints.admin.AdjuntoAdmin" class="py-name" href="#" onclick="return doclink('link-19', 'AdjuntoAdmin', 'link-19');">AdjuntoAdmin</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -120,7 +200,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat May 16 00:04:38 2015
+    Generated by Epydoc 3.0.1 on Fri Dec 11 17:33:12 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -80,7 +80,7 @@
                                     <a type="button" class="btn btn-success btn-sm" title="Archivos" id="adjuntar" href="{% url 'sprints:agregar_adjunto' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-paperclip"></i>
                                     </a>
-                                    {% if proyecto.scrum_master == user and flujo.actividades.all.0.estados.all.0 != est and flujo.actividades.all.0 != act and sprint.estado != 'Finalizado' %}
+                                    {% if proyecto.scrum_master == user and flujo.actividades.all.0.estados.all.0 != est and sprint.estado != 'Finalizado' %}
                                     <a type="button" class="btn btn-danger btn-sm" title="Revertir" id="revertir" href="{% url 'sprints:revertir_estado' proyecto.id sprint.id userstory.id %}">
                                         <i class="fa fa-lg fa-arrow-left"></i>
                                     </a>

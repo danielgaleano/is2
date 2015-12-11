@@ -55,7 +55,7 @@
 			{% if proyecto.cancelado == False %}
 				
 				<tr>
-                    {% if proyecto.estado|stringformat:"s" == "Activo" %}
+                    {% if proyecto.estado|stringformat:"s" == "Activo" or proyecto.estado|stringformat:"s" == "Finalizado" %}
 					<td>
                         <a type="button" class="btn btn-warning" href="{% url 'proyectos:proyecto_index' proyecto.id %}">
 						<i class="fa fa-lg fa-archive"></i>
@@ -93,7 +93,7 @@
 					</td>
 					
 					{% if user == proyecto.scrum_master %}
-					{% if perms.proyectos.modificar_proyecto %}
+					{% if perms.proyectos.modificar_proyecto and proyecto.estado|stringformat:"s" == "Activo" %}
 					<td>
 						<a type="button" class="btn btn-primary" href="{% url 'proyectos:update' proyecto.id %}">
 						<i class="fa fa-lg fa-edit"></i>
@@ -102,7 +102,7 @@
 					{% else %}
 					<td></td>
 					{% endif %}
-					{% if perms.proyectos.eliminar_proyecto %}
+					{% if perms.proyectos.eliminar_proyecto and proyecto.estado|stringformat:"s" == "Activo"%}
 
 					<td>
 						<a type="button" class="btn btn-danger" href="{% url 'proyectos:delete' proyecto.id %}">
